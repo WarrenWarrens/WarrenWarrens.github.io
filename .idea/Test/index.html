@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Portfolio</title>
+  <style>
+    body.light { background: white; color: black; }
+    body.dark { background: #121212; color: white; }
+    button, select { margin: 5px; padding: 5px 10px; }
+
+     .content {
+       overflow: hidden;
+       max-height: 0;
+       transition: max-height 0.3s ease-out;
+       background: #eee;
+       margin-bottom: 10px;
+       padding: 0 10px;
+     }
+
+    .collapsible {
+      padding: 10px;
+      background: #444;
+      color: white;
+      cursor: pointer;
+      width: 100%;
+      border: none;
+      text-align: left;
+    }
+
+    .collapsible.active {
+      background-color: #666;
+    }
+
+    .collapsible-container {
+      margin-bottom: 15px;
+    }
+
+  </style>
+</head>
+
+<body class="light">
+  <div>
+    <button onclick="setTheme('light')">Light Mode</button>
+    <button onclick="setTheme('dark')">Dark Mode</button>
+    <select id="language-selector" onchange="switchLanguage(this.value)">
+      <option value="en">English</option>
+      <option value="fr">Français</option>
+      <option value="ru">Русский</option>
+    </select>
+  </div>
+
+  <h1 data-key="welcome">Welcome to my portfolio</h1>
+  <p data-key="intro">I'm a developer who enjoys making cool stuff.</p>
+
+  <div class="collapsible-container">
+    <div class="content">
+      <p>This content shows above the button!</p>
+    </div>
+    <button class="collapsible">Toggle</button>
+  </div>
+
+  <div class="collapsible-container">
+    <div class="content">
+      <p>This is another collapsible section!</p>
+    </div>
+    <button class="collapsible">Toggle</button>
+  </div>
+
+  <script src="lang.js"></script>
+  <script>
+    var coll = document.getElementsByClassName("collapsible");
+    for (var i = 0; i < coll.length; i++)
+    {
+      coll[i].addEventListener("click", function()
+      {
+        this.classList.toggle("active");
+        var content = this.previousElementSibling;
+        if (content.style.maxHeight)
+        {
+          content.style.maxHeight = null;
+        }
+        else
+        {
+          content.style.maxHeight = content.scrollHeight + "px";
+        }
+      });
+    }
+  </script>
+
+
+</body>
+</html>

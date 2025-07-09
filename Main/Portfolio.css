@@ -1,0 +1,215 @@
+
+.MainBody
+{
+
+}
+
+.NavSideBar
+{
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    right: 0;
+    background-color: #111;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+}
+
+
+.NavSideBar a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
+}
+
+.NavSideBar a:hover {
+    color: #f1f1f1;
+}
+
+.NavSideBar .ButtonClose {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+}
+
+
+.SectionPageIntroduction
+{
+    width: 100%;
+    height: 300px;
+    background-color: brown;
+
+}
+
+.SectionPersonalIntroduction
+{
+    width: 100%;
+    background-color: #467eff;
+    height: 400px;
+    overflow: auto;
+}
+
+.SectionPersonalIntroduction div
+{
+    width: 50%;
+    float: left;
+}
+
+.DivBio
+{
+    background-color: #0252ff;
+}
+
+.DivPortrait
+{
+    background-color: #0252ff;
+    max-height: 200px;
+
+}
+
+.SectionEducation
+{
+    width: 100%;
+    background-color: #ff0000;
+    height: 200px;
+}
+
+.SectionSkills
+{
+    width: 100%;
+    background-color: #467eff;
+    height: 200px;
+}
+
+.SectionProjects
+{
+    width: 100%;
+    background-color: #ff0000;
+    height: 200px;
+}
+
+
+.FooterBody
+{
+    bottom: 0;
+    background-color: rgba(255, 255, 255, 0.15);
+    width: 100%;
+    height: 100px;
+}
+
+.HeaderTopBar
+{
+    position: sticky;
+    height: 50px;
+    top: 0;
+    background-color: darkslategrey;
+    opacity: 50%;
+}
+
+.SpanSideBar
+{
+    font-size: 30px;
+    cursor: pointer;
+    position: absolute;
+    right: 0;
+}
+
+.SectionCustomize
+{
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    background-color: crimson;
+    z-index: 10;
+    width: 75px;
+    height: 75px;
+}
+
+.UListCustomize
+{
+    align-content: center;
+    text-align: center;
+    list-style-type: none;
+}
+
+/*.DivCircle {*/
+/*    height: 15px;*/
+/*    width: 15px;*/
+/*    background-color: #bbb;*/
+/*    border-radius: 50%;*/
+/*    list-style-type:none;*/
+/*}*/
+
+.SpanSideBar
+{
+    right: 0;
+    height: 100%;
+    width: 50px;
+    background-color: deeppink;
+    vertical-align: center;
+    position: absolute;
+}
+
+.SpanIcon
+{
+    left: 0;
+    width: 50px;
+    height: 100%;
+    vertical-align: center;
+    position: absolute;
+}
+
+/*.ButtonIcon*/
+/*{*/
+/*    left: 0;*/
+/*    width: 50px;*/
+/*    height: 100%;*/
+/*    vertical-align: center;*/
+/*    position: absolute;*/
+/*}*/
+
+.UListContact
+{
+    align-content: center;
+    text-align: center;
+}
+
+.UListContact li
+{
+    list-style-type:none;
+}
+
+.PCopyright
+{
+    text-align: center;
+}
+
+
+
+
+
+body {
+    font-family: "Lato", sans-serif;
+    transition: background-color .5s;
+}
+
+
+#main {
+    transition: margin-left .5s;
+    padding: 16px;
+}
+
+
+
+@media screen and (max-height: 450px) {
+    .NavSideBar {padding-top: 15px;}
+    .NavSideBar a {font-size: 18px;}
+}
