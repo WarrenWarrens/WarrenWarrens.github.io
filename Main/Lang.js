@@ -13,23 +13,11 @@ const translations = {
   }
 };
 
-function switchLanguage(lang) {
-  localStorage.setItem('lang', lang);
+function switchLanguage(Lang) {
+  localStorage.setItem('Lang', Lang);
   document.querySelectorAll('[data-key]').forEach(el => {
     const key = el.getAttribute('data-key');
-    el.textContent = translations[lang][key];
+    el.textContent = translations[Lang][key];
   });
 }
 
-function setTheme(theme) {
-  localStorage.setItem('theme', theme);
-  document.body.className = theme;
-}
-
-window.onload = function () {
-  const savedLang = localStorage.getItem('lang') || 'en';
-  const savedTheme = localStorage.getItem('theme') || 'light';
-  switchLanguage(savedLang);
-  document.getElementById('language-selector').value = savedLang;
-  setTheme(savedTheme);
-};

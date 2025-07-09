@@ -1,27 +1,22 @@
 <!DOCTYPE html>
 <html lang="eng">
-
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
     <head>
         <link rel="stylesheet" href="Portfolio.css">
         <title>Ryan Warrener Portfolio</title>
     </head>
 
-    <body class = "BodyMain">
+    <body class = "light">
 
         <header class ="HeaderTopBar">
-
             <span class="SpanIcon">
                 RW
             </span>
 
-<!--            <button class ="ButtonIcon">-->
-<!--                RW-->
-<!--            </button>-->
-
             <span class ="SpanSideBar" onclick="openNav()">
                 &#9776;
             </span>
-
         </header>
 
         <nav class ="NavSideBar" id="NavSideBar">
@@ -56,11 +51,10 @@
 
         <main class ="MainBody" id="MainBody">
 
-            <section class ="SectionPageIntroduction">
-                <img src="testimage.JPG" alt="artwork" style="height: 100%; width: 100%" >
-            </section>
-
             <section class ="SectionPersonalIntroduction">
+                <h1 data-key="welcome">Welcome to my portfolio</h1>
+                <p data-key="intro">I'm a developer who enjoys making cool stuff.</p>
+
                 <div class="DivPortrait">
                     <h2>London</h2>
                     <p>London is the capital city of England.</p>
@@ -74,42 +68,41 @@
                 </div>
             </section>
 
-            <section class="SectionSkills">
-
+            <section class = "SectionEducation">
+                <p>Education</p>
             </section>
-
-            <section class="SectionProjects">
-
-            </section>
-
-            <section class="SectionExperience">
-
-            </section>
-
-            <section class="SectionEducation">
-
-            </section>
-
-            <section class="SectionTimeline">
-
-            </section>
-
-            <section class="SectionHobbies">
-
-            </section>
-
-            <section class="SectionFuture">
-
-            </section>
-
-
 
         </main>
 
-        <section class = "SectionCustomize">
-            <button class ="ButtonDarkLight">Dark/Light</button>
-            <button class ="ButtonLanguage>">Language</button>
+        <section class ="SectionCustomize">
+            <div class="DivCollapsibleContainer">
+
+                <div class="DivCustomize">
+                    <button class="btn" onclick="switchLanguage('en')">
+                        <i class="fa fa-trash"></i> Eng
+                    </button>
+
+                    <button class="btn" onclick="switchLanguage('fr')">
+                        <i class="fa fa-bars"></i> Fr
+                    </button>
+
+                    <button class="btn" onclick="switchLanguage('ru')">
+                        <i class="fa fa-home"></i> Ru
+                    </button>
+                </div>
+                <button class="ButtonCollapsible">Lang.</button>
+            </div>
+
+            <div class="DivCollapsibleContainer">
+                <div class="DivCustomize">
+                    <button onclick="setTheme('light')">Light Mode</button>
+                    <button onclick="setTheme('dark')">Dark Mode</button>
+                </div>
+                <button class="ButtonCollapsible">Light/Dark</button>
+            </div>
+
         </section>
+
 
         <footer class ="FooterBody">
             <ul class = "UListContact">
@@ -137,19 +130,54 @@
             <p class ="PCopyright">COPYRIGHT RYAN WARRENER</p>
         </footer>
 
-        <script>
+        <script src="Lang.js"></script>
 
-            function openNav() {
+        <script>
+            var coll = document.getElementsByClassName("ButtonCollapsible");
+            for (var i = 0; i < coll.length; i++)
+            {
+                coll[i].addEventListener("click", function()
+                {
+                    this.classList.toggle("active");
+                    var content = this.previousElementSibling;
+                    if (content.style.maxHeight)
+                    {
+                        content.style.maxHeight = null;
+                    }
+                    else
+                    {
+                        content.style.maxHeight = content.scrollHeight + "px";
+                    }
+                });
+            }
+
+            function openNav()
+            {
                 document.getElementById("NavSideBar").style.width = "250px";
                 document.getElementById("MainBody").style.marginRight = "250px";
-                document.body.style.backgroundColor = "rgb(244,159,6)";
+                // document.body.style.backgroundColor = "rgb(244,159,6)";
             }
 
-            function closeNav() {
+            function closeNav()
+            {
                 document.getElementById("NavSideBar").style.width = "0";
                 document.getElementById("MainBody").style.marginRight= "0";
-                document.body.style.backgroundColor = "white";
+                // document.body.style.backgroundColor = "white";
             }
+
+            function setTheme(theme) {
+                localStorage.setItem('theme', theme);
+                document.body.className = theme;
+            }
+
+            window.onload = function () {
+                const savedLang = localStorage.getItem('Lang') || 'en';
+                const savedTheme = localStorage.getItem('theme') || 'light';
+                switchLanguage(savedLang);
+                document.getElementById('language-selector').value = savedLang;
+                setTheme(savedTheme);
+            };
+
         </script>
 
     </body>

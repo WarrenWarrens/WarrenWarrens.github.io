@@ -1,8 +1,19 @@
 
-.MainBody
+.body.light
 {
-
+    background: white; color: black;
 }
+
+.body.dark
+{
+    background: #121212; color: white;
+}
+
+body.light { background: white; color: black; }
+body.dark { background: #121212; color: white; }
+button, select { margin: 5px; padding: 5px 10px; }
+
+
 
 .NavSideBar
 {
@@ -52,7 +63,7 @@
 .SectionPersonalIntroduction
 {
     width: 100%;
-    background-color: #467eff;
+    /*background-color: #467eff;*/
     height: 400px;
     overflow: auto;
 }
@@ -65,7 +76,7 @@
 
 .DivBio
 {
-    background-color: #0252ff;
+    /*background-color: #0252ff;*/
 }
 
 .DivPortrait
@@ -78,21 +89,21 @@
 .SectionEducation
 {
     width: 100%;
-    background-color: #ff0000;
+    /*background-color: #ff0000;*/
     height: 200px;
 }
 
 .SectionSkills
 {
     width: 100%;
-    background-color: #467eff;
+    /*background-color: #467eff;*/
     height: 200px;
 }
 
 .SectionProjects
 {
     width: 100%;
-    background-color: #ff0000;
+    /*background-color: #ff0000;*/
     height: 200px;
 }
 
@@ -127,10 +138,7 @@
     position: fixed;
     bottom: 25px;
     right: 25px;
-    background-color: crimson;
-    z-index: 10;
-    width: 75px;
-    height: 75px;
+
 }
 
 .UListCustomize
@@ -140,20 +148,13 @@
     list-style-type: none;
 }
 
-/*.DivCircle {*/
-/*    height: 15px;*/
-/*    width: 15px;*/
-/*    background-color: #bbb;*/
-/*    border-radius: 50%;*/
-/*    list-style-type:none;*/
-/*}*/
+
 
 .SpanSideBar
 {
     right: 0;
     height: 100%;
     width: 50px;
-    background-color: deeppink;
     vertical-align: center;
     position: absolute;
 }
@@ -167,14 +168,7 @@
     position: absolute;
 }
 
-/*.ButtonIcon*/
-/*{*/
-/*    left: 0;*/
-/*    width: 50px;*/
-/*    height: 100%;*/
-/*    vertical-align: center;*/
-/*    position: absolute;*/
-/*}*/
+
 
 .UListContact
 {
@@ -213,3 +207,37 @@ body {
     .NavSideBar {padding-top: 15px;}
     .NavSideBar a {font-size: 18px;}
 }
+
+
+
+.DivCustomize
+{
+    overflow: hidden;
+    max-height: 0;
+    width: 50px;
+    transition: max-height 0.3s ease-out;
+    background: #eee;
+    margin-bottom: 10px;
+    padding: 0 10px;
+}
+
+.DivCollapsibleContainer {
+    margin-bottom: 15px;
+}
+
+.ButtonCollapsible
+{
+    padding: 10px;
+    background: #444;
+    color: white;
+    cursor: pointer;
+    height: 50px;
+    width: 50px;
+    border: none;
+    text-align: left;
+}
+
+.ButtonCollapsible.active {
+    background-color: #666;
+}
+

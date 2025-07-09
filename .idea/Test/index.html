@@ -4,6 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>My Portfolio</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <style>
     body.light { background: white; color: black; }
     body.dark { background: #121212; color: white; }
@@ -12,6 +13,7 @@
      .content {
        overflow: hidden;
        max-height: 0;
+       width: 25px;
        transition: max-height 0.3s ease-out;
        background: #eee;
        margin-bottom: 10px;
@@ -23,7 +25,8 @@
       background: #444;
       color: white;
       cursor: pointer;
-      width: 100%;
+      height: 25px;
+      width: 25px;
       border: none;
       text-align: left;
     }
@@ -36,38 +39,68 @@
       margin-bottom: 15px;
     }
 
+    .SectionCustomize
+    {
+      bottom: 25px;
+      right: 25px;
+      position: fixed;
+    }
+
+    .btn {
+      background-color: DodgerBlue;
+      border: none;
+      color: white;
+      padding: 12px 16px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    /* Darker background on mouse-over */
+    .btn:hover {
+      background-color: RoyalBlue;
+    }
+
   </style>
 </head>
 
 <body class="light">
-  <div>
-    <button onclick="setTheme('light')">Light Mode</button>
-    <button onclick="setTheme('dark')">Dark Mode</button>
-    <select id="language-selector" onchange="switchLanguage(this.value)">
-      <option value="en">English</option>
-      <option value="fr">Français</option>
-      <option value="ru">Русский</option>
-    </select>
-  </div>
 
   <h1 data-key="welcome">Welcome to my portfolio</h1>
   <p data-key="intro">I'm a developer who enjoys making cool stuff.</p>
 
-  <div class="collapsible-container">
-    <div class="content">
-      <p>This content shows above the button!</p>
-    </div>
-    <button class="collapsible">Toggle</button>
-  </div>
+  <section class ="SectionCustomize">
+    <div class="collapsible-container">
 
-  <div class="collapsible-container">
-    <div class="content">
-      <p>This is another collapsible section!</p>
-    </div>
-    <button class="collapsible">Toggle</button>
-  </div>
+      <div class="content">
+        <button class="btn" onclick="switchLanguage('en')">
+          <i class="fa fa-trash"></i> English
+        </button>
 
-  <script src="lang.js"></script>
+        <button class="btn" onclick="switchLanguage('fr')">
+          <i class="fa fa-bars"></i> French
+        </button>
+
+        <button class="btn" onclick="switchLanguage('ru')">
+          <i class="fa fa-home"></i> Russian
+        </button>
+      </div>
+
+
+      <button class="collapsible">Toggle</button>
+    </div>
+
+    <div class="collapsible-container">
+      <div class="content">
+        <button onclick="setTheme('light')">Light Mode</button>
+        <button onclick="setTheme('dark')">Dark Mode</button>
+      </div>
+      <button class="collapsible">Toggle</button>
+    </div>
+  </section>
+
+
+  <script src="Lang.js"></script>
+
   <script>
     var coll = document.getElementsByClassName("collapsible");
     for (var i = 0; i < coll.length; i++)
