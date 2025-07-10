@@ -81,8 +81,7 @@ button, select { margin: 5px; padding: 5px 10px; }
 
 .DivPortrait
 {
-    background-color: #0252ff;
-    max-height: 200px;
+    /*background-color: #0252ff;*/
 
 }
 
@@ -90,21 +89,18 @@ button, select { margin: 5px; padding: 5px 10px; }
 {
     width: 100%;
     /*background-color: #ff0000;*/
-    height: 200px;
 }
 
 .SectionSkills
 {
     width: 100%;
     /*background-color: #467eff;*/
-    height: 200px;
 }
 
 .SectionProjects
 {
     width: 100%;
     /*background-color: #ff0000;*/
-    height: 200px;
 }
 
 
@@ -140,14 +136,6 @@ button, select { margin: 5px; padding: 5px 10px; }
     right: 25px;
 
 }
-
-.UListCustomize
-{
-    align-content: center;
-    text-align: center;
-    list-style-type: none;
-}
-
 
 
 .SpanSideBar
