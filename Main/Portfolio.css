@@ -15,41 +15,8 @@ button, select { margin: 5px; padding: 5px 10px; }
 
 
 
-.NavSideBar
-{
-    height: 100%;
-    width: 0;
-    position: fixed;
-    z-index: 1;
-    top: 0;
-    right: 0;
-    background-color: #111;
-    overflow-x: hidden;
-    transition: 0.5s;
-    padding-top: 60px;
-}
 
 
-.NavSideBar a {
-    padding: 8px 8px 8px 32px;
-    text-decoration: none;
-    font-size: 25px;
-    color: #818181;
-    display: block;
-    transition: 0.3s;
-}
-
-.NavSideBar a:hover {
-    color: #f1f1f1;
-}
-
-.NavSideBar .ButtonClose {
-    position: absolute;
-    top: 0;
-    right: 25px;
-    font-size: 36px;
-    margin-left: 50px;
-}
 
 
 .SectionPageIntroduction
@@ -74,34 +41,7 @@ button, select { margin: 5px; padding: 5px 10px; }
     float: left;
 }
 
-.DivBio
-{
-    /*background-color: #0252ff;*/
-}
 
-.DivPortrait
-{
-    /*background-color: #0252ff;*/
-
-}
-
-.SectionEducation
-{
-    width: 100%;
-    /*background-color: #ff0000;*/
-}
-
-.SectionSkills
-{
-    width: 100%;
-    /*background-color: #467eff;*/
-}
-
-.SectionProjects
-{
-    width: 100%;
-    /*background-color: #ff0000;*/
-}
 
 
 .FooterBody
@@ -112,14 +52,6 @@ button, select { margin: 5px; padding: 5px 10px; }
     height: 100px;
 }
 
-.HeaderTopBar
-{
-    position: sticky;
-    height: 50px;
-    top: 0;
-    background-color: darkslategrey;
-    opacity: 50%;
-}
 
 .SpanSideBar
 {
@@ -131,29 +63,10 @@ button, select { margin: 5px; padding: 5px 10px; }
 
 .SectionCustomize
 {
-    position: fixed;
-    bottom: 25px;
-    right: 25px;
+    /*position: fixed;*/
+    /*bottom: 25px;*/
+    /*right: 25px;*/
 
-}
-
-
-.SpanSideBar
-{
-    right: 0;
-    height: 100%;
-    width: 50px;
-    vertical-align: center;
-    position: absolute;
-}
-
-.SpanIcon
-{
-    left: 0;
-    width: 50px;
-    height: 100%;
-    vertical-align: center;
-    position: absolute;
 }
 
 
@@ -191,41 +104,102 @@ body {
 
 
 
-@media screen and (max-height: 450px) {
-    .NavSideBar {padding-top: 15px;}
-    .NavSideBar a {font-size: 18px;}
-}
 
+/*.DivCustomize*/
+/*{*/
+/*    overflow: hidden;*/
+/*    max-height: 0;*/
+/*    width: 50px;*/
+/*    transition: max-height 0.3s ease-out;*/
+/*    background: #eee;*/
+/*    margin-bottom: 10px;*/
+/*    padding: 0 10px;*/
+/*}*/
 
+/*.DivCollapsibleContainer {*/
+/*    margin-bottom: 15px;*/
+/*}*/
 
-.DivCustomize
+/*.ButtonCollapsible*/
+/*{*/
+/*    padding: 10px;*/
+/*    background: #444;*/
+/*    color: white;*/
+/*    cursor: pointer;*/
+/*    height: 50px;*/
+/*    width: 50px;*/
+/*    border: none;*/
+/*    text-align: left;*/
+/*}*/
+
+.ButtonCollapsible.active
 {
-    overflow: hidden;
-    max-height: 0;
-    width: 50px;
-    transition: max-height 0.3s ease-out;
-    background: #eee;
-    margin-bottom: 10px;
-    padding: 0 10px;
-}
-
-.DivCollapsibleContainer {
-    margin-bottom: 15px;
-}
-
-.ButtonCollapsible
-{
-    padding: 10px;
-    background: #444;
-    color: white;
-    cursor: pointer;
-    height: 50px;
-    width: 50px;
-    border: none;
-    text-align: left;
-}
-
-.ButtonCollapsible.active {
     background-color: #666;
 }
 
+
+.HeaderTopBar
+{
+
+    position: sticky;
+    top: 0;
+    background-color: white;
+    z-index: 1000;
+    padding: 20px;
+    border-bottom: 1px solid #ccc;
+    width: 100%;
+}
+
+.SectionTopBarLong {
+    gap: 10px;               /* Optional: Adds space between items */
+    position: sticky;
+    bottom: 0;            /* Initially shows up at the bottom */
+    top: 0;               /* When scrolling up, it will stick to the top */
+    z-index: 1000;
+    background-color: #f0f0f0;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    transition: all 0.3s ease-in-out;
+
+}
+
+.SectionCustomize
+{
+
+}
+
+.DivCustomize
+{
+    display: none;
+    margin-top: 10px;
+    padding: 10px;
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    width: 100px;
+    height: auto;
+
+}
+
+.DivCustomize.show
+{
+    display: block;
+}
+
+
+.TEST
+{
+    height: 1000px;
+    width: 100%;
+    background: orangered;
+}
+
+.TEST2
+{
+    height: 85vh;
+    width: 100%;
+    background: pink;
+}
