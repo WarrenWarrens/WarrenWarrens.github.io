@@ -1,0 +1,103 @@
+.DivMGS2Codec
+{
+    padding: 30px;
+    border-style: solid;
+    border-color: red;
+}
+
+.DivMGS2CodecPersonA
+{
+    width:25%;
+    height: 300px;
+
+    display:inline-block;
+    border-style:  solid;
+    border-color: white;
+}
+
+.DivMGS2CodecCentre
+{
+    width:40%;
+    height: 300px;
+    display:inline-block;
+    border-style:  solid;
+    border-color: white;
+
+}
+
+.DivMGS2CodecCentreTop
+{
+    width:auto;
+    height: 70%;
+    background: green;
+
+}
+
+.DivMGS2CodecCentreBottom
+{
+    width:100%;
+    height: 30%;
+    display:inline-block;
+    background-color: red;
+    border-top: #f0f0f0;
+    border-style: solid;
+}
+
+.DivMGS2CodecCentreFrequency
+{
+    width:45%;
+
+    display:inline-block;
+    height: 100%;
+    background: greenyellow;
+}
+
+.DivMGS2CodecCentreMemory
+{
+    width:45%;
+    display:inline-block;
+    height: 100%;
+    background: yellow;
+
+
+}
+
+.DivMGS2CodecPersonB
+{
+    width:25%;
+    height: 300px;
+    display:inline-block;
+    border-style:  solid;
+    border-color: white;
+
+}
+
+.DivMGS2CodecBottom
+{
+
+    font-family: monospace;
+    white-space: pre;
+    color: white;
+    width:100%;
+    border-style:  solid;
+    border-color: blue;
+    padding: 10px;
+    height: 40%;
+
+}
+
+.DivMGS2CodecTop
+{
+    width:100%;
+    height: 40%;
+    border-style:  solid;
+    border-color: blue;
+}
+
+
+.PMGS2CodecText
+{
+    color:white;
+    text-align: center;
+}
+
