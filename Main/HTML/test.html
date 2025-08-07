@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Co-Founder Badge</title>
+    <style>
+        .role-container
+        {
+            font-family: Arial, sans-serif;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 18px;
+            color: #555; /* gray label text */
+        }
+
+        .company-badge {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            background-color: #fff7cc; /* light yellow */
+            color: #994d00; /* brown text and icon */
+            padding: 6px 10px;
+            border-radius: 8px;
+            font-weight: bold;
+            text-decoration: none;
+            border: 1px solid #f0db93; /* slightly darker yellow outline */
+        }
+
+        .company-badge svg {
+            width: 16px;
+            height: 16px;
+            fill: #994d00;
+        }
+
+        .container {
+            display: flex;
+            justify-content: space-between; /* Push divleft to left, divright to right */
+            align-items: center;            /* Center them vertically */
+            height: 200px;                  /* Or any height you want */
+            border: 1px solid black;        /* Optional: just to visualize the container */
+        }
+
+        .divleft, .divright {
+            padding: 10px;
+            background-color: lightgray;    /* Optional: just for visibility */
+        }
+
+    </style>
+</head>
+<body>
+
+<div class="role-container">
+    Co-Founder at
+    <a href="https://diepen.io" class="company-badge" target="_blank">
+        <!-- Link icon SVG -->
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M10.59 13.41a1.996 1.996 0 0 0 2.82 0l2.83-2.83a1.996 1.996 0 1 0-2.82-2.82L10.59 10.59a1.996 1.996 0 0 0 0 2.82zm-1.42-1.42a1.996 1.996 0 0 0 0-2.82L6.34 6.34a1.996 1.996 0 1 0-2.82 2.82l2.83 2.83a1.996 1.996 0 0 0 2.82 0zM17.66 17.66a1.996 1.996 0 1 0 2.82-2.82l-2.83-2.83a1.996 1.996 0 1 0-2.82 2.82l2.83 2.83z"/>
+        </svg>
+        diepen.io
+    </a>
+</div>
+
+<div class="container">
+    <div class="divleft">Left</div>
+    <div class="divright">Right</div>
+</div>
+
+
+</body>
+</html>
