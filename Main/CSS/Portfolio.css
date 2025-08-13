@@ -36,7 +36,6 @@ body {
 {
     margin: auto;
     width: 80%;
-    /*border: 3px solid #73AD21;*/
     padding: 10px;
     align-content: center;
 }
@@ -49,9 +48,6 @@ body {
     width: 100%;
     height: 50px;
     align-content: center;
-    /*border-color: blue;*/
-    /*border-style: solid;*/
-
 
 }
 
@@ -82,23 +78,8 @@ body {
     border-radius: 8px;
     font-weight: bold;
     text-decoration: none;
-
 }
 
-#McDonalds
-{
-    background-color: rgba(255, 103, 103, 0.58); /* light yellow */
-    color: #e10202; /* brown text and icon */
-    border: 1px solid #ff0000; /* slightly darker yellow outline */
-
-}
-
-#Afillia
-{
-    background-color: rgba(3, 0, 0, 0.59); /* light yellow */
-    color: #ffffff; /* brown text and icon */
-    border: 1px solid #030000; /* slightly darker yellow outline */
-}
 
 .A2
 {
@@ -122,8 +103,7 @@ body {
     min-height: 50px;
     height: auto;
     display: inline-block;
-    /*border-color: #73AD21;*/
-    /*border-style: solid;*/
+
 
 }
 
@@ -223,62 +203,179 @@ html {
 /*//////////////////////////////////////*/
 
 
-.DivProjects
+.Div3
 {
-    width: 100%;
-    height: 100px;
-    background-color: #555555;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+
+    border-radius: 5px;
+    border-style: solid;
+    border-color: #121212;
+
+    margin-top: 5px;
+
+
+}
+
+.DivLeft3, .DivRight3
+{
+    flex: 0 0 50%;
+    box-sizing: border-box;
+    padding: 20px;
+}
+
+.DivLeft3
+{
+    background-color: lightgray;
+}
+
+.DivRight3
+{
+    background-color: lightslategrey;
+}
+
+
+@media (max-width: 600px)
+{
+    .DivLeft3, .DivRight3 {
+        flex: 0 0 100%;            /* Each takes full width */
+    }
 }
 
 /*Skills*/
 /*//////////////////////////////////////*/
 
-.DivSkills
+#Python
 {
-    width: 100%;
-    height: 100px;
-    background-color: #555555;
+    background-color: rgba(125, 156, 244, 0.38);
+    color: #0252ff;
+    border: 1px solid #003cff;
+
 }
 
-.DivSkillsLeft
+#Dart
 {
-    width: 25%;
-    display: inline-block;
-    height: 50px;
-    /*background-color: blue;*/
+    /* Background for inside */
+    background: linear-gradient(white, #ffffff) padding-box,
+    linear-gradient(90deg, rgb(0, 46, 211), rgb(29, 99, 250)) border-box;
+
+    /* Gradient border */
+    border: 4px solid transparent;
+
+    /* Gradient text */
+    -webkit-background-clip: text, border-box;
+    -webkit-text-fill-color: transparent;
+    background-clip: text, border-box;
 }
 
-.DivSkillsRight
+#CPlusPlus
 {
-    width: 70%;
-    display: inline-block;
-    height: auto;
-    /*border-color: orange;*/
-    /*border-style: solid;*/
+    /* Background for inside */
+    background: linear-gradient(white, #ffffff) padding-box,
+    linear-gradient(90deg, rgb(0, 46, 211), rgb(2, 82, 255)) border-box;
+
+    /* Gradient border */
+    border: 4px solid transparent;
+
+    /* Gradient text */
+    -webkit-background-clip: text, border-box;
+    -webkit-text-fill-color: transparent;
+    background-clip: text, border-box;
 }
 
-.DivSkillsContent
+#Java
 {
-    width: auto;
-    height: auto;
-    background-color: #474e5d;
-    margin: auto;
-    display: inline-block;
+    /*background-color: rgba(255, 103, 103, 0.58);*/
+    /*color: #e10202;*/
+    /*border: 1px solid #ff0000;*/
+
+    /* Background for inside */
+    background: linear-gradient(white, #ffffff) padding-box,
+    linear-gradient(90deg, rgb(127, 144, 189), rgb(255, 153, 14)) border-box;
+
+    /* Gradient border */
+    border: 4px solid transparent;
+
+    /* Gradient text */
+    -webkit-background-clip: text, border-box;
+    -webkit-text-fill-color: transparent;
+    background-clip: text, border-box;
 }
+
+
+#JS
+{
+    background-color: rgba(125, 156, 244, 0.38);
+    color: #0252ff;
+    border: 1px solid #003cff;
+
+}
+
+
+#HTML
+{
+    background-color: rgba(125, 156, 244, 0.38);
+    color: #0252ff;
+    border: 1px solid #003cff;
+
+}
+
+
+#CSS
+{
+    background-color: rgba(125, 156, 244, 0.38);
+    color: #0252ff;
+    border: 1px solid #003cff;
+
+}
+
+
+#C
+{
+    background-color: rgba(125, 156, 244, 0.38);
+    color: #0252ff;
+    border: 1px solid #003cff;
+
+}
+
+
+#Assembly
+{
+    background-color: rgba(125, 156, 244, 0.38);
+    color: #0252ff;
+    border: 1px solid #003cff;
+
+}
+
+
+#Lua
+{
+    background-color: rgba(125, 156, 244, 0.38);
+    color: #0252ff;
+    border: 1px solid #003cff;
+
+}
+
 
 /*EDUCATION*/
 /*/////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
 
-.DivEducationTop
+.Div2
 {
     width: 100%;
     height: auto;
     padding: 5px;
+    margin-top: 10px;
     border-style: solid;
+    border-radius: 5px;
+    border-color: #555555;
+    background-color: lightgray;
     align-content: center;
     display: flex;
     justify-content: space-between; /* Push divleft to left, divright to right */
-    align-items: center;            /* Center them vertically */
+    align-items: center;
+
 }
 
 .DivLeft
@@ -287,6 +384,10 @@ html {
     height: auto;
     width: auto;
     padding: 10px;
+    border-radius: 5px;
+    background-color: lightgray;
+    border-style: solid;
+    border-color: #121212;
 
 }
 
@@ -307,6 +408,11 @@ html {
     display: none;
     text-align: center;
     padding: 10px;
+    margin-top: 10px;
+    border-style: solid;
+    border-radius: 5px;
+    border-color: #555555;
+    background-color: lightgrey;
 }
 
 .DivEducationBottom.Show
@@ -320,23 +426,57 @@ html {
 /*WORK*/
 /*/////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
 
+.DivWorkTitle
+{
+    width: auto;
+    height: auto;
+
+}
+
+.DivWorkDate
+{
+    width: auto;
+    height: auto;
+    display: inline-block;
+
+}
+
 
 .DivTimelineContentTop
 {
     width: 100%;
-}
-
-.DivWorkTitle
-{
-    width: auto;
-    height: 50px;
-    display: inline-block;
+    border-bottom-style: solid;
+    border-bottom-color: #121212;
+    padding: 5px;
 }
 
 
-.DivTimelineContentTop div
+
+#McDonalds
 {
-    display: inline-block;
+    background-color: rgba(255, 103, 103, 0.58); /* light yellow */
+    color: #e10202; /* brown text and icon */
+    border: 1px solid #ff0000; /* slightly darker yellow outline */
+
+}
+
+#Afillia
+{
+    background-color: rgba(2, 82, 255, 0.49); /* light yellow */
+    color: #ffffff; /* brown text and icon */
+    border: 1px solid rgba(0, 46, 211, 0.49); /* slightly darker yellow outline */
+}
+
+#RONA
+{
+    background-color: rgba(2, 82, 255, 0.49);
+    color: #ffffff;
+    border: 1px solid rgba(0, 46, 211, 0.49);
+}
+
+#Princess\ Auto
+{
+
 }
 
 
@@ -348,45 +488,9 @@ html {
 /*PERSONAL*/
 /*/////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
 
-.DivPersonal
-{
-    width: 100%;
-    height: 100px;
-    background-color: #555555;
-}
 
 /*FOOTER*/
 /*/////////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
-.FooterBody
-{
-    bottom: 0;
-    background-color: rgba(255, 255, 255, 0.15);
-    width: 100%;
-    height: 300px;
-}
-
-
-.DivFooter2
-{
-    height: 30%;
-    width: 100%;
-    background: pink;
-    align-content: center;
-}
-
-
-.PCopyright
-{
-    text-align: center;
-}
-
-.PCopyright2
-{
-    text-align: center;
-}
-
-
-
 
 * {
     box-sizing: border-box;
@@ -396,6 +500,11 @@ html {
 
 /* The actual timeline (the vertical ruler) */
 .timeline {
+    border-top-style: solid;
+    border-top-color: #121212;
+
+    border-bottom-style: solid;
+    border-bottom-color: red;
     position: relative;
     max-width: 1200px;
     margin: 0 auto;
@@ -454,9 +563,9 @@ html {
     width: 0;
     z-index: 1;
     right: 30px;
-    border: medium solid white;
+    border: lightgray;
     border-width: 10px 0 10px 10px;
-    border-color: transparent transparent transparent white;
+    border-color: lightgray;
 }
 
 /* Add arrows to the right container (pointing left) */
@@ -468,9 +577,9 @@ html {
     width: 0;
     z-index: 1;
     left: 30px;
-    border: medium solid white;
+    border: lightgray;
     border-width: 10px 10px 10px 0;
-    border-color: transparent white transparent transparent;
+    border-color: lightgray;
 }
 
 /* Fix the circle for containers on the right side */
@@ -503,9 +612,9 @@ html {
     /* Make sure that all arrows are pointing leftwards */
     .container::before {
         left: 60px;
-        border: medium solid white;
+        border: lightgray;
         border-width: 10px 10px 10px 0;
-        border-color: transparent white transparent transparent;
+        border-color: lightgray;
     }
 
     /* Make sure all circles are at the same spot */
@@ -519,9 +628,5 @@ html {
     }
 }
 
-.DivTimelineContentTop
-{
-    width: 100%;
-}
 
 
