@@ -1,756 +1,529 @@
 <!DOCTYPE html>
-<html lang="eng">
+<html lang="en">
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <head>
-    <link rel="stylesheet" href="Main/CSS/Portfolio.css">
-    <link rel="stylesheet" href="Main/CSS/MGS2.css">
+    <style>
+        .DivBar
+        {
+            width: 90%;
+            max-width: 700px;
+            height: auto;
+            align-content: center;
 
-    <title>Ryan Warrener Portfolio</title>
+        }
+
+        .DivBar2
+        {
+            width: 100%;
+            height: auto;
+            align-content: center;
+            padding: 8px;
+
+        }
+
+        .DivBar3
+        {
+            width: 100%;
+            height: auto;
+            align-content: center;
+            display: flex;
+            justify-content: space-between; /* Push divleft to left, divright to right */
+            align-items: center;
+        }
+
+
+
+        .DivSide
+        {
+            display: inline-block;
+            height: auto;
+            width: auto;
+            padding: 10px;
+            border-radius: 5px;
+            border-style: solid;
+            border-color: #121212;
+
+        }
+
+
+        .DivExpand
+        {
+            width: 100%;
+            height: auto;
+            display: none;
+            margin-top: 10px;
+            border-style: solid;
+            border-radius: 5px;
+            border-color: #555555;
+            background-color: lightgrey;
+        }
+
+        .DivExpand.Show
+        {
+            display: block;
+
+        }
+
+        * { box-sizing: border-box; }
+
+        body {
+            margin: 0;
+            background: #f0f0f0;
+            /* remove flex + height:100vh so body can scroll naturally */
+        }
+
+        .MainBody2 {
+            align-content: center;
+            width: 100%;
+            display: grid;
+            place-items: center;
+            padding-bottom: 150px; /* space so content doesn't overlap bar */
+        }
+
+
+        .DivIconBar {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: white;
+            border-radius: 40px;
+            padding: 20px 40px;
+            box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+            gap: 15px;
+            transition: width 0.3s ease, padding 0.3s ease;
+            position: fixed;
+            bottom: 20px; /* pinned to bottom */
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80%;
+            max-width: 500px;
+            height: 100px;
+        }
+
+        .DivWrap {
+            position: relative; /* establishes containing block for the popup */
+            display: inline-block;
+            flex: 0 0 auto;
+            justify-content: center;
+            align-items: center;
+            transition: width 0.15s ease;
+        }
+
+        .DivIcon {
+            width: 40px;
+            height: 40px;
+            background: #4caf50;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 14px;
+            color: white;
+            transition: transform 0.15s ease;
+            cursor: pointer;
+        }
+        .DivPopup {
+            position: absolute;
+            background: black;
+            color: white;
+            padding: 10px;
+            border-radius: 8px;
+            font-size: 14px;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.25s ease, transform 0.25s ease;
+            text-align: center;
+            white-space: nowrap;
+            z-index: 10;
+
+            bottom: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            margin-bottom: 10px;
+        }
+
+        .DivPopup.visible {
+            opacity: 1;
+            pointer-events: auto;
+            transform: translate(-50%, -15px);
+        }
+
+
+        .DivPopup p {
+            margin: 0 0 8px 0;
+            font-weight: bold;
+        }
+
+        .DivPopupActions {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+        .DivPopup button {
+            background: #4caf50;
+            border: none;
+            color: white;
+            padding: 3px 6px;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+        .DivPopup button:hover {
+            background: #45a049;
+            display: block;
+            /*animation: slideUp 0.2s ease-out;*/
+        }
+
+        @keyframes slideUp {
+            from { opacity: 0; transform: translate(-50%, 10px); }
+            to { opacity: 1; transform: translate(-50%, 0); }
+        }
+
+
+    </style>
+    <title></title>
 </head>
 
-<body class = "light">
+<body>
 
-<section class ="SectionIntroduction">
-    <div class ="DivMGS2Codec">
-        <div class ="DivMGS2CodecTop">
+    <main class ="MainBody2">
+<!--        <div class ="DivBar">-->
+<!--            <div>-->
 
-            <div class ="DivMGS2CodecPersonA">
+<!--            </div>-->
 
+<!--            <div>-->
+<!--                Hello! Im Warren-->
+<!--            </div>-->
+<!--        </div>-->
+
+        <div class ="DivBar">
+            <div class =DivBar2">
+                <h1>
+                    About
+                </h1>
+            </div>
+            <div class =DivBar2">
+                <p>I am a Computer Science student in my fourth year at Ontario Tech University.</p>
+            </div>
+        </div>
+
+        <div class ="DivBar">
+            <div class = "DivBar2">
+                <h1>Education</h1>
             </div>
 
-            <div class ="DivMGS2CodecCentre">
-                <div class ="DivMGS2CodecCentreTop">
-
+            <div class ="DivBar2">
+                <div class = "DivBar3" onclick="toggle(this)">
+                    <div class ="DivSide">
+                        <div class ="DivSide">Ontario Tech</div>
+                    </div>
+                    <div class ="DivSide">
+                        May, 2026
+                    </div>
                 </div>
 
-                <div class ="DivMGS2CodecCentreBottom">
-                    <div class ="DivMGS2CodecCentreMemory">
-                        <!--                                <button>V</button>-->
-                        <p>Memory</p>
-
-                    </div>
-
-                    <div class ="DivMGS2CodecCentreFrequency">
-                        <!--                                <button><</button>-->
-                        <p>Frequency</p>
-                        <!--                                <button></button>-->
+                <div class ="DivExpand">
+                    <div class ="DivBar2">Full Time Undergraduate Student </div>
+                    <div class ="DivBar2">
+                        <ul>
+                            <li>Major: BSC. Computer Science</li>
+                            <li>Specialization: Data Science</li>
+                            <li>Minor: Mathematics</li>
+                            <li>Minor: Physics</li>
+                            <li>Co-op:</li>
+                            <li>Honours Thesis:</li>
+                        </ul>
                     </div>
 
                 </div>
             </div>
 
-            <div class ="DivMGS2CodecPersonB">
+        </div>
+
+        <div class ="DivBar">
+            <div class ="DivBar2"><h1>Work Experience</h1></div>
+
+            <div class ="DivBar2">
+                <div class = "DivBar3" onclick="toggle(this)">
+                    <div class ="DivSide">
+                        <div class ="DivSide">Afillia</div>
+                    </div>
+                    <div class ="DivSide">
+                        May, 2025 - Current
+                    </div>
+                </div>
+
+                <div class ="DivExpand">
+                    <div class ="DivBar2">
+                        Founder & Back-End Engineer
+                    </div>
+                    <div class ="DivBar2">
+                        <ul>
+                            <li>Founding member involved in the core foundation of the company and product
+                            </li>
+                            <li>Designed and collaborated on figma designs, leading to the final appearance and list of features
+                            </li>
+                            <li>Built the framework for basic back end functionality including user login, account management and account connections to Google with OAuth2.0
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class ="DivBar2">
+                <div class = "DivBar3" onclick="toggle(this)">
+                    <div class ="DivSide">
+                        <div class ="DivSide">Princess Auto</div>
+                    </div>
+                    <div class ="DivSide">
+                        August, 2024 - Present
+                    </div>
+                </div>
+
+                <div class ="DivExpand">
+                    <div class ="DivBar2">Hydraulics, Forklift, Floor Sales & Cashier Team Member</div>
+                    <div class ="DivBar2">
+                        <ul>
+                            <li>Assist customers with hydraulics questions regarding pumps, fittings, plugs and hose. Cut and crimp hose based on customer’s needs.
+                            </li>
+                            <li>Operate forklift to handle deliveries, warehouse organization or getting stock for customers.
+                            </li>
+                            <li>Pick and ship warehouse orders, both for in person pickups and shipping orders.</li>
+                            <li>Push stock to its designated location as well as creating or moving locations based on current season/sale.
+                            </li>
+                            <li>Talk with customers and help them find the location for items they are interested in.
+                                Opening and closing the store, sometimes alone or with the help of one leader
+                            </li>
+                            <li>Physically help customers load items into their vehicles, build displays and retrieve carts
+                            </li>
+                            <li>Operate tills, handle cash and checkout customers
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class ="DivBar2">
+                <div class = "DivBar3" onclick="toggle(this)">
+                    <div class ="DivSide">
+                        <div class ="DivSide">RONA</div>
+                    </div>
+                    <div class ="DivSide">
+                        June, 2022 - September, 2023
+                    </div>
+                </div>
+
+                <div class ="DivExpand">
+                    <div class ="DivBar2">Forklift Operator & General Yard Labourer </div>
+                    <div class ="DivBar2">
+                        <ul>
+                            <li>Assist customers in loading lumber and other building materials (often up to 40kg) into their vehicles.</li>
+                            <li>Operate sitdown counter balance forklift to clean yard, unload deliveries or assemble large orders.</li>
+                            <li>Complete regular safety checks and maintenance to forklift to ensure its safe use.
+                            </li>
+                            <li>Safely use the panel & table saw to cut customers materials to sizes they request.
+                            </li>
+                            <li>Opening and closing the yard, sometimes alone.
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class ="DivBar2">
+                <div class = "DivBar3" onclick="toggle(this)">
+                    <div class ="DivSide">
+                        <div class ="DivSide">McDonalds</div>
+                    </div>
+                    <div class ="DivSide">
+                        June, 2019 - February, 2022
+                    </div>
+                </div>
+
+                <div class ="DivExpand">
+                    <div class ="DivBar2">Drive Thru, Cashier & Kitchen Staff</div>
+                    <div class ="DivBar2">
+                        <ul>
+                            <li>Efficiently run drive thru in both the “1st window”, in charge of cashing handling/order taking, and “2nd window” with order preparation/delivery/drink creation
+                            </li>
+                            <li>Assemble and create food on every step, including cooking/frying, packaging and toppings
+                            </li>
+                            <li>Close the store and switch to overnight menu </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class ="DivBar">
+            <div class =DivBar2">
+                <h1>
+                    Skills
+                </h1>
+            </div>
+            <div class =DivBar2">
+                <div class ="DivSide">Hello</div>
+                <div class ="DivSide">Hello</div>
+                <div class ="DivSide">Hello</div>
+                <div class ="DivSide">Hello</div>
+                <div class ="DivSide">Hello</div>
+                <div class ="DivSide">Hello</div>
+                <div class ="DivSide">Hello</div>
+                <div class ="DivSide">Hello</div>
+                <div class ="DivSide">Hello</div>
+                <div class ="DivSide">Hello</div>
+                <div class ="DivSide">Hello</div>
+                <div class ="DivSide">Hello</div>
+                <div class ="DivSide">Hello</div>
+                <div class ="DivSide">Hello</div>
 
             </div>
         </div>
 
-        <div class="DivMGS2CodecBottom" id="Typewriter">
-            <p class ="PMGS2CodecText">HelloWorld</p>
+
+
+    </main>
+
+    <div class="DivIconBar">
+        <div class="DivWrap">
+            <div class="DivIcon">
+                <button onclick="scrollToTop()" class="ScrollToTopButton">Top</button>
+            </div>
         </div>
 
+        <div class="DivWrap">
+            <div class="DivIcon">
+                <a href="https://github.com/WarrenWarrens" target="_blank" rel="noopener noreferrer">
+                    <img border="0" alt="GitHub" src="Main/Media/icons8-github-48.png" width="48" height="48">
+                </a>
+            </div>
+        </div>
+
+        <div class="DivWrap">
+            <div class="DivIcon">
+                <a href="https://www.linkedin.com/in/ryan-warrener/" target="_blank" rel="noopener noreferrer">
+                    <img border="0" alt="Linkedin" src="Main/Media/icons8-github-48.png" width="48" height="48">
+                </a>
+            </div>
+        </div>
+
+        <div class="DivWrap">
+            <div class="DivIcon">
+                <a href="https://leetcode.com/u/WarrenWarren/" target="_blank" rel="noopener noreferrer">
+                    <img border="0" alt="LeetCode" src="Main/Media/icons8-github-48.png" width="48" height="48">
+                </a>
+            </div>
+        </div>
+
+        <div class="DivWrap">
+            <button class="DivIcon theme-icon">Theme</button>
+            <div class="DivPopup">
+                <div class="DivPopupActions">
+                    <button>Light</button>
+                    <button>Dark</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="DivWrap">
+            <div class="DivIcon lang-icon">LANG</div>
+            <div class="DivPopup">
+                <div class="DivPopupActions">
+                    <button>English</button>
+                    <button>Français</button>
+                    <button>Español</button>
+                </div>
+            </div>
+        </div>
     </div>
 
 
 
 
-</section>
 
-<header class ="HeaderTopBar">
 
-    <section class ="SectionTopBarLong">
 
-        <div class ="DivHome">
-            <button onclick="scrollToTop()" class="ScrollToTopButton">Top</button>
-        </div>
-
-        <div class ="DivSocialMedia">
-            <a href="https://github.com/WarrenWarrens" target="_blank" rel="noopener noreferrer">
-                <img border="0" alt="GitHub" src="Main/Media/icons8-github-48.png" width="48" height="48">
-            </a>
-
-            <a href="https://www.linkedin.com/in/ryan-warrener/" target="_blank" rel="noopener noreferrer">
-                <img border="0" alt="Linkedin" src="Main/Media/icons8-github-48.png" width="48" height="48">
-            </a>
-
-            <a href="https://leetcode.com/u/WarrenWarren/" target="_blank" rel="noopener noreferrer">
-                <img border="0" alt="LeetCode" src="Main/Media/icons8-github-48.png" width="48" height="48">
-            </a>
-
-            <a href="https://x.com/WarrenWarrenCS" target="_blank" rel="noopener noreferrer">
-                <img border="0" alt="Twitter" src="Main/Media/icons8-github-48.png" width="48" height="48">
-            </a>
-
-        </div>
-
-        <div class ="DivContact">
-            <button class="ButtonContact" id="ButtonContact" onclick="togglePopup(this, 'Contact')">CONTACT ME</button>
-        </div>
-
-
-        <div class ="DivLanguage">
-            <button class="ButtonCollapsible" id="ButtonLanguage" onclick="togglePopup(this, 'Language')">Language</button>
-
-        </div>
-
-        <div class ="DivTheme">
-            <button class="ButtonCollapsible" id="ButtonLightDark" onclick="togglePopup(this, 'Theme')">LightDark</button>
-        </div>
-
-    </section>
-
-</header>
-
-<main class ="MainBody" id="MainBody">
-    <section class ="Section1">
-        <div class ="DivTitle">
-            <h1>About</h1>
-        </div>
-
-        <div class ="Div1">
-            <h1 data-key="welcome">Welcome to my portfolio</h1>
-            <p data-key="intro">I'm a developer who enjoys making cool stuff.</p>
-
-            <p>Hey, I’m Ryan, a 4th year BSC. Computer Science student at Ontario Tech University,
-                specializing in Data Science and dual minoring in Mathematics & Physics.
-                Proudly Canadian, born and raised in Ontario.
-                Here's what I can do for you:
-                With over three years of post-secondary education, I've developed a diverse portfolio
-                of languages and systems I can develop for. I can work confidently with Python, C++, C,
-                Java, HTML, CSS & Dart. Through these languages, I've worked on applications and projects
-                that cover databases, mobile development, website hosting, physics simulations, systems
-                programming & software design. Combined with close to a decade of working experience,
-                across various positions, companies, training, locations and duties. I’m not just a student
-                dedicated to knowing theory, nor am I a complacent worker waiting for their next paycheck.
-                I know the theory, I know how to get things done, and I know the environment for work.
-                In the world of artificial intelligence, I’m proudly human, I know what it means to fail,
-                and I know how to overcome those failures with work & determination.
-            </p>
-        </div>
-
-
-    </section>
-
-    <hr>
-
-    <section class ="Section1">
-        <div class="DivTitle">
-            <h1>Projects</h1>
-        </div>
-
-        <div class ="Div3">
-            <div class ="DivLeft3"></div>
-            <div class = "DivRight3"></div>
-        </div>
-
-        <div class ="Div3">
-            <div class ="DivLeft3"></div>
-            <div class = "DivRight3"></div>
-        </div>
-
-        <div class ="Div3">
-            <div class ="DivLeft3"></div>
-            <div class = "DivRight3"></div>
-        </div>
-
-        <div class ="Div3">
-            <div class ="DivLeft3"></div>
-            <div class = "DivRight3"></div>
-        </div>
-
-    </section>
-
-    <hr>
-
-    <section class ="Section1">
-        <div class ="DivTitle">
-            <h1>Skills</h1>
-        </div>
-
-        <div class ="Div1">
-            <div class ="DivLeft">
-                Programming Languages
-            </div>
-            <div class ="DivRight">
-                <a class ="A1" id="Python">
-                    Python
-                </a>
-                <a class ="A1" id="Dart">
-                    Dart
-                </a>
-                <a class ="A1" id="CPlusPlus">
-                    C++
-                </a>
-                <a class ="A1" id="Java">
-                    Java
-                </a>
-                <a class ="A1" id="JS">
-                    JavaScript
-                </a>
-                <a class ="A1" id="HTML">
-                    HTML
-                </a>
-                <a class ="A1" id="CSS">
-                    CSS
-                </a>
-                <a class ="A1" id="C">
-                    C
-                </a>
-                <a class ="A1" id="Assembly">
-                    Assembly
-                </a>
-                <a class ="A1" id="Lua">
-                    Lua
-                </a>
-            </div>
-
-        </div>
-
-        <hr>
-
-        <div class ="Div1">
-            <div class ="DivLeft">
-                Frontend
-            </div>
-            <div class ="DivRight">
-                <div class ="DivSkillsContainer">
-                    HTML
-                </div>
-                <div class ="DivSkillsContainer">
-                    CSS
-                </div>
-                <div class ="DivSkillsContainer">
-                    Single Page Application
-                </div>
-                <div class ="DivSkillsContainer">
-                    Responsive Design
-                </div>
-            </div>
-
-        </div>
-
-        <hr>
-
-        <div class ="Div1">
-            <div class ="DivLeft">
-                Data Science
-            </div>
-            <div class ="DivRight">
-                <div class ="DivSkillsContainer">
-                    Python
-                </div>
-                <div class ="DivSkillsContainer">
-                    Matplotlib
-                </div>
-                <div class ="DivSkillsContainer">
-                    Network Science
-                </div>
-                <div class ="DivSkillsContainer">
-                    Responsive Design
-                </div>
-            </div>
-
-        </div>
-
-        <hr>
-
-        <div class ="Div1">
-            <div class ="DivLeft">
-                OS
-            </div>
-            <div class ="DivRight">
-                <a class ="A1">
-                    MacOS
-                </a>
-                <a class ="A1">
-                    Windows
-                </a>
-                <a class ="A1">
-                    Android
-                </a>
-                <a class ="A1">
-                    Linux (Ubuntu & Arch)
-                </a>
-                <a class ="A1">
-                    iOS
-                </a>
-            </div>
-
-        </div>
-
-        <hr>
-
-        <div class ="Div1">
-            <div class ="DivLeft">
-                Applications
-            </div>
-            <div class ="DivRight">
-                <a class ="A1">
-                    Visual Studio Code
-                </a>
-                <a class ="A1">
-                    Visual Studio
-                </a>
-                <a class ="A1">
-                    IntelliJ IDEA
-                </a>
-                <a class ="A1">
-                    PyCharm
-                </a>
-                <a class ="A1">
-                    GitHub Desktop
-                </a>
-                <a class ="A1">
-                    Android Studio
-                </a>
-                <a class ="A1">
-                    Figma
-                </a>
-                <a class ="A1">
-                    Slack
-                </a>
-                <a class ="A1">
-                    UTM
-                </a>
-                <a class ="A1">
-                    Love2D
-                </a>
-                <a class ="A1">
-                    ZeroBrane Studio
-                </a>
-                <a class ="A1">
-                    MongoDB Compass
-                </a>
-            </div>
-
-        </div>
-
-
-
-
-    </section>
-
-    <hr>
-
-    <section class ="Section1">
-
-        <div class ="DivTitle">
-            <h1>Education</h1>
-        </div>
-
-        <div class ="Div1">
-            <div class ="Div2" onclick="toggle(this)">
-                <div class ="DivLeft">
-                    <button>V</button>
-                    May, 2026
-                </div>
-
-                <div class ="DivRight">
-                    Ontario Tech
-                    <a class ="A2" href="https://ontariotechu.ca/programs/undergraduate/computers-and-technology/computer-science/index.php" target="_blank" rel="noopener noreferrer">
-                        <div class ="DivEducationLink">
-                            BSC. Computer Science
-                        </div>
-                    </a>
-                </div>
-            </div>
-            <div class = "DivEducationBottom">
-                <p>Bachelor of Science (Honours) is a four year,
-                    eight semester course taught at Ontario Tech
-                    University, in Oshawa, Ontario Canada. Ontario
-                    Tech defines the course like so:
-                    Graduates of this program will obtain a
-                    solid foundation in the theory and application
-                    of the principles of computer science, as well as
-                    in the cognitive capabilities and skills relating
-                    to computer science. This program also provides
-                    the opportunity for the student to develop practical
-                    capabilities and skills, such as software design and
-                    implementation, information management, risk
-                    assessment, effective deployment of software
-                    tools and system evaluation. In addition,
-                    transferable skills such as communication,
-                    teamwork, self-management and professional
-                    development are emphasized in many courses.
-
-                </p>
-            </div>
-
-        </div>
-
-        <div class ="Div1">
-            <div class ="Div2" onclick="toggle(this)">
-                <div class ="DivLeft">
-                    <button>V</button>
-                    May, 2026
-                </div>
-
-                <div class ="DivRight">
-                    Ontario Tech
-                    <a class ="A2" href="https://ontariotechu.ca/programs/undergraduate/computers-and-technology/computer-science/index.php" target="_blank" rel="noopener noreferrer">
-                        <div class ="DivEducationLink">
-                            Data Science Specialization
-                        </div>
-                    </a>
-                </div>
-            </div>
-            <div class = "DivEducationBottom">
-                <p>Computer Science, Data Science specialization is
-                    one of two, optional specializations CS students
-                    can obtain during their BSC. Computer Science.
-                    Ontario Tech defines the specialization like so:
-                    The amount of data generated by, and available
-                    to, companies, governments, and individuals, is
-                    exploding. There is an urgent need for individuals
-                    who can grapple with massive amounts of data and
-                    extract key information.
-                    People with these skills (often called
-                    data scientists) are highly sought after
-                    in a variety of industries, including health care,
-                    finance, and business. The Data Science specialization
-                    within the Computer Science program helps students develop
-                    the knowledge, skills, and tools, and sets them up for success
-                    in this desirable job market. Students develop critical
-                    problem-solving, analytical, and computational skills
-                    that enable them to turn vast quantities of data into insight.
-                </p>
-            </div>
-
-        </div>
-
-        <div class ="Div1">
-            <div class ="Div2" onclick="toggle(this)">
-                <div class ="DivLeft">
-                    <button>V</button>
-                    May, 2026
-                </div>
-
-                <div class ="DivRight">
-                    Ontario Tech
-                    <a class ="A2" href="https://ontariotechu.ca/programs/undergraduate/computers-and-technology/computer-science/index.php" target="_blank" rel="noopener noreferrer" >
-                        <div class ="DivEducationLink">
-                            Mathematics Minor
-                        </div>
-                    </a>
-                </div>
-            </div>
-            <div class = "DivEducationBottom">
-                <p>Obtained by taking three mandatory courses,
-                    and three additional courses where two must be
-                    at the 3000 or 4000 level (3rd year or 4th year level).
-                </p>
-            </div>
-
-        </div>
-
-        <div class ="Div1">
-            <div class ="Div2" onclick="toggle(this)">
-                <div class ="DivLeft">
-                    <button>V</button>
-                    May, 2026
-                </div>
-
-                <div class ="DivRight">
-                    Ontario Tech
-                    <a class ="A2" href="https://ontariotechu.ca/programs/undergraduate/computers-and-technology/computer-science/index.php" target="_blank" rel="noopener noreferrer" >
-                        <div class ="DivEducationLink">
-                            Physics Minor
-                        </div>
-                    </a>
-                </div>
-            </div>
-            <div class = "DivEducationBottom">
-                <p>Obtained by taking four mandatory courses,
-                    and two additional courses that must be at
-                    the 3000 or 4000 level (3rd year or 4th year level).
-                </p>
-            </div>
-
-        </div>
-
-
-    </section>
-
-    <hr>
-
-    <section class ="Section1">
-        <div class="DivTitle">
-            <h1>Experience</h1>
-        </div>
-
-        <div class="timeline">
-            <div class="container left">
-                <div class ="content">
-                    <div class="DivTimelineContentTop">
-                        <a class ="A1" href="https://github.com/WarrenWarrens" target="_blank" rel="noopener noreferrer" id="Afillia">
-                            Afillia
-                        </a>
-
-                        <div class ="DivWorkDate">
-                            May 2025 - Present
-                        </div>
-
-                        <div class ="DivWorkTitle">
-                            Backend Engineer
-                        </div>
-
-
-
-                    </div>
-
-                    <div class="DivTimelineContentBottom">
-                        <p>Volunteer backend engineering for Afillia.
-                            My main duties are to develop the database (MongoDB),
-                            work with various API’s (Google, Slack, Monday.com),
-                            develop prototypes for the software, and handle software
-                            security.
-                            Due to Afiilia being a startup, it is likely
-                            most people are not familiar with it. Here is a
-                            brief description: “”
-
-                        </p>
-                    </div>
-
-                </div>
-            </div>
-
-            <div class="container right">
-                <div class ="content">
-                    <div class="DivTimelineContentTop">
-                        <a class ="A2" href="https://www.princessauto.com/en/" target="_blank" rel="noopener noreferrer" id="Princess Auto">
-                            Princess Auto
-                        </a>
-
-                        <div class ="DivWorkDate">
-                            August 2024 - Present
-                        </div>
-
-                        <div class ="DivWorkTitle">
-                            Hydraulics, Forklift, Cashier, Warehouse Team Member
-
-                        </div>
-
-
-                    </div>
-
-                    <div class="DivTimelineContentBottom">
-                        <p>With part time hours, I'm working as a day receiver
-                            at Princess Auto during weekends, after school and
-                            summer/winter/reading week breaks. Following in store training,
-                            and  specialized online course(s), I'm also trained to work as
-                            a cashier, forklift operator and hydraulics. My daily duties
-                            include: ensuring daily operation of the warehouse, from online
-                            orders that need to be packaged and mailed, maintaining inventory
-                            and handling deliveries/large orders using the forklift.
-                            Additionally, with my hydraulics training, if a customer
-                            needs a hose made or needs help with our hydraulic products
-                            I'm able to assist them.
-                            Due to Princess Auto being a strictly Canadian owned and
-                            operated company, it is likely some people may not be familiar
-                            with it. Here is a brief description: “Princess Auto is a retail
-                            store that specialises in various departments for farmers,
-                            tradesmen and DIY’ers.”
-                        </p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="container left">
-                <div class ="content">
-
-                    <div class="DivTimelineContentTop">
-                        <a class ="A2" href="https://www.rona.ca/en" target="_blank" rel="noopener noreferrer" id="RONA">
-                            RONA
-                        </a>
-
-                        <div class ="DivWorkDate">
-                            June 2022 - September 2023
-                        </div>
-
-                        <div class ="DivWorkTitle">
-                            Forklift Operator/Yard Labourer
-                        </div>
-
-
-                    </div>
-
-                    <div class="DivTimelineContentBottom">
-                        <p>Following my completion of my “Victory Lap”/Grade 13 year,
-                            I worked at RONA full time seasonally during summers,
-                            winters and reading weeks. My first summer was spent as a
-                            general labourer, helping customers load lumber and other
-                            building material into their vehicles. A few weeks later I
-                            was trained on the saw, so I could better help customers with
-                            their projects. Then the following summer, I was trained on a
-                            sitdown counter balance forklift, where my responsibilities
-                            greatly increased. My new duties included, helping to unload
-                            and load deliveries, re-organize yard and vehicle maintenance.
-                        </p>
-                    </div>
-
-                </div>
-            </div>
-
-            <div class="container right">
-                <div class ="content">
-                    <div class="DivTimelineContentTop">
-                        <a class ="A2" href="https://www.mcdonalds.com/ca/en-ca.html" target="_blank" rel="noopener noreferrer" id="McDonalds">
-                            McDonald's
-                        </a>
-
-                        <div class ="DivWorkDate">
-                            June 2019 - February 2022
-                        </div>
-
-                        <div class ="DivWorkTitle">
-                            Drive Thru, Cashier & Kitchen Staff
-                        </div>
-
-                    </div>
-
-                    <div class="DivTimelineContentBottom">
-                        <p>General part time worker.
-                            I worked here on weekends, summers
-                            and after school while I was in High School.
-                            For my first year, I was strictly in the kitchen,
-                            working on the grill and assembling food. From there I
-                            got trained on order taking, cash handling, customer service
-                            and order expediting. Shortly after, I got trained on Drive
-                            Thru, where my skills with customer service were greatly
-                            expanded.
-                        </p>
-                    </div>
-                </div>
-            </div>
-
-
-        </div>
-
-
-    </section>
-
-
-
-<!--    <section class ="SectionCertifications">-->
-<!--        <div class ="DivTitle">-->
-<!--            <h1>Certifications/Licences</h1>-->
-<!--        </div>-->
-<!--        <div class ="DivCertifications"></div>-->
-<!--    </section>-->
-
-<!--    <hr>-->
-
-
-    <section class ="Section1">
-        <div class ="DivTitle">
-            <h1>Personal</h1>
-        </div>
-        <div class ="Div1"></div>
-    </section>
-
-</main>
-
-<hr>
-
-
-<script src="Main/JS/Lang.js"></script>
-
-<script src="Main/JS/Portfolio.js"></script>
-
-<script>
-    let activeButton = null;
-
-    function togglePopup(buttonElement, type) {
-        const existingPopup = document.getElementById("ActivePopup");
-
-        // Close if same button is clicked
-        if (existingPopup && activeButton === buttonElement) {
-            existingPopup.remove();
-            activeButton = null;
-            return;
-        }
-
-        // Remove old popup if a new button is clicked
-        if (existingPopup) {
-            existingPopup.remove();
-        }
-
-        // Create popup
-        const popup = document.createElement("div");
-        popup.id = "ActivePopup";
-        popup.classList.add("PopupBox");
-        popup.dataset.source = buttonElement.id;
-
-        switch (type)
-        {
-            case 'Language':
-                popup.innerHTML = "<button class=\"btn\" onclick=\"switchLanguage('en')\">\n" +
-                    "                <i class=\"fa fa-trash\"></i> Eng\n" +
-                    "            </button>\n" +
-                    "\n" +
-                    "            <button class=\"btn\" onclick=\"switchLanguage('fr')\">\n" +
-                    "                <i class=\"fa fa-bars\"></i> Fr\n" +
-                    "            </button>\n" +
-                    "\n" +
-                    "            <button class=\"btn\" onclick=\"switchLanguage('ru')\">\n" +
-                    "                <i class=\"fa fa-home\"></i> Ru\n" +
-                    "            </button>";
-                break;
-            case 'Theme':
-                popup.innerHTML = "<button onclick=\"setTheme('light')\">Light Mode</button>\n" +
-                    "            <button onclick=\"setTheme('dark')\">Dark Mode</button>";
-                break;
-            case 'Contact':
-                popup.innerHTML = "<p>Phone: 123-456-7890<br>Email: me@example.com</p>";
-                break;
-        }
-
-        document.body.appendChild(popup);
-        activeButton = buttonElement;
-        positionPopup();
-    }
-
-    // This function updates the position of the popup
-    function positionPopup() {
-        const popup = document.getElementById("ActivePopup");
-        if (!popup || !activeButton) return;
-
-        const rect = activeButton.getBoundingClientRect();
-        popup.style.width = rect.width + "px";
-        popup.style.left = rect.left + "px";
-        popup.style.top = (rect.bottom + window.scrollY) + "px";
-    }
-
-    // Reposition the popup on window resize
-    window.addEventListener('resize', () => {
-        positionPopup();
-    });
-
-    // Optional: Reposition if user scrolls
-    window.addEventListener('scroll', () => {
-        positionPopup();
-    });
-
-    // Optional: Close popup on outside click
-    document.addEventListener('click', function(event) {
-        const popup = document.getElementById("ActivePopup");
-        if (popup && !popup.contains(event.target) && event.target !== activeButton) {
-            popup.remove();
-            activeButton = null;
-        }
-    });
-
-    // Education expand
+    <script>
     function toggle(element)
     {
         const bottomDiv = element.nextElementSibling;
         bottomDiv.classList.toggle("Show");
     }
+
+    const bar = document.querySelector(".DivIconBar");
+    const wraps = document.querySelectorAll(".DivWrap");
+
+    // scaling hover effect
+    bar.addEventListener("mousemove", (e) => {
+        const rect = bar.getBoundingClientRect();
+        const mouseX = e.clientX - rect.left;
+        let maxScale = 1;
+
+        wraps.forEach((wrap) => {
+            const icon = wrap.querySelector(".DivIcon");
+            const wrapRect = wrap.getBoundingClientRect();
+            const iconCenter = wrapRect.left - rect.left + wrapRect.width / 2;
+            const distance = Math.abs(mouseX - iconCenter);
+            const influence = 150;
+            const max = 2.0, min = 1.0;
+
+            let scale = max - (distance / influence) * (max - min);
+            if (scale < min) scale = min;
+
+            icon.style.transform = `scale(${scale})`;
+            wrap.style.width = 40 * scale + "px";
+            if (scale > maxScale) maxScale = scale;
+        });
+
+        bar.style.width = 600 + (maxScale - 1) * 120 + "px";
+    });
+
+    bar.addEventListener("mouseleave", () => {
+        wraps.forEach((wrap) => {
+            const icon = wrap.querySelector(".DivIcon");
+            icon.style.transform = "scale(1)";
+            wrap.style.width = "40px";
+        });
+        bar.style.width = "600px";
+    });
+
+    function setupPopup(iconSelector) {
+        const icon = document.querySelector(iconSelector);
+        const popup = icon.parentElement.querySelector(".DivPopup");
+
+        icon.addEventListener("mouseenter", () => {
+            popup.classList.add("visible");
+        });
+
+        icon.addEventListener("mouseleave", () => {
+            setTimeout(() => {
+                if (!popup.matches(":hover")) {
+                    popup.classList.remove("visible");
+                }
+            }, 100);
+        });
+
+        popup.addEventListener("mouseleave", () => {
+            popup.classList.remove("visible");
+        });
+    }
+
+    setupPopup(".theme-icon");
+    setupPopup(".lang-icon");
+
+
+    function positionPopup(icon, popup, offsetX=0) {
+        const rect = icon.getBoundingClientRect();
+        popup.style.left = rect.left + rect.width / 2 + offsetX + "px";
+        popup.style.top = rect.top - popup.offsetHeight + "px";
+    }
+
+    function scrollToTop() {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+
 </script>
 
-
-
 </body>
-
 </html>
-
