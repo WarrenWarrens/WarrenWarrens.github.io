@@ -1,17 +1,81 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Icon Bar</title>
-    <style>
+<style>
+    .DivBar
+    {
+        width: 90%;
+        max-width: 700px;
+        height: auto;
+        align-content: center;
 
-    </style>
-</head>
-<body>
+    }
 
-<script>
+    .divOne {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        align-content: center;
+        /* 👆 Each item must be at least 150px wide,
+           but can grow to fill available space */
+        gap: 20px;
+        padding: 20px;
+    }
+
+    .smallDiv {
+        height: 150px;
+        background: #007bff;
+        color: white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 10px;
+    }
 
 
-</script>
-</body>
-</html>
+    .MainBody2 {
+        align-content: center;
+        width: 100%;
+        display: grid;
+        place-items: center;
+        padding-bottom: 150px; /* space so content doesn't overlap bar */
+    }
+</style>
+<main class ="MainBody2">
+    <div class = "DivBar">
+        <div class="divOne">
+            <div class="smallDiv">1</div>
+            <div class="smallDiv">2</div>
+            <div class="smallDiv">3</div>
+            <div class="smallDiv">4</div>
+            <div class="smallDiv">5</div>
+            <div class="smallDiv">6</div>
+            <div class="smallDiv">7</div>
+            <div class="smallDiv">8</div>
+        </div>
+    </div>
+
+    <div class = "DivBar">
+        <div class="divOne">
+            <div class="smallDiv">1</div>
+            <div class="smallDiv">2</div>
+            <div class="smallDiv">3</div>
+            <div class="smallDiv">4</div>
+            <div class="smallDiv">5</div>
+            <div class="smallDiv">6</div>
+            <div class="smallDiv">7</div>
+            <div class="smallDiv">8</div>
+        </div>
+    </div>
+
+    <div class = "DivBar">
+        <div class="divOne">
+            <div class="smallDiv">1</div>
+            <div class="smallDiv">2</div>
+            <div class="smallDiv">3</div>
+            <div class="smallDiv">4</div>
+            <div class="smallDiv">5</div>
+            <div class="smallDiv">6</div>
+            <div class="smallDiv">7</div>
+            <div class="smallDiv">8</div>
+        </div>
+    </div>
+</main>
+
+

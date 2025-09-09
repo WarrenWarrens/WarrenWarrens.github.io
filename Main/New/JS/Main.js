@@ -76,3 +76,29 @@ function scrollToTop() {
     window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
+function scrollToContact()
+{
+    window.scrollTo({top: 100, behavior: 'smooth'});
+}
+
+const buttons = document.querySelectorAll(".DivButtons button");
+const contents = document.querySelectorAll(".DivBar4");
+
+buttons.forEach(button => {
+    button.addEventListener("click", () => {
+        const targetId = button.getAttribute("data-target");
+        const targetContent = document.getElementById(targetId);
+        const isActive = targetContent.classList.contains("active");
+
+        // Reset all
+        buttons.forEach(b => b.classList.remove("active"));
+        contents.forEach(c => c.classList.remove("active"));
+
+        if (!isActive) {
+            // Activate this button + its content
+            button.classList.add("active");
+            targetContent.classList.add("active");
+        }
+        // If isActive, clicking again will close (do nothing extra)
+    });
+});

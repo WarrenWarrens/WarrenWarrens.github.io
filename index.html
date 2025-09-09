@@ -4,30 +4,32 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <head>
     <link rel="stylesheet" href="Main/New/CSS/Main.css">
-    <title>TITLE</title>
+    <title>Portfolio Website</title>
 </head>
 
 <body>
-
     <main class ="MainBody2">
-<!--        <div class ="DivBar">-->
-<!--            <div>-->
-
-<!--            </div>-->
-
-<!--            <div>-->
-<!--                Hello! Im Warren-->
-<!--            </div>-->
-<!--        </div>-->
 
         <div class ="DivBar">
-            <div class =DivBar2">
-                <h1>
-                    About
-                </h1>
+            <div class ="DivBar2">
+                <h1>About</h1>
             </div>
             <div class =DivBar2">
                 <p>I am a Computer Science student in my fourth year at Ontario Tech University.</p>
+            </div>
+        </div>
+
+        <div class ="DivBar">
+            <div class = "DivBar2">
+                <h1>Github, Linkedin, Leetcode, Twitter, Email</h1>
+            </div>
+
+            <div class ="DivGrid">
+                <div class ="DivGridIcon">H</div>
+                <div class ="DivGridIcon">Hello</div>
+                <div class ="DivGridIcon">Hello</div>
+                <div class ="DivGridIcon">Hello</div>
+                <div class ="DivGridIcon">Hello</div>
             </div>
         </div>
 
@@ -180,26 +182,40 @@
         </div>
 
         <div class ="DivBar">
-            <div class =DivBar2">
+            <div class ="DivBar2">
                 <h1>
                     Skills
                 </h1>
             </div>
-            <div class =DivBar2">
-                <div class ="DivSide">Hello</div>
-                <div class ="DivSide">Hello</div>
-                <div class ="DivSide">Hello</div>
-                <div class ="DivSide">Hello</div>
-                <div class ="DivSide">Hello</div>
-                <div class ="DivSide">Hello</div>
-                <div class ="DivSide">Hello</div>
-                <div class ="DivSide">Hello</div>
-                <div class ="DivSide">Hello</div>
-                <div class ="DivSide">Hello</div>
-                <div class ="DivSide">Hello</div>
-                <div class ="DivSide">Hello</div>
-                <div class ="DivSide">Hello</div>
-                <div class ="DivSide">Hello</div>
+            <div class ="DivBar2">
+                <div class ="DivBar2">
+                    <div class ="DivButtons">
+                        <button data-target="content1">Languages</button>
+                        <button data-target="content2">Software</button>
+                        <button data-target="content3">Practices</button>
+                        <button data-target="content4">Web Dev.</button>
+                        <button data-target="content5">Button 5</button>
+                    </div>
+                </div>
+
+                <div class ="DivBar2">
+                    <div id="content1" class="DivBar4">
+                        <div class ="DivGrid">
+                            <div class="DivGridIcon">Hello</div>
+                            <div class="DivGridIcon">Hello</div>
+                            <div class="DivGridIcon">Hello</div>
+                            <div class="DivGridIcon">Hello</div>
+                            <div class="DivGridIcon">Hello</div>
+                            <div class="DivGridIcon">Hello</div>
+
+
+                        </div>
+                    </div>
+                    <div id="content2" class="DivBar4">This is content for button 2.</div>
+                    <div id="content3" class="DivBar4">This is content for button 3.</div>
+                    <div id="content4" class="DivBar4">This is content for button 4.</div>
+                    <div id="content5" class="DivBar4">This is content for button 5.</div>
+                </div>
 
             </div>
         </div>
@@ -217,25 +233,7 @@
 
         <div class="DivWrap">
             <div class="DivIcon">
-                <a href="https://github.com/WarrenWarrens" target="_blank" rel="noopener noreferrer">
-                    <img border="0" alt="GitHub" src="Main/Old/Media/icons8-github-48.png" width="48" height="48">
-                </a>
-            </div>
-        </div>
-
-        <div class="DivWrap">
-            <div class="DivIcon">
-                <a href="https://www.linkedin.com/in/ryan-warrener/" target="_blank" rel="noopener noreferrer">
-                    <img border="0" alt="Linkedin" src="Main/Old/Media/icons8-github-48.png" width="48" height="48">
-                </a>
-            </div>
-        </div>
-
-        <div class="DivWrap">
-            <div class="DivIcon">
-                <a href="https://leetcode.com/u/WarrenWarren/" target="_blank" rel="noopener noreferrer">
-                    <img border="0" alt="LeetCode" src="Main/Old/Media/icons8-github-48.png" width="48" height="48">
-                </a>
+                <button onclick="scrollToContact()" class="ScrollToTopButton">Contact</button>
             </div>
         </div>
 

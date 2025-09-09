@@ -4,6 +4,8 @@
     max-width: 700px;
     height: auto;
     align-content: center;
+    border-style: solid;
+    border-color: red;
 
 }
 
@@ -90,8 +92,8 @@ body {
     bottom: 20px; /* pinned to bottom */
     left: 50%;
     transform: translateX(-50%);
-    width: 80%;
-    max-width: 500px;
+    width: 50%;
+    max-width: 350px;
     height: 100px;
 }
 
@@ -170,5 +172,106 @@ body {
 @keyframes slideUp {
     from { opacity: 0; transform: translate(-50%, 10px); }
     to { opacity: 1; transform: translate(-50%, 0); }
+}
+
+.DivButtons
+{
+    gap: 40px;
+    align-content: center;
+    display: flex;          /* Use flexbox */
+    justify-content: center; /* Horizontally center */
+    margin-top: 10px;
+}
+
+.DivButtons button
+{
+    align-content: center;
+    height: auto;
+    width: auto;
+    cursor: pointer;
+    border: 1px solid #ccc;
+    background: #f5f5f5;
+    transition: background 0.3s;
+}
+
+.DivButtons button.active {
+    background: #007bff;
+    color: white;
+    border-color: #007bff;
+}
+
+.DivBar4 {
+    display: none;
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 10px;
+}
+
+.DivBar4.active {
+    display: block;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.DivIcon2
+{
+    display: inline-block;
+    align-content: center;
+    height: 100px;
+    width: 100px;
+    padding: 10px;
+    gap: 10px;
+    border-radius: 5px;
+    border-style: solid;
+    border-color: #121212;
+    background-color: lightslategrey;
+}
+
+.DivIcon2:hover
+{
+    background-color: #002ed3;
+}
+
+.DivGrid
+{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(75px, 1fr));
+    /* 👆 min 150px wide per div, max expand to fill space */
+    /*padding: 10px;*/
+    gap: 20px;
+    padding: 20px;
+    align-content: center;
+    background-color: lightslategrey;
+
+}
+
+.DivGridIcon{
+    height: 75px;
+    background: #007bff;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    width: 75px;
+}
+
+
+.DivGridIcon:hover
+{
+    background-color: #002ed3;
+}
+
+.divOne {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    align-content: center;
+    /* 👆 Each item must be at least 150px wide,
+       but can grow to fill available space */
+    gap: 20px;
+    padding: 20px;
 }
 
