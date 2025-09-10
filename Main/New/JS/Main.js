@@ -12,6 +12,7 @@ bar.addEventListener("mousemove", (e) => {
     const rect = bar.getBoundingClientRect();
     const mouseX = e.clientX - rect.left;
     let maxScale = 1;
+    bar.style.height = 100 + "px";
 
     wraps.forEach((wrap) => {
         const icon = wrap.querySelector(".DivIcon");
@@ -38,7 +39,8 @@ bar.addEventListener("mouseleave", () => {
         icon.style.transform = "scale(1)";
         wrap.style.width = "40px";
     });
-    bar.style.width = "600px";
+    bar.style.width = "250px";
+    bar.style.height ="75px";
 });
 
 function setupPopup(iconSelector) {
