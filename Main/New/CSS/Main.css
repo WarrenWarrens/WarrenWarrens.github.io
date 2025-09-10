@@ -176,12 +176,25 @@ body {
 
 .DivButtons
 {
-    gap: 40px;
+    gap: 20px;
     align-content: center;
     display: flex;          /* Use flexbox */
     justify-content: center; /* Horizontally center */
     margin-top: 10px;
+    flex-wrap: wrap;
 }
+
+.DivButtons a
+{
+    align-content: center;
+    height: auto;
+    width: auto;
+    cursor: pointer;
+    border: 1px solid #ccc;
+    background: #f5f5f5;
+    transition: background 0.3s;
+}
+
 
 .DivButtons button
 {
@@ -200,13 +213,14 @@ body {
     border-color: #007bff;
 }
 
-.DivBar4 {
+.DivBar4
+{
     display: none;
     opacity: 0;
     transform: translateY(-10px);
     transition: opacity 0.3s ease, transform 0.3s ease;
-    border: 1px solid #ccc;
-    border-radius: 8px;
+    /*border: 1px solid #ccc;*/
+    /*border-radius: 8px;*/
     padding: 10px;
 }
 
@@ -244,7 +258,7 @@ body {
     gap: 20px;
     padding: 20px;
     align-content: center;
-    background-color: lightslategrey;
+        /*background-color: lightslategrey;*/
 
 }
 
@@ -275,3 +289,40 @@ body {
     padding: 20px;
 }
 
+
+
+.grid
+{
+    border-radius: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; /* 👈 centers every row */
+    gap: 15px;
+}
+
+.item {
+    background: #4a90e2;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    height: 100px;
+    width: 100px;
+    border-radius: 8px;
+    cursor: grab;
+    user-select: none;
+    transition: transform 150ms ease;
+}
+
+/* Make ghost invisible */
+.sortable-ghost {
+    opacity: 0;
+}
+
+/* Highlight the chosen item (the real one) */
+.sortable-chosen {
+    background: #357ab8;
+    cursor: grabbing;
+    transform: scale(1.05);
+}

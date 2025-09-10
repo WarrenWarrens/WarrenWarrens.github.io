@@ -102,3 +102,15 @@ buttons.forEach(button => {
         // If isActive, clicking again will close (do nothing extra)
     });
 });
+
+const grids = document.querySelectorAll(".grid");
+
+grids.forEach(grid => {
+    Sortable.create(grid, {
+        group: "shared",  // 👈 allows drag between grids
+        animation: 150,
+        swapThreshold: 0.65,
+        chosenClass: "sortable-chosen",
+        ghostClass: "sortable-ghost",
+    });
+});

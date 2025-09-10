@@ -1,81 +1,77 @@
-<style>
-    .DivBar
-    {
-        width: 90%;
-        max-width: 700px;
-        height: auto;
-        align-content: center;
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Centered Sortable Grid</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            margin: 0;
+            padding: 20px;
+        }
 
-    }
+        .grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center; /* 👈 centers every row */
+            gap: 15px;
+        }
 
-    .divOne {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-        align-content: center;
-        /* 👆 Each item must be at least 150px wide,
-           but can grow to fill available space */
-        gap: 20px;
-        padding: 20px;
-    }
+        .item {
+            flex: 0 1 120px; /* fixed item width */
+            height: 100px;
+            background: #4a90e2;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 8px;
+            cursor: grab;
+            user-select: none;
+            transition: transform 150ms ease;
+        }
 
-    .smallDiv {
-        height: 150px;
-        background: #007bff;
-        color: white;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        border-radius: 10px;
-    }
+        .sortable-ghost {
+            opacity: 0; /* hide ghost */
+        }
 
+        .sortable-chosen {
+            background: #357ab8;
+            transform: scale(1.05);
+            cursor: grabbing;
+        }
+    </style>
+</head>
+<body>
+<div class="grid" id="myGrid">
+    <div class="item">1</div>
+    <div class="item">2</div>
+    <div class="item">3</div>
+    <div class="item">4</div>
+    <div class="item">5</div>
+    <div class="item">3</div>
+    <div class="item">4</div>
+    <div class="item">5</div>
+    <div class="item">3</div>
+    <div class="item">4</div>
+    <div class="item">5</div>
+    <div class="item">3</div>
+    <div class="item">4</div>
+    <div class="item">5</div>
+    <div class="item">3</div>
+    <div class="item">4</div>
+    <div class="item">5</div>
+</div>
 
-    .MainBody2 {
-        align-content: center;
-        width: 100%;
-        display: grid;
-        place-items: center;
-        padding-bottom: 150px; /* space so content doesn't overlap bar */
-    }
-</style>
-<main class ="MainBody2">
-    <div class = "DivBar">
-        <div class="divOne">
-            <div class="smallDiv">1</div>
-            <div class="smallDiv">2</div>
-            <div class="smallDiv">3</div>
-            <div class="smallDiv">4</div>
-            <div class="smallDiv">5</div>
-            <div class="smallDiv">6</div>
-            <div class="smallDiv">7</div>
-            <div class="smallDiv">8</div>
-        </div>
-    </div>
-
-    <div class = "DivBar">
-        <div class="divOne">
-            <div class="smallDiv">1</div>
-            <div class="smallDiv">2</div>
-            <div class="smallDiv">3</div>
-            <div class="smallDiv">4</div>
-            <div class="smallDiv">5</div>
-            <div class="smallDiv">6</div>
-            <div class="smallDiv">7</div>
-            <div class="smallDiv">8</div>
-        </div>
-    </div>
-
-    <div class = "DivBar">
-        <div class="divOne">
-            <div class="smallDiv">1</div>
-            <div class="smallDiv">2</div>
-            <div class="smallDiv">3</div>
-            <div class="smallDiv">4</div>
-            <div class="smallDiv">5</div>
-            <div class="smallDiv">6</div>
-            <div class="smallDiv">7</div>
-            <div class="smallDiv">8</div>
-        </div>
-    </div>
-</main>
-
-
+<script src="https://cdn.jsdelivr.net/npm/sortablejs@1.15.2/Sortable.min.js"></script>
+<script>
+    Sortable.create(document.getElementById("myGrid"), {
+        animation: 150,
+        swapThreshold: 0.65,
+        chosenClass: "sortable-chosen",
+        ghostClass: "sortable-ghost",
+    });
+</script>
+</body>
+</html>
