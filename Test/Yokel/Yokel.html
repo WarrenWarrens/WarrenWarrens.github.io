@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html class ="HTML" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Yokel</title>
+
+  <link rel="stylesheet" href="Yokel.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Sortable/1.15.0/Sortable.min.js"></script>
+
+
+</head>
+
+<body class="BodyOverLord">
+
+<main class="Main">
+
+  <div id="Left">
+    <div class="DivLine">METAL YOKEL</div>
+
+    <div id="Centre">I shrink and grow as guides appear!</div>
+
+<!--    <div class="DivGuide" style="background-color: #005f5f;">-->
+<!--      <div id="Settings">-->
+<!--        <div class="DivSetting">A</div>-->
+<!--        <div class="DivSetting">B</div>-->
+<!--        <div class="DivSetting">C</div>-->
+<!--      </div>-->
+<!--    </div>-->
+
+    <div id="DynamicGuideContainer">
+
+      <div id="HiddenGuide1" class="HiddenGuide" style="background-color: gold; color: black;">
+        <div class="DivSetting">A</div>
+        <div class="DivSetting">B</div>
+        <div class="DivSetting">C</div>
+      </div>
+
+      <div id="HiddenGuide2" class="HiddenGuide" style="background-color: crimson;">
+        <div class="DivSetting">A</div>
+        <div class="DivSetting">B</div>
+        <div class="DivSetting">C</div>
+      </div>
+
+      <div id="HiddenGuide3" class="HiddenGuide" style="background-color: indigo;">
+        I am the PURPLE Guide (3)
+      </div>
+
+    </div>
+
+    <div class="DivGuide">
+      <div id="GuideLeft">
+        <div class="DivSetting" onclick="toggleGuide('1', this)">1</div>
+        <div class="DivSetting" onclick="toggleGuide('2', this)">2</div>
+        <div class="DivSetting" onclick="toggleGuide('3', this)">3</div>
+      </div>
+
+      <div id="GuideRight">
+        ORB TALKIN
+      </div>
+    </div>
+
+  </div>
+
+  <div id="Right">
+    <div class="DivLine">LINE</div>
+    <div id="Ad">
+      <div class="DivAd">1</div>
+      <div class="DivAd">2</div>
+      <div class="DivAd">3</div>
+      <div class="DivAd">4</div>
+      <div class="DivAd">5</div>
+      <div class="DivAd">6</div>
+      <div class="DivAd">7</div>
+      <div class="DivAd">8</div>
+      <div class="DivAd">9</div>
+
+    </div>
+    <div id="Orb">ORB</div>
+  </div>
+</main>
+
+<script>
+  /**
+   * Logic to Toggle Guides
+   * @param {string} idSuffix - The number of the guide (1, 2, or 3)
+   * @param {HTMLElement} btnElement - The button that was clicked
+   */
+  function toggleGuide(idSuffix, btnElement) {
+
+    var targetId = 'HiddenGuide' + idSuffix;
+    var targetDiv = document.getElementById(targetId);
+
+    // 1. Check if the clicked guide is ALREADY visible
+    var isCurrentlyVisible = targetDiv.style.display === 'flex';
+
+    // 2. Hide ALL guides first (reset state)
+    var allGuides = document.querySelectorAll('.HiddenGuide');
+    allGuides.forEach(function(div) {
+      div.style.display = 'none';
+    });
+
+    // 3. Remove 'active-btn' class from ALL buttons
+    var allBtns = document.querySelectorAll('#GuideLeft .DivSetting');
+    allBtns.forEach(function(btn) {
+      btn.classList.remove('active-btn');
+    });
+
+    // 4. If it wasn't visible before, Show it now
+    // (If it WAS visible, we do nothing, effectively closing it)
+    if (!isCurrentlyVisible) {
+      targetDiv.style.display = 'flex'; // Show the target
+      btnElement.classList.add('active-btn'); // Highlight the button
+    }
+  }
+
+  // --- SORTABLE INITIALIZATION ---
+  function initSortable(id, direction) {
+    var el = document.getElementById(id);
+    if (!el) return;
+    Sortable.create(el, {
+      animation: 150,
+      direction: direction,
+      ghostClass: 'SortGhost',
+      dragClass: 'SortDrag',
+      scroll: true,
+      scrollSensitivity: 30,
+      scrollSpeed: 10,
+    });
+  }
+
+  initSortable('HiddenGuide1', 'horizontal');
+  initSortable('HiddenGuide2', 'horizontal');
+  initSortable('GuideLeft', 'horizontal');
+  initSortable('Ad', 'vertical');
+</script>
+</body>
+</html>

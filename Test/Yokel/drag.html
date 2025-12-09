@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html class="HTML" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Yokel Dynamic Guides</title>
+    <style>
+        /* --- CORE LAYOUT --- */
+        .HTML, .BodyOverLord {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            font-family: sans-serif;
+        }
+
+        .Main {
+            height: calc(100vh - 20px);
+            width: calc(100vw - 20px);
+            margin: 10px;
+            background: orangered;
+            display: flex;
+            box-sizing: border-box;
+        }
+
+        /* --- COLUMNS --- */
+        #Left {
+            background-color: #003cff;
+            width: calc(100% - 100px);
+            height: 100%;
+            display: flex;
+            flex-direction: column; /* Stacks children vertically */
+        }
+
+        #Right {
+            background-color: #4caf50;
+            width: 100px;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* --- CONTENT BLOCKS --- */
+        .DivLine {
+            width: 100%;
+            height: 25px;
+            background-color: #e10202;
+            color: white;
+            font-size: 12px;
+            display: flex;
+            align-items: center;
+            padding-left: 5px;
+            flex: 0 0 auto; /* Stop shrinking */
+        }
+
+        #Centre {
+            background-color: pink;
+            /* Flex-grow makes it take up all available space not used by guides */
+            flex: 1;
+            overflow-y: auto;
+            padding: 10px;
+        }
+
+        /* --- DYNAMIC HIDDEN LAYER --- */
+        /* This is the container for the guides that appear/disappear */
+        #DynamicGuideContainer {
+            width: 100%;
+            /* Starts with 0 height so it doesn't take space when empty */
+            min-height: 0;
+            background-color: #222;
+            transition: all 0.3s ease;
+        }
+
+        /* These are the actual guides that will toggle */
+        .HiddenGuide {
+            display: none; /* Hidden by default */
+            width: 100%;
+            height: 50px;
+            color: white;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            font-weight: bold;
+        }
+
+        /* --- SORTABLE CONTAINERS --- */
+        .DivGuide {
+            width: 100%;
+            height: 50px;
+            background-color: teal;
+            display: flex;
+            flex: 0 0 auto; /* Stop shrinking */
+        }
+
+        #Settings, #GuideLeft {
+            display: flex;
+            flex-direction: row;
+            overflow-x: auto;
+            overflow-y: hidden;
+            scroll-snap-type: x mandatory;
+            align-items: center;
+            padding-left: 10px;
+            height: 100%; /* Fill parent */
+        }
+
+        #Settings { width: 100%; }
+        #GuideLeft { width: 25%; }
+
+        #GuideRight {
+            width: 75%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+        }
+
+        #Ad {
+            flex: 1;
+            background-color: #FF9F55;
+            overflow-y: auto;
+            overflow-x: hidden;
+            scroll-snap-type: y mandatory;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding-top: 10px;
+        }
+
+        #Orb {
+            width: 100px;
+            height: 100px;
+            background-color: #121212;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex: 0 0 auto;
+        }
+
+        /* --- DRAGGABLE ITEMS --- */
+        .DivSetting, .DivAd {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            cursor: pointer; /* Changed to pointer to indicate clickability */
+            user-select: none;
+            scroll-snap-align: start;
+            flex: 0 0 auto;
+            border-radius: 4px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+        }
+
+        .DivSetting {
+            width: 25px;
+            height: 25px;
+            margin-right: 10px;
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        /* Style for the buttons in GuideLeft specifically */
+        #GuideLeft .DivSetting {
+            background-color: #fff;
+            color: #333;
+            border: 2px solid #333;
+        }
+
+        /* Highlights which button is currently active */
+        #GuideLeft .DivSetting.active-btn {
+            background-color: #e10202; /* Red */
+            color: white;
+            border-color: white;
+        }
+
+        .DivAd {
+            width: 50px;
+            height: 50px;
+            margin-bottom: 10px;
+            background-color: #2196F3;
+            color: white;
+        }
+
+        .SortGhost { opacity: 0.4; background-color: #ddd; border: 2px dashed #999; }
+        .SortDrag { cursor: grabbing; }
+    </style>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Sortable/1.15.0/Sortable.min.js"></script>
+</head>
+
+<body class="BodyOverLord">
+
+<main class="Main">
+
+    <div id="Left">
+        <div class="DivLine">METAL YOKEL</div>
+
+        <div id="Centre">I shrink and grow as guides appear!</div>
+
+        <div class="DivGuide" style="background-color: #005f5f;">
+            <div id="Settings">
+                <div class="DivSetting">A</div>
+                <div class="DivSetting">B</div>
+                <div class="DivSetting">C</div>
+            </div>
+        </div>
+
+        <div id="DynamicGuideContainer">
+
+            <div id="HiddenGuide1" class="HiddenGuide" style="background-color: gold; color: black;">
+                I am the GOLD Guide (1)
+            </div>
+
+            <div id="HiddenGuide2" class="HiddenGuide" style="background-color: crimson;">
+                I am the RED Guide (2)
+            </div>
+
+            <div id="HiddenGuide3" class="HiddenGuide" style="background-color: indigo;">
+                I am the PURPLE Guide (3)
+            </div>
+
+        </div>
+
+        <div class="DivGuide">
+            <div id="GuideLeft">
+                <div class="DivSetting" onclick="toggleGuide('1', this)">1</div>
+                <div class="DivSetting" onclick="toggleGuide('2', this)">2</div>
+                <div class="DivSetting" onclick="toggleGuide('3', this)">3</div>
+            </div>
+
+            <div id="GuideRight">
+                Right Area
+            </div>
+        </div>
+
+    </div>
+
+    <div id="Right">
+        <div class="DivLine">LINE</div>
+        <div id="Ad">
+            <div class="DivAd">1</div>
+            <div class="DivAd">2</div>
+            <div class="DivAd">3</div>
+        </div>
+        <div id="Orb">Orb</div>
+    </div>
+</main>
+
+<script>
+    /**
+     * Logic to Toggle Guides
+     * @param {string} idSuffix - The number of the guide (1, 2, or 3)
+     * @param {HTMLElement} btnElement - The button that was clicked
+     */
+    function toggleGuide(idSuffix, btnElement) {
+
+        var targetId = 'HiddenGuide' + idSuffix;
+        var targetDiv = document.getElementById(targetId);
+
+        // 1. Check if the clicked guide is ALREADY visible
+        var isCurrentlyVisible = targetDiv.style.display === 'flex';
+
+        // 2. Hide ALL guides first (reset state)
+        var allGuides = document.querySelectorAll('.HiddenGuide');
+        allGuides.forEach(function(div) {
+            div.style.display = 'none';
+        });
+
+        // 3. Remove 'active-btn' class from ALL buttons
+        var allBtns = document.querySelectorAll('#GuideLeft .DivSetting');
+        allBtns.forEach(function(btn) {
+            btn.classList.remove('active-btn');
+        });
+
+        // 4. If it wasn't visible before, Show it now
+        // (If it WAS visible, we do nothing, effectively closing it)
+        if (!isCurrentlyVisible) {
+            targetDiv.style.display = 'flex'; // Show the target
+            btnElement.classList.add('active-btn'); // Highlight the button
+        }
+    }
+
+    // --- SORTABLE INITIALIZATION ---
+    function initSortable(id, direction) {
+        var el = document.getElementById(id);
+        if (!el) return;
+        Sortable.create(el, {
+            animation: 150,
+            direction: direction,
+            ghostClass: 'SortGhost',
+            dragClass: 'SortDrag',
+            scroll: true,
+            scrollSensitivity: 30,
+            scrollSpeed: 10,
+        });
+    }
+
+    initSortable('Settings', 'horizontal');
+    initSortable('GuideLeft', 'horizontal');
+    initSortable('Ad', 'vertical');
+</script>
+
+</body>
+</html>

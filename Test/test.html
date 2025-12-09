@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>MetalYokel</title>
   <link rel="stylesheet" href="Test.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Sortable/1.15.2/Sortable.min.js"></script>
 
 </head>
 
@@ -11,32 +12,103 @@
 
   <table class="TableOne">
     <tr class="TrLong">
-      <td>Hello</td>
+      <td><div class ="DivTitle">
+        Metal Yokel
+      </div></td>
     </tr>
   </table>
 
   <table class="TableTwo">
     <thead>
     <tr>
-      <th colspan="2">Name</th>
+      <th colspan="1">Name</th>
       <th>Ads</th>
     </tr>
     </thead>
 
     <tr class="TrMain">
-      <td class ="TdThin">Jill</td>
-      <td class ="TdMain">50</td>
-      <td class ="TdRight">50</td>
-    </tr>
+      <td class ="TdMain">
+        50
+      </td>
+      <td class="TdRight">
+        <div id="AdGrid">
 
-    <tr>
-      <th colspan="3">
-        <button>S1</button>
-        <button>S2</button>
-      </th>
-    </tr>
+          <div class="grid-item">
+            <div class="item-img">
+              <img src="https://placehold.co/64" alt="img">
+            </div>
+          </div>
 
+          <div class="grid-item">
+            <div class="item-img">
+              <img src="https://placehold.co/64" alt="img">
+            </div>
+          </div>
+
+          <div class="grid-item">
+            <div class="item-img">
+              <img src="https://placehold.co/64" alt="img">
+            </div>
+          </div>
+
+          <div class="grid-item">
+            <div class="item-img">
+              <img src="https://placehold.co/64" alt="img">
+            </div>
+          </div>
+
+          <div class="grid-item">
+            <div class="item-img">
+              <img src="https://placehold.co/64" alt="img">
+            </div>
+          </div>
+
+          <div class="grid-item">
+            <div class="item-img">
+              <img src="https://placehold.co/64" alt="img">
+            </div>
+          </div>
+
+          <div class="grid-item">
+            <div class="item-img">
+              <img src="https://placehold.co/64" alt="img">
+            </div>
+          </div>
+
+          <div class="grid-item">
+            <div class="item-img">
+              <img src="https://placehold.co/64" alt="img">
+            </div>
+          </div>
+
+          <div class="grid-item">
+            <div class="item-img">
+              <img src="https://placehold.co/64" alt="img">
+            </div>
+          </div>
+
+        </div>
+      </td>
+    </tr>
   </table>
+
+  <div class ="DivIconBar">
+    <button>Hello</button>
+    <button>No</button>
+    <button>Hi</button>
+    <button>WHA</button>
+  </div>
+
+<script>
+  // Get the container element
+  const gridContainer = document.getElementById('AdGrid');
+
+  // Initialize Sortable
+  new Sortable(gridContainer, {
+    animation: 150, // Animation speed (ms) when sorting
+    ghostClass: 'sortable-ghost' // The class name for the drop placeholder
+  });
+</script>
 
 </body>
 </html>

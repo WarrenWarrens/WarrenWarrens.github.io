@@ -1,53 +1,151 @@
+/* GLOBAL: Makes size calculations much easier */
+* {
+    box-sizing: border-box;
+}
+
 table, th, td {
     border: 1px solid black;
     border-collapse: collapse;
 }
 
-.BodyOne
-{
+.BodyOne {
     align-content: center;
     padding: 15px;
 }
 
-.TableOne
-{
+.TableOne {
     width: 100%;
     height: auto;
-    margin-bottom:  15px;
 }
 
-.TableTwo
-{
+.TableTwo {
     width: 100%;
     height: 100%;
+    margin-top: 20px;
+    margin-bottom: 20px;
+
 }
 
-.TrLong
-{
+.TrLong {
     width: 100%;
     height: auto;
     align-content: center;
+
+
 }
 
-.TdMain
-{
+.TdMain {
     width: 80%;
     background-color: #4a90e2;
+    overflow: scroll;
+
 }
 
 .TrMain
 {
     height: 500px;
 }
-.TdRight
+
+.DivTitle
 {
-    max-width: 20%;
-    min-width: 100px;
-    background-color: #4caf50;
+    align-content: center;
+    text-align: center;
 }
 
-.TdThin
+
+/* ... Keep your global and other table styles ... */
+
+/* 1. TABLE CELL: "Shrink to fit" trick */
+.TdRight {
+    /* Setting width to 1% or 1px forces the table cell to be
+       only as wide as its content (the AdGrid). */
+    width: 1%;
+    white-space: nowrap; /* Prevents cell from collapsing too hard if empty */
+    vertical-align: top;
+    background-color: #4caf50;
+    padding: 10px;
+}
+
+/* 2. CONTAINER: Vertical Stack */
+#AdGrid {
+    display: flex;
+    /* This forces the items to stack vertically (Column)
+       instead of trying to fit in a row */
+    flex-direction: column;
+
+    gap: 10px;
+    padding: 10px;
+    border: 2px dashed #b0bec5;
+    border-radius: 8px;
+    background-color: #ffffff;
+
+    /* Ensures the white box hugs the content */
+    width: fit-content;
+    min-height: 100px;
+    overflow: scroll;
+
+}
+
+/* 3. ITEM: Wider + Internal Layout */
+.grid-item {
+    /* Fixed dimensions for the card */
+    width: 75px;
+    height: 80px;
+
+    background-color: #0277bd;
+    color: white;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    cursor: grab;
+
+    /* Internal Layout: Row to hold Text (Left) and Image (Right) */
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between; /* Pushes text left, image right */
+    padding: 8px; /* Internal spacing */
+    box-sizing: border-box; /* Ensures padding doesn't increase width */
+}
+
+.grid-item:active {
+    cursor: grabbing;
+}
+
+.item-img {
+    width: 64px;
+    height: 64px;
+    background-color: #ccc; /* Fallback color */
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.item-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.sortable-ghost {
+    opacity: 0.4;
+    background: #c8e6c9;
+    border: 2px dashed #4caf50;
+}
+
+.DivIconBar
 {
-    width: 20px;
-    background-color: red;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: white;
+    padding: 20px 40px;
+    box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+    gap: 15px;
+    position: fixed;
+    bottom: 20px; /* pinned to bottom */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 250px;
+    max-width: 350px;
+    height: 50px;
 }

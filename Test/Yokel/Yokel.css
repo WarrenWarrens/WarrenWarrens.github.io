@@ -1,0 +1,178 @@
+/* --- CORE LAYOUT --- */
+.HTML, .BodyOverLord {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+}
+
+.Main {
+    height: calc(100vh - 20px);
+    width: calc(100vw - 20px);
+    margin: 10px;
+    background: orangered;
+    display: flex;
+    box-sizing: border-box;
+}
+
+/* --- COLUMNS --- */
+#Left {
+    background-color: #003cff;
+    width: calc(100% - 100px);
+    height: 100%;
+    display: flex;
+    flex-direction: column; /* Stacks children vertically */
+}
+
+#Right {
+    background-color: #4caf50;
+    width: 100px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+/* --- CONTENT BLOCKS --- */
+.DivLine {
+    width: 100%;
+    height: 25px;
+    background-color: #e10202;
+    color: white;
+    font-size: 12px;
+    display: flex;
+    align-items: center;
+    padding-left: 5px;
+    flex: 0 0 auto; /* Stop shrinking */
+}
+
+#Centre {
+    background-color: pink;
+    /* Flex-grow makes it take up all available space not used by guides */
+    flex: 1;
+    overflow-y: auto;
+    padding: 10px;
+}
+
+/* --- DYNAMIC HIDDEN LAYER --- */
+/* This is the container for the guides that appear/disappear */
+#DynamicGuideContainer {
+    width: 100%;
+    /* Starts with 0 height so it doesn't take space when empty */
+    min-height: 0;
+    background-color: #222;
+    transition: all 0.3s ease;
+}
+
+/* These are the actual guides that will toggle */
+.HiddenGuide {
+    display: none; /* Hidden by default */
+    width: 100%;
+    height: 50px;
+    color: white;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+/* --- SORTABLE CONTAINERS --- */
+.DivGuide {
+    width: 100%;
+    height: 50px;
+    background-color: teal;
+    display: flex;
+    flex: 0 0 auto; /* Stop shrinking */
+}
+
+#Settings, #GuideLeft {
+    display: flex;
+    flex-direction: row;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-snap-type: x mandatory;
+    align-items: center;
+    padding-left: 10px;
+    height: 100%; /* Fill parent */
+}
+
+#Settings { width: 100%; }
+#GuideLeft { width: 125px; }
+
+#GuideRight {
+    width: calc(100% - 125px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    background-color: #555555;
+}
+
+#Ad {
+    flex: 1;
+    background-color: #FF9F55;
+    overflow-y: auto;
+    overflow-x: hidden;
+    scroll-snap-type: y mandatory;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 10px;
+}
+
+#Orb {
+    width: 100px;
+    height: 100px;
+    background-color: #121212;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 0 0 auto;
+}
+
+/* --- DRAGGABLE ITEMS --- */
+.DivSetting, .DivAd {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    cursor: pointer; /* Changed to pointer to indicate clickability */
+    user-select: none;
+    scroll-snap-align: start;
+    flex: 0 0 auto;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+.DivSetting {
+    width: 25px;
+    height: 25px;
+    margin-right: 10px;
+    background-color: #4CAF50;
+    color: white;
+}
+
+/* Style for the buttons in GuideLeft specifically */
+#GuideLeft .DivSetting {
+    background-color: #fff;
+    color: #333;
+    border: 2px solid #333;
+}
+
+/* Highlights which button is currently active */
+#GuideLeft .DivSetting.active-btn {
+    background-color: #e10202; /* Red */
+    color: white;
+    border-color: white;
+}
+
+.DivAd {
+    width: 50px;
+    height: 50px;
+    margin-bottom: 10px;
+    background-color: #2196F3;
+    color: white;
+}
+
+.SortGhost { opacity: 0.4; background-color: #ddd; border: 2px dashed #999; }
+.SortDrag { cursor: grabbing; }

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SortableJS Responsive Grid</title>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Sortable/1.15.2/Sortable.min.js"></script>
+
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: #f4f7f6;
+            padding: 20px;
+        }
+
+        h2 {
+            color: #333;
+        }
+
+        /* * 2. The CSS for the responsive grid (using Flexbox)
+         */
+        #sortable-grid {
+            display: flex;
+            flex-wrap: wrap; /* This is the key! Allows items to wrap to the next line */
+            gap: 15px; /* Spacing between items */
+
+            padding: 15px;
+            border: 2px dashed #b0bec5;
+            border-radius: 8px;
+            background-color: #ffffff;
+
+            /* The container's height will adjust automatically based on its content */
+            min-height: 100px;
+        }
+
+        /* * 3. The CSS for the individual draggable items
+         */
+        .grid-item {
+            /* * flex: <grow> <shrink> <basis>
+             * grow: 1  -> Items can grow to fill extra space
+             * shrink: 1 -> Items can shrink if needed
+             * basis: 150px -> Items "want" to be 150px wide
+             */
+            flex: 1 1 150px;
+
+            height: 100px;
+            background-color: #0277bd;
+            color: white;
+            font-weight: bold;
+            font-size: 1.2rem;
+
+            /* Centering the text */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            cursor: grab; /* Visual cue that it's movable */
+        }
+
+        .grid-item:active {
+            cursor: grabbing;
+        }
+
+        /* * 4. Optional: Styling for the SortableJS "ghost"
+         * This is the placeholder that shows where the item will drop.
+         */
+        .sortable-ghost {
+            opacity: 0.4;
+            background: #c8e6c9;
+            border: 2px dashed #4caf50;
+        }
+
+    </style>
+</head>
+<body>
+
+<h2>Sortable Responsive Grid</h2>
+<p>Try dragging and dropping the blue boxes. Then, **resize your browser window** to see the grid adjust and wrap automatically.</p>
+
+<div id="sortable-grid">
+    <div class="grid-item">Item 1</div>
+    <div class="grid-item">Item 2</div>
+    <div class="grid-item">Item 3</div>
+    <div class="grid-item">Item 4</div>
+    <div class="grid-item">Item 5</div>
+    <div class="grid-item">Item 6</div>
+    <div class="grid-item">Item 7</div>
+    <div class="grid-item">Item 8</div>
+</div>
+
+<script>
+    // Get the container element
+    const gridContainer = document.getElementById('sortable-grid');
+
+    // Initialize Sortable
+    new Sortable(gridContainer, {
+        animation: 150, // Animation speed (ms) when sorting
+        ghostClass: 'sortable-ghost' // The class name for the drop placeholder
+    });
+</script>
+
+</body>
+</html>
