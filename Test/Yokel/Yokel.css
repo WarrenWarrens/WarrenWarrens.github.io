@@ -1,4 +1,9 @@
 /* --- CORE LAYOUT --- */
+
+* {
+    box-sizing: border-box;
+}
+
 .HTML, .BodyOverLord {
     height: 100%;
     margin: 0;
@@ -106,8 +111,8 @@
     color: white;
     background-color: #555555;
 }
-
 #Ad {
+    /* Keep your existing styles */
     flex: 1;
     background-color: #FF9F55;
     overflow-y: auto;
@@ -117,6 +122,25 @@
     flex-direction: column;
     align-items: center;
     padding-top: 10px;
+
+    /* --- NEW: Scrollbar Styling for Firefox --- */
+    scrollbar-width: thin;
+    scrollbar-color: #d37c3b #FF9F55; /* Thumb Color | Track Color */
+}
+
+/* --- NEW: Scrollbar Styling for Chrome/Safari/Edge --- */
+#Ad::-webkit-scrollbar {
+    width: 12px;               /* Width of the scrollbar */
+}
+
+#Ad::-webkit-scrollbar-track {
+    background: #FF9F55;       /* THIS IS KEY: Makes the track Orange */
+}
+
+#Ad::-webkit-scrollbar-thumb {
+    background-color: #d37c3b; /* A slightly darker orange for the grabber */
+    border-radius: 10px;       /* Rounded corners */
+    border: 3px solid #FF9F55; /* Creates a nice padding effect */
 }
 
 #Orb {
@@ -176,3 +200,12 @@
 
 .SortGhost { opacity: 0.4; background-color: #ddd; border: 2px dashed #999; }
 .SortDrag { cursor: grabbing; }
+
+
+.DivTerminal
+{
+    display: inline-block;
+    height: 100%;
+    background-color: #555555;
+    width: auto;
+}
