@@ -209,3 +209,20 @@
     background-color: #555555;
     width: auto;
 }
+
+.DivCentre
+{
+    --element-width: 80vw;
+    width: var(--element-width);
+
+    font-size: calc(var(--element-width) / 100);
+}
+
+
+.DivCentreFull
+{
+    width: 100%;
+    height: auto;
+    align-content: center;
+    background-color: #555555;
+}

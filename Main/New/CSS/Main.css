@@ -4,8 +4,8 @@
     max-width: 700px;
     height: auto;
     align-content: center;
-    border-style: solid;
-    border-color: red;
+    /*border-style: solid;*/
+    /*border-color: gold;*/
 
 }
 
@@ -24,7 +24,7 @@
     height: auto;
     align-content: center;
     display: flex;
-    justify-content: space-between; /* Push divleft to left, divright to right */
+    justify-content: space-between;
     align-items: center;
 }
 
@@ -33,7 +33,7 @@
 .DivSide
 {
     display: inline-block;
-    height: auto;
+    height: 75px;
     width: auto;
     padding: 10px;
     border-radius: 5px;
@@ -65,7 +65,7 @@
 
 body {
     margin: 0;
-    background: #f0f0f0;
+    background: whitesmoke;
 }
 
 .MainBody2 {
@@ -108,7 +108,7 @@ body {
 .DivIcon {
     width: 40px;
     height: 40px;
-    background: #4caf50;
+    background: gold;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -155,7 +155,7 @@ body {
     gap: 6px;
 }
 .DivPopup button {
-    background: #4caf50;
+    background: gold;
     border: none;
     color: white;
     padding: 3px 6px;
@@ -163,7 +163,7 @@ body {
     cursor: pointer;
 }
 .DivPopup button:hover {
-    background: #45a049;
+    background: gold;
     display: block;
     /*animation: slideUp 0.2s ease-out;*/
 }
@@ -261,7 +261,7 @@ body {
 
 .DivGridIcon:hover
 {
-    background-color: #002ed3;
+    background-color: gold;
 }
 
 .divOne {
@@ -310,4 +310,33 @@ body {
     background: #357ab8;
     cursor: grabbing;
     transform: scale(1.05);
+}
+
+.DivLeft {
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+    max-width: 600px;
+}
+
+.DivIcon {
+    width: 50px;
+    height: 50px;
+    background-color: #007bff;
+    flex-shrink: 0;
+}
+
+/* 3. The Dynamic Content Area */
+.dynamic-text {
+    /* This makes this div take up all remaining width */
+    flex-grow: 1;
+}
+
+/* Style for paragraphs to ensure they stack nicely */
+.DivText p {
+    margin: 0 0 10px 0; /* Adds spacing below paragraphs */
+}
+
+.DivText p:last-child {
+    margin-bottom: 0; /* Removes spacing after the last paragraph */
 }
