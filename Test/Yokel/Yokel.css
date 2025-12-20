@@ -9,7 +9,13 @@
     margin: 0;
     padding: 0;
     font-family: sans-serif;
+
+    background-image: url(pixelbg.gif);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
 }
+
 
 .Main {
     height: calc(100vh - 20px);
@@ -121,7 +127,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding-top: 10px;
+    padding-top: 30px;
 
     /* --- NEW: Scrollbar Styling for Firefox --- */
     scrollbar-width: thin;
@@ -210,19 +216,41 @@
     width: auto;
 }
 
-.DivCentre
-{
-    --element-width: 80vw;
-    width: var(--element-width);
 
-    font-size: calc(var(--element-width) / 100);
+
+/*SECTION MAIN STUFF*/
+
+.SectionMain {
+    display: none;        /* Hidden by default */
+    flex: 1;              /* Take up all remaining vertical space */
+    overflow-y: auto;     /* Enable scrolling inside this section */
+    flex-direction: column;
+    /*padding: 10px;*/
+
+    /* Inherit the background color or set a new one */
+    background-color: black;
+}
+
+/* Optional: Different colors for different sections to prove it works */
+#SectionMain2 {
+
+}
+#SectionMain3 {
+
 }
 
 
-.DivCentreFull
+.DivCentre
 {
+    display: block;
     width: 100%;
-    height: auto;
-    align-content: center;
-    background-color: #555555;
+    border: 3px solid #73AD21;
+    text-align: center;
+
+}
+
+.PCentre1
+{
+
+    color: white;
 }

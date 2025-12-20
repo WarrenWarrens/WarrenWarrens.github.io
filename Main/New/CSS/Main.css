@@ -33,7 +33,7 @@
 .DivSide
 {
     display: inline-block;
-    height: 75px;
+    height: 85px;
     width: auto;
     padding: 10px;
     border-radius: 5px;
@@ -326,12 +326,6 @@ body {
     flex-shrink: 0;
 }
 
-/* 3. The Dynamic Content Area */
-.dynamic-text {
-    /* This makes this div take up all remaining width */
-    flex-grow: 1;
-}
-
 /* Style for paragraphs to ensure they stack nicely */
 .DivText p {
     margin: 0 0 10px 0; /* Adds spacing below paragraphs */
@@ -339,4 +333,9 @@ body {
 
 .DivText p:last-child {
     margin-bottom: 0; /* Removes spacing after the last paragraph */
+}
+
+#Top
+{
+    padding-top: 60px;
 }

@@ -2,8 +2,15 @@
 <html class="HTML" lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Yokel Dynamic Guides</title>
+    <title>Yokel Final</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Sortable/1.15.0/Sortable.min.js"></script>
+
     <style>
+        /* --- 1. GLOBAL RESET (Fixes the width mismatch) --- */
+        * {
+            box-sizing: border-box;
+        }
+
         /* --- CORE LAYOUT --- */
         .HTML, .BodyOverLord {
             height: 100%;
@@ -18,7 +25,6 @@
             margin: 10px;
             background: orangered;
             display: flex;
-            box-sizing: border-box;
         }
 
         /* --- COLUMNS --- */
@@ -27,7 +33,7 @@
             width: calc(100% - 100px);
             height: 100%;
             display: flex;
-            flex-direction: column; /* Stacks children vertically */
+            flex-direction: column;
         }
 
         #Right {
@@ -38,7 +44,7 @@
             flex-direction: column;
         }
 
-        /* --- CONTENT BLOCKS --- */
+        /* --- HEADERS --- */
         .DivLine {
             width: 100%;
             height: 25px;
@@ -48,46 +54,59 @@
             display: flex;
             align-items: center;
             padding-left: 5px;
-            flex: 0 0 auto; /* Stop shrinking */
+            flex: 0 0 auto;
         }
 
-        #Centre {
-            background-color: pink;
-            /* Flex-grow makes it take up all available space not used by guides */
-            flex: 1;
-            overflow-y: auto;
+        /* --- MAIN SECTIONS (The Swappable Pages) --- */
+        .SectionMain {
+            display: none;        /* Hidden by default */
+            flex: 1;              /* Fill remaining space */
+            overflow-y: auto;     /* Scrollable */
+            flex-direction: column;
             padding: 10px;
+            background-color: pink;
         }
 
-        /* --- DYNAMIC HIDDEN LAYER --- */
-        /* This is the container for the guides that appear/disappear */
+        /* Helper to center content inside a section */
+        .DivCentreFull {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100px;
+            border: 1px dashed #555;
+            margin: 10px 0;
+        }
+
+        .Pre {
+            background: #fff;
+            padding: 10px;
+            overflow-x: auto;
+            border-radius: 4px;
+        }
+
+        /* --- GUIDES (Horizontal Draggables) --- */
         #DynamicGuideContainer {
             width: 100%;
-            /* Starts with 0 height so it doesn't take space when empty */
             min-height: 0;
             background-color: #222;
-            transition: all 0.3s ease;
         }
 
-        /* These are the actual guides that will toggle */
         .HiddenGuide {
-            display: none; /* Hidden by default */
+            display: none;
             width: 100%;
             height: 50px;
             color: white;
             align-items: center;
             justify-content: center;
-            font-size: 1.2rem;
             font-weight: bold;
         }
 
-        /* --- SORTABLE CONTAINERS --- */
         .DivGuide {
             width: 100%;
             height: 50px;
             background-color: teal;
             display: flex;
-            flex: 0 0 auto; /* Stop shrinking */
+            flex: 0 0 auto;
         }
 
         #Settings, #GuideLeft {
@@ -98,20 +117,20 @@
             scroll-snap-type: x mandatory;
             align-items: center;
             padding-left: 10px;
-            height: 100%; /* Fill parent */
+            height: 100%;
         }
-
-        #Settings { width: 100%; }
-        #GuideLeft { width: 25%; }
+        #GuideLeft { width: 125px; }
 
         #GuideRight {
-            width: 75%;
+            width: calc(100% - 125px);
             display: flex;
             align-items: center;
             justify-content: center;
             color: white;
+            background-color: #555555;
         }
 
+        /* --- NAVIGATION / AD BAR (Vertical Draggable) --- */
         #Ad {
             flex: 1;
             background-color: #FF9F55;
@@ -122,6 +141,19 @@
             flex-direction: column;
             align-items: center;
             padding-top: 10px;
+
+            /* SCROLLBAR STYLING */
+            scrollbar-width: thin;
+            scrollbar-color: #d37c3b #FF9F55;
+        }
+
+        /* Chrome/Safari Scrollbar */
+        #Ad::-webkit-scrollbar { width: 12px; }
+        #Ad::-webkit-scrollbar-track { background: #FF9F55; }
+        #Ad::-webkit-scrollbar-thumb {
+            background-color: #d37c3b;
+            border-radius: 10px;
+            border: 3px solid #FF9F55;
         }
 
         #Orb {
@@ -135,13 +167,13 @@
             flex: 0 0 auto;
         }
 
-        /* --- DRAGGABLE ITEMS --- */
+        /* --- DRAGGABLE BUTTONS --- */
         .DivSetting, .DivAd {
             display: flex;
             align-items: center;
             justify-content: center;
             font-weight: bold;
-            cursor: pointer; /* Changed to pointer to indicate clickability */
+            cursor: pointer;
             user-select: none;
             scroll-snap-align: start;
             flex: 0 0 auto;
@@ -153,22 +185,16 @@
             width: 25px;
             height: 25px;
             margin-right: 10px;
-            background-color: #4CAF50;
-            color: white;
-        }
-
-        /* Style for the buttons in GuideLeft specifically */
-        #GuideLeft .DivSetting {
             background-color: #fff;
             color: #333;
             border: 2px solid #333;
         }
 
-        /* Highlights which button is currently active */
-        #GuideLeft .DivSetting.active-btn {
-            background-color: #e10202; /* Red */
-            color: white;
-            border-color: white;
+        /* Highlight Class */
+        .active-btn {
+            background-color: #e10202 !important;
+            color: white !important;
+            border-color: white !important;
         }
 
         .DivAd {
@@ -179,11 +205,11 @@
             color: white;
         }
 
+        /* Sortable Helpers */
         .SortGhost { opacity: 0.4; background-color: #ddd; border: 2px dashed #999; }
         .SortDrag { cursor: grabbing; }
-    </style>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Sortable/1.15.0/Sortable.min.js"></script>
+    </style>
 </head>
 
 <body class="BodyOverLord">
@@ -193,30 +219,41 @@
     <div id="Left">
         <div class="DivLine">METAL YOKEL</div>
 
-        <div id="Centre">I shrink and grow as guides appear!</div>
-
-        <div class="DivGuide" style="background-color: #005f5f;">
-            <div id="Settings">
-                <div class="DivSetting">A</div>
-                <div class="DivSetting">B</div>
-                <div class="DivSetting">C</div>
+        <section class="SectionMain" id="SectionMain1">
+            <div class ="DivCentre">
+                <pre class="Pre">
+░▒▓██████████████▓▒░░▒▓████████▓▒░▒▓████████▓▒░
+░▒▓█▓▒░░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░         ░▒▓█▓▒░
+░▒▓█▓▒░░▒▓█▓▒░░▒▓█▓▒░▒▓██████▓▒░    ░▒▓█▓▒░
+░▒▓█▓▒░░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░         ░▒▓█▓▒░
+░▒▓█▓▒░░▒▓█▓▒░░▒▓█▓▒░▒▓████████▓▒░  ░▒▓█▓▒░
+                </pre>
             </div>
-        </div>
+            <p><strong>Welcome to Metal Yokel</strong><br>
+                This serves as my public exhibit. This section (1) is the fallback; it will appear if you try to close everything else.</p>
+        </section>
+
+        <section class="SectionMain" id="SectionMain2" style="background-color: #ffd1dc;">
+            <h2>APP SECTION</h2>
+            <div class="DivCentreFull">App 1</div>
+            <div class="DivCentreFull">App 2</div>
+        </section>
+
+        <section class="SectionMain" id="SectionMain3" style="background-color: #d1ffdc;">
+            <h2>CHAT SECTION</h2>
+            <div class="DivCentreFull">Chat logs...</div>
+        </section>
 
         <div id="DynamicGuideContainer">
-
             <div id="HiddenGuide1" class="HiddenGuide" style="background-color: gold; color: black;">
-                I am the GOLD Guide (1)
+                Setting Menu
             </div>
-
             <div id="HiddenGuide2" class="HiddenGuide" style="background-color: crimson;">
-                I am the RED Guide (2)
+                App Options
             </div>
-
             <div id="HiddenGuide3" class="HiddenGuide" style="background-color: indigo;">
-                I am the PURPLE Guide (3)
+                Terminal Input
             </div>
-
         </div>
 
         <div class="DivGuide">
@@ -227,58 +264,100 @@
             </div>
 
             <div id="GuideRight">
-                Right Area
+                ORB TALKIN
             </div>
         </div>
-
     </div>
 
     <div id="Right">
         <div class="DivLine">LINE</div>
+
         <div id="Ad">
-            <div class="DivAd">1</div>
-            <div class="DivAd">2</div>
-            <div class="DivAd">3</div>
+            <div id="Btn1" class="DivAd" onclick="toggleSection('1', this)">1</div>
+            <div class="DivAd" onclick="toggleSection('2', this)">2</div>
+            <div class="DivAd" onclick="toggleSection('3', this)">3</div>
+
+            <div class="DivAd" onclick="toggleSection('4', this)">4</div>
+            <div class="DivAd" onclick="toggleSection('5', this)">5</div>
         </div>
-        <div id="Orb">Orb</div>
+
+        <div id="Orb">ORB</div>
     </div>
 </main>
 
 <script>
-    /**
-     * Logic to Toggle Guides
-     * @param {string} idSuffix - The number of the guide (1, 2, or 3)
-     * @param {HTMLElement} btnElement - The button that was clicked
-     */
+    /* ==============================
+       GUIDE LOGIC (Toggle Only)
+       ============================== */
     function toggleGuide(idSuffix, btnElement) {
-
         var targetId = 'HiddenGuide' + idSuffix;
         var targetDiv = document.getElementById(targetId);
-
-        // 1. Check if the clicked guide is ALREADY visible
         var isCurrentlyVisible = targetDiv.style.display === 'flex';
 
-        // 2. Hide ALL guides first (reset state)
-        var allGuides = document.querySelectorAll('.HiddenGuide');
-        allGuides.forEach(function(div) {
-            div.style.display = 'none';
-        });
+        // Hide all guides
+        document.querySelectorAll('.HiddenGuide').forEach(div => div.style.display = 'none');
+        document.querySelectorAll('#GuideLeft .DivSetting').forEach(btn => btn.classList.remove('active-btn'));
 
-        // 3. Remove 'active-btn' class from ALL buttons
-        var allBtns = document.querySelectorAll('#GuideLeft .DivSetting');
-        allBtns.forEach(function(btn) {
-            btn.classList.remove('active-btn');
-        });
-
-        // 4. If it wasn't visible before, Show it now
-        // (If it WAS visible, we do nothing, effectively closing it)
+        // If it wasn't visible, show it. If it was, we just leave it hidden (toggle off).
         if (!isCurrentlyVisible) {
-            targetDiv.style.display = 'flex'; // Show the target
-            btnElement.classList.add('active-btn'); // Highlight the button
+            targetDiv.style.display = 'flex';
+            btnElement.classList.add('active-btn');
         }
     }
 
-    // --- SORTABLE INITIALIZATION ---
+    /* ==============================
+       SECTION LOGIC (Fallback to 1)
+       ============================== */
+    function toggleSection(idSuffix, btnElement) {
+        var targetId = 'SectionMain' + idSuffix;
+        var targetSection = document.getElementById(targetId);
+
+        // 1. Is the clicked section currently open?
+        // We check if it is explicitly set to flex
+        var isAlreadyOpen = (targetSection && targetSection.style.display === 'flex');
+
+        // 2. Hide ALL sections (clean slate)
+        document.querySelectorAll('.SectionMain').forEach(function(sec) {
+            sec.style.display = 'none';
+        });
+
+        // 3. Remove highlight from ALL buttons
+        document.querySelectorAll('#Ad .DivAd').forEach(function(btn) {
+            btn.classList.remove('active-btn');
+        });
+
+        // 4. LOGIC TREE
+        if (!isAlreadyOpen) {
+            // CASE A: Opening a new section (Normal behavior)
+            if (targetSection) {
+                targetSection.style.display = 'flex';
+                btnElement.classList.add('active-btn');
+            } else {
+                // If section doesn't exist (e.g., button 4, 5), default to home
+                openHome();
+            }
+        } else {
+            // CASE B: User clicked the button of the OPEN section (Trying to close it)
+            // Since we just hid everything in step 2, nothing is visible now.
+            // REQUIREMENT: "SectionMain1 be visible if nothing else is"
+            openHome();
+        }
+    }
+
+    // Helper to force open Section 1
+    function openHome() {
+        var homeSec = document.getElementById('SectionMain1');
+        var homeBtn = document.getElementById('Btn1');
+
+        if(homeSec) homeSec.style.display = 'flex';
+        if(homeBtn) homeBtn.classList.add('active-btn');
+    }
+
+    /* ==============================
+       INITIALIZATION
+       ============================== */
+
+    // 1. Setup Sortables
     function initSortable(id, direction) {
         var el = document.getElementById(id);
         if (!el) return;
@@ -293,10 +372,14 @@
         });
     }
 
-    initSortable('Settings', 'horizontal');
+    initSortable('HiddenGuide1', 'horizontal');
+    initSortable('HiddenGuide2', 'horizontal');
     initSortable('GuideLeft', 'horizontal');
     initSortable('Ad', 'vertical');
-</script>
 
+    // 2. Start the page by forcing Section 1 open
+    openHome();
+
+</script>
 </body>
 </html>
