@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Calc</title>
+
+  <style>
+    body {
+      font-family: sans-serif;
+      background-color: #333;
+    }
+
+    .Calc {
+      height: 500px;
+      width: 500px;
+      background-color: #555555;
+      margin: 50px auto;
+      border: 5px solid #333;
+      border-radius: 10px;
+      overflow: hidden; /* Keeps child elements inside rounded corners */
+    }
+
+    .Screen {
+      width: 100%; /* Changed to 100% to fill parent */
+      height: 100px;
+      background-color: #4CAF50;
+      display: flex;
+      justify-content: flex-end; /* Aligns text to the right */
+      align-items: center; /* Aligns text vertically */
+      padding: 0 20px;
+      box-sizing: border-box; /* Ensures padding doesn't widen the box */
+      color: #fff;
+      font-size: 3rem;
+      font-weight: bold;
+      text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+    }
+
+    .Buttons {
+      width: 100%;
+      height: 400px;
+      background-color: #e10202;
+      display: flex; /* Uses flex to put Left and Right side-by-side */
+    }
+
+    .Left {
+      width: 70%;
+      height: 100%;
+      background-color: #f0f0f0;
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr; /* 3 equal columns */
+      grid-template-rows: 1fr 1fr 1fr 1fr; /* 4 equal rows */
+    }
+
+    .Right {
+      width: 30%;
+      height: 100%;
+      background-color: #0252ff;
+      display: grid;
+      grid-template-columns: 1fr; /* 1 column */
+      grid-template-rows: repeat(5, 1fr); /* 5 equal rows */
+    }
+
+    /* General styling for all buttons */
+    button {
+      width: 100%;
+      height: 100%;
+      font-size: 1.5rem;
+      border: 1px solid #ccc;
+      cursor: pointer;
+      transition: background 0.1s;
+    }
+
+    button:active {
+      background-color: #ddd;
+    }
+
+    .NumberButton {
+      background-color: white;
+      color: black;
+    }
+
+    .InputButton {
+      background-color: #0252ff;
+      color: white;
+      font-weight: bold;
+      border: 1px solid #003cc0;
+    }
+
+    /* Make the equal button special */
+    .EqualButton {
+      background-color: #4CAF50;
+      color: white;
+    }
+
+    .ClearButton {
+      background-color: #ff9800;
+      color: white;
+    }
+
+  </style>
+</head>
+<body>
+<section class="Calc">
+  <div class="Screen" id="display">0</div>
+
+  <div class="Buttons">
+
+    <div class="Left">
+      <button class="NumberButton" onclick="appendNumber('7')">7</button>
+      <button class="NumberButton" onclick="appendNumber('8')">8</button>
+      <button class="NumberButton" onclick="appendNumber('9')">9</button>
+
+      <button class="NumberButton" onclick="appendNumber('4')">4</button>
+      <button class="NumberButton" onclick="appendNumber('5')">5</button>
+      <button class="NumberButton" onclick="appendNumber('6')">6</button>
+
+      <button class="NumberButton" onclick="appendNumber('1')">1</button>
+      <button class="NumberButton" onclick="appendNumber('2')">2</button>
+      <button class="NumberButton" onclick="appendNumber('3')">3</button>
+
+      <button class="NumberButton" onclick="appendNumber('0')">0</button>
+      <button class="ClearButton" onclick="clearDisplay()">C</button>
+      <button class="EqualButton" onclick="calculate()">=</button>
+    </div>
+
+    <div class="Right">
+      <button class="InputButton" onclick="chooseOperation('+')">+</button>
+      <button class="InputButton" onclick="chooseOperation('-')">-</button>
+      <button class="InputButton" onclick="chooseOperation('*')">×</button>
+      <button class="InputButton" onclick="chooseOperation('/')">÷</button>
+      <button class="InputButton" onclick="chooseOperation('^')">exp</button>
+    </div>
+
+  </div>
+
+</section>
+
+<script>
+  // 1. Setup Variables
+  // We need to store the current number, the previous number, and the operation selected.
+  let currentInput = '';
+  let previousInput = '';
+  let operation = null;
+
+  // Select the screen element so we can update it
+  const displayElement = document.getElementById('display');
+
+  // 2. Function to add numbers to the screen
+  function appendNumber(number) {
+    // Prevent adding multiple decimals
+    if (number === '.' && currentInput.includes('.')) return;
+
+    // Add the number to the end of the string
+    currentInput = currentInput.toString() + number.toString();
+    updateDisplay();
+  }
+
+  // 3. Function to update the HTML screen
+  function updateDisplay() {
+    if (currentInput === '') {
+      displayElement.innerText = '0';
+    } else {
+      displayElement.innerText = currentInput;
+    }
+  }
+
+  // 4. Function to handle clicking an operator (+, -, etc)
+  function chooseOperation(op) {
+    if (currentInput === '') return;
+
+    // If we already have a previous number, calculate that first
+    if (previousInput !== '') {
+      calculate();
+    }
+
+    operation = op;
+    previousInput = currentInput;
+    currentInput = '';
+  }
+
+  // 5. Function to Calculate the result
+  function calculate() {
+    let calculation;
+    const prev = parseFloat(previousInput);
+    const current = parseFloat(currentInput);
+
+    // If numbers aren't valid, stop
+    if (isNaN(prev) || isNaN(current)) return;
+
+    switch (operation) {
+      case '+':
+        calculation = prev + current;
+        break;
+      case '-':
+        calculation = prev - current;
+        break;
+      case '*':
+        calculation = prev * current;
+        break;
+      case '/':
+        calculation = prev / current;
+        break;
+      case '^':
+        // Using Math.pow for exponents
+        calculation = Math.pow(prev, current);
+        break;
+      default:
+        return;
+    }
+
+    currentInput = calculation;
+    operation = undefined;
+    previousInput = '';
+    updateDisplay();
+  }
+
+  // 6. Function to Clear the screen
+  function clearDisplay() {
+    currentInput = '';
+    previousInput = '';
+    operation = null;
+    updateDisplay();
+  }
+
+</script>
+
+</body>
+</html>

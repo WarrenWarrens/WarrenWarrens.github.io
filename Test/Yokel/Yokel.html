@@ -22,7 +22,7 @@
                 <p class ="PCentre1">
                     METAL YOKEL
                 </p>
-                <p class="PCentre1">Tagline</p>
+                <p class="PCentre1">"I see you fiending marvelous."</p>
 <!--                <img src="text.png" alt="LOGO" style="width:1200px;">-->
             </div>
 
@@ -65,7 +65,7 @@
 
             <div class ="DivCentre">
                 <p class="PCentre1">
-                    Its me i suppose
+                    It me lol
                 </p>
             </div>
 
@@ -76,12 +76,27 @@
             </div>
 
             <div class="DivCentre">
-                <p class="PCentre1">
-                    Linkedin
-                    Email
-                    Instagram
-                    Twitter
-                </p>
+                <div class ="DivGrid" id="ContactGrid">
+                    <div class="DivContactItem">
+                        GitHub
+                    </div>
+                    <div class="DivContactItem">
+                        Instagram
+                    </div>
+                    <div class="DivContactItem">
+                        LeetCode
+                    </div>
+                    <div class="DivContactItem">
+                        Linkedin
+                    </div>
+                    <div class="DivContactItem">
+                        Twitter
+                    </div>
+                    <div class="DivContactItem">
+                        Email
+                    </div>
+                </div>
+
             </div>
 
         </section>
@@ -124,25 +139,85 @@
         </section>
 
         <section class="SectionMain" id="SectionMain5">
-            <h3>Section 5</h3>
-            <p>This is the fifth page.</p>
+            <div class="DivCentre">
+                <p class="PCentre1">
+                    Code:
+                </p>
+            </div>
+
+            <div class="DivCentre">
+                <p class="PCentre1">
+                    Sadly i program for a living
+                </p>
+            </div>
+        </section>
+
+        <section class="SectionMain" id="SectionMain6">
+            <div class="DivCentre">
+                <p class="PCentre1">
+                    Code:
+                </p>
+            </div>
+
+            <div class="DivCentre">
+                <p class="PCentre1">
+                    Sadly i program for a living
+                </p>
+            </div>
+        </section>
+
+        <section class="SectionMain" id="SectionMain7">
+            <div class="DivCentre">
+                <p class="PCentre1">
+                    Code:
+                </p>
+            </div>
+
+            <div class="DivCentre">
+                <p class="PCentre1">
+                    Sadly i program for a living
+                </p>
+            </div>
+        </section>
+
+        <section class="SectionMain" id="SectionMain8">
+            <div class="DivCentre">
+                <p class="PCentre1">
+                    Code:
+                </p>
+            </div>
+
+            <div class="DivCentre">
+                <p class="PCentre1">
+                    Sadly i program for a living
+                </p>
+            </div>
         </section>
 
         <div id="DynamicGuideContainer">
 
-            <div id="HiddenGuide1" class="HiddenGuide" style="background-color: gold; color: black;">
+            <div id="HiddenGuide1" class="HiddenGuide" style="  background-color: #8E3A4A; color: black;">
                 <div class="DivSetting">A</div>
                 <div class="DivSetting">B</div>
                 <div class="DivSetting">C</div>
+                <div class="DivSetting">D</div>
+                <div class="DivSetting">E</div>
+                <div class="DivSetting">F</div>
+                <div class="DivSetting">G</div>
+
             </div>
 
-            <div id="HiddenGuide2" class="HiddenGuide" style="background-color: crimson;">
+            <div id="HiddenGuide2" class="HiddenGuide" style="background-color: #8E3A4A;">
                 <div class="DivSetting">A</div>
                 <div class="DivSetting">B</div>
                 <div class="DivSetting">C</div>
+                <div class="DivSetting">D</div>
+                <div class="DivSetting">E</div>
+                <div class="DivSetting">F</div>
+                <div class="DivSetting">G</div>
             </div>
 
-            <div id="HiddenGuide3" class="HiddenGuide" style="background-color: indigo;">
+            <div id="HiddenGuide3" class="HiddenGuide" style="background-color: #8E3A4A;">
                 <form>
                   <div class ="DivTerminal">
                     <input id ="InputTerminalText" type="text">
@@ -156,13 +231,13 @@
         </div>
 
         <div class="DivGuide">
-            <div id="GuideLeft">
-                <div class="DivSetting" onclick="toggleGuide('1', this)">Setting</div>
-                <div class="DivSetting" onclick="toggleGuide('2', this)">Apps</div>
-                <div class="DivSetting" onclick="toggleGuide('3', this)">Chat</div>
+            <div class = "DivGuideLeft" id="GuideLeft">
+                <div class="DivSetting" onclick="toggleGuide('1', this)">S</div>
+                <div class="DivSetting" onclick="toggleGuide('2', this)">A</div>
+                <div class="DivSetting" onclick="toggleGuide('3', this)">C</div>
             </div>
 
-            <div id="GuideRight">
+            <div class ="DivGuideRight" id="GuideRight">
                 ORB TALKIN
             </div>
         </div>
@@ -202,26 +277,21 @@
         var targetId = 'HiddenGuide' + idSuffix;
         var targetDiv = document.getElementById(targetId);
 
-        // 1. Check if the clicked guide is ALREADY visible
         var isCurrentlyVisible = targetDiv.style.display === 'flex';
 
-        // 2. Hide ALL guides first (reset state)
         var allGuides = document.querySelectorAll('.HiddenGuide');
         allGuides.forEach(function (div) {
             div.style.display = 'none';
         });
 
-        // 3. Remove 'active-btn' class from ALL buttons
         var allBtns = document.querySelectorAll('#GuideLeft .DivSetting');
         allBtns.forEach(function (btn) {
             btn.classList.remove('active-btn');
         });
 
-        // 4. If it wasn't visible before, Show it now
-        // (If it WAS visible, we do nothing, effectively closing it)
         if (!isCurrentlyVisible) {
-            targetDiv.style.display = 'flex'; // Show the target
-            btnElement.classList.add('active-btn'); // Highlight the button
+            targetDiv.style.display = 'flex';
+            btnElement.classList.add('active-btn');
         }
     }
 
@@ -235,39 +305,28 @@
         var targetId = 'SectionMain' + idSuffix;
         var targetSection = document.getElementById(targetId);
 
-        // 1. Is the clicked section currently open?
-        // We check if it is explicitly set to flex
         var isAlreadyOpen = (targetSection && targetSection.style.display === 'flex');
 
-        // 2. Hide ALL sections (clean slate)
         document.querySelectorAll('.SectionMain').forEach(function(sec) {
             sec.style.display = 'none';
         });
 
-        // 3. Remove highlight from ALL buttons
         document.querySelectorAll('#Ad .DivAd').forEach(function(btn) {
             btn.classList.remove('active-btn');
         });
 
-        // 4. LOGIC TREE
         if (!isAlreadyOpen) {
-            // CASE A: Opening a new section (Normal behavior)
             if (targetSection) {
                 targetSection.style.display = 'flex';
                 btnElement.classList.add('active-btn');
             } else {
-                // If section doesn't exist (e.g., button 4, 5), default to home
                 openHome();
             }
         } else {
-            // CASE B: User clicked the button of the OPEN section (Trying to close it)
-            // Since we just hid everything in step 2, nothing is visible now.
-            // REQUIREMENT: "SectionMain1 be visible if nothing else is"
             openHome();
         }
     }
 
-    // Helper to force open Section 1
     function openHome() {
         var homeSec = document.getElementById('SectionMain1');
         var homeBtn = document.getElementById('Btn1');
@@ -291,6 +350,13 @@
             scrollSpeed: 10,
         });
     }
+
+    Sortable.create(document.getElementById("ContactGrid"), {
+        animation: 150,
+        swapThreshold: 0.65,
+        chosenClass: "SortChosen",
+        ghostClass: "SortGhost",
+    });
 
     initSortable('HiddenGuide1', 'horizontal');
     initSortable('HiddenGuide2', 'horizontal');

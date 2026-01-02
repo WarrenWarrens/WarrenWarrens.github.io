@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+  <style>
+    .SectionDice
+    {
+      height: 500px;
+      width: 500px;
+      overflow: hidden;
+
+    }
+    .DivOutput
+    {
+      width: 500px;
+      height: 200px;
+      background-color: #555555;
+    }
+
+    .DivSelect
+    {
+      width: 500px;
+      height: 200px;
+      background-color: blue;
+    }
+
+    .DivButtonsList
+    {
+      width: 500px;
+      height: 100px;
+      background-color: red;
+    }
+  </style>
+
+</head>
+<body>
+  <section class="SectionDice">
+    <div class="DivOutput" id="Display">
+
+    </div>
+
+    <div class="DivSelect">
+      <div class="DivDice" id ="Two">
+        <button class="-">-</button>
+
+        <div class="DivDiceName">
+          1 x D4
+        </div>
+
+        <button class="+">+</button>
+
+      </div>
+      <div class="DivDice" id ="Four"></div>
+      <div class="DivDice" id ="Six"></div>
+      <div class="DivDice" id ="Eight"></div>
+      <div class="DivDice" id ="Ten"></div>
+      <div class="DivDice" id ="Twelve"></div>
+      <div class="DivDice" id ="Twenty"></div>
+      <div class="DivDice" id ="Hundred"></div>
+    </div>
+
+    <div class="DivButtonsList">
+      <div class="DivButtons"></div>
+      <div class="DivButtons"></div>
+      <div class="DivButtons"></div>
+    </div>
+
+  </section>
+  <script>
+    const displayElement = document.getElementById('Display');
+
+  </script>
+</body>
+</html>
