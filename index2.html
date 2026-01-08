@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Website</title>
+    <style>
+        .Body
+        {
+            margin: 0;
+            background-color: mintcream;
+            align-content: center;
+        }
+
+        .Main
+        {
+            align-content: center;
+            width: 100%;
+            place-items: center;
+            padding-bottom: 150px;
+        }
+
+        .Section1
+        {
+            width: 80%;
+            height: auto;
+            align-content: center;
+            border-color: #b0bec5;
+            border-style: solid;
+        }
+
+        #Me
+        {
+            overflow: auto;
+        }
+
+        .DivBar
+        {
+            width: 100%;
+            margin-bottom: 10px;
+        }
+
+        .PTitle
+        {
+            text-align: center;
+        }
+
+        .DivBar2
+        {
+            width:100%;
+            overflow: auto;
+            display: flex;
+            cursor: pointer;
+            align-items: center;
+        }
+
+        .DivFloat
+        {
+            float: left;
+        }
+
+
+        .DivBar2:hover
+        {
+            background-color: #eee;
+        }
+
+        .Arrow {
+            opacity: 0;
+            transition: opacity 0.2s ease;
+            text-align: center;
+            font-weight: bold;
+        }
+
+        .DivBar2:hover .Arrow {
+            opacity: 1;
+            animation: spinIcon 0.4s ease-out;
+        }
+
+        @keyframes spinIcon {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .DivExpand {
+            display: none;
+        }
+
+        .DivExpand.show {
+            display: block;
+            animation: slideDown 0.3s ease;
+        }
+
+        @keyframes slideDown {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+
+
+        .DivGrid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .DivItem {
+            flex: 0 1 120px;
+            height: 100px;
+            background: #4a90e2;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 8px;
+            cursor: grab;
+            user-select: none;
+            transition: transform 150ms ease;
+        }
+
+        .SortGhost {
+            opacity: 0;
+        }
+
+        .SortChosen {
+            background: #357ab8;
+            transform: scale(1.05);
+            cursor: grabbing;
+        }
+
+    </style>
+</head>
+
+<body class="Body">
+    <main class="Main">
+        <section class="Section1" id="Me">
+            <div class ="DivFloat" style="width: 40%;">
+                Image
+            </div>
+            <div class ="DivFloat" style="width: 60%;">
+                <p>Hello it is me</p>
+                <p>Again its me!</p>
+            </div>
+
+        </section>
+
+        <section class="Section1" id="About">
+            <div class="DivBar">
+                <p class="PTitle">
+                    About
+                </p>
+            </div>
+            <div class="DivBar">
+                hello
+            </div>
+
+        </section>
+
+        <section class="Section1" id="Education">
+            
+            <div class="DivBar">
+                <p class="PTitle">Education</p>
+            </div>
+
+            <div class="DivBar">
+                <div class="DivBar2" onclick="toggle(this)">
+                    <div style="width: 20%;">
+                        <div style="width: 40px; height: 40px; background: #333; border-radius: 50%;"></div>
+                    </div>
+
+                    <div class="DivFloat" style="width: 65%;">
+                        <p style="margin: 0; font-weight: bold;">Ontario Tech University</p>
+                        <p style="margin: 0;">BSC. Computer Science</p>
+                        <p style="margin: 0; color: #666; font-size: 0.9em;">2022-2026</p>
+                    </div>
+
+                    <div class="DivFloat Arrow" style="width: 15%;">
+                        V
+                    </div>
+                </div>
+
+                <div class="DivExpand">
+                    <ul>
+                        <li>Focus on Data Structures and Algorithms</li>
+                        <li>Dean's List 2023</li>
+                        <li>Capstone Project: AI Grid System</li>
+                    </ul>
+                </div>
+            </div>
+            
+        </section>
+
+        <section class="Section1" id="Experience">
+
+            <div class="DivBar">
+                <p class="PTitle">Experience</p>
+            </div>
+
+            <div class="DivBar">
+                <div class="DivBar2" onclick="toggle(this)">
+                    <div style="width: 20%;">
+                        <div style="width: 40px; height: 40px; background: #333; border-radius: 50%;"></div>
+                    </div>
+
+                    <div class="DivFloat" style="width: 65%;">
+                        <p style="margin: 0; font-weight: bold;">Ontario Tech University</p>
+                        <p style="margin: 0;">BSC. Computer Science</p>
+                        <p style="margin: 0; color: #666; font-size: 0.9em;">2022-2026</p>
+                    </div>
+
+                    <div class="DivFloat Arrow" style="width: 15%;">
+                        V
+                    </div>
+                </div>
+
+                <div class="DivExpand">
+                    <ul>
+                        <li>Focus on Data Structures and Algorithms</li>
+                        <li>Dean's List 2023</li>
+                        <li>Capstone Project: AI Grid System</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="DivBar">
+                <div class="DivBar2" onclick="toggle(this)">
+                    <div style="width: 20%;">
+                        <div style="width: 40px; height: 40px; background: #333; border-radius: 50%;"></div>
+                    </div>
+
+                    <div class="DivFloat" style="width: 65%;">
+                        <p style="margin: 0; font-weight: bold;">Ontario Tech University</p>
+                        <p style="margin: 0;">BSC. Computer Science</p>
+                        <p style="margin: 0; color: #666; font-size: 0.9em;">2022-2026</p>
+                    </div>
+
+                    <div class="DivFloat Arrow" style="width: 15%;">
+                        V
+                    </div>
+                </div>
+
+                <div class="DivExpand">
+                    <ul>
+                        <li>Focus on Data Structures and Algorithms</li>
+                        <li>Dean's List 2023</li>
+                        <li>Capstone Project: AI Grid System</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="DivBar">
+                <div class="DivBar2" onclick="toggle(this)">
+                    <div style="width: 20%;">
+                        <div style="width: 40px; height: 40px; background: #333; border-radius: 50%;"></div>
+                    </div>
+
+                    <div class="DivFloat" style="width: 65%;">
+                        <p style="margin: 0; font-weight: bold;">Ontario Tech University</p>
+                        <p style="margin: 0;">BSC. Computer Science</p>
+                        <p style="margin: 0; color: #666; font-size: 0.9em;">2022-2026</p>
+                    </div>
+
+                    <div class="DivFloat Arrow" style="width: 15%;">
+                        V
+                    </div>
+                </div>
+
+                <div class="DivExpand">
+                    <ul>
+                        <li>Focus on Data Structures and Algorithms</li>
+                        <li>Dean's List 2023</li>
+                        <li>Capstone Project: AI Grid System</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="DivBar">
+                <div class="DivBar2" onclick="toggle(this)">
+                    <div style="width: 20%;">
+                        <div style="width: 40px; height: 40px; background: #333; border-radius: 50%;"></div>
+                    </div>
+
+                    <div class="DivFloat" style="width: 65%;">
+                        <p style="margin: 0; font-weight: bold;">Ontario Tech University</p>
+                        <p style="margin: 0;">BSC. Computer Science</p>
+                        <p style="margin: 0; color: #666; font-size: 0.9em;">2022-2026</p>
+                    </div>
+
+                    <div class="DivFloat Arrow" style="width: 15%;">
+                        V
+                    </div>
+                </div>
+
+                <div class="DivExpand">
+                    <ul>
+                        <li>Focus on Data Structures and Algorithms</li>
+                        <li>Dean's List 2023</li>
+                        <li>Capstone Project: AI Grid System</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section class="Section1">
+            <div class="DivBar">
+                <p class="PTitle">
+                    Projects
+                </p>
+            </div>
+        </section>
+
+        <section class="Section1">
+            <div class="DivBar">
+                <p class="PTitle">
+                    Skills
+                </p>
+            </div>
+
+            <div class="DivBar">
+                <div class="DivGrid" id="SkillGrid">
+                    <div class="DivItem">1</div>
+                    <div class="DivItem">2</div>
+                    <div class="DivItem">3</div>
+                    <div class="DivItem">4</div>
+                    <div class="DivItem">5</div>
+                    <div class="DivItem">6</div>
+                    <div class="DivItem">7</div>
+                    <div class="DivItem">8</div>
+                    <div class="DivItem">9</div>
+                </div>
+            </div>
+
+
+        </section>
+
+        <section class="Section1">
+            <div class="DivBar">
+                <p class="PTitle">
+                    Contact
+                </p>
+            </div>
+
+            <div class="DivBar">
+                <div class="DivGrid" id="ContactGrid">
+                    <div class="DivItem">1</div>
+                    <div class="DivItem">2</div>
+                    <div class="DivItem">3</div>
+                    <div class="DivItem">4</div>
+                    <div class="DivItem">5</div>
+                    <div class="DivItem">6</div>
+                    <div class="DivItem">7</div>
+                    <div class="DivItem">8</div>
+                    <div class="DivItem">9</div>
+                </div>
+            </div>
+
+
+        </section>
+
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/sortablejs@1.15.2/Sortable.min.js"></script>
+
+    <script>
+        function toggle(element) {
+            var content = element.nextElementSibling;
+            content.classList.toggle("show");
+        }
+
+        Sortable.create(document.getElementById("SkillGrid"), {
+            animation: 150,
+            swapThreshold: 0.65,
+            chosenClass: "SortChosen",
+            ghostClass: "SortGhost",
+        });
+    </script>
+
+</body>
+
+</html>

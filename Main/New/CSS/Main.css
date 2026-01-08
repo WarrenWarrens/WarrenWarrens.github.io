@@ -1,3 +1,5 @@
+/*hh*/
+
 .DivBar
 {
     width: 90%;
@@ -8,6 +10,24 @@
     /*border-color: gold;*/
 
 }
+
+
+body {
+    margin: 0;
+    background: whitesmoke;
+}
+
+.MainBody2 {
+    align-content: center;
+    width: 100%;
+    display: grid;
+    place-items: center;
+    padding-bottom: 150px; /* space so content doesn't overlap bar */
+}
+
+/**/
+
+
 
 .DivBar2
 {
@@ -63,18 +83,6 @@
 
 * { box-sizing: border-box; }
 
-body {
-    margin: 0;
-    background: whitesmoke;
-}
-
-.MainBody2 {
-    align-content: center;
-    width: 100%;
-    display: grid;
-    place-items: center;
-    padding-bottom: 150px; /* space so content doesn't overlap bar */
-}
 
 
 .DivIconBar {
@@ -340,4 +348,9 @@ body {
 #Top
 {
     padding-top: 60px;
+}
+
+.H2
+{
+    text-align: center;
 }
