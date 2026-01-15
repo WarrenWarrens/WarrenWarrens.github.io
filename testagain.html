@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Typewriter Cycle</title>
+  <style>
+    /* Basic styling to center the text and make it look nice */
+    #text-container {
+      font-family: 'Courier New', Courier, monospace; /* Monospace looks best for typewriters */
+      font-size: 24px;
+      padding: 20px;
+      background-color: #f4f4f4;
+      border-radius: 8px;
+      min-height: 60px; /* Prevents layout jump when text is empty */
+    }
+
+    /* The blinking cursor effect */
+    .cursor::after {
+      content: '|';
+      animation: blink 1s step-start infinite;
+    }
+
+    @keyframes blink {
+      50% { opacity: 0; }
+    }
+  </style>
+</head>
+<body>
+
+<div id="text-container">
+  <p id="cycling-text" class="cursor"></p>
+</div>
+
+<script>
+  // 1. Configuration
+  const textLines = [
+    "ORB TALKIN!",
+    "I HATE AMAZON",
+    "AND ELON TOO!"
+  ];
+
+  const typeSpeed = 50;   // Milliseconds per character (lower is faster)
+  const cycleTime = 8000; // 15 seconds per cycle
+
+  const textElement = document.getElementById('cycling-text');
+  let lineIndex = 0;
+  let charIndex = 0;
+  let currentInterval;
+
+  // 2. The Typing Function
+  function typeLine() {
+    // Get the current line of text
+    const currentLine = textLines[lineIndex];
+
+    // Clear the text before starting
+    textElement.textContent = "";
+    charIndex = 0;
+
+    // Clear any existing typing interval to prevent overlaps
+    if (currentInterval) clearInterval(currentInterval);
+
+    // Start typing character by character
+    currentInterval = setInterval(() => {
+      textElement.textContent += currentLine[charIndex];
+      charIndex++;
+
+      // Stop typing when we reach the end of the line
+      if (charIndex >= currentLine.length) {
+        clearInterval(currentInterval);
+      }
+    }, typeSpeed);
+
+    // Prepare the index for the NEXT cycle
+    lineIndex = (lineIndex + 1) % textLines.length;
+  }
+
+  // 3. Initialize
+  // Run immediately on load
+  typeLine();
+
+  // set the cycle to trigger every 15 seconds
+  setInterval(typeLine, cycleTime);
+
+</script>
+</body>
+</html>

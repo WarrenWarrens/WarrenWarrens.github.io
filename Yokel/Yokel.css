@@ -331,3 +331,12 @@
     background-color: #ff7c00;
 
 }
+
+.cursor::after {
+    content: '|';
+    animation: blink 1s step-start infinite;
+}
+
+@keyframes blink {
+    50% { opacity: 0; }
+}

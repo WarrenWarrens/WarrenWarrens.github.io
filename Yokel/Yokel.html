@@ -32,9 +32,9 @@
 
             <div class ="DivCentre">
                 <p class="PCentre1">
-                    Welcome to Metal Yorkel; <br>
+                    Welcome to Metal Yokel; <br>
                     This is the public portfolio & art exhibit of GirlGrool.<br>
-                    Metal Yorkel serves as my public exhibit to the web of the things ive created, loved, hated and everything in between. <br>
+                    Metal Yokel serves as my public exhibit to the web of the things ive created, loved, hated and everything in between. <br>
                     <br>
                     This webpage is made with creativity & personal exploration in mind. Mess around, play with objects & experiment with anything or everything. <br>
                     This site is souly owned and made by me, any bugs, errors or complaients can be emailed to me at Zovaein@gmail.com. <br>
@@ -235,8 +235,8 @@
             </div>
 
             <div id="HiddenGuide2" class="HiddenGuide" style="background-color: #005b96;">
-                <div class="DivSetting">A</div>
-                <div class="DivSetting">B</div>
+                <div class="DivSetting">Calc</div>
+                <div class="DivSetting">Dice</div>
                 <div class="DivSetting">C</div>
                 <div class="DivSetting">D</div>
                 <div class="DivSetting">E</div>
@@ -265,7 +265,7 @@
             </div>
 
             <div class ="DivGuideRight" id="GuideRight">
-                ORB TALKIN
+                <p id="cycling-text" class="cursor"></p>
             </div>
         </div>
 
@@ -278,7 +278,7 @@
             <div class="DivAd" onclick="toggleSection('2', this)">Me</div>
             <div class="DivAd" onclick="toggleSection('3', this)">Art</div>
             <div class="DivAd" onclick="toggleSection('4', this)">Code</div>
-            <div class="DivAd" onclick="toggleSection('5', this)">Bird</div>
+            <div class="DivAd" onclick="toggleSection('5', this)">Lore</div>
             <div class="DivAd" onclick="toggleSection('6', this)">Review</div>
             <div class="DivAd" onclick="toggleSection('7', this)">GuestBook</div>
             <div class="DivAd" onclick="toggleSection('8', this)">Setup</div>
@@ -391,6 +391,60 @@
     initSortable('Ad', 'vertical');
 
     openHome();
+
+
+
+
+
+    // 1. Configuration
+    const textLines = [
+        "ORB TALKIN!",
+        "I HATE AMAZON",
+        "AND ELON TOO!"
+    ];
+
+    const typeSpeed = 50;   // Milliseconds per character (lower is faster)
+    const cycleTime = 8000; // 15 seconds per cycle
+
+    const textElement = document.getElementById('cycling-text');
+    let lineIndex = 0;
+    let charIndex = 0;
+    let currentInterval;
+
+    // 2. The Typing Function
+    function typeLine() {
+        // Get the current line of text
+        const currentLine = textLines[lineIndex];
+
+        // Clear the text before starting
+        textElement.textContent = "";
+        charIndex = 0;
+
+        // Clear any existing typing interval to prevent overlaps
+        if (currentInterval) clearInterval(currentInterval);
+
+        // Start typing character by character
+        currentInterval = setInterval(() => {
+            textElement.textContent += currentLine[charIndex];
+            charIndex++;
+
+            // Stop typing when we reach the end of the line
+            if (charIndex >= currentLine.length) {
+                clearInterval(currentInterval);
+            }
+        }, typeSpeed);
+
+        // Prepare the index for the NEXT cycle
+        lineIndex = (lineIndex + 1) % textLines.length;
+    }
+
+    // 3. Initialize
+    // Run immediately on load
+    typeLine();
+
+    // set the cycle to trigger every 15 seconds
+    setInterval(typeLine, cycleTime);
+
 </script>
 </body>
 </html>

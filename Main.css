@@ -1,0 +1,187 @@
+.Big
+{
+    display: none;
+}
+
+.Big.show {
+    min-width: calc(80vw - 0px);
+    height: calc(90vh - 0px);
+    background-color: lightgrey;
+    z-index: 100;
+    display: block;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+    transition: width 0.3s ease, padding 0.3s ease;
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    overflow: scroll;
+
+}
+
+
+
+.Body
+{
+    margin: 0;
+    background-color: mintcream;
+    align-content: center;
+}
+
+.Main
+{
+    align-content: center;
+    width: 100%;
+    place-items: center;
+    padding-bottom: 150px;
+}
+
+.Section1
+{
+    width: 70%;
+    min-width: 400px;
+    height: auto;
+    align-content: center;
+        /*border-color: #b0bec5;*/
+        /*border-style: solid;*/
+}
+
+#Me
+{
+    overflow: auto;
+}
+
+.DivBar
+{
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.DivSkill
+{
+    width: 100%;
+    margin-bottom: 10px;
+    display: none;
+}
+
+
+
+.PTitle
+{
+    text-align: center;
+    font-family: 'Roboto'; font-size: 22px;
+}
+
+.PText
+{
+    text-align: center;
+    font-family: 'Oswald';font-size: 16px;;
+}
+
+.DivBar2
+{
+    width:100%;
+    /*overflow: auto;*/
+    display: flex;
+    cursor: pointer;
+    align-items: center;
+}
+
+.DivBar3
+{
+    width:100%;
+    display: flex;
+    cursor: pointer;
+    align-items: center;
+    position: sticky;
+    background-color: yellow;
+    top: 0;
+}
+
+
+
+
+.DivFloat
+{
+    float: left;
+}
+
+
+.DivBar2:hover
+{
+    background-color: #eee;
+}
+
+.Arrow {
+    opacity: 0;
+    transition: opacity 0.2s ease;
+    text-align: center;
+    font-weight: bold;
+}
+
+.DivBar2:hover .Arrow {
+    opacity: 1;
+    animation: spinIcon 0.4s ease-out;
+}
+
+@keyframes spinIcon {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.DivExpand {
+    display: none;
+}
+
+.DivExpand.show {
+    display: block;
+    animation: slideDown 0.3s ease;
+}
+
+@keyframes slideDown {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+
+
+.DivGrid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+    padding: 10px;
+}
+
+.DivItem {
+    flex: 0 1 120px;
+    height: 50px;
+    background: lightgrey;
+    color: black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    cursor: grab;
+    user-select: none;
+    transition: transform 150ms ease;
+}
+
+
+
+.SortGhost { opacity: 0; }
+
+.SortChosen {
+    background: #357ab8;
+    transform: scale(1.05);
+    cursor: grabbing;
+}
+
+
+.active-btn {
+    background-color: #2c3e50;
+    border: 2px solid #333;
+}
+
