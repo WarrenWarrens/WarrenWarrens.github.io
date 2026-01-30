@@ -11,13 +11,17 @@
 <body class="Body">
     <main class="Main">
         <section class="Section1" style="padding-top: 50px" id="Me">
-            <div class ="DivFloat" style="width: 40%;">
-                <img src="Main/New/Media/Me3.jpg" alt="Me" style="height: 200px; width: 200px">
-            </div>
-            <div class ="DivFloat" style="width: 60%;">
-                <p class="PText">Hello! I'm Ryan </p>
-                <p class="PText">Full time Computer Science student, Part-time Forklift & Hydraulics Team Member.
-                    I build mobile applications, python software & websites with a focus on intractability and design.</p>
+            <div class="DivProjectTop">
+                <div class="DivProjectLeft">
+                    <p class="PText">Hello! I'm Ryan </p>
+                    <p class="PText">Full time Computer Science student.
+                        I build mobile applications, Python software & websites with a focus on intractability and design.</p>
+                    <a href="Yokel/Yokel.html">Website</a>
+                </div>
+                <div class="DivProjectRight">
+                    <img src="Main/New/Media/Me3.jpg" alt="Me" style="height: 150px; width: 150px">
+
+                </div>
             </div>
 
         </section>
@@ -48,7 +52,7 @@
             <div class="DivBar">
                 <div class="DivBar2" onclick="toggle(this)">
                     <div style="width: 20%;">
-                        <div style="width: 40px; height: 40px; background: #333; border-radius: 50%;"></div>
+                        <div style="width: 50px; height: 50px; background: #333; border-radius: 50%;"></div>
                     </div>
 
                     <div class="DivFloat" style="width: 65%;">
@@ -88,7 +92,7 @@
             <div class="DivBar">
                 <div class="DivBar2" onclick="toggle(this)">
                     <div style="width: 20%;">
-                        <div style="width: 40px; height: 40px; background: #333; border-radius: 50%;"></div>
+                        <div style="width: 50px; height: 50px; background: #333; border-radius: 50%;"></div>
                     </div>
 
                     <div class="DivFloat" style="width: 65%;">
@@ -125,7 +129,7 @@
             <div class="DivBar">
                 <div class="DivBar2" onclick="toggle(this)">
                     <div style="width: 20%;">
-                        <div style="width: 40px; height: 40px; background: #333; border-radius: 50%;"></div>
+                        <div style="width: 50px; height: 50px; background: #333; border-radius: 50%;"></div>
                     </div>
 
                     <div class="DivFloat" style="width: 65%;">
@@ -154,7 +158,7 @@
             <div class="DivBar">
                 <div class="DivBar2" onclick="toggle(this)">
                     <div style="width: 20%;">
-                        <div style="width: 40px; height: 40px; background: #333; border-radius: 50%;"></div>
+                        <div style="width: 50px; height: 50px; background: #333; border-radius: 50%;"></div>
                     </div>
 
                     <div class="DivFloat" style="width: 65%;">
@@ -185,7 +189,7 @@
             <div class="DivBar">
                 <div class="DivBar2" onclick="toggle(this)">
                     <div style="width: 20%;">
-                        <div style="width: 40px; height: 40px; background: #333; border-radius: 50%;"></div>
+                        <div style="width: 50px; height: 50px; background: #333; border-radius: 50%;"></div>
                     </div>
 
                     <div class="DivFloat" style="width: 65%;">
@@ -229,52 +233,26 @@
                 </div>
 
                 <div class="Big">
-                    <div class="DivBar3">
-                        <div class="DivFloat" style="width: 80%">
-                            <p class="PTitle">Metal Yokel</p>
-                            <p class ="PTitle" style="margin: 0; color: #666; font-size: 0.9em;">2022-2026</p>
-
+                    <div class="DivProjectTop">
+                        <div class="DivProjectLeft" style="max-height: 75px;">
+                            <p class="PText">
+                                Website
+                            </p>
                         </div>
-                        <div class="DivFloat" style="width: 20%; height: 100px;    background-color: red" onclick="hideParent(this)">
-                            X
+
+                        <div class="DivProjectRight" style ="width: 75px;height: 75px;" onclick="hideParent(this)">
+                            <p class="PTitle">X</p>
                         </div>
                     </div>
 
-                    <div class="DivBar">
-                        <p>hello</p>
-                        <a href="Yokel/Yokel.html">Website</a>
-
+                    <div class="DivProject">
+                      <div><p class="PText">Hello!</p></div>
                     </div>
                 </div>
 
             </div>
 
-            <div class="DivBar">
-                <div class="DivBar2" onclick="toggle(this)">
-                    <div class="DivFloat" style="width: 50%">
-                        <p class="PTitle">BodyForge</p>
-                    </div>
-                    <div class="DivFloat" style="width: 50%">
-                        <p class="PTitle">Not Website</p>
-                    </div>
-                </div>
 
-                <div class="Big">
-                    <div class="DivBar3">
-                        <div class="DivFloat" style="width: 80%">
-                            <p class="PTitle">BodyForge</p>
-                        </div>
-                        <div class="DivFloat" style="width: 20%; background-color: red" onclick="hideParent(this)">
-                            X
-                        </div>
-                    </div>
-
-                    <div class="DivBar">
-
-                    </div>
-                </div>
-
-            </div>
 
 
         </section>
@@ -288,7 +266,7 @@
                 <div class="DivGrid sortable-grid" id="SkillGridGuide">
                     <div class="DivItem" onclick="toggleSkill('1', this)">Languages</div>
                     <div class="DivItem" onclick="toggleSkill('2', this)">Software</div>
-                    <div class="DivItem" onclick="toggleSkill('3', this)">Category 3</div>
+                    <div class="DivItem" onclick="toggleSkill('3', this)">Topics</div>
                 </div>
             </div>
 
@@ -296,26 +274,34 @@
             <div class="DivSkill" id="Skill1">
                 <div class="DivGrid sortable-grid" id="SkillGridOne">
                     <div class="DivItem">Python</div>
+                    <div class="DivItem">Dart</div>
                     <div class="DivItem">HTML</div>
                     <div class="DivItem">CSS</div>
                     <div class="DivItem">JavaScript</div>
                     <div class="DivItem">C++</div>
+                    <div class="DivItem">GDScript</div>
                 </div>
             </div>
 
             <div class="DivSkill" id="Skill2">
                 <div class="DivGrid sortable-grid" id="SkillGridTwo">
                     <div class="DivItem">PyCharm</div>
+                    <div class="DivItem">IntelliJ IDEA</div>
+                    <div class="DivItem">Android Studio</div>
+                    <div class="DivItem">GitHub</div>
                     <div class="DivItem">MongoDB</div>
-                    <div class="DivItem">Redis</div>
-                    <div class="DivItem">Postgres</div>
+                    <div class="DivItem">GoDot</div>
+                    <div class="DivItem">Slack</div>
+                    <div class="DivItem">Figma</div>
                 </div>
             </div>
 
             <div class="DivSkill" id="Skill3">
                 <div class="DivGrid sortable-grid" id="SkillGridThree">
-                    <div class="DivItem">Git</div>
-                    <div class="DivItem">Docker</div>
+                    <div class="DivItem">Frontend Dev.</div>
+                    <div class="DivItem">Mobile</div>
+                    <div class="DivItem">Databases</div>
+                    <div class="DivItem">Machine Learning</div>
                 </div>
             </div>
 
@@ -382,7 +368,8 @@
             }
         }
 
-        function hideParent(button) {
+        function hideParent(button)
+        {
             button.parentNode.parentNode.classList.toggle("show");
         }
     </script>

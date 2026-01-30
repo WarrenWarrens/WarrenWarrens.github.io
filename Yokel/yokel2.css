@@ -359,9 +359,9 @@
     /* Change main layout to vertical stacking */
     .Main {
         flex-direction: column;
-        height: calc(100vh - 20px);
-        width: calc(100vw - 20px);
-        margin: 10px;
+        height: 100vh;
+        width: 100vw;
+        margin: 0;
     }
 
     /* LEFT SECTION - now takes full width and most of the height */
@@ -396,20 +396,16 @@
         overflow-y: hidden;
         scroll-snap-type: x mandatory;
         align-items: center;
-        /* Keep original background color */
-        background-color: #005b96;
+        background-color: #ff1493; /* Pink/magenta as shown in mockup */
     }
 
-    /* Ad items now horizontal - keep original styling */
+    /* Ad items now horizontal */
     .DivAd {
         width: 60px;
         height: 40px;
         margin-bottom: 0;
         margin-right: 10px;
         flex-shrink: 0;
-        /* Original styling preserved */
-        background-color: black;
-        color: #ffd300;
     }
 
     /* Hide the "GUIDE IG" text on mobile */
@@ -417,57 +413,47 @@
         display: none;
     }
 
-    /* BOTTOM SECTION - reorganized: ORB on left, animated text, SAC on right */
+    /* ORB - stays at bottom right */
+    #Orb {
+        width: 70px;
+        height: 70px;
+        position: fixed;
+        bottom: 0;
+        right: 0;
+        z-index: 100;
+    }
+
+    /* BOTTOM SECTION - SAC and Terminal */
     .DivGuide {
         height: 80px;
-        order: 4; /* Place after dynamic guide container */
-        flex-direction: row-reverse; /* Reverse order to put GuideRight first */
+        order: 3;
+        background-color: #ffd300; /* Yellow/tan background from mockup */
     }
 
-    /* ORB - positioned to the right of animated text (left side overall) */
-    #Orb {
-        width: 80px;
-        height: 80px;
-        position: static;
-        flex: 0 0 80px;
-        order: 2; /* Place after GuideRight */
-    }
-
-    /* GuideRight (animated text) - in the middle */
-    #GuideRight {
-        flex: 1;
-        font-size: 14px;
-        order: 1; /* Place first (but reversed, so appears in middle) */
-    }
-
-    /* GuideLeft (SAC buttons) - now on the right side */
     #GuideLeft {
         width: auto;
         flex: 0 0 auto;
-        padding-right: 5px;
-        padding-left: 0;
-        order: 3; /* Place last (but reversed, so appears on right) */
+        padding-left: 5px;
+        background-color: #ffd300;
     }
 
     #GuideLeft .DivSetting {
         font-size: 18px;
-        width: 60px;
-        height: 60px;
-        margin-left: 5px;
-        margin-right: 0;
+        width: 50px;
+        height: 50px;
+        margin-right: 5px;
     }
 
-    /* Adjust dynamic guide container - appears directly BELOW GuideLeft (SAC buttons) */
+    #GuideRight {
+        width: auto;
+        flex: 1;
+        background-color: #8E3A4A; /* Brown/maroon terminal color */
+        font-size: 14px;
+    }
+
+    /* Adjust dynamic guide container */
     #DynamicGuideContainer {
-        order: 5; /* Place after DivGuide so it appears below */
-        padding-bottom: 20px; /* Extra padding for Safari's bottom bar */
-        min-height: 0; /* Remove any minimum height that creates gaps */
-        background-color: transparent; /* Remove grey background */
-    }
-
-    /* Ensure no gap between elements */
-    #Left {
-        gap: 0;
+        order: 4;
     }
 
     .HiddenGuide {
@@ -501,21 +487,10 @@
     .PCentre1 {
         font-size: 14px;
     }
-
-    /* Add padding at bottom to avoid Safari UI */
-    .BodyOverLord {
-        padding-bottom: env(safe-area-inset-bottom, 20px);
-    }
 }
 
 /* Extra small devices (phones in portrait, less than 480px) */
 @media screen and (max-width: 480px) {
-
-    .Main {
-        height: calc(100vh - 16px);
-        width: calc(100vw - 16px);
-        margin: 8px;
-    }
 
     #Left {
         height: calc(100% - 160px);
@@ -532,16 +507,14 @@
     }
 
     #GuideLeft .DivSetting {
-        width: 50px;
-        height: 50px;
+        width: 45px;
+        height: 45px;
         font-size: 16px;
-        margin-left: 5px;
-        margin-right: 0;
     }
 
     #Orb {
-        width: 70px;
-        height: 70px;
+        width: 60px;
+        height: 60px;
         font-size: 12px;
     }
 
@@ -551,9 +524,5 @@
 
     .DivContactItem {
         flex: 0 1 100%;
-    }
-
-    #DynamicGuideContainer {
-        padding-bottom: 25px;
     }
 }

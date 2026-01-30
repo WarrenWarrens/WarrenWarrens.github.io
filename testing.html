@@ -4,103 +4,50 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
-    /* Basic styling for the container */
-    .DivBar {
-      border: 1px solid #ccc;
-      margin-bottom: 10px;
-      font-family: sans-serif;
+    .S1
+    {
+      height: 500px;
+      width: 400px;
     }
 
-    .DivBar2 {
-      display: flex; /* Makes the floats easier to manage */
-      padding: 15px;
-      cursor: pointer;
-      align-items: center; /* Vertically centers content */
-      background-color: #f9f9f9;
+    .D1
+    {
+      height: 70px;
+      width: 70px;
     }
 
-    .DivBar2:hover {
-      background-color: #eee; /* Optional hover effect for the bar */
+    .D2
+    {
+      background-color: lightblue;
+      width: 100%;
+      height: 100%;
+      overflow: scroll;
+      place-items: center;
     }
 
-    /* 1. Hiding the V initially */
-    .Arrow {
-      opacity: 0;
-      transition: opacity 0.2s ease; /* Smooth fade in */
-      text-align: center;
-      font-weight: bold;
+    .D2 p
+    {
+      width: 80%;
     }
 
-    /* 2. Show V on hover */
-    .DivBar2:hover .Arrow {
-      opacity: 1;
-      animation: spinIcon 0.4s ease-out;
-    }
-
-    /* 3. The Spin Animation */
-    @keyframes spinIcon {
-      0% { transform: rotate(0deg); }
-      100% { transform: rotate(360deg); }
-    }
-
-    /* 4. DivExpand hidden by default */
-    .DivExpand {
-      display: none; /* Hidden */
-      padding: 15px;
-      background-color: white;
-      border-top: 1px solid #ddd;
-    }
-
-    /* 5. Class to show content (toggled by JS) */
-    .DivExpand.show {
-      display: block;
-      animation: slideDown 0.3s ease;
-    }
-
-    /* Optional: small slide animation for the content */
-    @keyframes slideDown {
-      from { opacity: 0; transform: translateY(-10px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
   </style>
 </head>
 <body>
 
-<div class="DivBar">
-  <div class="DivBar2" onclick="toggle(this)">
-    <div style="width: 20%;">
-      <div style="width: 40px; height: 40px; background: #333; border-radius: 50%;"></div>
-    </div>
-
-    <div class="DivFloat" style="width: 65%;">
-      <p style="margin: 0; font-weight: bold;">Ontario Tech University</p>
-      <p style="margin: 0;">BSC. Computer Science</p>
-      <p style="margin: 0; color: #666; font-size: 0.9em;">2022-2026</p>
-    </div>
-
-    <div class="DivFloat arrow" style="width: 15%;">
-      V
-    </div>
+<section class="S1">
+  <div class="D1">
+hi
   </div>
-
-  <div class="DivExpand">
-    <ul>
-      <li>Focus on Data Structures and Algorithms</li>
-      <li>Dean's List 2023</li>
-      <li>Capstone Project: AI Grid System</li>
-    </ul>
+  <div class="D2">
+    <p>    Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.
+    </p>
+    <p>    Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.
+    </p>
   </div>
-</div>
+</section>
 
 <script>
-  function toggle(element) {
-    // 'element' is the DivBar2 that was clicked.
-    // We want the next sibling element, which is DivExpand.
-    var content = element.nextElementSibling;
 
-    // Toggle the 'show' class which controls display: block
-    content.classList.toggle("show");
-  }
 </script>
 
 </body>

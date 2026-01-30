@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    /* 1. The Container */
+    .parent-container {
+      display: flex;           /* Enables flexbox layout */
+      align-items: center;     /* Vertically centers the children */
+      padding: 20px;           /* Equal padding around the outside */
+      gap: 20px;               /* Equal spacing between the two divs */
+
+      /* Just for visualization */
+      background-color: #f0f0f0;
+      border: 1px solid #ccc;
+    }
+
+    /* 2. The Fluid Left Div */
+    .left-div {
+      flex: 1;                 /* Grow to fill all available space */
+
+      /* Just for visualization */
+      background-color: #3498db;
+      color: white;
+      padding: 10px;
+      border-radius: 4px;
+    }
+
+    /* 3. The Static Right Div */
+    .right-div {
+      width: 75px;
+      height: 75px;
+      flex-shrink: 0;          /* CRITICAL: Prevents it from squishing */
+
+      /* Just for visualization */
+      background-color: #e74c3c;
+      border-radius: 4px;
+    }
+  </style>
+</head>
+<body>
+
+<div class="parent-container">
+  <div class="left-div">
+    I am the left div. I will expand to fill whatever space is left over!
+  </div>
+  <div class="right-div">
+  </div>
+</div>
+
+</body>
+</html>
