@@ -5,7 +5,7 @@
 
 .Big.show {
     width: 80vw;
-    height: 90vh;
+    height: 80vh;
     background-color: #1e1e1e;
     z-index: 100;
     position: fixed;
@@ -44,7 +44,7 @@
 .Body
 {
     margin: 0;
-    background-color: mintcream;
+    background-color: white;
     align-content: center;
 }
 
@@ -98,6 +98,11 @@
     font-family: 'Oswald';font-size: 16px;;
 }
 
+.PText2
+{
+    font-family: 'Oswald';font-size: 16px;;
+}
+
 .DivBar2
 {
     width:100%;
@@ -105,6 +110,16 @@
     display: flex;
     cursor: pointer;
     align-items: center;
+    padding: 10px;
+    /*padding-top: 10px;*/
+    /*padding-bottom: 10px;*/
+
+}
+
+.Ul1 li
+{
+    font-family: 'Oswald';font-size: 16px;;
+
 }
 
 
@@ -181,6 +196,9 @@
     cursor: grab;
     user-select: none;
     transition: transform 150ms ease;
+
+    font-family: 'Oswald';font-size: 16px;;
+
 }
 
 
@@ -210,7 +228,8 @@
     border: 1px solid #ccc;
 }
 
-.DivProjectLeft {
+.DivProjectLeft
+{
     flex: 1;
 
     background-color: #3498db;
@@ -231,4 +250,25 @@
 .DivProjectRight:hover
 {
     background-color: red;
+}
+
+
+
+.DivIconBar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: white;
+    border-radius: 40px;
+    padding: 20px 40px;
+    box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+    gap: 15px;
+    transition: width 0.3s ease, padding 0.3s ease;
+    position: fixed;
+    bottom: 20px; /* pinned to bottom */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 250px;
+    max-width: 350px;
+    height: 75px;
 }
