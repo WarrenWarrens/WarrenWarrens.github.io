@@ -11,15 +11,20 @@
 <body class="Body">
     <main class="Main">
         <section class="Section1" style="padding-top: 50px" id="Me">
-            <div class="DivProjectTop">
-                <div class="DivProjectLeft" id="NamePlateIntro">
-                    <p class="PText">Hello! I'm Ryan </p>
-                    <p class="PText">Full time Computer Science student.
-                        I build mobile applications, Python software & websites with a focus on intractability and design.</p>
+            <div class="DivIntro">
+                <div class="DivIntroRow">
+                    <div class="DivIntroLeft">
+                        <div class="DivDynamicText">Hello! I'm Ryan!</div>
+                    </div>
+                    <div class="DivIntroRight">
+                        <img id="ImageClick" src="Main/New/Media/Me2.jpg" alt="Clickable Image">
+                    </div>
                 </div>
-                <div class="DivProjectRight">
-                    <img src="Main/New/Media/Me3.jpg" alt="Me" style="height: 150px; width: 150px">
 
+                <div class="DivIntroBottom">
+                    Fourth Year BSC Computer Science student at Ontario Tech.
+                    I build mobile applications, games & python scripts
+                    with a focus on creativity and accessibility.
                 </div>
             </div>
 
@@ -27,11 +32,17 @@
 
         <section class="Section1" id="About">
             <div class="DivBar">
-                <p class="PTitle">
-                    About
-                </p>
+                <p class="PTitle">About</p>
             </div>
+
             <div class="DivBar">
+                <div class="DivGrid sortable-grid" id="AboutGrid">
+                    <div class="DivItem active-btn" onclick="toggleAbout('Professional', this)">Professional</div>
+                    <div class="DivItem" onclick="toggleAbout('Personal', this)">Personal</div>
+                </div>
+            </div>
+
+            <div class="DivSkill" id="AboutProfessional" style="display: block;">
                 <p class="PText">
                     I'm currently in my fourth year at Ontario Tech University in Oshawa, Ontario, Canada.
                     I'm earning my BSC. in Computer Science, along with a Specialization in Data Science, and
@@ -40,6 +51,11 @@
                 </p>
             </div>
 
+            <div class="DivSkill" id="AboutPersonal">
+                <p class="PText">
+                    [Your personal content here]
+                </p>
+            </div>
         </section>
 
         <section class="Section1" id="Education">
@@ -219,34 +235,82 @@
 
             <div class="DivBar">
                 <div class="DivBar2" onclick="toggle(this)">
-                    <div class="DivFloat" style="width: 50%">
+                    <div class="DivFloat TextColumn">
                         <p class="PTitle">Metal Yokel</p>
+                        <p class="PText">This is my own personal website!</p>
+
+                        <div class="DivGrid sortable-grid" id="ProjectGridOne">
+                            <div class="DivItem">
+                                <a href="Yokel/Yokel.html">Website</a>
+                            </div>
+                            <div class="DivItem">
+                                <a href="https://github.com/WarrenWarrens/WarrenWarrens.github.io">GitHub</a>
+                            </div>
+                        </div>
                     </div>
-                    <div class="DivFloat" style="width: 50%">
-                        <p class="PTitle">Not Website</p>
+                    <div class="DivFloat ImageColumn">
+                        <div class="DivProjectContentImage"></div>
                     </div>
                 </div>
 
+
                 <div class="Big">
-                    <div class="DivProjectTop">
-                        <div class="DivProjectLeft" style="max-height: 75px;">
-                            <p class="PText">
-                                Website
-                            </p>
+                    <div class="DivProject2">
+                        <div class="DivProjectTop">
+                            <div class="DivProjectLeft" style="max-height: 75px;">
+                                <p class="PText">
+                                    Metal Yokel
+                                </p>
+                            </div>
+
+                            <div class="DivProjectRight" style ="width: 75px;height: 75px;" onclick="hideParent(this)">
+                                <p class="PTitle">X</p>
+                            </div>
                         </div>
 
-                        <div class="DivProjectRight" style ="width: 75px;height: 75px;" onclick="hideParent(this)">
-                            <p class="PTitle">X</p>
+                        <div class="DivProject">
+                            <div class="DivProjectContent">
+                                <div class="DivProjectContentImage"></div>
+                                <p class="PText2">Overview
+                                    Lorem ipsum dolor sit amet, consectetuer adipiscing elit,
+                                    Lorem ipsum dolor sit amet, consectetuer adipiscing elit,
+                                    sed diam nonummy nibh euismod tincidunt ut laoreet dolore
+                                    Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy
+                                    nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.magna
+                                    aliquam erat volutpat.sed diam nonummy nibh euismod tincidunt ut laoreet
+                                    dolore magna aliquam erat volutpat.</p>
+
+                                <p class="PText3">Key Features:</p>
+                                <p class="PText2">Lorem ipsum dolor sit amet, consectetuer adipiscing elit,
+                                    sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam
+                                    Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt
+                                    ut laoreet dolore magna aliquam erat volutpat.erat volutpat.
+                                    Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut
+                                    laoreet dolore magna aliquam erat volutpat.</p>
+
+                                <p class="PText3">Topics:</p>
+                                <div class="DivGrid sortable-grid" id="TopicGridOne" style="justify-content: left;">
+                                    <div class="DivItem">HTML</div>
+                                    <div class="DivItem">CSS</div>
+                                    <div class="DivItem">JS</div>
+
+                                </div>
+
+                                <p class="PText3">Links:</p>
+                                <div class="DivGrid sortable-grid" id="LinkGridOne" style="justify-content: left;">
+                                    <div class="DivItem">
+                                        <a href="Yokel/Yokel.html">Website</a>
+                                    </div>
+                                    <div class="DivItem">
+                                        <a href="https://github.com/WarrenWarrens/WarrenWarrens.github.io">GitHub</a>
+                                    </div>
+                                </div>
+
+                            </div>
                         </div>
                     </div>
 
-                    <div class="DivProject">
 
-                        <div><p class="PText">Hello!</p>
-                            <a href="Yokel/Yokel.html">Website</a>
-
-                        </div>
-                    </div>
                 </div>
 
             </div>
@@ -311,6 +375,7 @@
             <div class="DivBar">
                 <p class="PTitle">Contact/Links</p>
             </div>
+
             <div class="DivBar">
                 <div class="DivGrid sortable-grid" id="ContactGrid">
                     <div class="DivItem">
@@ -403,6 +468,77 @@
         function hideParent(button)
         {
             button.parentNode.parentNode.classList.toggle("show");
+        }
+
+        function resizeText() {
+            const redBox = document.querySelector('.DivIntroLeft');
+            const textElement = document.querySelector('.DivDynamicText');
+
+            // Set our search range for font sizes
+            let minSize = 10;
+            let maxSize = 150; // The maximum height of the red box
+            let optimalSize = minSize;
+
+            // Use a binary search to find the perfect font size instantly
+            while (minSize <= maxSize) {
+                let midSize = Math.floor((minSize + maxSize) / 2);
+                textElement.style.fontSize = midSize + 'px';
+
+                // Check if the text fits within the padding (10px on each side = 20px total)
+                let isOverflowing =
+                    textElement.scrollHeight > (redBox.clientHeight - 20) ||
+                    textElement.scrollWidth > (redBox.clientWidth - 20);
+
+                if (!isOverflowing) {
+                    optimalSize = midSize; // This size fits, save it
+                    minSize = midSize + 1; // Try going larger
+                } else {
+                    maxSize = midSize - 1; // It overflowed, try going smaller
+                }
+            }
+
+            // Apply the largest size that fit successfully
+            textElement.style.fontSize = optimalSize + 'px';
+        }
+
+        // Run the function when the page loads
+        window.addEventListener('load', resizeText);
+
+        // Run the function every time the user resizes the browser window
+        window.addEventListener('resize', resizeText);
+
+        const imageList = [
+            "Main/New/Media/Me1.png",
+            "Main/New/Media/Me2.jpg",
+            "Main/New/Media/Me3.jpg",
+        ]; // Replace these URLs with your actual image paths!
+
+        let currentImageIndex = 0;
+        const clickableImg = document.getElementById('ImageClick');
+
+        // 2. Add the click event listener
+        clickableImg.addEventListener('click', function() {
+            // Increase the index by 1 to move to the next image
+            currentImageIndex++;
+
+            // If we've reached the end of the list, loop back to the beginning (index 0)
+            if (currentImageIndex >= imageList.length) {
+                currentImageIndex = 0;
+            }
+
+            // Update the image source on the page
+            clickableImg.src = imageList[currentImageIndex];
+        });
+
+        function toggleAbout(id, btnElement) {
+            var allDivs = document.querySelectorAll('#About .DivSkill');
+            allDivs.forEach(function(div) { div.style.display = 'none'; });
+
+            var allBtns = document.querySelectorAll('#AboutGrid .DivItem');
+            allBtns.forEach(function(btn) { btn.classList.remove('active-btn'); });
+
+            document.getElementById('About' + id).style.display = 'block';
+            btnElement.classList.add('active-btn');
         }
     </script>
 

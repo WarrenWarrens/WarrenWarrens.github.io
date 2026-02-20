@@ -17,13 +17,12 @@
 
         <section class="SectionMain" id="SectionMain1">
 
-            <div class="DivCentre">
+            <div class="DivCentre" id="Title">
                 <h1 class ="HCentre">
                     METAL YOKEL
                 </h1>
 
-                <p class="PCentre1">
-                    "I see you fiending marvelous."
+                <p id="SplashText" class="PCentre1">
                 </p>
             </div>
 
@@ -449,6 +448,43 @@
 
     // set the cycle to trigger every 15 seconds
     setInterval(typeLine, cycleTime);
+
+    const splashes = [
+        "I see you fiending marvelous.",
+        "Also try Terraria!",
+        "Now with 100% more stuff!",
+        "Not affiliated with Mojang!",
+        "You woke up today!",
+        "Ask your doctor about Metal Yokel!",
+        "Runs on hopes and dreams!",
+        "Hello, world!",
+        "It's a feature, not a bug!",
+        "Made with blood, sweat, and semicolons!",
+    ];
+
+    const splash = document.querySelector('.PCentre1');
+
+    function getNewSplash() {
+        // Pick a random entry that isn't the current one
+        let current = splash.textContent.trim();
+        let options = splashes.filter(s => s !== current);
+        let chosen = options[Math.floor(Math.random() * options.length)];
+        splash.textContent = chosen;
+
+        // Restart the animation by briefly removing and re-adding it
+        splash.style.animation = 'none';
+        requestAnimationFrame(() => {
+            requestAnimationFrame(() => {
+                splash.style.animation = '';
+            });
+        });
+    }
+
+    // Set a random splash on page load
+    getNewSplash();
+
+    // Set a new one on click
+    splash.addEventListener('click', getNewSplash);
 
 </script>
 </body>

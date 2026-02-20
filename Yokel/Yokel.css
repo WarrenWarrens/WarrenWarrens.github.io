@@ -308,6 +308,27 @@
     color: white;
 }
 
+#SplashText
+{
+    color: #FFFF00; /* Minecraft yellow */
+    font-size: 18px;
+    font-weight: bold;
+    position: absolute;
+    bottom: 10px;
+    right: 20px;
+    transform: rotate(-20deg); /* Minecraft's signature tilt */
+    transform-origin: center;
+    cursor: pointer;
+    text-shadow: 2px 2px 0px #555500;
+    animation: splashPulse 0.8s ease-in-out infinite alternate;
+    user-select: none;
+}
+
+@keyframes splashPulse {
+    from { transform: rotate(-20deg) scale(1.0); }
+    to   { transform: rotate(-20deg) scale(1.15); }
+}
+
 .HCentre
 {
     color: white;
@@ -366,6 +387,9 @@
 @keyframes blink {
     50% { opacity: 0; }
 }
+
+#Title
+{    position: relative;}
 
 
 /* ============================================
@@ -514,7 +538,8 @@
 
     /* Font size adjustments */
     .HCentre {
-        font-size: 32px;
+        font-size: 44px;
+        color: white;
     }
 
     .PCentre1 {

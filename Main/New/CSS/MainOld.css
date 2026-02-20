@@ -85,25 +85,6 @@ body {
 
 
 
-.DivIconBar {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: white;
-    border-radius: 40px;
-    padding: 20px 40px;
-    box-shadow: 0 3px 8px rgba(0,0,0,0.1);
-    gap: 15px;
-    transition: width 0.3s ease, padding 0.3s ease;
-    position: fixed;
-    bottom: 20px; /* pinned to bottom */
-    left: 50%;
-    transform: translateX(-50%);
-    width: 250px;
-    max-width: 350px;
-    height: 75px;
-}
-
 .DivWrap {
     position: relative; /* establishes containing block for the popup */
     display: inline-block;
@@ -255,7 +236,8 @@ body {
 
 }
 
-.DivGridIcon{
+.DivGridIcon
+{
     height: 75px;
     background: #007bff;
     color: white;
@@ -272,7 +254,8 @@ body {
     background-color: gold;
 }
 
-.divOne {
+.divOne
+{
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
     align-content: center;

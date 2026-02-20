@@ -4,16 +4,30 @@
 }
 
 .Big.show {
-    width: 80vw;
-    height: 80vh;
-    background-color: #1e1e1e;
+    width: 100vw;
+    height: 100vh;
     z-index: 100;
+    background-color: black;
+    opacity: 0.8;
     position: fixed;
     display: block;
     top: 20px;
     left: 50%;
     transform: translateX(-50%);
 
+}
+
+.DivProject2
+{
+    width: 80vw;
+    height: 80vh;
+    z-index: 100;
+    background-color: whitesmoke;
+    position: fixed;
+    display: block;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
 }
 
 .DivBar3
@@ -33,11 +47,20 @@
 
 }
 
-.DivProject div
+.DivProjectContent
 {
-    width: 80%;
-    background-color: yellow;
+    width: 90%;
+
 }
+
+.DivProjectContentImage
+{
+    width: 100%;
+    height: 200px;
+    background-color: darkgrey;
+    border-radius: 10px;
+}
+
 
 
 
@@ -103,16 +126,21 @@
     font-family: 'Oswald';font-size: 16px;;
 }
 
+.PText3
+{
+    font-family: 'Oswald';font-size: 16px;;
+    font-weight: bold;
+
+
+}
+
 .DivBar2
 {
-    width:100%;
-    /*overflow: auto;*/
+    width: 100%;
     display: flex;
     cursor: pointer;
     align-items: center;
     padding: 10px;
-    /*padding-top: 10px;*/
-    /*padding-bottom: 10px;*/
 
 }
 
@@ -128,7 +156,7 @@
 
 .DivFloat
 {
-    float: left;
+    width: 50%;
 }
 
 .DivClose
@@ -176,7 +204,8 @@
 
 
 
-.DivGrid {
+.DivGrid
+{
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -184,15 +213,19 @@
     padding: 10px;
 }
 
-.DivItem {
+
+.DivItem
+{
     flex: 0 1 120px;
     height: 50px;
-    background: lightgrey;
+    background: whitesmoke;
+
     color: black;
+    border: 10px black;
+    border-radius: 8px;
     display: flex;
     align-items: center;
     justify-content: center;
-    border-radius: 8px;
     cursor: grab;
     user-select: none;
     transition: transform 150ms ease;
@@ -201,20 +234,27 @@
 
 }
 
+.DivItem.hover
+{
+    background: lightgrey;
+}
+
 
 
 .SortGhost { opacity: 0; }
 
 .SortChosen {
-    background: #357ab8;
+    background: darkgrey;
     transform: scale(1.05);
     cursor: grabbing;
 }
 
 
 .active-btn {
-    background-color: #2c3e50;
-    border: 2px solid #333;
+    background-color: black;
+    border: 2px solid white;
+    text-decoration-color: white;
+    color: white;
 }
 
 
@@ -231,7 +271,6 @@
 .DivProjectLeft
 {
     flex: 1;
-
     background-color: #3498db;
     color: white;
     padding: 10px;
@@ -271,4 +310,73 @@
     width: 250px;
     max-width: 350px;
     height: 75px;
+}
+
+.DivIntroRow {
+    display: flex;
+    gap: 20px; /* The space between red and yellow boxes */
+    width: 100%;
+}
+
+/* The flexible red box */
+.DivIntroLeft {
+    background-color: #f44336;
+    flex-grow: 1; /* Allows it to expand to fill remaining space */
+    display: flex;
+    align-items: center; /* Centers the text vertically */
+    justify-content: center; /* Centers the text horizontally */
+    padding: 10px;
+    overflow: hidden; /* Prevents text from spilling out during calculations */
+}
+
+/* The fixed yellow box */
+.DivIntroRight {
+    background-color: #ffeb3b;
+    height: 150px;
+    width: 150px;
+    flex-shrink: 0; /* Prevents it from being squished when screen gets small */
+}
+
+/* The full-width green box */
+.DivIntroBottom {
+    background-color: #8bc34a;
+    height: auto; /* Set to your desired height */
+    width: 100%;
+}
+
+/* Text styles inside the red box */
+.DivDynamicText {
+    text-align: center;
+    line-height: 1.1;
+    font-family: sans-serif;
+    font-weight: bold;
+    color: white;
+}
+
+.DivIntro {
+    background-color: lightgrey;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* The space between the top row and green box */
+}
+
+#ImageClick
+{
+    width: 150px;
+    height: 150px;
+    object-fit: cover; /* Crops the image perfectly to fit the square */
+    cursor: pointer; /* Turns the mouse into a pointing hand to show it's clickable */
+    display: block; /* Removes the default bottom spacing on inline images */
+}
+
+@media (max-width: 800px) {
+    .ImageColumn {
+        display: none; /* Hides the grey div container */
+    }
+
+    .TextColumn {
+        width: 100%; /* Allows the text to take up the whole screen once the image is gone */
+        text-align: center; /* Optional: Centers the text on mobile */
+    }
 }

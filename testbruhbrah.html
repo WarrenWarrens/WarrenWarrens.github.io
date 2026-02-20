@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+    /* Reset basic margins and box sizing */
+    * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+    }
+
+    body {
+        padding: 20px;
+        background-color: #ffffff; /* Page background */
+    }
+
+    /* The grey background wrapping everything (matching your design) */
+    .DivIntro {
+        background-color: #888888;
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        gap: 20px; /* The space between the top row and green box */
+    }
+
+    /* Holds the red and yellow boxes side-by-side */
+    .DivIntroRow {
+        display: flex;
+        gap: 20px; /* The space between red and yellow boxes */
+        width: 100%;
+    }
+
+    /* The flexible red box */
+    .DivIntroLeft {
+        background-color: #f44336;
+        height: 150px;
+        flex-grow: 1; /* Allows it to expand to fill remaining space */
+        border: 1px solid #333;
+        display: flex;
+        align-items: center; /* Centers the text vertically */
+        justify-content: center; /* Centers the text horizontally */
+        padding: 10px;
+        overflow: hidden; /* Prevents text from spilling out during calculations */
+    }
+
+    /* The fixed yellow box */
+    .DivIntroRIght {
+        background-color: #ffeb3b;
+        height: 150px;
+        width: 150px;
+        flex-shrink: 0; /* Prevents it from being squished when screen gets small */
+        border: 1px solid #333;
+        overflow: hidden; /* Ensures the image doesn't break out of the borders */
+    }
+
+    #clickable-image {
+        width: 150px;
+        height: 150px;
+        object-fit: cover; /* Crops the image perfectly to fit the square */
+        cursor: pointer; /* Turns the mouse into a pointing hand to show it's clickable */
+        display: block; /* Removes the default bottom spacing on inline images */
+    }
+
+    /* The full-width green box */
+    .DivIntroBottom {
+        background-color: #8bc34a;
+        height: 250px; /* Set to your desired height */
+        width: 100%;
+        border: 1px solid #333;
+    }
+
+    /* Text styles inside the red box */
+    .DivDynamicText {
+        text-align: center;
+        line-height: 1.1;
+        font-family: sans-serif;
+        font-weight: bold;
+        color: white;
+    }
+</style>
+<body>
+<div class="DivIntro">
+    <div class="DivIntroRow">
+        <div class="DivIntroLeft">
+            <div class="DivDynamicText">Your dynamic text goes here!</div>
+        </div>
+        <div class="DivIntroRIght">
+            <img id="clickable-image" src="https://via.placeholder.com/150/ffeb3b/333333?text=Image+1" alt="Click to change">
+        </div>
+    </div>
+
+    <div class="DivIntroBottom"></div>
+</div>
+</body>
+<script>
+    function resizeText() {
+        const redBox = document.querySelector('.DivIntroLeft');
+        const textElement = document.querySelector('.DivDynamicText');
+
+        // Set our search range for font sizes
+        let minSize = 10;
+        let maxSize = 150; // The maximum height of the red box
+        let optimalSize = minSize;
+
+        // Use a binary search to find the perfect font size instantly
+        while (minSize <= maxSize) {
+            let midSize = Math.floor((minSize + maxSize) / 2);
+            textElement.style.fontSize = midSize + 'px';
+
+            // Check if the text fits within the padding (10px on each side = 20px total)
+            let isOverflowing =
+                textElement.scrollHeight > (redBox.clientHeight - 20) ||
+                textElement.scrollWidth > (redBox.clientWidth - 20);
+
+            if (!isOverflowing) {
+                optimalSize = midSize; // This size fits, save it
+                minSize = midSize + 1; // Try going larger
+            } else {
+                maxSize = midSize - 1; // It overflowed, try going smaller
+            }
+        }
+
+        // Apply the largest size that fit successfully
+        textElement.style.fontSize = optimalSize + 'px';
+    }
+
+    // Run the function when the page loads
+    window.addEventListener('load', resizeText);
+
+    // Run the function every time the user resizes the browser window
+    window.addEventListener('resize', resizeText);
+
+    // --- Keep your existing resizeText() code above this ---
+
+    // 1. Define your list of images
+    const imageList = [
+        "https://via.placeholder.com/150/ffeb3b/333333?text=Image+1", // Matches the HTML
+        "https://via.placeholder.com/150/2196f3/ffffff?text=Image+2",
+        "https://via.placeholder.com/150/9c27b0/ffffff?text=Image+3",
+        "https://via.placeholder.com/150/ff9800/ffffff?text=Image+4"
+    ]; // Replace these URLs with your actual image paths!
+
+    let currentImageIndex = 0;
+    const clickableImg = document.getElementById('clickable-image');
+
+    // 2. Add the click event listener
+    clickableImg.addEventListener('click', function() {
+        // Increase the index by 1 to move to the next image
+        currentImageIndex++;
+
+        // If we've reached the end of the list, loop back to the beginning (index 0)
+        if (currentImageIndex >= imageList.length) {
+            currentImageIndex = 0;
+        }
+
+        // Update the image source on the page
+        clickableImg.src = imageList[currentImageIndex];
+    });
+</script>
+</html>
