@@ -37,7 +37,7 @@
 
 #Right {
 
-    width: 100px;
+    width: 150px;
     height: 100%;
     display: flex;
     flex-direction: column;
@@ -154,8 +154,8 @@
 }
 
 #Orb {
-    width: 100px;
-    height: 100px;
+    width: 150px;
+    height: 150px;
     background-color:  #ff3300;
 
     color: black;
@@ -205,9 +205,10 @@
     border-color: black;
 }
 
-.DivAd {
-    width: 50px;
-    height: 50px;
+.DivAd
+{
+    width: 128px;
+    height: 64px;
     margin-bottom: 10px;
     background-color: black;
 
@@ -445,8 +446,8 @@
 
     /* Ad items now horizontal - keep original styling */
     .DivAd {
-        width: 70px;
-        height: 70px;
+        width: 128px;
+        height: 64px;
         margin-bottom: 0;
         margin-right: 10px;
         flex-shrink: 0;
@@ -584,8 +585,8 @@
     }
 
     #Orb {
-        width: 70px;
-        height: 70px;
+        width: 150px;
+        height: 150px;
         font-size: 12px;
     }
 

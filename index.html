@@ -244,7 +244,7 @@
                                 <a href="Yokel/Yokel.html">Website</a>
                             </div>
                             <div class="DivItem">
-                                <a href="https://github.com/WarrenWarrens/WarrenWarrens.github.io">GitHub</a>
+                                <a href="https://github.com/WarrenWarrens/WarrenWarrens.github.io" target="_blank">GitHub</a>
                             </div>
                         </div>
                     </div>
@@ -302,7 +302,7 @@
                                         <a href="Yokel/Yokel.html">Website</a>
                                     </div>
                                     <div class="DivItem">
-                                        <a href="https://github.com/WarrenWarrens/WarrenWarrens.github.io">GitHub</a>
+                                        <a href="https://github.com/WarrenWarrens/WarrenWarrens.github.io" target="_blank">GitHub</a>
                                     </div>
                                 </div>
 
@@ -382,46 +382,65 @@
                         <a href="mailto:warrener.ryan@gmail.com">Email</a>
                     </div>
                     <div class="DivItem">
-                        <a href="https://github.com/WarrenWarrens">GitHub</a>
+                        <a href="https://github.com/WarrenWarrens" target="_blank">GitHub</a>
                     </div>
                     <div class="DivItem">
-                        <a href="https://www.linkedin.com/in/ryan-warrener/">Linkedin</a>
+                        <a href="https://www.linkedin.com/in/ryan-warrener/" target="_blank">Linkedin</a>
 
                     </div>
                     <div class="DivItem">
-                        <a href="https://leetcode.com/u/WarrenWarren/">LeetCode</a>
+                        <a href="https://leetcode.com/u/WarrenWarren/" target="_blank">LeetCode</a>
 
                     </div>
                     <div class="DivItem">
-                        <a href="https://bsky.app/profile/warrenwarrens.bsky.social">BlueSky</a>
+                        <a href="https://bsky.app/profile/warrenwarrens.bsky.social" target="_blank">BlueSky</a>
                     </div>
                     <div class="DivItem">
-                        <a href="https://x.com/WarrenWarrenCS">Twitter(X)</a>
+                        <a href="https://x.com/WarrenWarrenCS" target="_blank">Twitter(X)</a>
                     </div>
                 </div>
             </div>
         </section>
 
-<!--        <div class="DivIconBar">-->
-<!--            <div class="DivWrap">-->
-<!--                <div class="DivIcon">-->
-<!--                    <button onclick="scrollToTop()" class="ScrollToTopButton">Top</button>-->
-<!--                </div>-->
-<!--            </div>-->
-
-
-<!--            <div class="DivWrap">-->
-<!--                <button class="DivIcon theme-icon">Theme</button>-->
-<!--                <div class="DivPopup">-->
-<!--                    <div class="DivPopupActions">-->
-<!--                        <button>Light</button>-->
-<!--                        <button>Dark</button>-->
-<!--                    </div>-->
-<!--                </div>-->
-<!--            </div>-->
-
-<!--        </div>-->
-
+        <div class="DivIconBar">
+            <!--            <div class="DivWrap">-->
+            <button class="DivIconBtn" onclick="window.scrollTo({top: 0, behavior: 'smooth'})" title="Home">
+                <!--                <div class="DivIcon">-->
+                <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <!--                    <button onclick="scrollToTop()" class="ScrollToTopButton">Top</button>-->
+                    <path d="M3 9.5L12 3l9 6.5V20a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9.5z"/>
+                    <polyline points="9 21 9 12 15 12 15 21"/>
+                    <!--                </div>-->
+                </svg>
+                <!--            </div>-->
+            </button>
+            <!--            <div class="DivWrap">-->
+            <div class="DivIconDivider"></div>
+            <!--                <button class="DivIcon theme-icon">Theme</button>-->
+            <button class="DivIconBtn" onclick="document.getElementById('ContactGrid').scrollIntoView({behavior: 'smooth'})" title="Contact">
+                <!--                <div class="DivPopup">-->
+                <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <!--                    <div class="DivPopupActions">-->
+                    <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.62 1h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 8.4a16 16 0 0 0 5.9 5.9l.91-.91a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+                    <!--                        <button>Light</button>-->
+                    <!--                        <button>Dark</button>-->
+                    <!--                    </div>-->
+                    <!--                </div>-->
+                </svg>
+            </button>
+            <div class="DivIconDivider"></div>
+            <button class="DivIconBtn" id="ThemeBtn" onclick="toggleTheme()" title="Toggle Theme">
+                <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="5"/>
+                    <line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/>
+                    <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+                    <line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/>
+                    <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+                    <!--            </div>-->
+                </svg>
+            </button>
+            <!--        </div>-->
+        </div>
     </main>
 
     <script src="https://cdn.jsdelivr.net/npm/sortablejs@1.15.2/Sortable.min.js"></script>
@@ -467,7 +486,13 @@
 
         function hideParent(button)
         {
+            let el = button;
+            while (el && !el.classList.contains("Big")) {
+                el = el.parentNode;
+            }
             button.parentNode.parentNode.classList.toggle("show");
+            if (el) el.classList.toggle("show");
+
         }
 
         function resizeText() {
@@ -539,6 +564,11 @@
 
             document.getElementById('About' + id).style.display = 'block';
             btnElement.classList.add('active-btn');
+        }
+
+        function toggleTheme() {
+            var btn = document.getElementById('ThemeBtn');
+            btn.classList.toggle('active');
         }
     </script>
 

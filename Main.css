@@ -7,27 +7,30 @@
     width: 100vw;
     height: 100vh;
     z-index: 100;
-    background-color: black;
-    opacity: 0.8;
+    background-color: rgba(0, 0, 0, 0.7);
     position: fixed;
     display: block;
-    top: 20px;
-    left: 50%;
-    transform: translateX(-50%);
-
+    top: 0;
+    left: 0;
+    transform: none;
 }
 
 .DivProject2
 {
     width: 80vw;
     height: 80vh;
-    z-index: 100;
-    background-color: whitesmoke;
+    z-index: 101;
+    background-color: white;
     position: fixed;
-    display: block;
-    top: 20px;
+    display: none;
+    top: 45%;
     left: 50%;
-    transform: translateX(-50%);
+    transform: translate(-50%, -50%);
+}
+
+.Big.show .DivProject2
+{
+    display: block;
 }
 
 .DivBar3
@@ -39,7 +42,7 @@
 
 .DivProject
 {
-    background-color: whitesmoke;
+    background-color: white;
     width: 100%;
     height: 95%;
     overflow: scroll;
@@ -69,12 +72,13 @@
     margin: 0;
     background-color: white;
     align-content: center;
+    place-items: center;
 }
 
 .Main
 {
     align-content: center;
-    width: 100%;
+    width: 90%;
     place-items: center;
     padding-bottom: 150px;
 }
@@ -85,8 +89,7 @@
     min-width: 400px;
     height: auto;
     align-content: center;
-        /*border-color: #b0bec5;*/
-        /*border-style: solid;*/
+
 }
 
 #Me
@@ -293,24 +296,7 @@
 
 
 
-.DivIconBar {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: white;
-    border-radius: 40px;
-    padding: 20px 40px;
-    box-shadow: 0 3px 8px rgba(0,0,0,0.1);
-    gap: 15px;
-    transition: width 0.3s ease, padding 0.3s ease;
-    position: fixed;
-    bottom: 20px; /* pinned to bottom */
-    left: 50%;
-    transform: translateX(-50%);
-    width: 250px;
-    max-width: 350px;
-    height: 75px;
-}
+
 
 .DivIntroRow {
     display: flex;
@@ -379,4 +365,52 @@
         width: 100%; /* Allows the text to take up the whole screen once the image is gone */
         text-align: center; /* Optional: Centers the text on mobile */
     }
+}
+/* ── Floating Icon Bar ── */
+.DivIconBar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: white;
+    border-radius: 40px;
+    padding: 12px 24px;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.13);
+    gap: 8px;
+    position: fixed;
+    bottom: 28px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 200;
+}
+
+.DivIconBtn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #444;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    transition: background 0.15s ease, color 0.15s ease, transform 0.15s ease;
+}
+
+.DivIconBtn:hover {
+    background: #f0f0f0;
+    color: #000;
+    transform: scale(1.12);
+}
+
+.DivIconBtn.active {
+    background: #000;
+    color: white;
+}
+
+.DivIconDivider {
+    width: 1px;
+    height: 24px;
+    background: #ddd;
+    margin: 0 4px;
 }
