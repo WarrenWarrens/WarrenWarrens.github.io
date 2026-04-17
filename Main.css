@@ -90,6 +90,7 @@
     height: auto;
     align-content: center;
 
+
 }
 
 #Me
@@ -115,7 +116,7 @@
 .PTitle
 {
     text-align: center;
-    font-family: 'Roboto'; font-size: 22px;
+    font-family: 'Roboto'; font-size: 28px;
 }
 
 .PText
@@ -274,8 +275,7 @@
 .DivProjectLeft
 {
     flex: 1;
-    background-color: #3498db;
-    color: white;
+    color: black;
     padding: 10px;
     border-radius: 4px;
 }
@@ -325,7 +325,7 @@
 
 /* The full-width green box */
 .DivIntroBottom {
-    background-color: #8bc34a;
+    background-color: white;
     height: auto; /* Set to your desired height */
     width: 100%;
 }
@@ -340,7 +340,7 @@
 }
 
 .DivIntro {
-    background-color: lightgrey;
+    background-color: whitesmoke;
     padding: 20px;
     display: flex;
     flex-direction: column;
@@ -414,3 +414,4 @@
     background: #ddd;
     margin: 0 4px;
 }
+
