@@ -296,6 +296,221 @@
     background-color: red;
 }
 
+/* ── Codec Component ── */
+.codec-container {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    font-family: 'Courier New', monospace;
+}
+
+.codec-top {
+    display: flex;
+    border: 2px solid #5a7a52;
+    background: #1c231c;
+    position: relative;
+    overflow: visible;
+    min-height: 220px;
+}
+
+/* Left image panel */
+/*.codec-img-panel {*/
+/*    width: 160px;*/
+/*    flex-shrink: 0;*/
+/*    position: relative;*/
+/*    margin-top: -24px;*/
+/*    margin-bottom: -2px;*/
+/*    z-index: 2;*/
+/*    border-right: 2px solid #5a7a52;*/
+/*}*/
+
+.codec-img-panel {
+    width: 220px;
+    flex-shrink: 0;
+    position: relative;
+    border-right: 2px solid #5a7a52;
+    overflow: visible;
+}
+
+.codec-img-panel img {
+    position: absolute;
+    top: 50%;
+    left: 22px;            /* empty space on left */
+    right: 22px;           /* empty space on right */
+    width: calc(100% - 44px);
+    height: calc(100% + 30px);   /* overflow top & bottom equally */
+    transform: translateY(-50%);
+    object-fit: cover;
+    opacity: 0.72;
+    display: block;
+    filter: sepia(0.4) hue-rotate(60deg) saturate(0.8);
+}
+
+.codec-img-scanlines {
+    position: absolute;
+    top: 50%;
+    left: 22px;
+    right: 22px;
+    width: calc(100% - 44px);
+    height: calc(100% + 30px);
+    transform: translateY(-50%);
+    background: repeating-linear-gradient(
+            to bottom,
+            transparent 0px,
+            transparent 3px,
+            rgba(0,0,0,0.18) 3px,
+            rgba(0,0,0,0.18) 4px
+    );
+    pointer-events: none;
+    z-index: 3;
+}
+
+/*.codec-img-scanlines {*/
+/*    position: absolute;*/
+/*    inset: 0;*/
+/*    background: repeating-linear-gradient(*/
+/*            to bottom,*/
+/*            transparent 0px,*/
+/*            transparent 3px,*/
+/*            rgba(0,0,0,0.18) 3px,*/
+/*            rgba(0,0,0,0.18) 4px*/
+/*    );*/
+/*    pointer-events: none;*/
+/*    z-index: 3;*/
+/*}*/
+
+/* Right info panel */
+.codec-right {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+}
+
+.codec-panel-header {
+    padding: 6px 12px;
+    border-bottom: 1px solid #5a7a52;
+    color: #8aab82;
+    font-size: 12px;
+    letter-spacing: 0.08em;
+    background: #171e17;
+}
+
+.codec-panel-body {
+    flex: 1;
+    padding: 10px 12px;
+    color: #b8ccb4;
+    font-size: 13px;
+    line-height: 1.7;
+    overflow-y: auto;
+}
+
+.codec-panel-body p {
+    margin: 0;
+    font-family: 'Courier New', monospace;
+}
+
+/* Footer nav bar */
+.codec-panel-footer {
+    display: flex;
+    align-items: center;
+    border-top: 1px solid #5a7a52;
+    background: #171e17;
+    padding: 0;
+    height: 40px;
+}
+
+.codec-nav {
+    display: flex;
+    align-items: center;
+    gap: 0;
+    border-right: 1px solid #5a7a52;
+    height: 100%;
+    padding: 0 4px;
+}
+
+.codec-nav-btn {
+    background: none;
+    border: none;
+    color: #8aab82;
+    font-size: 14px;
+    cursor: pointer;
+    padding: 0 10px;
+    height: 100%;
+    transition: background 0.1s, color 0.1s;
+    font-family: 'Courier New', monospace;
+}
+
+.codec-nav-btn:hover:not(:disabled) {
+    background: #2e3d2e;
+    color: #c8e0c4;
+}
+
+.codec-nav-btn:disabled {
+    color: #3a4f3a;
+    cursor: default;
+}
+
+.codec-counter {
+    color: #c8e0c4;
+    font-size: 13px;
+    min-width: 36px;
+    text-align: center;
+    letter-spacing: 0.05em;
+}
+
+.codec-menu-btn {
+    background: none;
+    border: none;
+    color: #8aab82;
+    font-size: 13px;
+    cursor: pointer;
+    padding: 0 16px;
+    height: 100%;
+    font-family: 'Courier New', monospace;
+    letter-spacing: 0.06em;
+    margin-left: auto;
+    transition: background 0.1s, color 0.1s;
+}
+
+.codec-menu-btn:hover {
+    background: #2e3d2e;
+    color: #c8e0c4;
+}
+
+/* Bottom typewriter panel */
+.codec-bottom {
+    border: 2px solid #5a7a52;
+    border-top: none;
+    background: #1c231c;
+    padding: 18px 20px;
+    min-height: 72px;
+    display: flex;
+    align-items: center;
+}
+
+.codec-typewriter-text {
+    color: #c8e0c4;
+    font-family: 'Courier New', monospace;
+    font-size: clamp(16px, 3vw, 26px);
+    letter-spacing: 0.04em;
+    line-height: 1.3;
+}
+
+.codec-cursor {
+    display: inline-block;
+    width: 2px;
+    height: 1em;
+    background: #8aab82;
+    margin-left: 3px;
+    vertical-align: middle;
+    animation: codec-blink 0.75s step-end infinite;
+}
+
+@keyframes codec-blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+}
 
 
 

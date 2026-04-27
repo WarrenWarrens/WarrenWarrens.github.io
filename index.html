@@ -11,24 +11,69 @@
 
 <body class="Body">
     <main class="Main">
+
+<!--        <section class="Section1" style="padding-top: 50px" id="Me">-->
+<!--            <div class="DivIntro">-->
+<!--                <div class="DivIntroRow">-->
+<!--                    <div class="DivIntroLeft">-->
+<!--                        <div class="DivDynamicText">Hello! I'm Ryan!</div>-->
+<!--                    </div>-->
+<!--                    <div class="DivIntroRight">-->
+<!--                        <img id="ImageClick" src="Main/New/Media/Me2.jpg" alt="Clickable Image">-->
+<!--                    </div>-->
+<!--                </div>-->
+
+<!--                <div class="DivIntroBottom">-->
+<!--                    Fourth Year BSC Computer Science student at Ontario Tech.-->
+<!--                    I build mobile applications, games & python scripts-->
+<!--                    with a focus on creativity and accessibility.-->
+<!--                </div>-->
+<!--            </div>-->
+
+<!--        </section>-->
         <section class="Section1" style="padding-top: 50px" id="Me">
-            <div class="DivIntro">
-                <div class="DivIntroRow">
-                    <div class="DivIntroLeft">
-                        <div class="DivDynamicText">Hello! I'm Ryan!</div>
+            <div class="codec-container">
+
+                <div class="codec-top">
+                    <!-- Left: image -->
+                    <div class="codec-img-panel">
+                        <img id="CodecImage" src="Main/New/Media/Me2.jpg" alt="Ryan">
+                        <div class="codec-img-scanlines"></div>
                     </div>
-                    <div class="DivIntroRight">
-                        <img id="ImageClick" src="Main/New/Media/Me2.jpg" alt="Clickable Image">
+
+                    <!-- Right: info -->
+                    <div class="codec-right">
+                        <div class="codec-panel-header">PORTFOLIO // RYAN WARRENER</div>
+
+                        <div class="codec-panel-body">
+                            <p>Ontario Tech University</p>
+                            <p>BSC. Computer Science</p>
+                            <p>Spec. Data Science</p>
+                            <p>Minor: Mathematics & Physics</p>
+                            <p>Oshawa, Ontario, Canada</p>
+                        </div>
+
+                        <div class="codec-panel-footer">
+                            <div class="codec-nav">
+                                <button class="codec-nav-btn" id="CodecPrev" onclick="codecPrev()">◄</button>
+                                <span class="codec-counter" id="CodecCounter">1/4</span>
+                                <button class="codec-nav-btn" id="CodecNext" onclick="codecNext()">►</button>
+                            </div>
+                            <button class="codec-menu-btn">Menu ▼</button>
+                        </div>
                     </div>
                 </div>
 
-                <div class="DivIntroBottom">
-                    Fourth Year BSC Computer Science student at Ontario Tech.
-                    I build mobile applications, games & python scripts
-                    with a focus on creativity and accessibility.
+                <br>
+                <br>
+                <!-- Bottom typewriter -->
+                <div class="codec-bottom">
+                    <div class="codec-typewriter-text">
+                        <span id="CodecTypewriter"></span><span class="codec-cursor"></span>
+                    </div>
                 </div>
+
             </div>
-
         </section>
 
         <section class="Section1" id="About">
@@ -587,6 +632,41 @@
 
         </section>
 
+        <section class="Section1" id="Certifications/Licences">
+
+            <div class="DivBar">
+                <p class="PTitle">Certifications/Licences</p>
+            </div>
+
+            <div class="DivBar">
+                <div class="DivBar2" onclick="toggle(this)">
+                    <div style="padding-right: 15px">
+                        <div style="width: 50px; height: 50px; background: #333; border-radius: 50%;"></div>
+                    </div>
+
+                    <div class="DivFloat" style="width: 65%;">
+                        <p style="margin: 0; font-weight: bold;">Ontario Tech University</p>
+                        <p style="margin: 0;">Undergraduate BSC. Computer Science Student</p>
+                        <p style="margin: 0; color: #666; font-size: 0.9em;">2022-2026</p>
+                    </div>
+
+                    <div class="DivFloat Arrow" style="width: 15%;">
+                        V
+                    </div>
+                </div>
+
+                <div class="DivExpand">
+                    <ul class="Ul1">
+                        <li>Major: BSC. Computer Science</li>
+                        <li>Specialization: Data Science</li>
+                        <li>Dual Minor: Mathematics & Physics</li>
+                        <li>Honours Thesis: FLIC - "Feedback for Live Interactive Coding</li>
+                    </ul>
+                </div>
+            </div>
+
+        </section>
+
 
         <section class="Section1">
             <div class="DivBar">
@@ -787,6 +867,64 @@
             var btn = document.getElementById('ThemeBtn');
             btn.classList.toggle('active');
         }
+
+        // ── Codec image cycler ──
+        const codecImages = [
+            "Main/New/Media/Me1.png",
+            "Main/New/Media/Me2.jpg",
+            "Main/New/Media/Me3.jpg",
+            "Main/New/Media/Me4.jpg",   // add your 4th image path here
+        ];
+        let codecIndex = 0;
+
+        function updateCodec() {
+            document.getElementById('CodecImage').src = codecImages[codecIndex];
+            document.getElementById('CodecCounter').textContent = (codecIndex + 1) + '/' + codecImages.length;
+            document.getElementById('CodecPrev').disabled = codecIndex === 0;
+            document.getElementById('CodecNext').disabled = codecIndex === codecImages.length - 1;
+        }
+
+        function codecPrev() { if (codecIndex > 0) { codecIndex--; updateCodec(); } }
+        function codecNext() { if (codecIndex < codecImages.length - 1) { codecIndex++; updateCodec(); } }
+
+        updateCodec(); // set initial state
+
+        // ── Codec typewriter ──
+        const codecLines = [
+            "Fourth Year BSC Computer Science student at Ontario Tech.",
+            "I build mobile applications, games & Python scripts.",
+            "Focused on creativity and accessibility.",
+        ];
+        let lineIndex = 0;
+        let charIndex = 0;
+        let isDeleting = false;
+        const typeEl = document.getElementById('CodecTypewriter');
+        const typeSpeed = 45, deleteSpeed = 22, pauseAfterType = 2200, pauseAfterDelete = 400;
+
+        function codecType() {
+            const current = codecLines[lineIndex];
+            if (!isDeleting) {
+                typeEl.textContent = current.substring(0, charIndex + 1);
+                charIndex++;
+                if (charIndex === current.length) {
+                    isDeleting = true;
+                    setTimeout(codecType, pauseAfterType);
+                    return;
+                }
+            } else {
+                typeEl.textContent = current.substring(0, charIndex - 1);
+                charIndex--;
+                if (charIndex === 0) {
+                    isDeleting = false;
+                    lineIndex = (lineIndex + 1) % codecLines.length;
+                    setTimeout(codecType, pauseAfterDelete);
+                    return;
+                }
+            }
+            setTimeout(codecType, isDeleting ? deleteSpeed : typeSpeed);
+        }
+
+        codecType();
     </script>
 
 </body>
