@@ -3,353 +3,10 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="test4.css">
     <title>My Site</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet" />
-
-    <style>
-        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-        :root {
-            --surface: #1a1a1a;
-            --border:  #2e2e2e;
-            --text:    #f0ede8;
-            --text-muted: #888;
-            --brown:      #7a3b1e;
-            --brown-hover:#9a4e28;
-            --radius: 10px;
-            font-family: 'DM Sans', sans-serif;
-        }
-
-        body {
-            background: #111;
-            color: var(--text);
-        }
-
-        /* ─────────────────────────────────────────────────
-           SKIP LINK
-        ───────────────────────────────────────────────── */
-        .skip-link {
-            position: absolute;
-            left: -9999px;
-            top: 1rem;
-            background: #3b6ee8;
-            color: #fff;
-            padding: 0.5rem 1rem;
-            border-radius: 6px;
-            font-size: 0.875rem;
-            z-index: 10001;
-            text-decoration: none;
-        }
-        .skip-link:focus { left: 1rem; }
-
-
-        /* ─────────────────────────────────────────────────
-           ACCESSIBILITY OVERLAY
-        ───────────────────────────────────────────────── */
-        #a11y-overlay {
-            position: fixed;
-            inset: 0;
-            background: #0d0d0d;          /* solid — covers the layout fully */
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            z-index: 9999;
-            padding: 1.5rem;
-            animation: fadeIn 0.35s ease;
-        }
-
-        @keyframes fadeIn  { from { opacity: 0; } to { opacity: 1; } }
-        @keyframes fadeOut { to   { opacity: 0; } }
-
-        #a11y-overlay.hiding {
-            animation: fadeOut 0.4s ease forwards;
-            pointer-events: none;
-        }
-
-        .a11y-card {
-            background: var(--surface);
-            border: 1px solid var(--border);
-            border-radius: 16px;
-            width: 100%;
-            max-width: 620px;
-            padding: 2rem;
-            display: flex;
-            flex-direction: column;
-            gap: 1.25rem;
-        }
-
-        .a11y-card header p {
-            font-size: 11px;
-            letter-spacing: 0.12em;
-            text-transform: uppercase;
-            color: var(--text-muted);
-            font-family: 'DM Mono', monospace;
-            margin-bottom: 0.4rem;
-        }
-
-        .a11y-card header h1 {
-            font-size: 1.35rem;
-            font-weight: 600;
-            color: var(--text);
-        }
-
-        /* Blue section */
-        .section-theme {
-            background: #1b2340;
-            border: 1px solid #2a3660;
-            border-radius: var(--radius);
-            padding: 1.25rem 1.5rem;
-        }
-        .section-theme h2 {
-            font-size: 0.75rem;
-            letter-spacing: 0.1em;
-            text-transform: uppercase;
-            color: #7da4f5;
-            font-family: 'DM Mono', monospace;
-            margin-bottom: 0.9rem;
-        }
-        .theme-options {
-            display: flex;
-            gap: 0.75rem;
-            flex-wrap: wrap;
-        }
-        .theme-btn {
-            flex: 1;
-            min-width: 100px;
-            padding: 0.6rem 0.85rem;
-            border-radius: 8px;
-            border: 1.5px solid transparent;
-            background: #0d1830;
-            color: #a8c0f5;
-            font-size: 0.875rem;
-            font-family: 'DM Sans', sans-serif;
-            cursor: pointer;
-            transition: border-color 0.15s, background 0.15s;
-            text-align: center;
-        }
-        .theme-btn:hover   { background: #162040; }
-        .theme-btn.selected{ border-color: #3b6ee8; background: #1a2e5a; color: #c0d4ff; }
-
-        /* Green section */
-        .section-text {
-            background: #162b20;
-            border: 1px solid #224833;
-            border-radius: var(--radius);
-            padding: 1.25rem 1.5rem;
-        }
-        .section-text h2 {
-            font-size: 0.75rem;
-            letter-spacing: 0.1em;
-            text-transform: uppercase;
-            color: #5ec495;
-            font-family: 'DM Mono', monospace;
-            margin-bottom: 0.9rem;
-        }
-        .text-options { display: flex; gap: 0.75rem; }
-        .text-btn {
-            flex: 1;
-            padding: 0.6rem 0.85rem;
-            border-radius: 8px;
-            border: 1.5px solid transparent;
-            background: #0c1f14;
-            color: #7dd4a8;
-            cursor: pointer;
-            transition: border-color 0.15s, background 0.15s;
-            font-family: 'DM Sans', sans-serif;
-            text-align: center;
-        }
-        .text-btn:hover    { background: #112819; }
-        .text-btn.selected { border-color: #3a9e6f; background: #163824; color: #a8f0cb; }
-        .text-btn span     { display: block; color: inherit; }
-        .text-btn .label   { font-size: 0.75rem; margin-top: 2px; opacity: 0.7; }
-
-        /* Brown continue button */
-        .continue-btn {
-            display: block;
-            width: fit-content;
-            margin: 0 auto;
-            padding: 0.75rem 2.5rem;
-            background: var(--brown);
-            color: #f5ddd0;
-            border: none;
-            border-radius: 8px;
-            font-size: 0.95rem;
-            font-weight: 600;
-            font-family: 'DM Sans', sans-serif;
-            cursor: pointer;
-            letter-spacing: 0.03em;
-            transition: background 0.18s, transform 0.12s;
-        }
-        .continue-btn:hover  { background: var(--brown-hover); }
-        .continue-btn:active { transform: scale(0.97); }
-
-        @media (max-width: 480px) {
-            .a11y-card  { padding: 1.5rem 1.25rem; }
-            .theme-options, .text-options { gap: 0.5rem; }
-            .theme-btn, .text-btn { font-size: 0.8rem; padding: 0.5rem 0.6rem; }
-            .continue-btn { padding: 0.7rem 2rem; }
-        }
-
-
-        /* ─────────────────────────────────────────────────
-           MAIN LAYOUT
-        ───────────────────────────────────────────────── */
-        #main-content {
-            /* Hidden until overlay is dismissed */
-            opacity: 0;
-            transition: opacity 0.5s ease;
-        }
-
-        #main-content.visible { opacity: 1; }
-
-        /* ── Grid wrapper ── */
-        .page-wrapper {
-            /* Fill the viewport minus a small margin on every side */
-            width:  calc(100vw - 30px);
-            height: calc(100vh - 30px);
-            margin: 15px;
-
-            background: #000;
-            display: grid;
-            grid-template-columns: 1fr 3.2fr;
-            grid-template-rows: auto 1fr;
-            grid-template-areas:
-        "red   red"
-        "left  right";
-            gap: 4px;
-            padding: 4px;
-        }
-
-        .block-red  { grid-area: red; }
-        .col-left   { grid-area: left;  display: flex; flex-direction: column; gap: 4px; }
-        .col-right  { grid-area: right; display: flex; flex-direction: column; gap: 4px; }
-
-        /* Heights/flex are all proportional — no fixed px except the red bar */
-        .block-red    { background: #d63030; height: 6vh; min-height: 36px; }
-        .block-green  { background: #3dcc3d; flex: 1.15; }
-        .block-yellow { background: #f0c832; flex: 1; }
-        .block-blue   { background: #2e2ed4; flex: 3; }
-        .block-purple { background: #a090e0; flex: 0.55; }
-        .block-orange { background: #e87830; flex: 1.2; }
-
-        /* ─────────────────────────────────────────────────
-           FIXED STICKY HEADER
-           Slides down from top on scroll.
-           Desktop: red full-width → green slides in beside it.
-           Mobile:  both appear together, same proportions
-                    as the mobile layout bottom row.
-        ───────────────────────────────────────────────── */
-        #sticky-header {
-            position: fixed;
-            top: 0;
-            left: 15px;
-            right: 15px;
-            z-index: 500;
-            height: 52px;
-            display: flex;
-            gap: 4px;
-            /* Hidden above viewport until scroll triggers it */
-            transform: translateY(-100%);
-            transition: transform 0.3s ease;
-            /* Small gap below so it doesn't merge with content */
-            filter: drop-shadow(0 2px 6px rgba(0,0,0,0.5));
-        }
-
-        #sticky-header.is-visible {
-            transform: translateY(0);
-        }
-
-        .sh-red {
-            background: #d63030;
-            height: 100%;
-            /* Starts full-width, shrinks as green grows in */
-            flex: 1 1 auto;
-            transition: flex 0.35s ease;
-            min-width: 0;
-        }
-
-        .sh-green {
-            background: #3dcc3d;
-            height: 100%;
-            /* Starts collapsed */
-            flex: 0 0 0px;
-            width: 0;
-            overflow: hidden;
-            transition: flex 0.35s ease 0.1s, width 0.35s ease 0.1s;
-        }
-
-        /* Green expands in on desktop after a beat */
-        #sticky-header.green-visible .sh-green {
-            flex: 3.2 0 auto;
-            width: auto;
-        }
-
-        /* ─────────────────────────────────────────────────
-           SCROLL SECTION
-        ───────────────────────────────────────────────── */
-        #scroll-section {
-            opacity: 0;
-            transition: opacity 0.5s ease;
-            margin: 0 15px;
-            /* Push content down so it's not hidden under the fixed header
-               once it appears — using padding that matches header height  */
-            padding-top: 4px;
-        }
-
-        #scroll-section.visible { opacity: 1; }
-
-        /* 5 magenta content blocks */
-        .content-blocks {
-            display: flex;
-            flex-direction: column;
-            gap: 4px;
-        }
-
-        .magenta-block {
-            background: #e0306e;
-            width: 100%;
-            height: 40vh;
-            min-height: 200px;
-        }
-
-        /* Breathing room at the bottom */
-        .page-end {
-            height: 15vh;
-            min-height: 80px;
-        }
-
-        /* ── Mobile grid ── */
-        @media (max-width: 520px) {
-            .page-wrapper {
-                grid-template-columns: 3fr 1fr;
-                grid-template-rows: 1fr 0.2fr 0.5fr 0.3fr;
-                grid-template-areas: none;
-            }
-
-            .col-left, .col-right { display: contents; }
-
-            .block-red    { grid-column: 1 / 2; grid-row: 4; height: auto; min-height: unset; }
-            .block-green  { grid-column: 2 / 3; grid-row: 4; margin-left: 4px; }
-            .block-yellow { display: none; }
-            .block-blue   { grid-column: 1 / -1; grid-row: 1; }
-            .block-purple { grid-column: 1 / -1; grid-row: 2; margin-top: 4px; }
-            .block-orange { grid-column: 1 / -1; grid-row: 3; margin-top: 4px; }
-
-            /* Mobile sticky header: both panels always visible together,
-               proportions match the mobile bottom row (3fr red, 1fr green) */
-            #sticky-header .sh-green {
-                flex: 1 0 auto;
-                width: auto;
-                overflow: visible;
-                transition: none;
-            }
-            #sticky-header .sh-red {
-                flex: 3 1 auto;
-                transition: none;
-            }
-        }
-    </style>
 </head>
 <body>
 
@@ -418,7 +75,11 @@
 
         <div class="col-right">
             <div class="block-blue"></div>
-            <div class="block-purple"></div>
+            <div class="block-purple">
+                <button class="a11y-reopen-btn" onclick="showOverlay()" aria-label="Reopen accessibility settings">
+                    ⚙ Accessibility settings
+                </button>
+            </div>
             <div class="block-orange"></div>
         </div>
 
@@ -476,10 +137,20 @@
         const overlay = document.getElementById('a11y-overlay');
         overlay.classList.add('hiding');
         overlay.addEventListener('animationend', () => {
-            overlay.remove();
+            overlay.classList.remove('hiding');
+            overlay.classList.add('hidden');
             document.getElementById('main-content').classList.add('visible');
             document.getElementById('scroll-section').classList.add('visible');
         }, { once: true });
+    }
+
+    function showOverlay() {
+        const overlay = document.getElementById('a11y-overlay');
+        overlay.classList.remove('hidden');
+        // Re-trigger fade-in animation
+        overlay.style.animation = 'none';
+        overlay.offsetHeight;   // force reflow
+        overlay.style.animation = '';
     }
 
     function applyPrefs(prefs) {
@@ -488,38 +159,23 @@
         document.documentElement.style.fontSize = sizes[prefs.size] || '16px';
     }
 
-    // ── Sticky header scroll logic ──────────────────────────
-    (function initScroll() {
-        const header = document.getElementById('sticky-header');
-        const isMobile = () => window.innerWidth <= 520;
+    // ── Desktop: green appears in sticky header when block-green leaves viewport ──
+    (function initGreenObserver() {
+        const header     = document.getElementById('sticky-header');
+        const greenBlock = document.querySelector('.block-green');
+        if (!greenBlock) return;
 
-        // Thresholds (in px scrolled):
-        //   SHOW_AT  — header slides down
-        //   GREEN_AT — green panel expands in (desktop only)
-        const SHOW_AT  = 30;
-        const GREEN_AT = 60;
-
-        function onScroll() {
-            const y = window.scrollY;
-
-            if (y >= SHOW_AT) {
-                header.classList.add('is-visible');
-                header.removeAttribute('aria-hidden');
-            } else {
-                header.classList.remove('is-visible', 'green-visible');
-                header.setAttribute('aria-hidden', 'true');
-                return;
+        const observer = new IntersectionObserver((entries) => {
+            if (window.innerWidth > 520) {
+                if (!entries[0].isIntersecting) {
+                    header.classList.add('green-visible');
+                } else {
+                    header.classList.remove('green-visible');
+                }
             }
+        }, { threshold: 0 });
 
-            // Green only slides in on desktop; mobile already shows it via CSS
-            if (!isMobile() && y >= GREEN_AT) {
-                header.classList.add('green-visible');
-            } else if (!isMobile()) {
-                header.classList.remove('green-visible');
-            }
-        }
-
-        window.addEventListener('scroll', onScroll, { passive: true });
+        observer.observe(greenBlock);
     })();
 
     // On load — skip overlay if preferences are already saved
@@ -527,7 +183,7 @@
         const saved = localStorage.getItem(STORAGE_KEY);
         if (saved) {
             applyPrefs(JSON.parse(saved));
-            document.getElementById('a11y-overlay').remove();
+            document.getElementById('a11y-overlay').classList.add('hidden');
             document.getElementById('main-content').classList.add('visible');
             document.getElementById('scroll-section').classList.add('visible');
         }
