@@ -146,7 +146,7 @@ body { background: #111; color: var(--text); }
 .continue-btn:hover  { background: var(--brown-hover); }
 .continue-btn:active { transform: scale(0.97); }
 
-@media (max-width: 480px) {
+@media (max-width: 640px) {
     .a11y-card              { padding: 1.5rem 1.25rem; }
     .theme-options,
     .text-options           { gap: 0.5rem; }
@@ -228,8 +228,8 @@ body { background: #111; color: var(--text); }
     background: #d63030;
     height: 100%;
     flex: 1 1 auto;
-    transition: flex 0.35s ease;
     min-width: 0;
+    transition: flex 0.35s ease;
 }
 .sh-green {
     background: #3dcc3d;
@@ -239,7 +239,9 @@ body { background: #111; color: var(--text); }
     overflow: hidden;
     transition: flex 0.35s ease 0.1s, width 0.35s ease 0.1s;
 }
-#StickyHeader.green-visible .sh-green { flex: 3.2 0 auto; width: auto; }
+/* Green slides in: red shrinks to match the section title column (0.32fr : 1fr) */
+#StickyHeader.green-visible .sh-red   { flex: 0.32 0 130px; min-width: 130px; }
+#StickyHeader.green-visible .sh-green { flex: 1 0 auto; width: auto; }
 
 /* ─────────────────────────────────────────────────
    SCROLL SECTION
@@ -288,7 +290,7 @@ body { background: #111; color: var(--text); }
 .DivExpand.show { display: block; animation: slideDown 0.3s ease; }
 
 /* Mobile grid */
-@media (max-width: 520px) {
+@media (max-width: 640px) {
     .DivWrapper {
         margin-top: 56px;
         height: calc(100vh - 71px);
@@ -302,8 +304,8 @@ body { background: #111; color: var(--text); }
     .block-purple { grid-column: 1 / -1; grid-row: 2; margin-top: 4px; }
     .block-orange { grid-column: 1 / -1; grid-row: 3; margin-top: 4px; }
 
-    #StickyHeader .sh-green { flex: 1 0 auto; width: auto; overflow: visible; transition: none; }
-    #StickyHeader .sh-red   { flex: 3 1 auto; transition: none; }
+    #StickyHeader .sh-green { flex: 0 0 52px; width: 52px; overflow: visible; transition: none; }
+    #StickyHeader .sh-red   { flex: 1 1 auto; transition: none; }
 
     .exp-title, .exp-meta, .exp-item { width: 100%; font-size: 0.9rem; }
 }
@@ -432,14 +434,8 @@ section { margin-bottom: 96px; }
 /* ═══════════════════════════════════════════════════════
    SECTION 2 — Skills Grid
 ═══════════════════════════════════════════════════════ */
-.skills-header { display: grid; grid-template-columns: minmax(130px, 0.32fr) 1fr; gap: var(--gap); }
-.skills-title  {
-    background: var(--pink); color: var(--white);
-    font-weight: 700; font-size: 0.78rem;
-    letter-spacing: 0.12em; text-transform: uppercase;
-    padding: 18px 22px; display: flex; align-items: center;
-}
-.filter-row    { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--gap); }
+.skills-header { display: block; }
+.filter-row    { display: grid; grid-template-columns: repeat(5, 1fr); gap: var(--gap); }
 
 .skills-grid   { display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--gap); }
 
@@ -454,7 +450,6 @@ section { margin-bottom: 96px; }
 .skill-card.hidden      { display: none; }
 
 @media (max-width: 640px) {
-    .skills-header         { grid-template-columns: 1fr; }
-    .skills-title          { font-size: 0.82rem; }
-    .skills-grid           { grid-template-columns: repeat(2, 1fr); }
+    .skills-grid { grid-template-columns: repeat(2, 1fr); }
+    .filter-btn  { font-size: 0.75rem; padding: 10px 4px; }
 }
