@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Skills Section</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=DM+Serif+Display&display=swap" rel="stylesheet" />
+
+    <style>
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        :root {
+            --bg: #0d0d0d;
+            --surface: #161616;
+            --border: rgba(255, 255, 255, 0.08);
+            --border-hover: rgba(255, 255, 255, 0.18);
+            --text-primary: #f0ede8;
+            --text-secondary: #888580;
+            --text-muted: #4a4745;
+            --accent: #c8f060;
+            --accent-dim: rgba(200, 240, 96, 0.12);
+            --radius-sm: 8px;
+            --radius-md: 12px;
+            --radius-lg: 16px;
+            --card-size: 120px;
+        }
+
+        body {
+            background: var(--bg);
+            color: var(--text-primary);
+            font-family: 'DM Sans', sans-serif;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 3rem 1.5rem;
+        }
+
+        .skills-section {
+            width: 100%;
+            max-width: 900px;
+        }
+
+        .section-heading {
+            font-family: 'DM Serif Display', serif;
+            font-size: clamp(2rem, 5vw, 3.2rem);
+            font-weight: 400;
+            color: var(--text-primary);
+            text-align: center;
+            margin-bottom: 2.5rem;
+            letter-spacing: -0.02em;
+        }
+
+        /* Toggle bar */
+        .toggle-bar {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            margin-bottom: 2.5rem;
+            flex-wrap: wrap;
+        }
+
+        .toggle-btn {
+            font-family: 'DM Sans', sans-serif;
+            font-size: 14px;
+            font-weight: 500;
+            padding: 10px 28px;
+            border-radius: var(--radius-sm);
+            border: 1px solid var(--border);
+            background: var(--surface);
+            color: var(--text-secondary);
+            cursor: pointer;
+            letter-spacing: 0.03em;
+            transition: color 0.2s, border-color 0.2s, background 0.2s;
+            outline: none;
+        }
+
+        .toggle-btn:hover {
+            border-color: var(--border-hover);
+            color: var(--text-primary);
+        }
+
+        .toggle-btn.active {
+            background: var(--accent);
+            border-color: var(--accent);
+            color: #0d0d0d;
+        }
+
+        /* Panels */
+        .panel {
+            display: none;
+        }
+
+        .panel.visible {
+            display: block;
+            animation: fadeIn 0.25s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(6px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Skills grid */
+        .skills-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 12px;
+        }
+
+        .skill-card {
+            width: var(--card-size);
+            height: var(--card-size);
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-md);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            transition: border-color 0.2s, background 0.2s, transform 0.15s;
+            cursor: default;
+            flex-shrink: 0;
+        }
+
+        .skill-card:hover {
+            border-color: var(--border-hover);
+            background: #1e1e1e;
+            transform: translateY(-2px);
+        }
+
+        .skill-icon {
+            font-size: 26px;
+            line-height: 1;
+        }
+
+        .skill-name {
+            font-size: 11px;
+            font-weight: 500;
+            color: var(--text-secondary);
+            letter-spacing: 0.04em;
+            text-align: center;
+            padding: 0 6px;
+        }
+
+        /* Mobile */
+        @media (max-width: 480px) {
+            :root {
+                --card-size: 90px;
+            }
+
+            .skill-icon {
+                font-size: 20px;
+            }
+
+            .skill-name {
+                font-size: 10px;
+            }
+
+            .toggle-btn {
+                padding: 9px 20px;
+                font-size: 13px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<section class="skills-section">
+    <h2 class="section-heading">Skills</h2>
+
+    <div class="toggle-bar">
+        <button class="toggle-btn active" id="btn-one" onclick="switchTab('one')">One</button>
+        <button class="toggle-btn" id="btn-two" onclick="switchTab('two')">Two</button>
+        <button class="toggle-btn" id="btn-three" onclick="switchTab('three')">Three</button>
+    </div>
+
+    <!-- Panel One -->
+    <div class="panel visible" id="panel-one">
+        <div class="skills-grid">
+            <div class="skill-card"><span class="skill-icon">🌐</span><span class="skill-name">HTML</span></div>
+            <div class="skill-card"><span class="skill-icon">🎨</span><span class="skill-name">CSS</span></div>
+            <div class="skill-card"><span class="skill-icon">⚡</span><span class="skill-name">JavaScript</span></div>
+            <div class="skill-card"><span class="skill-icon">⚛️</span><span class="skill-name">React</span></div>
+            <div class="skill-card"><span class="skill-icon">💚</span><span class="skill-name">Vue</span></div>
+            <div class="skill-card"><span class="skill-icon">🔷</span><span class="skill-name">TypeScript</span></div>
+            <div class="skill-card"><span class="skill-icon">🎯</span><span class="skill-name">Sass</span></div>
+            <div class="skill-card"><span class="skill-icon">🌀</span><span class="skill-name">Tailwind</span></div>
+            <div class="skill-card"><span class="skill-icon">📦</span><span class="skill-name">Webpack</span></div>
+            <div class="skill-card"><span class="skill-icon">🚀</span><span class="skill-name">Vite</span></div>
+        </div>
+    </div>
+
+    <!-- Panel Two -->
+    <div class="panel" id="panel-two">
+        <div class="skills-grid">
+            <div class="skill-card"><span class="skill-icon">🟢</span><span class="skill-name">Node.js</span></div>
+            <div class="skill-card"><span class="skill-icon">🐍</span><span class="skill-name">Python</span></div>
+            <div class="skill-card"><span class="skill-icon">☕</span><span class="skill-name">Java</span></div>
+            <div class="skill-card"><span class="skill-icon">🦀</span><span class="skill-name">Rust</span></div>
+            <div class="skill-card"><span class="skill-icon">🐘</span><span class="skill-name">PostgreSQL</span></div>
+            <div class="skill-card"><span class="skill-icon">🍃</span><span class="skill-name">MongoDB</span></div>
+            <div class="skill-card"><span class="skill-icon">🔥</span><span class="skill-name">Firebase</span></div>
+            <div class="skill-card"><span class="skill-icon">🐳</span><span class="skill-name">Docker</span></div>
+        </div>
+    </div>
+
+    <!-- Panel Three -->
+    <div class="panel" id="panel-three">
+        <div class="skills-grid">
+            <div class="skill-card"><span class="skill-icon">☁️</span><span class="skill-name">AWS</span></div>
+            <div class="skill-card"><span class="skill-icon">🔵</span><span class="skill-name">Azure</span></div>
+            <div class="skill-card"><span class="skill-icon">🌩️</span><span class="skill-name">GCP</span></div>
+            <div class="skill-card"><span class="skill-icon">🔧</span><span class="skill-name">CI/CD</span></div>
+            <div class="skill-card"><span class="skill-icon">🐙</span><span class="skill-name">GitHub</span></div>
+            <div class="skill-card"><span class="skill-icon">📊</span><span class="skill-name">Terraform</span></div>
+        </div>
+    </div>
+</section>
+
+<script>
+    function switchTab(tab) {
+        document.querySelectorAll('.toggle-btn').forEach(b => b.classList.remove('active'));
+        document.querySelectorAll('.panel').forEach(p => p.classList.remove('visible'));
+        document.getElementById('btn-' + tab).classList.add('active');
+        document.getElementById('panel-' + tab).classList.add('visible');
+    }
+</script>
+
+</body>
+</html>

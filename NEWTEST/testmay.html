@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Portfolio Sections</title>
+    <style>
+        /* ── Base reset matching your existing site ── */
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            background: #111;
+            color: #f0ede8;
+            font-family: 'DM Sans', sans-serif;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        /* ═══════════════════════════════════════════
+           SHARED SECTION LAYOUT
+           Matches your existing .Section2 grid style:
+           left col (1fr) | right col (3.2fr)
+        ═══════════════════════════════════════════ */
+        .Section1 {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .Section2 {
+            padding: 12px;
+            background-color: #111;
+            border: 1px solid #2e2e2e;
+            display: grid;
+            grid-template-columns: 1fr 3.2fr;
+            gap: 4px;
+            align-items: start;
+        }
+
+        .DivLeft1 {
+            grid-area: left;
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+            color: #f0ede8;
+            font-weight: 600;
+        }
+
+        .DivRight1 {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        /* ── Pink block base ── */
+        .pink-block {
+            background: #e0306e;
+            border-radius: 4px;
+        }
+
+
+        /* ═══════════════════════════════════════════
+           TOGGLE BUTTONS (Education/Certs, Experience)
+        ═══════════════════════════════════════════ */
+        .toggle-bar {
+            display: flex;
+            gap: 4px;
+            width: 100%;
+        }
+
+        .toggle-btn {
+            flex: 1;
+            padding: 10px 16px;
+            background: #1e1e1e;
+            border: 1px solid #3a3a3a;
+            border-radius: 4px;
+            color: #888;
+            font-family: inherit;
+            font-size: 0.875rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: background 0.18s, color 0.18s, border-color 0.18s;
+            text-align: center;
+        }
+
+        .toggle-btn:hover {
+            background: #2a2a2a;
+            color: #f0ede8;
+        }
+
+        .toggle-btn.active {
+            background: #e0306e;
+            border-color: #e0306e;
+            color: #fff;
+        }
+
+        /* ── Content panels ── */
+        .panel {
+            display: none;
+            flex-direction: column;
+            gap: 4px;
+            width: 100%;
+        }
+
+        .panel.active {
+            display: flex;
+        }
+
+        /* Education / Experience: full-width stacked rows */
+        .panel-rows .pink-block {
+            width: 100%;
+            height: 52px;
+        }
+
+        /* Taller first block for Education active panel (matches design) */
+        .panel-rows.tall-first .pink-block:first-child {
+            height: 110px;
+        }
+
+
+        /* ═══════════════════════════════════════════
+           SKILLS — Grid of squares, centred
+        ═══════════════════════════════════════════ */
+        .skill-btn-bar {
+            display: flex;
+            gap: 4px;
+            flex-wrap: wrap;
+            width: 100%;
+        }
+
+        /* Skill toggle buttons — same style as toggle-btn */
+        .skill-btn {
+            padding: 8px 20px;
+            background: #1e1e1e;
+            border: 1px solid #3a3a3a;
+            border-radius: 4px;
+            color: #888;
+            font-family: inherit;
+            font-size: 0.875rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: background 0.18s, color 0.18s, border-color 0.18s;
+        }
+
+        .skill-btn:hover {
+            background: #2a2a2a;
+            color: #f0ede8;
+        }
+
+        .skill-btn.active {
+            background: #e0306e;
+            border-color: #e0306e;
+            color: #fff;
+        }
+
+        /* Skill grid panel */
+        .skill-panel {
+            display: none;
+            width: 100%;
+        }
+
+        .skill-panel.active {
+            display: flex;
+            justify-content: center;
+        }
+
+        .skill-grid {
+            display: grid;
+            /* Auto-fill columns that are at least 80px wide, up to 1fr each.
+               This lets the grid grow/shrink naturally and stay centred. */
+            grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+            gap: 4px;
+            width: 100%;
+            max-width: 100%;
+        }
+
+        .skill-grid .pink-block {
+            aspect-ratio: 1 / 1;   /* square */
+            min-width: 0;
+        }
+
+
+        /* ═══════════════════════════════════════════
+           CONTACTS — Grid of squares, no toggles
+        ═══════════════════════════════════════════ */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+            gap: 4px;
+            width: 100%;
+            justify-content: center;
+        }
+
+        .contact-grid .pink-block {
+            aspect-ratio: 1 / 1;
+            min-width: 0;
+        }
+
+
+        /* ═══════════════════════════════════════════
+           MOBILE
+        ═══════════════════════════════════════════ */
+        @media (max-width: 520px) {
+            .Section2 {
+                grid-template-columns: 1fr;
+            }
+
+            .DivLeft1 {
+                font-size: 0.8rem;
+            }
+
+            .toggle-bar {
+                flex-wrap: wrap;
+            }
+
+            .toggle-btn, .skill-btn {
+                font-size: 0.75rem;
+                padding: 8px 10px;
+            }
+
+            .skill-grid,
+            .contact-grid {
+                grid-template-columns: repeat(auto-fill, minmax(60px, 1fr));
+            }
+        }
+    </style>
+</head>
+<body>
+
+
+<!-- ══════════════════════════════════════
+     EDUCATION / CERTIFICATIONS
+══════════════════════════════════════ -->
+<section class="Section1" id="edu-section">
+
+    <!-- Header row with toggle buttons -->
+    <div class="Section2">
+        <div class="DivLeft1">Education /<br>Certifications</div>
+        <div class="DivRight1">
+            <div class="toggle-bar" role="tablist" aria-label="Education or Certifications">
+                <button class="toggle-btn active"
+                        role="tab"
+                        aria-selected="true"
+                        aria-controls="edu-panel"
+                        data-target="edu-panel"
+                        data-group="edu"
+                        onclick="switchTab(this)">Education</button>
+                <button class="toggle-btn"
+                        role="tab"
+                        aria-selected="false"
+                        aria-controls="cert-panel"
+                        data-target="cert-panel"
+                        data-group="edu"
+                        onclick="switchTab(this)">Certifications</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Education panel -->
+    <div class="Section2">
+        <div class="DivLeft1"></div>
+        <div class="DivRight1">
+            <div id="edu-panel" class="panel panel-rows active" role="tabpanel">
+                <!-- Replace these pink-blocks with your real education content -->
+                <div class="pink-block" style="height:110px;"></div>
+                <div class="pink-block" style="height:52px;"></div>
+                <div class="pink-block" style="height:52px;"></div>
+            </div>
+            <div id="cert-panel" class="panel panel-rows" role="tabpanel">
+                <!-- Replace these with real cert content -->
+                <div class="pink-block" style="height:52px;"></div>
+                <div class="pink-block" style="height:52px;"></div>
+            </div>
+        </div>
+    </div>
+
+</section>
+
+
+<!-- ══════════════════════════════════════
+     SKILLS
+══════════════════════════════════════ -->
+<section class="Section1" id="skills-section">
+
+    <!-- Header row with skill filter buttons -->
+    <div class="Section2">
+        <div class="DivLeft1">Skills</div>
+        <div class="DivRight1">
+            <div class="skill-btn-bar" role="tablist" aria-label="Skill categories">
+                <button class="skill-btn"
+                        role="tab"
+                        aria-selected="false"
+                        aria-controls="skill-panel-one"
+                        data-target="skill-panel-one"
+                        data-group="skills"
+                        onclick="switchTab(this)">One</button>
+                <button class="skill-btn"
+                        role="tab"
+                        aria-selected="false"
+                        aria-controls="skill-panel-two"
+                        data-target="skill-panel-two"
+                        data-group="skills"
+                        onclick="switchTab(this)">Two</button>
+                <button class="skill-btn"
+                        role="tab"
+                        aria-selected="false"
+                        aria-controls="skill-panel-three"
+                        data-target="skill-panel-three"
+                        data-group="skills"
+                        onclick="switchTab(this)">Three</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Skills grid row -->
+    <div class="Section2">
+        <div class="DivLeft1"></div>
+        <div class="DivRight1">
+
+            <div id="skill-panel-one" class="skill-panel" role="tabpanel">
+                <div class="skill-grid">
+                    <!-- 6 skill squares for category One; add/remove as needed -->
+                    <div class="pink-block"></div>
+                    <div class="pink-block"></div>
+                    <div class="pink-block"></div>
+                    <div class="pink-block"></div>
+                    <div class="pink-block"></div>
+                    <div class="pink-block"></div>
+                </div>
+            </div>
+
+            <div id="skill-panel-two" class="skill-panel" role="tabpanel">
+                <div class="skill-grid">
+                    <div class="pink-block"></div>
+                    <div class="pink-block"></div>
+                    <div class="pink-block"></div>
+                    <div class="pink-block"></div>
+                </div>
+            </div>
+
+            <div id="skill-panel-three" class="skill-panel" role="tabpanel">
+                <div class="skill-grid">
+                    <div class="pink-block"></div>
+                    <div class="pink-block"></div>
+                    <div class="pink-block"></div>
+                    <div class="pink-block"></div>
+                    <div class="pink-block"></div>
+                    <div class="pink-block"></div>
+                    <div class="pink-block"></div>
+                    <div class="pink-block"></div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</section>
+
+
+<!-- ══════════════════════════════════════
+     CONTACTS
+══════════════════════════════════════ -->
+<section class="Section1" id="contact-section">
+
+    <div class="Section2">
+        <div class="DivLeft1">Contact</div>
+        <div class="DivRight1">
+            <div class="contact-grid">
+                <!-- Replace / add squares as needed for your contact cards -->
+                <div class="pink-block"></div>
+                <div class="pink-block"></div>
+                <div class="pink-block"></div>
+                <div class="pink-block"></div>
+                <div class="pink-block"></div>
+                <div class="pink-block"></div>
+            </div>
+        </div>
+    </div>
+
+</section>
+
+
+<!-- ══════════════════════════════════════
+     EXPERIENCE  (same as Edu/Cert, no toggle)
+══════════════════════════════════════ -->
+<section class="Section1" id="exp-section">
+
+    <div class="Section2">
+        <div class="DivLeft1">Experience</div>
+        <div class="DivRight1">
+            <!-- No toggles; content always visible -->
+        </div>
+    </div>
+
+    <div class="Section2">
+        <div class="DivLeft1"></div>
+        <div class="DivRight1">
+            <div class="panel panel-rows active">
+                <!-- Replace these with your existing DivBar / DivExpand entries -->
+                <div class="pink-block" style="height:52px;"></div>
+                <div class="pink-block" style="height:52px;"></div>
+                <div class="pink-block" style="height:52px;"></div>
+                <div class="pink-block" style="height:52px;"></div>
+            </div>
+        </div>
+    </div>
+
+</section>
+
+
+<script>
+    /**
+     * switchTab(btn)
+     *
+     * Deactivates all buttons in the same group, activates the clicked one,
+     * hides all panels whose IDs are targeted by that group, shows the target panel.
+     *
+     * Works for both the toggle-btn (Education/Certs) and skill-btn styles.
+     */
+    function switchTab(btn) {
+        const group   = btn.dataset.group;
+        const targetId = btn.dataset.target;
+
+        // All buttons in this group
+        const allBtns = document.querySelectorAll(`[data-group="${group}"]`);
+
+        // Collect all panel IDs this group controls
+        const allPanelIds = new Set();
+        allBtns.forEach(b => allPanelIds.add(b.dataset.target));
+
+        // Deactivate every button in the group
+        allBtns.forEach(b => {
+            b.classList.remove('active');
+            b.setAttribute('aria-selected', 'false');
+        });
+
+        // Hide every panel this group owns
+        allPanelIds.forEach(id => {
+            const panel = document.getElementById(id);
+            if (panel) panel.classList.remove('active');
+        });
+
+        // If the clicked button was already active, we've now toggled it OFF
+        // (for skill buttons — none selected by default is valid).
+        // For Education/Certs we always want one active, so re-activate:
+        const wasActive = btn.classList.contains('active'); // already removed above, always false here
+        // Activate the clicked button + its panel
+        btn.classList.add('active');
+        btn.setAttribute('aria-selected', 'true');
+        const targetPanel = document.getElementById(targetId);
+        if (targetPanel) targetPanel.classList.add('active');
+    }
+</script>
+
+</body>
+</html>

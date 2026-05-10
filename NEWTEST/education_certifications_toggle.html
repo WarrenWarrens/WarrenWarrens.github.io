@@ -1,0 +1,199 @@
+
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=DM+Serif+Display&display=swap');
+
+  .ec-section {
+    font-family: 'DM Sans', sans-serif;
+    padding: 2rem 0;
+    max-width: 860px;
+    margin: 0 auto;
+  }
+
+  .toggle-bar {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 2rem;
+  }
+
+  .toggle-btn {
+    flex: 1;
+    padding: 14px 24px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 15px;
+    font-weight: 500;
+    border: 1.5px solid var(--color-border-secondary);
+    border-radius: var(--border-radius-lg);
+    background: var(--color-background-primary);
+    color: var(--color-text-secondary);
+    cursor: pointer;
+    transition: all 0.2s ease;
+    letter-spacing: 0.01em;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .toggle-btn::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: var(--color-background-secondary);
+    opacity: 0;
+    transition: opacity 0.15s;
+  }
+
+  .toggle-btn:hover::after { opacity: 1; }
+
+  .toggle-btn.active {
+    background: var(--color-text-primary);
+    color: var(--color-background-primary);
+    border-color: var(--color-text-primary);
+  }
+
+  .toggle-btn.active::after { display: none; }
+
+  .panel { display: none; flex-direction: column; gap: 12px; }
+  .panel.visible { display: flex; }
+
+  .entry-card {
+    background: var(--color-background-secondary);
+    border: 0.5px solid var(--color-border-tertiary);
+    border-radius: var(--border-radius-lg);
+    padding: 1.25rem 1.5rem;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: start;
+    gap: 8px;
+    transition: border-color 0.15s;
+  }
+
+  .entry-card:hover {
+    border-color: var(--color-border-secondary);
+  }
+
+  .entry-title {
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--color-text-primary);
+    margin: 0 0 4px;
+  }
+
+  .entry-sub {
+    font-size: 13px;
+    color: var(--color-text-secondary);
+    margin: 0;
+  }
+
+  .entry-year {
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--color-text-tertiary);
+    white-space: nowrap;
+    padding-top: 3px;
+  }
+
+  .entry-badge {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 500;
+    padding: 3px 10px;
+    border-radius: 20px;
+    margin-top: 8px;
+  }
+
+  .badge-edu {
+    background: #E6F1FB;
+    color: #0C447C;
+  }
+
+  .badge-cert {
+    background: #EAF3DE;
+    color: #27500A;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    .badge-edu { background: #0C447C; color: #B5D4F4; }
+    .badge-cert { background: #27500A; color: #C0DD97; }
+  }
+
+  @media (max-width: 520px) {
+    .entry-card {
+      grid-template-columns: 1fr;
+    }
+    .entry-year {
+      padding-top: 0;
+      order: -1;
+    }
+  }
+</style>
+
+<h2 class="sr-only">Education and certifications section with toggle buttons</h2>
+
+<div class="ec-section">
+  <div class="toggle-bar">
+    <button class="toggle-btn active" id="btn-edu" onclick="switchTab('edu')">Education</button>
+    <button class="toggle-btn" id="btn-cert" onclick="switchTab('cert')">Certifications</button>
+  </div>
+
+  <div class="panel visible" id="panel-edu">
+    <div class="entry-card">
+      <div>
+        <p class="entry-title">Bachelor of Computer Science</p>
+        <p class="entry-sub">University of Toronto — Honours</p>
+        <span class="entry-badge badge-edu">B.Sc</span>
+      </div>
+      <span class="entry-year">2019 – 2023</span>
+    </div>
+    <div class="entry-card">
+      <div>
+        <p class="entry-title">Advanced Diploma in Software Development</p>
+        <p class="entry-sub">Durham College</p>
+        <span class="entry-badge badge-edu">Diploma</span>
+      </div>
+      <span class="entry-year">2017 – 2019</span>
+    </div>
+    <div class="entry-card">
+      <div>
+        <p class="entry-title">High School Diploma</p>
+        <p class="entry-sub">Whitby District High School</p>
+        <span class="entry-badge badge-edu">Secondary</span>
+      </div>
+      <span class="entry-year">2013 – 2017</span>
+    </div>
+  </div>
+
+  <div class="panel" id="panel-cert">
+    <div class="entry-card">
+      <div>
+        <p class="entry-title">AWS Certified Solutions Architect</p>
+        <p class="entry-sub">Amazon Web Services</p>
+        <span class="entry-badge badge-cert">Cloud</span>
+      </div>
+      <span class="entry-year">2024</span>
+    </div>
+    <div class="entry-card">
+      <div>
+        <p class="entry-title">Google Professional Data Engineer</p>
+        <p class="entry-sub">Google Cloud</p>
+        <span class="entry-badge badge-cert">Data</span>
+      </div>
+      <span class="entry-year">2023</span>
+    </div>
+    <div class="entry-card">
+      <div>
+        <p class="entry-title">Meta Front-End Developer Certificate</p>
+        <p class="entry-sub">Meta via Coursera</p>
+        <span class="entry-badge badge-cert">Frontend</span>
+      </div>
+      <span class="entry-year">2022</span>
+    </div>
+  </div>
+</div>
+
+<script>
+function switchTab(tab) {
+  document.querySelectorAll('.toggle-btn').forEach(b => b.classList.remove('active'));
+  document.querySelectorAll('.panel').forEach(p => p.classList.remove('visible'));
+  document.getElementById('btn-' + tab).classList.add('active');
+  document.getElementById('panel-' + tab).classList.add('visible');
+}
+</script>

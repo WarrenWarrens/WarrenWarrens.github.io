@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,700;9..144,900&family=Syne:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        :root {
+            --pink:  #F5365C;
+            --black: #0A0A0A;
+            --white: #FFFFFF;
+            --gap:   8px;
+        }
+
+        body {
+            background: #E8E5DF;
+            font-family: 'Syne', sans-serif;
+            color: var(--white);
+            padding: 60px 40px 100px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        /* ─── Section headings ─────────────────────────────────── */
+        .section-heading {
+            font-family: 'Fraunces', serif;
+            font-size: clamp(2.4rem, 5vw, 3.8rem);
+            font-weight: 900;
+            color: var(--black);
+            text-align: center;
+            letter-spacing: -0.02em;
+            margin-bottom: 48px;
+        }
+
+        section {
+            margin-bottom: 96px;
+        }
+
+        /* ─── Pink element base ────────────────────────────────── */
+        .pink {
+            background: var(--pink);
+            color: var(--white);
+            padding: 18px 22px;
+        }
+
+        /* ================================================================
+           PROJECTS
+        ================================================================ */
+
+        .project-card {
+            background: var(--black);
+            padding: var(--gap);
+            display: grid;
+            grid-template-columns: minmax(130px, 0.32fr) 1fr;
+            grid-template-rows: auto minmax(130px, auto) minmax(130px, auto);
+            gap: var(--gap);
+            margin-bottom: 16px;
+        }
+
+        /* Row 1 */
+        .proj-label {
+            grid-column: 1;
+            grid-row: 1;
+            font-size: 0.78rem;
+            font-weight: 700;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            display: flex;
+            align-items: center;
+        }
+
+        .proj-heading {
+            grid-column: 2;
+            grid-row: 1;
+            font-size: 1.25rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+        }
+
+        .proj-heading a {
+            color: inherit;
+            text-decoration: none;
+            opacity: 0.7;
+            font-size: 0.8rem;
+            font-weight: 600;
+            letter-spacing: 0.08em;
+            border: 1.5px solid rgba(255,255,255,0.5);
+            padding: 4px 10px;
+            white-space: nowrap;
+            transition: opacity 0.2s;
+        }
+
+        .proj-heading a:hover { opacity: 1; }
+
+        /* Rows 2–3 left: thumbnail */
+        .proj-thumb {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.4rem;
+            min-height: 130px;
+        }
+
+        /* Rows 2–3 right: content */
+        .proj-content {
+            font-size: 0.95rem;
+            line-height: 1.65;
+            display: flex;
+            align-items: center;
+        }
+
+        /* ── Mobile: project card ─────────────────────────────── */
+        @media (max-width: 640px) {
+            .project-card {
+                grid-template-columns: 1fr auto;
+                grid-template-rows: auto auto auto auto;
+            }
+
+            /* Row 1: label | heading (compact) */
+            .proj-label {
+                grid-column: 1;
+                grid-row: 1;
+                padding: 12px 14px;
+                font-size: 0.72rem;
+            }
+
+            .proj-heading {
+                grid-column: 2;
+                grid-row: 1;
+                font-size: 0.78rem;
+                padding: 12px 14px;
+                flex-direction: column;
+                align-items: flex-end;
+                gap: 6px;
+            }
+
+            .proj-heading a { padding: 3px 7px; font-size: 0.72rem; }
+
+            /* Thumbnails hidden on mobile */
+            .proj-thumb { display: none; }
+
+            /* Content spans full width */
+            .proj-content {
+                grid-column: 1 / -1;
+                font-size: 0.9rem;
+                padding: 14px 16px;
+            }
+        }
+
+        /* ================================================================
+           EXPERIENCE
+        ================================================================ */
+
+        .exp-card {
+            background: var(--black);
+            padding: var(--gap);
+            display: flex;
+            flex-direction: column;
+            gap: var(--gap);
+            margin-bottom: 16px;
+        }
+
+        .exp-title {
+            width: 56%;
+            font-size: 1rem;
+            font-weight: 700;
+            line-height: 1.4;
+        }
+
+        .exp-meta {
+            width: 56%;
+            font-size: 0.8rem;
+            font-weight: 600;
+            letter-spacing: 0.08em;
+            opacity: 0.85;
+            padding: 10px 22px;
+        }
+
+        .exp-item {
+            width: 86%;
+            font-size: 0.93rem;
+            line-height: 1.65;
+        }
+
+        /* ── Mobile: experience card ───────────────────────────── */
+        @media (max-width: 640px) {
+            .exp-title,
+            .exp-meta,
+            .exp-item {
+                width: 100%;
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<!-- ══════════════════════════════════
+     PROJECTS
+══════════════════════════════════ -->
+<section>
+    <h2 class="section-heading">Projects</h2>
+
+    <!-- Project 1 -->
+    <div class="project-card">
+        <div class="proj-label pink">Project 01</div>
+        <div class="proj-heading pink">
+            Neural Canvas — AI Art Platform
+            <a href="#">↗ View</a>
+        </div>
+
+        <div class="proj-thumb pink">🖼</div>
+        <div class="proj-content pink">
+            A web app that lets users generate and remix artwork using diffusion models.
+            Supports style transfer, inpainting, and custom fine-tuning on personal image sets.
+            Handles 10k+ generations per day with async job queuing.
+        </div>
+
+        <div class="proj-thumb pink">⚙</div>
+        <div class="proj-content pink">
+            Built with React, FastAPI, and Stable Diffusion. Storage on AWS S3,
+            queue processing via Celery + Redis, deployed on EC2 with auto-scaling.
+            95th-percentile generation time under 8 seconds.
+        </div>
+    </div>
+
+    <!-- Project 2 -->
+    <div class="project-card">
+        <div class="proj-label pink">Project 02</div>
+        <div class="proj-heading pink">
+            DataFlow — IoT Dashboard
+            <a href="#">↗ View</a>
+        </div>
+
+        <div class="proj-thumb pink">📊</div>
+        <div class="proj-content pink">
+            Real-time monitoring dashboard for IoT sensor networks. Customisable widget
+            grid, threshold alerting, and one-click CSV export. Used internally by three
+            engineering teams across two facilities.
+        </div>
+
+        <div class="proj-thumb pink">💡</div>
+        <div class="proj-content pink">
+            Built on D3.js and Node.js with WebSocket streams. MQTT broker ingests sensor
+            data; PostgreSQL stores historical readings. Sub-200ms latency from sensor to
+            dashboard widget.
+        </div>
+    </div>
+
+    <!-- Project 3 -->
+
+</section>
+
+
+<!-- ══════════════════════════════════
+     EXPERIENCE
+══════════════════════════════════ -->
+<section>
+    <h2 class="section-heading">Experience</h2>
+
+    <!-- Role 1 -->
+    <div class="exp-card">
+        <div class="exp-title pink">Senior Frontend Developer — Acme Corp</div>
+        <div class="exp-meta pink">Jan 2022 – Present · Toronto, ON</div>
+        <div class="exp-item pink">
+            Led a team of four to rebuild the customer-facing dashboard in React,
+            cutting page load time by 55% and reducing bug reports by 30% in the
+            first quarter post-launch.
+        </div>
+        <div class="exp-item pink">
+            Introduced a component library with Storybook and automated visual-regression
+            tests, eliminating 80% of UI regression tickets across three product squads.
+        </div>
+        <div class="exp-item pink">
+            Collaborated with product and design to ship a full accessibility audit
+            overhaul, bringing the app to WCAG 2.1 AA compliance ahead of schedule.
+        </div>
+    </div>
+
+    <!-- Role 2 -->
+    <div class="exp-card">
+        <div class="exp-title pink">Frontend Developer — Startup XYZ</div>
+        <div class="exp-meta pink">Jun 2019 – Dec 2021 · Remote</div>
+        <div class="exp-item pink">
+            Built and maintained responsive React components shipped across three product
+            lines, used daily by over 40,000 active users.
+        </div>
+        <div class="exp-item pink">
+            Set up CI/CD pipelines with GitHub Actions and Docker, reducing average deploy
+            time from 25 minutes to under 4 minutes.
+        </div>
+        <div class="exp-item pink">
+            Partnered with designers in weekly sprints to deliver a full UI redesign on
+            time, resulting in a 22% increase in user retention over 90 days.
+        </div>
+    </div>
+
+    <!-- Role 3 -->
+    <div class="exp-card">
+        <div class="exp-title pink">Junior Web Developer — Agency Co.</div>
+        <div class="exp-meta pink">Sep 2017 – May 2019 · Whitby, ON</div>
+        <div class="exp-item pink">
+            Delivered 15+ client websites using HTML, CSS, and JavaScript, consistently
+            meeting deadlines and scope across industries from retail to healthcare.
+        </div>
+        <div class="exp-item pink">
+            Optimised image pipelines and implemented lazy-loading across legacy sites,
+            improving average load speed scores from 58 to 84 on Google PageSpeed.
+        </div>
+        <div class="exp-item pink">
+            Wrote internal documentation and onboarding guides that cut new-hire ramp-up
+            time by an estimated two weeks.
+        </div>
+    </div>
+</section>
+
+</body>
+</html>

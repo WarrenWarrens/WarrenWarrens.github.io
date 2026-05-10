@@ -469,6 +469,370 @@
                 flex: 3 1 auto;
                 transition: none;
             }
+
+            .exp-title,
+            .exp-meta,
+            .exp-item {
+                width: 100%;
+                font-size: 0.9rem;
+            }
+        }
+
+        .project-card {
+            background: var(--black);
+            padding: var(--gap);
+            display: grid;
+            grid-template-columns: minmax(130px, 0.32fr) 1fr;
+            grid-template-rows: auto minmax(130px, auto) minmax(130px, auto);
+            gap: var(--gap);
+            margin-bottom: 16px;
+        }
+
+        /* Row 1 */
+        .proj-label {
+            grid-column: 1;
+            grid-row: 1;
+            font-size: 0.78rem;
+            font-weight: 700;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            display: flex;
+            align-items: center;
+        }
+
+        .proj-heading {
+            grid-column: 2;
+            grid-row: 1;
+            font-size: 1.25rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+        }
+
+        .proj-heading a {
+            color: inherit;
+            text-decoration: none;
+            opacity: 0.7;
+            font-size: 0.8rem;
+            font-weight: 600;
+            letter-spacing: 0.08em;
+            border: 1.5px solid rgba(255,255,255,0.5);
+            padding: 4px 10px;
+            white-space: nowrap;
+            transition: opacity 0.2s;
+        }
+
+        .proj-heading a:hover { opacity: 1; }
+
+        /* Rows 2–3 left: thumbnail */
+        .proj-thumb {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.4rem;
+            min-height: 130px;
+        }
+
+        /* Rows 2–3 right: content */
+        .proj-content {
+            font-size: 0.95rem;
+            line-height: 1.65;
+            display: flex;
+            align-items: center;
+        }
+
+        /* ── Mobile: project card ─────────────────────────────── */
+        @media (max-width: 640px) {
+            .project-card {
+                grid-template-columns: 1fr auto;
+                grid-template-rows: auto auto auto auto;
+            }
+
+            /* Row 1: label | heading (compact) */
+            .proj-label {
+                grid-column: 1;
+                grid-row: 1;
+                padding: 12px 14px;
+                font-size: 0.72rem;
+            }
+
+            .proj-heading {
+                grid-column: 2;
+                grid-row: 1;
+                font-size: 0.78rem;
+                padding: 12px 14px;
+                flex-direction: column;
+                align-items: flex-end;
+                gap: 6px;
+            }
+
+            .proj-heading a { padding: 3px 7px; font-size: 0.72rem; }
+
+            /* Thumbnails hidden on mobile */
+            .proj-thumb { display: none; }
+
+            /* Content spans full width */
+            .proj-content {
+                grid-column: 1 / -1;
+                font-size: 0.9rem;
+                padding: 14px 16px;
+            }
+        }
+
+        /* ================================================================
+           EXPERIENCE
+        ================================================================ */
+
+        .exp-card {
+            background: var(--black);
+            padding: var(--gap);
+            display: grid;
+            grid-template-columns: minmax(130px, 0.32fr) 1fr;
+            gap: var(--gap);
+            margin-bottom: 16px;
+        }
+
+        .exp-title {
+            grid-column: 1;
+            font-size: 1rem;
+            font-weight: 700;
+            line-height: 1.4;
+        }
+
+        .exp-meta {
+            grid-column: 1;
+            font-size: 0.8rem;
+            font-weight: 600;
+            letter-spacing: 0.08em;
+            opacity: 0.85;
+            padding: 10px 22px;
+        }
+
+        .exp-item {
+            grid-column: 1 / -1;
+            font-size: 0.93rem;
+            line-height: 1.65;
+        }
+
+        /* ── Mobile: experience card ───────────────────────────── */
+        @media (max-width: 640px) {
+            .exp-card {
+                grid-template-columns: 1fr;
+            }
+
+            .exp-title,
+            .exp-meta,
+            .exp-item {
+                grid-column: 1;
+                font-size: 0.9rem;
+            }
+        }
+
+        .pink {
+            background: var(--pink);
+            color: var(--white);
+            padding: 18px 22px;
+        }
+
+        :root {
+            --pink:  #F5365C;
+            --black: #0A0A0A;
+            --white: #FFFFFF;
+            --gap:   8px;
+        }
+
+        .section-heading {
+            font-family: 'Fraunces', serif;
+            font-size: clamp(2.4rem, 5vw, 3.8rem);
+            font-weight: 900;
+            color: var(--black);
+            text-align: center;
+            letter-spacing: -0.02em;
+            margin-bottom: 48px;
+        }
+
+        /* ════════════════════════════════════════════════════
+           SECTION 1 — Education / Certifications
+        ════════════════════════════════════════════════════ */
+
+        /* Two equal-width toggle buttons */
+        .tab-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--gap);
+        }
+
+        .tab-btn {
+            background: var(--pink-muted);
+            color: rgba(255,255,255,0.55);
+            border: none;
+            cursor: pointer;
+            font-family: 'Syne', sans-serif;
+            font-weight: 700;
+            font-size: 1rem;
+            letter-spacing: 0.04em;
+            padding: 18px 22px;
+            text-align: center;
+            transition: background 0.18s, color 0.18s;
+        }
+
+        .tab-btn:hover { background: #a8253f; color: var(--white); }
+
+        .tab-btn.active {
+            background: var(--pink);
+            color: var(--white);
+        }
+
+        /* Panel: hidden by default */
+        .tab-panel { display: none; flex-direction: column; gap: var(--gap); }
+        .tab-panel.active { display: flex; }
+
+        /* ── Mobile: edu/cert ────────────────────────────── */
+        @media (max-width: 640px) {
+            .tab-btn { font-size: 0.88rem; padding: 14px 12px; }
+        }
+
+
+        /* ════════════════════════════════════════════════════
+           SECTION 2 — Skills Grid
+        ════════════════════════════════════════════════════ */
+
+        /* Header: narrow left title + filter buttons on the right */
+        .skills-header {
+            display: grid;
+            grid-template-columns: minmax(130px, 0.32fr) 1fr;
+            gap: var(--gap);
+        }
+
+        .skills-title {
+            background: var(--pink);
+            color: var(--white);
+            font-weight: 700;
+            font-size: 0.78rem;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            padding: 18px 22px;
+            display: flex;
+            align-items: center;
+        }
+
+        /* Three filter buttons filling the right column */
+        .filter-row {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: var(--gap);
+        }
+
+        .filter-btn {
+            background: var(--pink-muted);
+            color: rgba(255,255,255,0.55);
+            border: none;
+            cursor: pointer;
+            font-family: 'Syne', sans-serif;
+            font-weight: 700;
+            font-size: 0.88rem;
+            letter-spacing: 0.06em;
+            padding: 18px 10px;
+            text-align: center;
+            transition: background 0.18s, color 0.18s;
+        }
+
+        .filter-btn:hover { background: #a8253f; color: var(--white); }
+
+        .filter-btn.active {
+            background: var(--pink);
+            color: var(--white);
+        }
+
+        /* Skills grid: 4 columns desktop */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: var(--gap);
+        }
+
+        .skill-card {
+            background: var(--pink);
+            color: var(--white);
+            padding: 22px 18px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            line-height: 1.4;
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+            min-height: 100px;
+        }
+
+        .skill-card .skill-name {
+            font-size: 1rem;
+            font-weight: 700;
+        }
+
+        .skill-card .skill-sub {
+            font-size: 0.78rem;
+            opacity: 0.75;
+            font-weight: 400;
+        }
+
+        /* Hidden skill cards (filtered out) */
+        .skill-card.hidden { display: none; }
+
+        /* ── Mobile: skills ──────────────────────────────── */
+        @media (max-width: 640px) {
+            /* Stack title above filter row */
+            .skills-header {
+                grid-template-columns: 1fr;
+            }
+
+            .skills-title {
+                font-size: 0.82rem;
+            }
+
+            /* Filter buttons span full width */
+            .filter-row {
+                grid-template-columns: repeat(3, 1fr);
+            }
+
+            .filter-btn { font-size: 0.8rem; padding: 12px 6px; }
+
+            /* 2-col grid on mobile */
+            .skills-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        .section-heading {
+            font-family: 'Fraunces', serif;
+            font-size: clamp(2.4rem, 5vw, 3.8rem);
+            font-weight: 900;
+            color: var(--black);
+            text-align: center;
+            letter-spacing: -0.02em;
+            margin-bottom: 48px;
+        }
+
+        section { margin-bottom: 96px; }
+
+        /* ── Shared card shell ───────────────────────────── */
+        .card {
+            background: var(--black);
+            padding: var(--gap);
+            display: flex;
+            flex-direction: column;
+            gap: var(--gap);
+        }
+
+        /* ── Pink element base ───────────────────────────── */
+        .pink {
+            background: var(--pink);
+            color: var(--white);
+            padding: 18px 22px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            line-height: 1.65;
         }
     </style>
 </head>
@@ -548,255 +912,148 @@
     </div>
 </main>
 
-<!-- ══════════════════════════════════════════
-     FIXED STICKY HEADER
-     One element, controlled entirely by JS scroll listener.
-══════════════════════════════════════════ -->
 <div id="StickyHeader" aria-hidden="true">
     <div class="sh-red"><p>Ryan Warrener</p></div>
     <div class="sh-green"><p>Title</p></div>
 </div>
 
-<!-- ══════════════════════════════════════════
-     SCROLL SECTION (revealed with main layout)
-══════════════════════════════════════════ -->
 <section id="SectionContent" aria-label="Page content">
+    <section>
+        <div class="exp-card">
+            <div class="exp-title pink">Projects</div>
+        </div>
 
-    <section class="Section1">
-        <section class="Section2">
-            <div class="DivLeft1">Projects</div>
-            <div class="DivRight1">Filters</div>
-        </section>
-
-        <section class="Section2">
-            <div class="DivLeft1">Info</div>
-            <div class="DivRight1">FLIC</div>
-        </section>
-
-        <section class="Section2">
-            <div class="DivLeft1">Info</div>
-            <div class="DivRight1">LinguaLore</div>
-        </section>
-
-        <section class="Section2">
-            <div class="DivLeft1">Info</div>
-            <div class="DivRight1">VingtUn</div>
-        </section>
-
-        <section class="Section2">
-            <div class="DivLeft1">Info</div>
-            <div class="DivRight1">LocalLink</div>
-        </section>
-    </section>
-
-    <section class="Section1">
-        <section class="Section2">
-            <div class="DivLeft1">Experience</div>
-            <div class="DivRight1">Filter</div>
-        </section>
-
-        <section class="Section2">
-            <div class="DivLeft1">Hi</div>
-            <div class="DivRight1">
-                <div class="DivBar">
-                    <div class="DivBar2" onclick="toggle(this)">
-                        <div class="DivFloat" style="width: 65%;">
-                            <p style="margin: 0; font-weight: bold;">Princess Auto</p>
-                            <p style="margin: 0;">Hydraulics, Forklift, Floor Sales & Cashier Team Member</p>
-                            <p style="margin: 0; color: #666; font-size: 0.9em;">08/2024 - Present</p>
-                        </div>
-
-                        <div class="DivFloat Arrow" style="width: 15%;">
-                            V
-                        </div>
-                    </div>
-
-                    <div class="DivExpand">
-                        <ul class="Ul1">
-                            <li>Assist customers with hydraulics questions regarding pumps, fittings, plugs and hose. Cut and crimp hose based on customer’s needs.
-                            </li>
-                            <li>Operate forklift to handle deliveries, warehouse organization or getting stock for customers.
-                            </li>
-                            <li>Pick and ship warehouse orders, both for in person pickups and shipping orders.</li>
-                            <li>Push stock to its designated location as well as creating or moving locations based on current season/sale.
-                            </li>
-                            <li>Talk with customers and help them find the location for items they are interested in.
-                                Opening and closing the store, sometimes alone or with the help of one leader
-                            </li>
-                            <li>Physically help customers load items into their vehicles, build displays and retrieve carts
-                            </li>
-                            <li>Operate tills, handle cash and checkout customers
-                            </li>
-                        </ul>
-                    </div>
-                </div>
+        <div class="exp-card">
+            <div class="exp-item pink">
+                Led a team of four to rebuild the customer-facing dashboard in React,
+                cutting page load time by 55% and reducing bug reports by 30% in the
+                first quarter post-launch.
             </div>
-        </section>
-
-        <section class="Section2">
-            <div class="DivLeft1"></div>
-            <div class="DivRight1">
-                <div class="DivBar">
-                    <div class="DivBar2" onclick="toggle(this)">
-                        <div class="DivFloat" style="width: 65%;">
-                            <p style="margin: 0; font-weight: bold;">Afillia</p>
-                            <p style="margin: 0;">Founder & Back-End Engineer</p>
-                            <p style="margin: 0; color: #666; font-size: 0.9em;">05/2025 - 12/2025</p>
-                        </div>
-
-                        <div class="DivFloat Arrow" style="width: 15%;">
-                            V
-                        </div>
-                    </div>
-
-                    <div class="DivExpand">
-                        <ul class="Ul1">
-                            <li>Founding member involved in the core foundation of the company and product
-                            </li>
-                            <li>Designed and collaborated on figma designs, leading to the final appearance and list of features
-                            </li>
-                            <li>Built the framework for basic back end functionality including user login, account management and account connections to Google with OAuth2.0
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="Section2">
-            <div class="DivLeft1"></div>
-            <div class="DivRight1">
-                <div class="DivBar">
-                    <div class="DivBar2" onclick="toggle(this)">
-                        <div class="DivFloat" style="width: 65%;">
-                            <p style="margin: 0; font-weight: bold;">RONA</p>
-                            <p style="margin: 0;">Forklift Operator & General Yard Labourer </p>
-                            <p style="margin: 0; color: #666; font-size: 0.9em;">06/2022 - 09/2023</p>
-                        </div>
-
-                        <div class="DivFloat Arrow" style="width: 15%;">
-                            V
-                        </div>
-                    </div>
-
-                    <div class="DivExpand">
-                        <ul class="Ul1">
-                            <li>Assist customers in loading lumber and other building materials (often up to 40kg) into their vehicles.</li>
-                            <li>Operate sitdown counterbalance forklift to clean yard, unload deliveries or assemble large orders.</li>
-                            <li>Complete regular safety checks and maintenance to forklift to ensure its safe use.
-                            </li>
-                            <li>Safely use the panel & table saw to cut customers materials to sizes they request.
-                            </li>
-                            <li>Opening and closing the yard, sometimes alone.
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="Section2">
-            <div class="DivLeft1"></div>
-            <div class="DivRight1">
-                <div class="DivBar">
-                    <div class="DivBar2" onclick="toggle(this)">
-                        <div class="DivFloat" style="width: 65%;">
-                            <p style="margin: 0; font-weight: bold;">McDonald's</p>
-                            <p style="margin: 0;">Drive Thru, Cashier & Kitchen Staff</p>
-                            <p style="margin: 0; color: #666; font-size: 0.9em;">06/2019 - 02/2022</p>
-                        </div>
-
-                        <div class="DivFloat Arrow" style="width: 15%;">
-                            V
-                        </div>
-                    </div>
-
-                    <div class="DivExpand">
-                        <ul class="Ul1">
-                            <li>Efficiently run drive thru in both the “1st window”, in charge of cashing handling/order taking, and “2nd window” with order preparation/delivery/drink creation
-                            </li>
-                            <li>Assemble and create food on every step, including cooking/frying, packaging and toppings
-                            </li>
-                            <li>Close the store and switch to overnight menu </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </section>
-
-    <section class="Section1">
-        <section class="Section2">
-            <div class="DivLeft1">Education</div>
-            <div class="DivRight1">Certifications</div>
-        </section>
-
-        <section class="Section2">
-            <div class="DivLeft1">Hi</div>
-            <div class="DivRight1">
-                <div class="DivBar">
-                    <div class="DivBar2" onclick="toggle(this)">
-                        <div class="DivFloat" style="width: 65%;">
-                            <p style="margin: 0; font-weight: bold;">Ontario Tech University</p>
-                            <p style="margin: 0;">Undergraduate BSC. Computer Science Student</p>
-                            <p style="margin: 0; color: #666; font-size: 0.9em;">2022-2026</p>
-                        </div>
-
-                        <div class="DivFloat Arrow" style="width: 15%;">
-                            V
-                        </div>
-                    </div>
-
-                    <div class="DivExpand">
-                        <ul class="Ul1">
-                            <li>Major: BSC. Computer Science</li>
-                            <li>Specialization: Data Science</li>
-                            <li>Dual Minor: Mathematics & Physics</li>
-                            <li>Honours Thesis: FLIC - "Feedback for Live Interactive Coding</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="Section2">
-
-        </section>
-    </section>
-
-    <section class="Section1">
-        <section class="Section2">
-            <div class="DivLeft1">Skills</div>
-            <div class="DivRight1">
-                <div>
-                    <button>One</button>
-                </div>
-                <div>
-                    <button>Two</button>
-                </div>
-                <div>
-                    <button>Three</button>
-                </div>
-            </div>
-        </section>
-
-        <section class="Section2">
-            Hi
-        </section>
-
-        <section class="Section2">
-            Hello
-        </section>
-    </section>
-
-    <section class="Section1">
-        <section class="Section2">
-            <div class="DivLeft1">Contact</div>
-            <div class="DivRight1">Email</div>
-        </section>
+        </div>
 
     </section>
 
+    <section>
+        <div class="exp-card">
+            <div class="exp-title pink">Experience</div>
+        </div>
+
+        <!-- Role 1 -->
+        <div class="exp-card">
+            <div class="exp-item pink">
+                Led a team of four to rebuild the customer-facing dashboard in React,
+                cutting page load time by 55% and reducing bug reports by 30% in the
+                first quarter post-launch.
+            </div>
+        </div>
+
+
+    </section>
+
+    <section>
+        <div class="card">
+
+            <!-- Toggle buttons -->
+            <div class="tab-row">
+                <button class="tab-btn active" data-tab="education">Education</button>
+                <button class="tab-btn"        data-tab="certifications">Certifications</button>
+            </div>
+
+            <!-- Education panel -->
+            <div class="tab-panel active" id="panel-education">
+                <div class="pink">
+                    <strong>B.Sc. Computer Science</strong> — University of Toronto<br>
+                    <span style="opacity:.8;font-size:.85rem;">2013 – 2017 · Dean's List, GPA 3.8</span>
+                </div>
+                <div class="pink">
+                    Specialisation in Human–Computer Interaction and distributed systems.
+                    Capstone project: a real-time collaborative code editor built with operational transforms.
+                </div>
+                <div class="pink">
+                    Relevant coursework: Algorithms & Data Structures, Operating Systems,
+                    Database Systems, Machine Learning, Software Engineering.
+                </div>
+            </div>
+
+            <!-- Certifications panel -->
+            <div class="tab-panel" id="panel-certifications">
+                <div class="pink">
+                    <strong>AWS Certified Solutions Architect – Associate</strong><br>
+                    <span style="opacity:.8;font-size:.85rem;">Amazon Web Services · Issued Mar 2023 · Expires Mar 2026</span>
+                </div>
+                <div class="pink">
+                    <strong>Google Professional Cloud Developer</strong><br>
+                    <span style="opacity:.8;font-size:.85rem;">Google Cloud · Issued Sep 2022 · Expires Sep 2024</span>
+                </div>
+                <div class="pink">
+                    <strong>Meta Frontend Developer Professional Certificate</strong><br>
+                    <span style="opacity:.8;font-size:.85rem;">Coursera / Meta · Completed Jan 2022</span>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- ══════════════════════════════════════════
+         SECTION 2 — Skills Grid
+    ══════════════════════════════════════════ -->
+    <section>
+        <div class="card">
+            <div class="exp-card">
+                <div class="exp-title pink">Skills</div>
+            </div>
+            <!-- Header: label | filter buttons -->
+            <div class="skills-header">
+                <div class="filter-row">
+                    <button class="filter-btn active" data-filter="tools">Tools</button>
+                    <button class="filter-btn"        data-filter="frontend">Frontend</button>
+                    <button class="filter-btn"        data-filter="backend">Backend</button>
+                </div>
+            </div>
+
+            <!-- Skills grid -->
+            <div class="skills-grid">
+                <div class="skill-card" data-cat="frontend">
+                    <span class="skill-name">React</span>
+                    <span class="skill-sub">Hooks · Context · SSR</span>
+                </div>
+                <div class="skill-card" data-cat="frontend">
+                    <span class="skill-name">TypeScript</span>
+                    <span class="skill-sub">Generics · Utility types</span>
+                </div>
+                <div class="skill-card" data-cat="frontend">
+                    <span class="skill-name">CSS / Tailwind</span>
+                    <span class="skill-sub">Grid · Animation · Variables</span>
+                </div>
+                <div class="skill-card" data-cat="backend">
+                    <span class="skill-name">Node.js</span>
+                    <span class="skill-sub">Express · Fastify · Streams</span>
+                </div>
+                <div class="skill-card" data-cat="backend">
+                    <span class="skill-name">PostgreSQL</span>
+                    <span class="skill-sub">Query optimisation · Indexing</span>
+                </div>
+                <div class="skill-card" data-cat="backend">
+                    <span class="skill-name">Python</span>
+                    <span class="skill-sub">FastAPI · Data pipelines</span>
+                </div>
+                <div class="skill-card" data-cat="frontend">
+                    <span class="skill-name">Next.js</span>
+                    <span class="skill-sub">App Router · Server Actions</span>
+                </div>
+                <div class="skill-card" data-cat="tools">
+                    <span class="skill-name">Docker</span>
+                    <span class="skill-sub">Compose · Multi-stage builds</span>
+                </div>
+                <div class="skill-card" data-cat="tools">
+                    <span class="skill-name">Git / GitHub</span>
+                    <span class="skill-sub">CI/CD · Actions · Branch strategy</span>
+                </div>
+            </div>
+
+        </div>
+    </section>
 
     <div class="DivEnd" aria-hidden="true"></div>
 
@@ -883,6 +1140,39 @@
             document.getElementById('SectionContent').classList.add('visible');
         }
     })();
+
+    /* ── Tab toggle: Education / Certifications ── */
+    document.querySelectorAll('.tab-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+            const target = btn.dataset.tab;
+
+            document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+            document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+
+            btn.classList.add('active');
+            document.getElementById('panel-' + target).classList.add('active');
+        });
+    });
+
+    document.querySelectorAll('.filter-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+            const filter = btn.dataset.filter;
+
+            document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+
+            document.querySelectorAll('.skill-card').forEach(card => {
+                const match = card.dataset.cat === filter;
+                card.classList.toggle('hidden', !match);
+            });
+        });
+    });
+
+    // Show only the first active filter's cards on load
+    const initialFilter = document.querySelector('.filter-btn.active').dataset.filter;
+    document.querySelectorAll('.skill-card').forEach(card => {
+        card.classList.toggle('hidden', card.dataset.cat !== initialFilter);
+    });
 
     //DRAGABLE
     // class DragManager {

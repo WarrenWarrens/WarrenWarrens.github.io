@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edu & Skills</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,700;9..144,900&family=Syne:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+        :root {
+            --pink:        #F5365C;
+            --pink-muted:  #8B2036;
+            --black:       #0A0A0A;
+            --white:       #FFFFFF;
+            --gap:         8px;
+        }
+
+        body {
+            background: #E8E5DF;
+            font-family: 'Syne', sans-serif;
+            color: var(--white);
+            padding: 60px 40px 100px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        /* ── Section heading ─────────────────────────────── */
+        .section-heading {
+            font-family: 'Fraunces', serif;
+            font-size: clamp(2.4rem, 5vw, 3.8rem);
+            font-weight: 900;
+            color: var(--black);
+            text-align: center;
+            letter-spacing: -0.02em;
+            margin-bottom: 48px;
+        }
+
+        section { margin-bottom: 96px; }
+
+        /* ── Shared card shell ───────────────────────────── */
+        .card {
+            background: var(--black);
+            padding: var(--gap);
+            display: flex;
+            flex-direction: column;
+            gap: var(--gap);
+        }
+
+        /* ── Pink element base ───────────────────────────── */
+        .pink {
+            background: var(--pink);
+            color: var(--white);
+            padding: 18px 22px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            line-height: 1.65;
+        }
+
+
+        /* ════════════════════════════════════════════════════
+           SECTION 1 — Education / Certifications
+        ════════════════════════════════════════════════════ */
+
+        /* Two equal-width toggle buttons */
+        .tab-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--gap);
+        }
+
+        .tab-btn {
+            background: var(--pink-muted);
+            color: rgba(255,255,255,0.55);
+            border: none;
+            cursor: pointer;
+            font-family: 'Syne', sans-serif;
+            font-weight: 700;
+            font-size: 1rem;
+            letter-spacing: 0.04em;
+            padding: 18px 22px;
+            text-align: center;
+            transition: background 0.18s, color 0.18s;
+        }
+
+        .tab-btn:hover { background: #a8253f; color: var(--white); }
+
+        .tab-btn.active {
+            background: var(--pink);
+            color: var(--white);
+        }
+
+        /* Panel: hidden by default */
+        .tab-panel { display: none; flex-direction: column; gap: var(--gap); }
+        .tab-panel.active { display: flex; }
+
+        /* ── Mobile: edu/cert ────────────────────────────── */
+        @media (max-width: 640px) {
+            .tab-btn { font-size: 0.88rem; padding: 14px 12px; }
+        }
+
+
+        /* ════════════════════════════════════════════════════
+           SECTION 2 — Skills Grid
+        ════════════════════════════════════════════════════ */
+
+        /* Header: narrow left title + filter buttons on the right */
+        .skills-header {
+            display: grid;
+            grid-template-columns: minmax(130px, 0.32fr) 1fr;
+            gap: var(--gap);
+        }
+
+        .skills-title {
+            background: var(--pink);
+            color: var(--white);
+            font-weight: 700;
+            font-size: 0.78rem;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            padding: 18px 22px;
+            display: flex;
+            align-items: center;
+        }
+
+        /* Three filter buttons filling the right column */
+        .filter-row {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: var(--gap);
+        }
+
+        .filter-btn {
+            background: var(--pink-muted);
+            color: rgba(255,255,255,0.55);
+            border: none;
+            cursor: pointer;
+            font-family: 'Syne', sans-serif;
+            font-weight: 700;
+            font-size: 0.88rem;
+            letter-spacing: 0.06em;
+            padding: 18px 10px;
+            text-align: center;
+            transition: background 0.18s, color 0.18s;
+        }
+
+        .filter-btn:hover { background: #a8253f; color: var(--white); }
+
+        .filter-btn.active {
+            background: var(--pink);
+            color: var(--white);
+        }
+
+        /* Skills grid: 4 columns desktop */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: var(--gap);
+        }
+
+        .skill-card {
+            background: var(--pink);
+            color: var(--white);
+            padding: 22px 18px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            line-height: 1.4;
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+            min-height: 100px;
+        }
+
+        .skill-card .skill-name {
+            font-size: 1rem;
+            font-weight: 700;
+        }
+
+        .skill-card .skill-sub {
+            font-size: 0.78rem;
+            opacity: 0.75;
+            font-weight: 400;
+        }
+
+        /* Hidden skill cards (filtered out) */
+        .skill-card.hidden { display: none; }
+
+        /* ── Mobile: skills ──────────────────────────────── */
+        @media (max-width: 640px) {
+            /* Stack title above filter row */
+            .skills-header {
+                grid-template-columns: 1fr;
+            }
+
+            .skills-title {
+                font-size: 0.82rem;
+            }
+
+            /* Filter buttons span full width */
+            .filter-row {
+                grid-template-columns: repeat(3, 1fr);
+            }
+
+            .filter-btn { font-size: 0.8rem; padding: 12px 6px; }
+
+            /* 2-col grid on mobile */
+            .skills-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+    </style>
+</head>
+<body>
+
+<!-- ══════════════════════════════════════════
+     SECTION 1 — Education / Certifications
+══════════════════════════════════════════ -->
+<section>
+    <h2 class="section-heading">Education & Certifications</h2>
+
+    <div class="card">
+
+        <!-- Toggle buttons -->
+        <div class="tab-row">
+            <button class="tab-btn active" data-tab="education">Education</button>
+            <button class="tab-btn"        data-tab="certifications">Certifications</button>
+        </div>
+
+        <!-- Education panel -->
+        <div class="tab-panel active" id="panel-education">
+            <div class="pink">
+                <strong>B.Sc. Computer Science</strong> — University of Toronto<br>
+                <span style="opacity:.8;font-size:.85rem;">2013 – 2017 · Dean's List, GPA 3.8</span>
+            </div>
+            <div class="pink">
+                Specialisation in Human–Computer Interaction and distributed systems.
+                Capstone project: a real-time collaborative code editor built with operational transforms.
+            </div>
+            <div class="pink">
+                Relevant coursework: Algorithms & Data Structures, Operating Systems,
+                Database Systems, Machine Learning, Software Engineering.
+            </div>
+        </div>
+
+        <!-- Certifications panel -->
+        <div class="tab-panel" id="panel-certifications">
+            <div class="pink">
+                <strong>AWS Certified Solutions Architect – Associate</strong><br>
+                <span style="opacity:.8;font-size:.85rem;">Amazon Web Services · Issued Mar 2023 · Expires Mar 2026</span>
+            </div>
+            <div class="pink">
+                <strong>Google Professional Cloud Developer</strong><br>
+                <span style="opacity:.8;font-size:.85rem;">Google Cloud · Issued Sep 2022 · Expires Sep 2024</span>
+            </div>
+            <div class="pink">
+                <strong>Meta Frontend Developer Professional Certificate</strong><br>
+                <span style="opacity:.8;font-size:.85rem;">Coursera / Meta · Completed Jan 2022</span>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════
+     SECTION 2 — Skills Grid
+══════════════════════════════════════════ -->
+<section>
+    <h2 class="section-heading">Skills</h2>
+
+    <div class="card">
+
+        <!-- Header: label | filter buttons -->
+        <div class="skills-header">
+            <div class="skills-title">Skills</div>
+            <div class="filter-row">
+                <button class="filter-btn active" data-filter="tools">Tools</button>
+                <button class="filter-btn"        data-filter="frontend">Frontend</button>
+                <button class="filter-btn"        data-filter="backend">Backend</button>
+            </div>
+        </div>
+
+        <!-- Skills grid -->
+        <div class="skills-grid">
+            <div class="skill-card" data-cat="frontend">
+                <span class="skill-name">React</span>
+                <span class="skill-sub">Hooks · Context · SSR</span>
+            </div>
+            <div class="skill-card" data-cat="frontend">
+                <span class="skill-name">TypeScript</span>
+                <span class="skill-sub">Generics · Utility types</span>
+            </div>
+            <div class="skill-card" data-cat="frontend">
+                <span class="skill-name">CSS / Tailwind</span>
+                <span class="skill-sub">Grid · Animation · Variables</span>
+            </div>
+            <div class="skill-card" data-cat="backend">
+                <span class="skill-name">Node.js</span>
+                <span class="skill-sub">Express · Fastify · Streams</span>
+            </div>
+            <div class="skill-card" data-cat="backend">
+                <span class="skill-name">PostgreSQL</span>
+                <span class="skill-sub">Query optimisation · Indexing</span>
+            </div>
+            <div class="skill-card" data-cat="backend">
+                <span class="skill-name">Python</span>
+                <span class="skill-sub">FastAPI · Data pipelines</span>
+            </div>
+            <div class="skill-card" data-cat="frontend">
+                <span class="skill-name">Next.js</span>
+                <span class="skill-sub">App Router · Server Actions</span>
+            </div>
+            <div class="skill-card" data-cat="tools">
+                <span class="skill-name">Docker</span>
+                <span class="skill-sub">Compose · Multi-stage builds</span>
+            </div>
+            <div class="skill-card" data-cat="tools">
+                <span class="skill-name">Git / GitHub</span>
+                <span class="skill-sub">CI/CD · Actions · Branch strategy</span>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+
+<script>
+    /* ── Tab toggle: Education / Certifications ── */
+    document.querySelectorAll('.tab-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+            const target = btn.dataset.tab;
+
+            document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+            document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+
+            btn.classList.add('active');
+            document.getElementById('panel-' + target).classList.add('active');
+        });
+    });
+
+    document.querySelectorAll('.filter-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+            const filter = btn.dataset.filter;
+
+            document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+
+            document.querySelectorAll('.skill-card').forEach(card => {
+                const match = card.dataset.cat === filter;
+                card.classList.toggle('hidden', !match);
+            });
+        });
+    });
+
+    // Show only the first active filter's cards on load
+    const initialFilter = document.querySelector('.filter-btn.active').dataset.filter;
+    document.querySelectorAll('.skill-card').forEach(card => {
+        card.classList.toggle('hidden', card.dataset.cat !== initialFilter);
+    });
+</script>
+</body>
+</html>

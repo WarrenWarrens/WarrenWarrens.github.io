@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Site</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="final.css" />
+</head>
+<body>
+
+<a href="#MainContent" class="skip-link">Skip to main content</a>
+
+<!-- ══════════════════════════════════════════
+     ACCESSIBILITY OVERLAY (first-visit only)
+══════════════════════════════════════════ -->
+<div id="a11y-overlay" role="dialog" aria-modal="true" aria-labelledby="a11y-title">
+    <div class="a11y-card">
+
+        <header>
+            <p>Before you enter</p>
+            <h1 id="a11y-title">Choose your experience</h1>
+        </header>
+
+        <!-- Blue — colour mode -->
+        <div class="a11y-section section-theme" role="group" aria-labelledby="theme-label">
+            <h2 id="theme-label">Colour mode</h2>
+            <div class="theme-options">
+                <button class="picker-btn theme-btn selected" data-value="dark"           onclick="pick('theme',this)">Dark</button>
+                <button class="picker-btn theme-btn"          data-value="light"          onclick="pick('theme',this)">Light</button>
+                <button class="picker-btn theme-btn"          data-value="high-contrast"  onclick="pick('theme',this)">High contrast</button>
+                <button class="picker-btn theme-btn"          data-value="reduced-motion" onclick="pick('theme',this)">Reduced motion</button>
+            </div>
+        </div>
+
+        <!-- Green — text size -->
+        <div class="a11y-section section-text" role="group" aria-labelledby="text-label">
+            <h2 id="text-label">Text size</h2>
+            <div class="text-options">
+                <button class="picker-btn text-btn"          data-value="small"   onclick="pick('size',this)">
+                    <span style="font-size:0.8rem">A</span><span class="label">Small</span>
+                </button>
+                <button class="picker-btn text-btn selected" data-value="default" onclick="pick('size',this)">
+                    <span style="font-size:1rem">A</span><span class="label">Default</span>
+                </button>
+                <button class="picker-btn text-btn"          data-value="large"   onclick="pick('size',this)">
+                    <span style="font-size:1.25rem">A</span><span class="label">Large</span>
+                </button>
+                <button class="picker-btn text-btn"          data-value="xl"      onclick="pick('size',this)">
+                    <span style="font-size:1.5rem">A</span><span class="label">Extra large</span>
+                </button>
+            </div>
+        </div>
+
+        <button class="continue-btn" onclick="enter()">Continue to site</button>
+
+    </div>
+</div>
+
+
+<main id="MainContent" aria-label="Main content">
+    <div class="DivWrapper">
+
+        <div class="block-red"><p>Title</p></div>
+
+        <div class="col-left">
+            <div class="block-green"><p>Contents</p></div>
+            <div class="block-yellow"><p>Extra</p></div>
+        </div>
+
+        <div class="col-right">
+            <div class="block-blue"><p>Introduction</p></div>
+            <div class="block-purple">
+                <button class="a11y-reopen-btn" onclick="showOverlay()" aria-label="Reopen accessibility settings">
+                    ⚙ Accessibility settings
+                </button>
+            </div>
+            <div class="block-orange"><p>Current Status</p></div>
+        </div>
+
+    </div>
+</main>
+
+<div id="StickyHeader" aria-hidden="true">
+    <div class="sh-red"><p>Ryan Warrener</p></div>
+    <div class="sh-green"><p>Title</p></div>
+</div>
+
+<section id="SectionContent" aria-label="Page content">
+    <section>
+        <div class="exp-card">
+            <div class="exp-title pink">Projects</div>
+        </div>
+        <div class="exp-card">
+            <div class="exp-item pink">
+                Led a team of four to rebuild the customer-facing dashboard in React,
+                cutting page load time by 55% and reducing bug reports by 30% in the
+                first quarter post-launch.
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="exp-card">
+            <div class="exp-title pink">Experience</div>
+        </div>
+        <div class="exp-card">
+            <div class="exp-item pink">
+                Led a team of four to rebuild the customer-facing dashboard in React,
+                cutting page load time by 55% and reducing bug reports by 30% in the
+                first quarter post-launch.
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="card">
+            <div class="tab-row">
+                <button class="toggle-btn tab-btn active" data-tab="education">Education</button>
+                <button class="toggle-btn tab-btn"        data-tab="certifications">Certifications</button>
+            </div>
+
+            <div class="tab-panel active" id="panel-education">
+                <div class="pink">
+                    <strong>B.Sc. Computer Science</strong> — University of Toronto<br>
+                    <span style="opacity:.8;font-size:.85rem;">2013 – 2017 · Dean's List, GPA 3.8</span>
+                </div>
+                <div class="pink">
+                    Specialisation in Human–Computer Interaction and distributed systems.
+                    Capstone project: a real-time collaborative code editor built with operational transforms.
+                </div>
+                <div class="pink">
+                    Relevant coursework: Algorithms & Data Structures, Operating Systems,
+                    Database Systems, Machine Learning, Software Engineering.
+                </div>
+            </div>
+
+            <div class="tab-panel" id="panel-certifications">
+                <div class="pink">
+                    <strong>AWS Certified Solutions Architect – Associate</strong><br>
+                    <span style="opacity:.8;font-size:.85rem;">Amazon Web Services · Issued Mar 2023 · Expires Mar 2026</span>
+                </div>
+                <div class="pink">
+                    <strong>Google Professional Cloud Developer</strong><br>
+                    <span style="opacity:.8;font-size:.85rem;">Google Cloud · Issued Sep 2022 · Expires Sep 2024</span>
+                </div>
+                <div class="pink">
+                    <strong>Meta Frontend Developer Professional Certificate</strong><br>
+                    <span style="opacity:.8;font-size:.85rem;">Coursera / Meta · Completed Jan 2022</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════
+         SECTION 2 — Skills Grid
+    ══════════════════════════════════════════ -->
+    <section>
+        <div class="card">
+            <div class="exp-card">
+                <div class="exp-title pink">Skills</div>
+            </div>
+            <div class="skills-header">
+                <div class="filter-row">
+                    <button class="toggle-btn filter-btn active" data-filter="tools">Tools</button>
+                    <button class="toggle-btn filter-btn"        data-filter="frontend">Frontend</button>
+                    <button class="toggle-btn filter-btn"        data-filter="backend">Backend</button>
+                </div>
+            </div>
+
+            <div class="skills-grid">
+                <div class="skill-card" data-cat="frontend">
+                    <span class="skill-name">React</span>
+                    <span class="skill-sub">Hooks · Context · SSR</span>
+                </div>
+                <div class="skill-card" data-cat="frontend">
+                    <span class="skill-name">TypeScript</span>
+                    <span class="skill-sub">Generics · Utility types</span>
+                </div>
+                <div class="skill-card" data-cat="frontend">
+                    <span class="skill-name">CSS / Tailwind</span>
+                    <span class="skill-sub">Grid · Animation · Variables</span>
+                </div>
+                <div class="skill-card" data-cat="backend">
+                    <span class="skill-name">Node.js</span>
+                    <span class="skill-sub">Express · Fastify · Streams</span>
+                </div>
+                <div class="skill-card" data-cat="backend">
+                    <span class="skill-name">PostgreSQL</span>
+                    <span class="skill-sub">Query optimisation · Indexing</span>
+                </div>
+                <div class="skill-card" data-cat="backend">
+                    <span class="skill-name">Python</span>
+                    <span class="skill-sub">FastAPI · Data pipelines</span>
+                </div>
+                <div class="skill-card" data-cat="frontend">
+                    <span class="skill-name">Next.js</span>
+                    <span class="skill-sub">App Router · Server Actions</span>
+                </div>
+                <div class="skill-card" data-cat="tools">
+                    <span class="skill-name">Docker</span>
+                    <span class="skill-sub">Compose · Multi-stage builds</span>
+                </div>
+                <div class="skill-card" data-cat="tools">
+                    <span class="skill-name">Git / GitHub</span>
+                    <span class="skill-sub">CI/CD · Actions · Branch strategy</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="DivEnd" aria-hidden="true"></div>
+
+</section>
+
+<script src="https://cdn.jsdelivr.net/npm/@shopify/draggable@1.0.0-beta.12/lib/draggable.bundle.js"></script>
+
+<script>
+    function toggle(element) {
+        element.nextElementSibling.classList.toggle('show');
+    }
+
+    const STORAGE_KEY = 'a11y-prefs';
+    const selections  = { theme: 'dark', size: 'default' };
+
+    function pick(group, btn) {
+        btn.closest('[role="group"]').querySelectorAll('button').forEach(b => b.classList.remove('selected'));
+        btn.classList.add('selected');
+        selections[group] = btn.dataset.value;
+    }
+
+    function enter() {
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(selections));
+        applyPrefs(selections);
+        dismissOverlay();
+    }
+
+    function dismissOverlay() {
+        const overlay = document.getElementById('a11y-overlay');
+        overlay.classList.add('hiding');
+        overlay.addEventListener('animationend', () => {
+            overlay.classList.remove('hiding');
+            overlay.classList.add('hidden');
+            document.getElementById('MainContent').classList.add('visible');
+            document.getElementById('SectionContent').classList.add('visible');
+        }, { once: true });
+    }
+
+    function showOverlay() {
+        const overlay = document.getElementById('a11y-overlay');
+        overlay.classList.remove('hidden');
+        overlay.style.animation = 'none';
+        overlay.offsetHeight; // force reflow
+        overlay.style.animation = '';
+    }
+
+    function applyPrefs(prefs) {
+        document.body.dataset.theme = prefs.theme;
+        const sizes = { small: '14px', default: '16px', large: '18px', xl: '21px' };
+        document.documentElement.style.fontSize = sizes[prefs.size] || '16px';
+    }
+
+    // Desktop: green slides into sticky header when block-green leaves viewport
+    (function initGreenObserver() {
+        const header     = document.getElementById('StickyHeader');
+        const greenBlock = document.querySelector('.block-green');
+        if (!greenBlock) return;
+        new IntersectionObserver((entries) => {
+            if (window.innerWidth > 520)
+                header.classList.toggle('green-visible', !entries[0].isIntersecting);
+        }, { threshold: 0 }).observe(greenBlock);
+    })();
+
+    // On load — skip overlay if preferences already saved
+    (function init() {
+        const saved = localStorage.getItem(STORAGE_KEY);
+        if (saved) {
+            applyPrefs(JSON.parse(saved));
+            ['a11y-overlay', 'MainContent', 'SectionContent'].forEach((id, i) => {
+                document.getElementById(id).classList.add(i === 0 ? 'hidden' : 'visible');
+            });
+        }
+    })();
+
+    // Tab toggle: Education / Certifications
+    document.querySelectorAll('.tab-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+            document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+            document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+            btn.classList.add('active');
+            document.getElementById('panel-' + btn.dataset.tab).classList.add('active');
+        });
+    });
+
+    // Skills filter
+    document.querySelectorAll('.filter-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+            document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            const filter = btn.dataset.filter;
+            document.querySelectorAll('.skill-card').forEach(card => {
+                card.classList.toggle('hidden', card.dataset.cat !== filter);
+            });
+        });
+    });
+
+    // Apply initial filter on load
+    const initialFilter = document.querySelector('.filter-btn.active').dataset.filter;
+    document.querySelectorAll('.skill-card').forEach(card => {
+        card.classList.toggle('hidden', card.dataset.cat !== initialFilter);
+    });
+
+    document.addEventListener('DOMContentLoaded', () => {
+        const portfolioDrag = new DragManager('.Section1', '.Section2');
+    });
+</script>
+
+</body>
+</html>
