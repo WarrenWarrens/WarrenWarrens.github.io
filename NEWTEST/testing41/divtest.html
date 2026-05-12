@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .Main
+        {
+            align-content: center;
+        }
+
+        .DivCont {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            max-width: 800px;
+            margin: 20px auto;
+            font-family: sans-serif;
+        }
+
+        /* Individual list items */
+        .DivItem2 {
+            display: flex;
+            border: 1px solid #ccc;
+            background-color: #f9f9f9;
+            cursor: pointer;
+            overflow: hidden;
+            min-height: 120px; /* Minimum height when closed */
+            box-sizing: border-box;
+        }
+
+        /* Hover effect: add an outline */
+        .DivItem2:hover {
+            outline: 3px solid #333;
+        }
+    </style>
+</head>
+<body>
+
+    <main class="Main">
+        <div class="DivCont">
+            <div class="DivItem2">
+                Hi
+            </div>
+            <div class="DivItem2">
+                Hi
+            </div>
+        </div>
+    </main>
+
+<script>
+
+</script>
+
+</body>
+</html>

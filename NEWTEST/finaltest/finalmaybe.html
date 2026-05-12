@@ -396,6 +396,170 @@
             .skills-grid { grid-template-columns: repeat(2, 1fr); }
             .filter-btn  { font-size: 0.75rem; padding: 10px 4px; }
         }
+
+        .DivContactHeader { display: block; }
+        .DivContactGrid   { display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--gap); }
+
+        .DivContactCard {
+            background: var(--pink); color: var(--white);
+            padding: 22px 18px; font-weight: 600; font-size: 0.9rem;
+            line-height: 1.4; display: flex; flex-direction: column;
+            gap: 6px; min-height: 100px;
+        }
+        .DivContactCard .skill-name { font-size: 1rem; font-weight: 700; }
+        .DivContactCard .skill-sub  { font-size: 0.78rem; opacity: 0.75; font-weight: 400; }
+
+        @media (max-width: 640px) {
+            .DivContactGrid { grid-template-columns: repeat(2, 1fr); }
+            .TextColumn {
+                width: 100%; /* Allows the text to take up the whole screen once the image is gone */
+                text-align: center; /* Optional: Centers the text on mobile */
+            }
+        }
+
+
+
+        /*.DivBar*/
+        /*{*/
+        /*    width: 100%;*/
+        /*    margin-bottom: 10px;*/
+        /*}*/
+
+
+        /*.DivBar2*/
+        /*{*/
+        /*    width: 100%;*/
+        /*    display: flex;*/
+        /*    cursor: pointer;*/
+        /*    align-items: center;*/
+        /*    padding: 10px;*/
+
+        /*}*/
+
+
+        /*.DivBar2:hover*/
+        /*{*/
+        /*    background-color: #eee;*/
+        /*}*/
+
+
+        /*.DivBar2:hover .Arrow {*/
+        /*    opacity: 1;*/
+        /*    animation: spinIcon 0.4s ease-out;*/
+        /*}*/
+
+
+        /*.DivFloat*/
+        /*{*/
+        /*    width: 50%;*/
+        /*}*/
+
+
+        /*.PTitle*/
+        /*{*/
+        /*    text-align: center;*/
+        /*    font-size: 28px;*/
+        /*}*/
+
+
+        /*.PText*/
+        /*{*/
+        /*    text-align: center;*/
+        /*    font-size: 16px;;*/
+        /*}*/
+
+
+        /*.DivGrid*/
+        /*{*/
+        /*    display: flex;*/
+        /*    flex-wrap: wrap;*/
+        /*    justify-content: center;*/
+        /*    gap: 15px;*/
+        /*    padding: 10px;*/
+        /*}*/
+
+
+        /*.DivItem*/
+        /*{*/
+        /*    flex: 0 1 120px;*/
+        /*    height: 50px;*/
+        /*    background: whitesmoke;*/
+
+        /*    color: black;*/
+        /*    border: 10px black;*/
+        /*    border-radius: 8px;*/
+        /*    display: flex;*/
+        /*    align-items: center;*/
+        /*    justify-content: center;*/
+        /*    user-select: none;*/
+        /*    transition: transform 150ms ease;*/
+        /*    font-size: 16px;;*/
+
+        /*}*/
+
+
+        /*.DivProjectContentImage*/
+        /*{*/
+        /*    width: 100%;*/
+        /*    height: 200px;*/
+        /*    background-color: darkgrey;*/
+        /*    border-radius: 10px;*/
+        /*}*/
+
+        /*.Big*/
+        /*{*/
+        /*    display: none;*/
+        /*}*/
+
+        /*.Big.show {*/
+        /*    width: 100vw;*/
+        /*    height: 100vh;*/
+        /*    z-index: 100;*/
+        /*    background-color: rgba(0, 0, 0, 0.7);*/
+        /*    position: fixed;*/
+        /*    display: block;*/
+        /*    top: 0;*/
+        /*    left: 0;*/
+        /*    transform: none;*/
+        /*}*/
+
+        /*.DivProject2*/
+        /*{*/
+        /*    width: 80vw;*/
+        /*    height: 80vh;*/
+        /*    z-index: 101;*/
+        /*    background-color: white;*/
+        /*    position: fixed;*/
+        /*    display: none;*/
+        /*    top: 45%;*/
+        /*    left: 50%;*/
+        /*    transform: translate(-50%, -50%);*/
+        /*}*/
+
+        /*.Big.show .DivProject2*/
+        /*{*/
+        /*    display: block;*/
+        /*}*/
+
+
+        /*.DivProjectTop {*/
+        /*    display: flex;*/
+        /*    align-items: center;*/
+        /*    padding: 20px;*/
+        /*    gap: 20px;*/
+
+        /*    background-color: #f0f0f0;*/
+        /*    border: 1px solid #ccc;*/
+        /*}*/
+
+
+        /*.DivProjectLeft*/
+        /*{*/
+        /*    flex: 1;*/
+        /*    color: black;*/
+        /*    padding: 10px;*/
+        /*    border-radius: 4px;*/
+        /*}*/
     </style>
 </head>
 <body>
@@ -460,7 +624,9 @@
         </div>
 
         <div class="col-right">
-            <div class="block-blue"><p>Introduction</p></div>
+            <div class="block-blue">
+                <p>Hello! I'm Ryan</p>
+            </div>
             <div class="block-purple">
                 <button class="a11y-reopen-btn" onclick="showOverlay()" aria-label="Reopen accessibility settings">
                     ⚙ Accessibility settings
@@ -472,10 +638,21 @@
     </div>
 </main>
 
+<!--////////////////////////////////////////////////////
+///////////////////////////////////////////////////
+////////////////////////
+/////////////////////////////////////////-->
 <div id="StickyHeader" aria-hidden="true">
     <div class="sh-red"><p>Ryan Warrener</p></div>
     <div class="sh-green"><p>Title</p></div>
 </div>
+
+
+<!--////////////////////////////////////////////////////
+///////////////////////////////////////////////////
+////////////////////////
+/////////////////////////////////////////-->
+
 
 <section id="SectionContent" aria-label="Page content">
     <section>
@@ -483,30 +660,31 @@
             <div class="exp-card">
                 <div class="exp-title pink">Projects</div>
             </div>
+
             <div class="exp-card">
-                <div class="exp-item pink">
-                    Led a team of four to rebuild the customer-facing dashboard in React,
-                    cutting page load time by 55% and reducing bug reports by 30% in the
-                    first quarter post-launch.
-                </div>
+
+
             </div>
-        </div>
-<!--        <div class="exp-card">-->
-<!--            <div class="exp-title pink">Projects</div>-->
-<!--        </div>-->
-<!--        <div class="exp-card">-->
-<!--            <div class="exp-item pink">-->
-<!--                Led a team of four to rebuild the customer-facing dashboard in React,-->
-<!--                cutting page load time by 55% and reducing bug reports by 30% in the-->
-<!--                first quarter post-launch.-->
+<!--            <div class="exp-card">-->
+<!--                <div class="exp-item pink">-->
+<!--                    AAAAaLed a team of four to rebuild the customer-facing dashboard in React,-->
+<!--                    cutting page load time by 55% and reducing bug reports by 30% in the-->
+<!--                    first quarter post-launch.-->
+<!--                </div>-->
 <!--            </div>-->
-<!--        </div>-->
+        </div>
     </section>
+
+
+    <!--////////////////////////////////////////////////////
+    ///////////////////////////////////////////////////
+    ////////////////////////
+    /////////////////////////////////////////-->
 
     <section>
         <div class="card">
             <div class="exp-card">
-                <div class="exp-title pink">Projects</div>
+                <div class="exp-title pink">Experience</div>
             </div>
             <div class="exp-card">
                 <div class="exp-item pink">
@@ -516,18 +694,13 @@
                 </div>
             </div>
         </div>
-
-<!--        <div class="exp-card">-->
-<!--            <div class="exp-title pink">Experience</div>-->
-<!--        </div>-->
-<!--        <div class="exp-card">-->
-<!--            <div class="exp-item pink">-->
-<!--                Led a team of four to rebuild the customer-facing dashboard in React,-->
-<!--                cutting page load time by 55% and reducing bug reports by 30% in the-->
-<!--                first quarter post-launch.-->
-<!--            </div>-->
-<!--        </div>-->
     </section>
+
+
+    <!--////////////////////////////////////////////////////
+    ///////////////////////////////////////////////////
+    ////////////////////////
+    /////////////////////////////////////////-->
 
     <section>
         <div class="card">
@@ -567,6 +740,12 @@
             </div>
         </div>
     </section>
+
+
+    <!--////////////////////////////////////////////////////
+    ///////////////////////////////////////////////////
+    ////////////////////////
+    /////////////////////////////////////////-->
 
     <!-- ══════════════════════════════════════════
          SECTION 2 — Skills Grid
@@ -626,6 +805,35 @@
             </div>
         </div>
     </section>
+
+
+    <!--////////////////////////////////////////////////////
+    ///////////////////////////////////////////////////
+    ////////////////////////
+    /////////////////////////////////////////-->
+
+    <section>
+        <div class="card">
+            <div class="exp-card">
+                <div class="exp-title pink">Contact</div>
+            </div>
+            <div class="DivContactGrid">
+                <div class="DivContactCard">
+                    <span class="skill-name">React</span>
+                    <span class="skill-sub">Hooks · Context · SSR</span>
+                </div>
+                <div class="DivContactCard">
+                    <span class="skill-name">TypeScript</span>
+                    <span class="skill-sub">Generics · Utility types</span>
+                </div>
+                <div class="DivContactCard">
+                    <span class="skill-name">CSS / Tailwind</span>
+                    <span class="skill-sub">Grid · Animation · Variables</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
 
     <div class="DivEnd" aria-hidden="true"></div>
 
