@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Portfolio</title>
+    <style>
+
+        html, body {
+            margin: 0;
+            padding: 0;
+            font-family: sans-serif;
+            background-color: whitesmoke;
+        }
+
+        .SectionNav {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background-color: white;
+            font-size: 20px;
+            width: 100%;
+            overflow: auto;
+            padding: 10px 0;
+        }
+
+        .DivTitle {
+            width: 33%;
+            float: left;
+            padding-left: 10px;
+        }
+
+        .DivIcon {
+            width: 33%;
+            float: right;
+            text-align: right;
+            padding-right: 10px;
+        }
+
+        .SectionIntroduction {
+            width: 100%;
+            background-color: black;
+            height: 300px;
+        }
+
+        .Main {
+            align-content: center;
+            place-items: center;
+            padding: 10px;
+        }
+
+        .Section1 {
+            width: 100%;
+            min-height: 50px;
+            text-align: center;
+            margin-bottom: 15px;
+            padding: 15px 0;
+        }
+
+        .DivBar {
+            width: 100%;
+            min-height: 50px;
+            background-color: greenyellow;
+            text-align: center;
+        }
+
+        /* --- NEW FLEXBOX TAB CONTAINER --- */
+        .TabContainer {
+            display: flex;
+            width: 100%;
+            margin-bottom: 15px;
+        }
+
+        /* --- TAB STYLES --- */
+        .ButtonTab {
+            width: 50%; /* Forces each button to take up exactly half the flex container */
+            padding: 10px 20px;
+            cursor: pointer;
+            font-size: 16px;
+            border: 2px solid black;
+            background-color: white;
+            font-weight: bold;
+            box-sizing: border-box; /* Ensures the 2px border doesn't break the 50% split */
+        }
+
+        .ButtonTab.active {
+            background-color: black;
+            color: white;
+        }
+
+        .DivContent {
+            display: none;
+            padding: 20px;
+            text-align: left;
+        }
+
+        .DivContent.active {
+            display: block;
+        }
+
+        .DivBar2 {
+            width: 100%;
+            cursor: pointer;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .ViewDefault, .DivViewExpanded {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            padding: 10px;
+            box-sizing: border-box;
+        }
+
+        .ViewDefault:hover {
+            background-color: #eee;
+        }
+
+        .DivFloat {
+            width: 50%;
+        }
+
+        .PText {
+            text-align: center;
+            font-size: 16px;
+        }
+
+        .PTitle {
+            text-align: center;
+            font-size: 28px;
+        }
+
+        .DivProjectContentImage {
+            width: 100%;
+            height: 200px;
+            background-color: darkgrey;
+            border-radius: 10px;
+        }
+
+        .DivExpand {
+            display: none;
+        }
+
+        .DivExpand.show {
+            display: block;
+            animation: slideDown 0.3s ease;
+        }
+
+        .DivViewExpanded {
+            display: none;
+            background-color: #f0f0f0;
+            justify-content: center;
+            position: relative;
+            min-height: 80px;
+        }
+
+        .ExpandedTitle {
+            font-size: 28px;
+            color: black;
+        }
+
+        .DivBar2.is-expanded .ViewDefault {
+            display: none;
+        }
+
+        .DivBar2.is-expanded .DivViewExpanded {
+            display: flex;
+        }
+
+        .DivProjectContent {
+            width: 90%;
+            margin: 0 auto;
+            text-align: left;
+            padding: 15px 0;
+        }
+
+        /* --- EXPERIENCE HEADER STYLES --- */
+        .ExperienceHeader {
+            display: flex;
+            align-items: center;
+            width: 100%;
+            padding: 15px;
+            box-sizing: border-box;
+        }
+
+        .ExperienceHeader:hover {
+            background-color: #eee;
+        }
+
+        .ExpIcon {
+            font-size: 24px;
+            width: 50px;
+            text-align: left;
+        }
+
+        .ExpDetails {
+            display: flex;
+            flex-direction: column;
+            text-align: left;
+            flex-grow: 1;
+        }
+
+        .ExpTitle {
+            margin: 0;
+            font-weight: bold;
+            font-size: 18px;
+        }
+
+        .ExpRole {
+            margin: 5px 0 0 0;
+            color: #333;
+            font-size: 15px;
+        }
+
+        .ExpRightText {
+            margin: 0;
+            color: #666;
+            font-size: 14px;
+            text-align: right;
+            white-space: nowrap;
+        }
+
+        .DivBarTitle {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            background-color: #ddd;
+            padding: 20px 0;
+        }
+
+        /* Moved this ABOVE the media query */
+        .DivTitle2 {
+            width: 50%;
+            background-color: #007bff;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            box-sizing: border-box;
+        }
+
+        /* --- MEDIA QUERIES GO AT THE VERY BOTTOM --- */
+        @media (max-width: 1000px) {
+            .ImageColumn {
+                display: none;
+            }
+            .TextColumn {
+                width: 100%;
+                text-align: center;
+            }
+            .DivTitle2 {
+                width: 100%;
+                padding: 20px 10px;
+            }
+        }
+
+    </style>
+</head>
+<body>
+<section class="SectionNav">
+    <div class="DivTitle">Ryan Warrener</div>
+    <div class="DivIcon">
+        <button>Icon</button>
+    </div>
+
+</section>
+
+<section class="SectionIntroduction"></section>
+
+<main class="Main" style="padding-top:0">
+    <section class="Section1" style="padding-top:0">
+        <div class="DivBarTitle">
+            <div class="DivTitle2">
+                Projects
+            </div>
+        </div>
+
+        <div class="DivBar">
+            <div class="DivBar2" onclick="toggle(this)">
+                <div class="ViewDefault">
+                    <div class="DivFloat TextColumn">
+                        <p class="PTitle">Vingt-Un</p>
+                        <p class="PText">Fictional language learning mobile app, powered by Flutter & Dart.</p>
+                    </div>
+                    <div class="DivFloat ImageColumn">
+                        <div class="DivProjectContentImage"></div>
+                    </div>
+                </div>
+
+                <div class="DivViewExpanded">
+                    <div class="ExpandedTitle">Lingua Lore</div>
+                </div>
+            </div>
+
+            <div class="DivExpand">
+                <div class="DivProjectContent">
+                    Detailed information about Project 1 goes here!
+                </div>
+            </div>
+        </div>
+
+        <div class="DivBar">
+            <div class="DivBar2" onclick="toggle(this)">
+                <div class="ViewDefault">
+                    <div class="DivFloat TextColumn">
+                        <p class="PTitle">Second Project</p>
+                        <p class="PText">Another cool project description goes here.</p>
+                    </div>
+                    <div class="DivFloat ImageColumn">
+                        <div class="DivProjectContentImage"></div>
+                    </div>
+                </div>
+
+                <div class="DivViewExpanded">
+                    <div class="ExpandedTitle">Second Project Expanded</div>
+                </div>
+            </div>
+
+            <div class="DivExpand">
+                <div class="DivProjectContent">
+                    Detailed information about Project 2 goes here!
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+    <!-- ///// EDUCATION & CERTIFICATIONS SECTION ///// -->
+
+    <section class="Section1">
+        <div class="DivBar">
+
+            <!-- Replaced the Grid with our new Flexbox Tab Container -->
+            <div class="TabContainer">
+                <button class="ButtonTab active" onclick="showContent(event, 'DivEducation')">Education</button>
+                <button class="ButtonTab" onclick="showContent(event, 'DivCertifications')">Certifications</button>
+            </div>
+
+            <div class="DivContent active" id="DivEducation">
+                <h3>My Education</h3>
+                <p>University of Technology - B.S. in Computer Science (2018 - 2022)</p>
+                <p>Relevant Coursework: Web Development, Data Structures, UI/UX Design.</p>
+            </div>
+
+            <div class="DivContent" id="DivCertifications">
+                <h3>My Certifications</h3>
+                <p>✔️ AWS Certified Cloud Practitioner</p>
+                <p>✔️ FreeCodeCamp Responsive Web Design</p>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ///// EXPERIENCE SECTION ///// -->
+    <section class="Section1">
+        <div class="DivBar">
+            Experience
+        </div>
+
+        <div class="DivBar">
+            <div class="DivBar2" onclick="toggle(this)">
+                <div class="ExperienceHeader">
+                    <div class="ExpIcon">🏢</div>
+
+                    <div class="ExpDetails">
+                        <p class="ExpTitle">RONA</p>
+                        <p class="ExpRole">Forklift Operator & General Yard Labourer</p>
+                    </div>
+
+                    <div class="ExpRightText">
+                        06/2022 - 09/2023
+                    </div>
+                </div>
+            </div>
+
+            <div class="DivExpand">
+                <ul class="Ul1" style="text-align: left; padding: 0 40px 20px 40px;">
+                    <li>Assist customers in loading lumber and other building materials (often up to 40kg) into their vehicles.</li>
+                    <li>Operate sitdown counterbalance forklift to clean yard, unload deliveries or assemble large orders.</li>
+                    <li>Complete regular safety checks and maintenance to forklift to ensure its safe use.</li>
+                    <li>Safely use the panel & table saw to cut customers materials to sizes they request.</li>
+                    <li>Opening and closing the yard, sometimes alone.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="DivBar">
+            <div class="DivBar2" onclick="toggle(this)">
+                <div class="ExperienceHeader">
+                    <div class="ExpIcon">🏢</div>
+
+                    <div class="ExpDetails">
+                        <p class="ExpTitle">RONA</p>
+                        <p class="ExpRole">Forklift Operator & General Yard Labourer</p>
+                    </div>
+
+                    <div class="ExpRightText">
+                        06/2022 - 09/2023
+                    </div>
+                </div>
+            </div>
+
+            <div class="DivExpand">
+                <ul class="Ul1" style="text-align: left; padding: 0 40px 20px 40px;">
+                    <li>Assist customers in loading lumber and other building materials (often up to 40kg) into their vehicles.</li>
+                    <li>Operate sitdown counterbalance forklift to clean yard, unload deliveries or assemble large orders.</li>
+                    <li>Complete regular safety checks and maintenance to forklift to ensure its safe use.</li>
+                    <li>Safely use the panel & table saw to cut customers materials to sizes they request.</li>
+                    <li>Opening and closing the yard, sometimes alone.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="DivBar">
+            <div class="DivBar2" onclick="toggle(this)">
+                <div class="ExperienceHeader">
+                    <div class="ExpIcon">🏢</div>
+
+                    <div class="ExpDetails">
+                        <p class="ExpTitle">RONA</p>
+                        <p class="ExpRole">Forklift Operator & General Yard Labourer</p>
+                    </div>
+
+                    <div class="ExpRightText">
+                        06/2022 - 09/2023
+                    </div>
+                </div>
+            </div>
+
+            <div class="DivExpand">
+                <ul class="Ul1" style="text-align: left; padding: 0 40px 20px 40px;">
+                    <li>Assist customers in loading lumber and other building materials (often up to 40kg) into their vehicles.</li>
+                    <li>Operate sitdown counterbalance forklift to clean yard, unload deliveries or assemble large orders.</li>
+                    <li>Complete regular safety checks and maintenance to forklift to ensure its safe use.</li>
+                    <li>Safely use the panel & table saw to cut customers materials to sizes they request.</li>
+                    <li>Opening and closing the yard, sometimes alone.</li>
+                </ul>
+            </div>
+        </div>
+
+    </section>
+
+    <section class="Section1">
+        <div class="DivBar">
+            Skills
+        </div>
+    </section>
+
+    <section class="Section1">
+        <div class="DivBar">
+            Contact
+        </div>
+    </section>
+
+</main>
+
+<script>
+
+    function showContent(event, targetPanelId) {
+        const allPanels = document.querySelectorAll('.DivContent');
+        allPanels.forEach(panel => {
+            panel.classList.remove('active');
+        });
+
+        const allButtons = document.querySelectorAll('.ButtonTab');
+        allButtons.forEach(button => {
+            button.classList.remove('active');
+        });
+
+        document.getElementById(targetPanelId).classList.add('active');
+        event.currentTarget.classList.add('active');
+    }
+
+    function toggle(clickedElement) {
+        const isAlreadyExpanded = clickedElement.classList.contains('is-expanded');
+
+        const allHeaders = document.querySelectorAll('.DivBar2');
+        const allContents = document.querySelectorAll('.DivExpand');
+
+        allHeaders.forEach(header => {
+            header.classList.remove('is-expanded');
+        });
+
+        allContents.forEach(content => {
+            content.classList.remove('show');
+        });
+
+        if (!isAlreadyExpanded) {
+            clickedElement.classList.add('is-expanded');
+
+            const expandDiv = clickedElement.nextElementSibling;
+            if (expandDiv && expandDiv.classList.contains('DivExpand')) {
+                expandDiv.classList.add('show');
+            }
+        }
+    }
+
+</script>
+</body>
+</html>
