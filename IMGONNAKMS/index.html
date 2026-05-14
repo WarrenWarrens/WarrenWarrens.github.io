@@ -12,6 +12,7 @@
             background-color: whitesmoke;
         }
 
+        /* --- FIX #3: Changed to Flexbox so children stretch to full height automatically --- */
         .SectionNav {
             position: sticky;
             top: 0;
@@ -19,27 +20,29 @@
             background-color: white;
             font-size: 20px;
             width: 100%;
-            overflow: auto;
-            padding: 10px 0;
+            display: flex;
+            justify-content: space-between; /* Pushes Title left and Icon right */
+            align-items: stretch; /* Forces the black background to stretch top-to-bottom */
         }
 
         .DivTitle {
-            width: 33%;
-            float: left;
-            padding-left: 10px;
+            display: flex;
+            align-items: center; /* Centers the text vertically */
+            padding: 10px 20px;
+            background-color: black;
+            color: white;
         }
 
         .DivIcon {
-            width: 33%;
-            float: right;
-            text-align: right;
-            padding-right: 10px;
+            display: flex;
+            align-items: center; /* Centers the icon vertically */
+            padding: 10px 20px;
         }
 
         .SectionIntroduction {
             width: 100%;
             background-color: black;
-            height: 300px;
+            height: 700px;
         }
 
         .Main {
@@ -64,23 +67,20 @@
             text-align: center;
         }
 
-        /* --- NEW FLEXBOX TAB CONTAINER --- */
         .TabContainer {
             display: flex;
             width: 100%;
-            /*margin-bottom: 15px;*/
         }
 
-        /* --- TAB STYLES --- */
         .ButtonTab {
-            width: 50%; /* Forces each button to take up exactly half the flex container */
+            width: 50%;
             padding: 10px 20px;
             cursor: pointer;
             font-size: 16px;
             border: 2px solid black;
             background-color: white;
             font-weight: bold;
-            box-sizing: border-box; /* Ensures the 2px border doesn't break the 50% split */
+            box-sizing: border-box;
         }
 
         .ButtonTab.active {
@@ -90,7 +90,6 @@
 
         .DivContent {
             display: none;
-            /*padding: 20px;*/
             text-align: left;
         }
 
@@ -121,8 +120,7 @@
             width: 50%;
         }
 
-        .PText
-        {
+        .PText {
             text-align: center;
             font-size: 16px;
         }
@@ -157,8 +155,7 @@
             min-height: 80px;
         }
 
-        .DivViewExpanded:hover
-        {
+        .DivViewExpanded:hover {
             background-color:red;
         }
 
@@ -175,28 +172,23 @@
             display: flex;
         }
 
-        .DivProjectContent
-        {
+        .DivProjectContent {
             display: block;
             width: 100%;
             margin: 0 auto;
             padding: 20px 30px;
             background-color: yellow;
-
             box-sizing: border-box;
-
             align-content:center;
             align-items:center;
         }
 
-        .DivProjectContent2
-        {
+        .DivProjectContent2 {
             background-color:pink;
             height:auto;
             width:100%;
         }
 
-        /* --- EXPERIENCE HEADER STYLES --- */
         .ExperienceHeader {
             display: flex;
             align-items: center;
@@ -251,7 +243,6 @@
             padding: 20px 0;
         }
 
-        /* Moved this ABOVE the media query */
         .DivTitle2 {
             width: 50%;
             background-color: #007bff;
@@ -261,22 +252,23 @@
             box-sizing: border-box;
         }
 
-        .PText2
-        {
+        .PText2 {
             text-align: left;
         }
 
-        .DivSkill
-        {
+        /* --- FIX #1: Strips the default browser top-margin off the lists so they sit flush with the header --- */
+        .Ul1 {
+            margin-top: 0;
+        }
+
+        .DivSkill {
             width: 100%;
             margin-bottom: 10px;
             display: none;
             background-color:lightgreen;
         }
 
-
-        .DivGrid
-        {
+        .DivGrid {
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
@@ -284,13 +276,19 @@
             padding: 10px;
         }
 
+        .DivGrid2 {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+            padding: 10px;
+        }
 
-        .DivItem
-        {
+        .DivItem2 {
             flex: 0 1 120px;
-            height: 50px;
+            height: auto;
+            width:auto;
             background: whitesmoke;
-
             color: black;
             border: 10px black;
             border-radius: 8px;
@@ -299,14 +297,34 @@
             justify-content: center;
             user-select: none;
             transition: transform 150ms ease;
-
-            font-size: 16px;;
-
+            font-size: 16px;
         }
 
-        .DivItem.hover
-        {
+        /* --- FIX #2: Changed .hover to :hover --- */
+        .DivItem2:hover {
             color: purple;
+            cursor: pointer;
+        }
+
+        .DivItem {
+            flex: 0 1 120px;
+            height: 50px;
+            background: whitesmoke;
+            color: black;
+            border: 10px black;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            user-select: none;
+            transition: transform 150ms ease;
+            font-size: 16px;
+        }
+
+        /* --- FIX #2: Changed .hover to :hover --- */
+        .DivItem:hover {
+            color: purple;
+            cursor: pointer;
         }
 
         @media (max-width: 1000px) {
@@ -327,7 +345,10 @@
 </head>
 <body>
 <section class="SectionNav">
-    <div class="DivTitle">Ryan Warrener</div>
+    <div class="DivTitle">
+        Ryan Warrener
+    </div>
+
     <div class="DivIcon">
         <button>Icon</button>
     </div>
@@ -349,7 +370,23 @@
                 <div class="ViewDefault">
                     <div class="DivFloat TextColumn">
                         <p class="PTitle">Vingt-Un</p>
-                        <p class="PText">Fictional language learning mobile app, powered by Flutter & Dart.</p>
+                        <p class="PText">Rougelike deck building card game with blackjack rules and a score ceiling that creeps lower and lower</p>
+                        <div class="DivGrid2 sortable-grid" id="ProjectGridFour">
+                            <div class="DivItem2">
+                                <a>Godot4</a>
+                            </div>
+                            <div class="DivItem2">
+                                <a>G#</a>
+                            </div>
+                        </div>
+                        <div class="DivGrid sortable-grid" id="ProjectGrid7">
+                            <div class="DivItem">
+                                <a href="https://github.com/WarrenWarrens/VingtUn" target="_blank">GitHub</a>
+                            </div>
+                            <div class="DivItem">
+                                <a href="NEWTEST/newtest.html">Link</a>
+                            </div>
+                        </div>
                     </div>
                     <div class="DivFloat ImageColumn">
                         <div class="DivProjectContentImage"></div>
@@ -357,7 +394,7 @@
                 </div>
 
                 <div class="DivViewExpanded">
-                    <div class="ExpandedTitle">Lingua Lore</div>
+                    <div class="ExpandedTitle">Vingt-Un</div>
                 </div>
             </div>
 
@@ -365,29 +402,52 @@
                 <div class="DivProjectContent">
                     <div class="DivProjectContentImage"></div>
                     <div class="DivProjectContent2">
-                        <p class="PText2">Info</p>
+                        <p class="PText2">Vingt-Un is a simple rougelike deckbuilder video game, ran using the Godot 4 engine.</p>
                     </div>
                     <div class="DivProjectContent2">
                         <p class="PText2">Key Features</p>
-                        <ul class="PText2">
+                        <ul class="PText2 Ul1">
                             <li>
-                                One
+                                Score ceiling that increments downwards
                             </li>
                             <li>
-                                Two
+                                Card animations
                             </li>
                             <li>
-                                Three
+                                Economy that rewards scoring at or just under the ceiling.
+                            </li>
+                            <li>
+                                In game store to purchase cards
                             </li>
                         </ul>
                     </div>
                     <div class="DivProjectContent2">
                         <p class="PText2">Links</p>
-                        <p class="PText2">1,2</p>
+                        <div class="DivGrid sortable-grid" id="ProjectGridFive" style="justify-content:left">
+                            <div class="DivItem">
+                                <a href="https://github.com/WarrenWarrens/VingtUn" target="_blank">GitHub</a>
+                            </div>
+                            <div class="DivItem">
+                                <a href="NEWTEST/newtest.html">Link</a>
+                            </div>
+                            <div class="DivItem">
+                                <a href="https://github.com/WarrenWarrens/VingtUn" target="_blank">GitHub</a>
+                            </div>
+                        </div>
                     </div>
                     <div class="DivProjectContent2">
                         <p class="PText2">Techs</p>
-                        <p class="PText2">Python, SQL</p>
+                        <div class="DivGrid sortable-grid" id="ProjectGridSix" style="justify-content:left">
+                            <div class="DivItem">
+                                <a href="https://github.com/WarrenWarrens/VingtUn" target="_blank">GitHub</a>
+                            </div>
+                            <div class="DivItem">
+                                <a href="NEWTEST/newtest.html">Link</a>
+                            </div>
+                            <div class="DivItem">
+                                <a href="https://github.com/WarrenWarrens/VingtUn" target="_blank">GitHub</a>
+                            </div>
+                        </div>
                     </div>
 
                 </div>
@@ -432,40 +492,76 @@
             </div>
 
             <div class="DivContent active" id="DivEducation">
-                <div class="DivBar2">
-                    <div class="ExperienceHeader">
-                        <div class="ExpIcon">🏢</div>
+                <div class="DivBar">
+                    <div class="DivBar2" onclick="toggle(this)">
+                        <div class="ExperienceHeader">
+                            <div class="ExpIcon">🏢</div>
 
-                        <div class="ExpDetails">
-                            <p class="ExpTitle">RONA</p>
-                            <p class="ExpRole">Forklift Operator & General Yard Labourer</p>
-                        </div>
+                            <div class="ExpDetails">
+                                <p class="ExpTitle">RONA</p>
+                                <p class="ExpRole">Forklift Operator & General Yard Labourer</p>
+                            </div>
 
-                        <div class="ExpRightText">
-                            06/2022 - 09/2023
+                            <div class="ExpRightText">
+                                06/2022 - 09/2023
+                            </div>
                         </div>
                     </div>
-                </div>
 
+                    <div class="DivExpand">
+                        <ul class="Ul1" style="text-align: left;">
+                            <li>Assist customers in loading lumber and other building materials (often up to 40kg) into their vehicles.</li>
+                            <li>Operate sitdown counterbalance forklift to clean yard, unload deliveries or assemble large orders.</li>
+                            <li>Complete regular safety checks and maintenance to forklift to ensure its safe use.</li>
+                            <li>Safely use the panel & table saw to cut customers materials to sizes they request.</li>
+                            <li>Opening and closing the yard, sometimes alone.</li>
+                        </ul>
+                    </div>
+                </div>
             </div>
 
             <div class="DivContent" id="DivCertifications">
-                <div class="DivBar2">
-                    <div class="ExperienceHeader">
-                        <div class="ExpIcon">🏢</div>
+                <div class="DivBar">
+                    <div class="DivBar2" onclick="toggle(this)">
+                        <div class="ExperienceHeader">
+                            <div class="ExpIcon">🏢</div>
 
-                        <div class="ExpDetails">
-                            <p class="ExpTitle">RONA</p>
-                            <p class="ExpRole">Forklift Operator & General Yard Labourer</p>
+                            <div class="ExpDetails">
+                                <p class="ExpTitle">RONA</p>
+                                <p class="ExpRole">Forklift Operator & General Yard Labourer</p>
+                            </div>
+
+                            <div class="ExpRightText">
+                                06/2022 - 09/2023
+                            </div>
                         </div>
+                    </div>
 
-                        <div class="ExpRightText">
-                            06/2022 - 09/2023
+                    <div class="DivExpand">
+                        <ul class="Ul1" style="text-align: left;">
+                            <li>Assist customers in loading lumber and other building materials (often up to 40kg) into their vehicles.</li>
+                            <li>Operate sitdown counterbalance forklift to clean yard, unload deliveries or assemble large orders.</li>
+                            <li>Complete regular safety checks and maintenance to forklift to ensure its safe use.</li>
+                            <li>Safely use the panel & table saw to cut customers materials to sizes they request.</li>
+                            <li>Opening and closing the yard, sometimes alone.</li>
+                        </ul>
+                        <div class="DivProjectContent2">
+                            <p class="PText2">Techs</p>
+                            <div class="DivGrid sortable-grid" style="justify-content:left">
+                                <div class="DivItem">
+                                    <a href="https://github.com/WarrenWarrens/VingtUn" target="_blank">GitHub</a>
+                                </div>
+                                <div class="DivItem">
+                                    <a href="NEWTEST/newtest.html">Link</a>
+                                </div>
+                                <div class="DivItem">
+                                    <a href="https://github.com/WarrenWarrens/VingtUn" target="_blank">GitHub</a>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-
         </div>
     </section>
 
