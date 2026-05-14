@@ -56,7 +56,8 @@
             padding: 15px 0;
         }
 
-        .DivBar {
+        .DivBar
+        {
             width: 100%;
             min-height: 50px;
             background-color: greenyellow;
@@ -67,7 +68,7 @@
         .TabContainer {
             display: flex;
             width: 100%;
-            margin-bottom: 15px;
+            /*margin-bottom: 15px;*/
         }
 
         /* --- TAB STYLES --- */
@@ -89,7 +90,7 @@
 
         .DivContent {
             display: none;
-            padding: 20px;
+            /*padding: 20px;*/
             text-align: left;
         }
 
@@ -120,7 +121,8 @@
             width: 50%;
         }
 
-        .PText {
+        .PText
+        {
             text-align: center;
             font-size: 16px;
         }
@@ -139,6 +141,7 @@
 
         .DivExpand {
             display: none;
+            background-color:lightblue;
         }
 
         .DivExpand.show {
@@ -154,6 +157,11 @@
             min-height: 80px;
         }
 
+        .DivViewExpanded:hover
+        {
+            background-color:red;
+        }
+
         .ExpandedTitle {
             font-size: 28px;
             color: black;
@@ -167,11 +175,25 @@
             display: flex;
         }
 
-        .DivProjectContent {
-            width: 90%;
+        .DivProjectContent
+        {
+            display: block;
+            width: 100%;
             margin: 0 auto;
-            text-align: left;
-            padding: 15px 0;
+            padding: 20px 30px;
+            background-color: yellow;
+
+            box-sizing: border-box;
+
+            align-content:center;
+            align-items:center;
+        }
+
+        .DivProjectContent2
+        {
+            background-color:pink;
+            height:auto;
+            width:100%;
         }
 
         /* --- EXPERIENCE HEADER STYLES --- */
@@ -239,7 +261,54 @@
             box-sizing: border-box;
         }
 
-        /* --- MEDIA QUERIES GO AT THE VERY BOTTOM --- */
+        .PText2
+        {
+            text-align: left;
+        }
+
+        .DivSkill
+        {
+            width: 100%;
+            margin-bottom: 10px;
+            display: none;
+            background-color:lightgreen;
+        }
+
+
+        .DivGrid
+        {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+            padding: 10px;
+        }
+
+
+        .DivItem
+        {
+            flex: 0 1 120px;
+            height: 50px;
+            background: whitesmoke;
+
+            color: black;
+            border: 10px black;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            user-select: none;
+            transition: transform 150ms ease;
+
+            font-size: 16px;;
+
+        }
+
+        .DivItem.hover
+        {
+            color: purple;
+        }
+
         @media (max-width: 1000px) {
             .ImageColumn {
                 display: none;
@@ -294,7 +363,33 @@
 
             <div class="DivExpand">
                 <div class="DivProjectContent">
-                    Detailed information about Project 1 goes here!
+                    <div class="DivProjectContentImage"></div>
+                    <div class="DivProjectContent2">
+                        <p class="PText2">Info</p>
+                    </div>
+                    <div class="DivProjectContent2">
+                        <p class="PText2">Key Features</p>
+                        <ul class="PText2">
+                            <li>
+                                One
+                            </li>
+                            <li>
+                                Two
+                            </li>
+                            <li>
+                                Three
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="DivProjectContent2">
+                        <p class="PText2">Links</p>
+                        <p class="PText2">1,2</p>
+                    </div>
+                    <div class="DivProjectContent2">
+                        <p class="PText2">Techs</p>
+                        <p class="PText2">Python, SQL</p>
+                    </div>
+
                 </div>
             </div>
         </div>
@@ -337,15 +432,38 @@
             </div>
 
             <div class="DivContent active" id="DivEducation">
-                <h3>My Education</h3>
-                <p>University of Technology - B.S. in Computer Science (2018 - 2022)</p>
-                <p>Relevant Coursework: Web Development, Data Structures, UI/UX Design.</p>
+                <div class="DivBar2">
+                    <div class="ExperienceHeader">
+                        <div class="ExpIcon">🏢</div>
+
+                        <div class="ExpDetails">
+                            <p class="ExpTitle">RONA</p>
+                            <p class="ExpRole">Forklift Operator & General Yard Labourer</p>
+                        </div>
+
+                        <div class="ExpRightText">
+                            06/2022 - 09/2023
+                        </div>
+                    </div>
+                </div>
+
             </div>
 
             <div class="DivContent" id="DivCertifications">
-                <h3>My Certifications</h3>
-                <p>✔️ AWS Certified Cloud Practitioner</p>
-                <p>✔️ FreeCodeCamp Responsive Web Design</p>
+                <div class="DivBar2">
+                    <div class="ExperienceHeader">
+                        <div class="ExpIcon">🏢</div>
+
+                        <div class="ExpDetails">
+                            <p class="ExpTitle">RONA</p>
+                            <p class="ExpRole">Forklift Operator & General Yard Labourer</p>
+                        </div>
+
+                        <div class="ExpRightText">
+                            06/2022 - 09/2023
+                        </div>
+                    </div>
+                </div>
             </div>
 
         </div>
@@ -353,9 +471,12 @@
 
     <!-- ///// EXPERIENCE SECTION ///// -->
     <section class="Section1">
-        <div class="DivBar">
-            Experience
+        <div class="DivBarTitle">
+            <div class="DivTitle2">
+                Experience
+            </div>
         </div>
+
 
         <div class="DivBar">
             <div class="DivBar2" onclick="toggle(this)">
@@ -374,7 +495,7 @@
             </div>
 
             <div class="DivExpand">
-                <ul class="Ul1" style="text-align: left; padding: 0 40px 20px 40px;">
+                <ul class="Ul1" style="text-align: left;">
                     <li>Assist customers in loading lumber and other building materials (often up to 40kg) into their vehicles.</li>
                     <li>Operate sitdown counterbalance forklift to clean yard, unload deliveries or assemble large orders.</li>
                     <li>Complete regular safety checks and maintenance to forklift to ensure its safe use.</li>
@@ -441,15 +562,90 @@
     </section>
 
     <section class="Section1">
-        <div class="DivBar">
-            Skills
+        <div class="DivBarTitle">
+            <div class="DivTitle2">
+                Skills
+            </div>
         </div>
+
+
+        <div class="DivBar">
+            <div class="DivGrid sortable-grid" id="SkillGridGuide">
+                <div class="DivItem" onclick="toggleSkill('1', this)">Languages</div>
+                <div class="DivItem" onclick="toggleSkill('2', this)">Software</div>
+                <div class="DivItem" onclick="toggleSkill('3', this)">Topics</div>
+            </div>
+        </div>
+
+
+        <div class="DivSkill" id="Skill1">
+            <div class="DivGrid sortable-grid" id="SkillGridOne">
+                <div class="DivItem">Python</div>
+                <div class="DivItem">Dart</div>
+                <div class="DivItem">HTML</div>
+                <div class="DivItem">CSS</div>
+                <div class="DivItem">JavaScript</div>
+                <div class="DivItem">C++</div>
+                <div class="DivItem">GDScript</div>
+            </div>
+        </div>
+
+        <div class="DivSkill" id="Skill2">
+            <div class="DivGrid sortable-grid" id="SkillGridTwo">
+                <div class="DivItem">PyCharm</div>
+                <div class="DivItem">IntelliJ IDEA</div>
+                <div class="DivItem">Android Studio</div>
+                <div class="DivItem">GitHub</div>
+                <div class="DivItem">MongoDB</div>
+                <div class="DivItem">GoDot</div>
+                <div class="DivItem">Slack</div>
+                <div class="DivItem">Figma</div>
+            </div>
+        </div>
+
+        <div class="DivSkill" id="Skill3">
+            <div class="DivGrid sortable-grid" id="SkillGridThree">
+                <div class="DivItem">Frontend Dev.</div>
+                <div class="DivItem">Mobile</div>
+                <div class="DivItem">Databases</div>
+                <div class="DivItem">Machine Learning</div>
+            </div>
+        </div>
+
     </section>
 
     <section class="Section1">
-        <div class="DivBar">
-            Contact
+        <div class="DivBarTitle">
+            <div class="DivTitle2">
+                Contact
+            </div>
         </div>
+
+        <div class="DivBar">
+            <div class="DivGrid sortable-grid" id="ContactGrid">
+                <div class="DivItem">
+                    <a href="mailto:warrener.ryan@gmail.com">Email</a>
+                </div>
+                <div class="DivItem">
+                    <a href="https://github.com/WarrenWarrens" target="_blank">GitHub</a>
+                </div>
+                <div class="DivItem">
+                    <a href="https://www.linkedin.com/in/ryan-warrener/" target="_blank">Linkedin</a>
+
+                </div>
+                <div class="DivItem">
+                    <a href="https://leetcode.com/u/WarrenWarren/" target="_blank">LeetCode</a>
+
+                </div>
+                <div class="DivItem">
+                    <a href="https://bsky.app/profile/warrenwarrens.bsky.social" target="_blank">BlueSky</a>
+                </div>
+                <div class="DivItem">
+                    <a href="https://x.com/WarrenWarrenCS" target="_blank">Twitter(X)</a>
+                </div>
+            </div>
+        </div>
+
     </section>
 
 </main>
@@ -492,6 +688,28 @@
             if (expandDiv && expandDiv.classList.contains('DivExpand')) {
                 expandDiv.classList.add('show');
             }
+        }
+    }
+
+    function toggleSkill(idSuffix, btnElement) {
+        var targetId = 'Skill' + idSuffix;
+        var targetDiv = document.getElementById(targetId);
+
+        var isCurrentlyVisible = targetDiv.style.display === 'block';
+
+        var allGuides = document.querySelectorAll('.DivSkill');
+        allGuides.forEach(function (div) {
+            div.style.display = 'none';
+        });
+
+        var allBtns = document.querySelectorAll('#SkillGridGuide .DivItem');
+        allBtns.forEach(function (btn) {
+            btn.classList.remove('active-btn');
+        });
+
+        if (!isCurrentlyVisible) {
+            targetDiv.style.display = 'block';
+            btnElement.classList.add('active-btn');
         }
     }
 
