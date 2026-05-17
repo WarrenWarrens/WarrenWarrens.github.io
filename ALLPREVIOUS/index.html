@@ -1,0 +1,911 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="Main.css">
+    <link href='https://fonts.googleapis.com/css?family=Oswald' rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
+    <title>Website</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body class="Body">
+    <main class="Main">
+        <section class="Section1" id="About">
+            <div class="DivBar">
+                <p class="PTitle">About</p>
+            </div>
+
+            <div class="DivBar">
+                <div class="DivGrid sortable-grid" id="AboutGrid">
+                    <div class="DivItem active-btn" onclick="toggleAbout('Professional', this)">Professional</div>
+                    <div class="DivItem" onclick="toggleAbout('Personal', this)">Personal</div>
+                </div>
+            </div>
+
+            <div class="DivSkill" id="AboutProfessional" style="display: block;">
+                <p class="PText">
+                    I'm currently in my fourth year at Ontario Tech University in Oshawa, Ontario, Canada.
+                    I'm earning my BSC. in Computer Science, along with a Specialization in Data Science, and
+                    a dual minor in Physics & Mathematics. Along side my education, i've been working retail, food service
+                    & warehouse jobs for over 7 years.
+                </p>
+            </div>
+
+            <div class="DivSkill" id="AboutPersonal">
+                <p class="PText">
+                    [Your personal content here]
+                </p>
+            </div>
+        </section>
+
+        <section class="Section1" id="Education">
+
+            <div class="DivBar">
+                <p class="PTitle">Education</p>
+            </div>
+
+            <div class="DivBar">
+                <div class="DivBar2" onclick="toggle(this)">
+                    <div style="padding-right: 15px">
+                        <div style="width: 50px; height: 50px; background: #333; border-radius: 50%;"></div>
+                    </div>
+
+                    <div class="DivFloat" style="width: 65%;">
+                        <p style="margin: 0; font-weight: bold;">Ontario Tech University</p>
+                        <p style="margin: 0;">Undergraduate BSC. Computer Science Student</p>
+                        <p style="margin: 0; color: #666; font-size: 0.9em;">2022-2026</p>
+                    </div>
+
+                    <div class="DivFloat Arrow" style="width: 15%;">
+                        V
+                    </div>
+                </div>
+
+                <div class="DivExpand">
+                    <ul class="Ul1">
+                        <li>Major: BSC. Computer Science</li>
+                        <li>Specialization: Data Science</li>
+                        <li>Dual Minor: Mathematics & Physics</li>
+                        <li>Honours Thesis: FLIC - "Feedback for Live Interactive Coding</li>
+                    </ul>
+                </div>
+            </div>
+
+        </section>
+
+        <section class="Section1" id="Experience">
+
+            <div class="DivBar">
+                <p class="PTitle">Experience</p>
+            </div>
+
+            <div class="DivBar">
+                <div class="DivBar2" onclick="toggle(this)">
+                    <div style="padding-right: 15px">
+                        <div style="width: 50px; height: 50px; background: #333; border-radius: 50%;"></div>
+                    </div>
+
+                    <div class="DivFloat" style="width: 65%;">
+                        <p style="margin: 0; font-weight: bold;">Princess Auto</p>
+                        <p style="margin: 0;">Hydraulics, Forklift, Floor Sales & Cashier Team Member</p>
+                        <p style="margin: 0; color: #666; font-size: 0.9em;">08/2024 - Present</p>
+                    </div>
+
+                    <div class="DivFloat Arrow" style="width: 15%;">
+                        V
+                    </div>
+                </div>
+
+                <div class="DivExpand">
+                    <ul class="Ul1">
+                        <li>Assist customers with hydraulics questions regarding pumps, fittings, plugs and hose. Cut and crimp hose based on customer’s needs.
+                        </li>
+                        <li>Operate forklift to handle deliveries, warehouse organization or getting stock for customers.
+                        </li>
+                        <li>Pick and ship warehouse orders, both for in person pickups and shipping orders.</li>
+                        <li>Push stock to its designated location as well as creating or moving locations based on current season/sale.
+                        </li>
+                        <li>Talk with customers and help them find the location for items they are interested in.
+                            Opening and closing the store, sometimes alone or with the help of one leader
+                        </li>
+                        <li>Physically help customers load items into their vehicles, build displays and retrieve carts
+                        </li>
+                        <li>Operate tills, handle cash and checkout customers
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="DivBar">
+                <div class="DivBar2" onclick="toggle(this)">
+                    <div style="padding-right: 15px">
+                        <div style="width: 50px; height: 50px; background: #333; border-radius: 50%;"></div>
+                    </div>
+
+                    <div class="DivFloat" style="width: 65%;">
+                        <p style="margin: 0; font-weight: bold;">Afillia</p>
+                        <p style="margin: 0;">Founder & Back-End Engineer</p>
+                        <p style="margin: 0; color: #666; font-size: 0.9em;">05/2025 - 12/2025</p>
+                    </div>
+
+                    <div class="DivFloat Arrow" style="width: 15%;">
+                        V
+                    </div>
+                </div>
+
+                <div class="DivExpand">
+                    <ul class="Ul1">
+                        <li>Founding member involved in the core foundation of the company and product
+                        </li>
+                        <li>Designed and collaborated on figma designs, leading to the final appearance and list of features
+                        </li>
+                        <li>Built the framework for basic back end functionality including user login, account management and account connections to Google with OAuth2.0
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="DivBar">
+                <div class="DivBar2" onclick="toggle(this)">
+                    <div style="padding-right: 15px">
+                        <div style="width: 50px; height: 50px; background: #333; border-radius: 50%;"></div>
+                    </div>
+
+                    <div class="DivFloat" style="width: 65%;">
+                        <p style="margin: 0; font-weight: bold;">RONA</p>
+                        <p style="margin: 0;">Forklift Operator & General Yard Labourer </p>
+                        <p style="margin: 0; color: #666; font-size: 0.9em;">06/2022 - 09/2023</p>
+                    </div>
+
+                    <div class="DivFloat Arrow" style="width: 15%;">
+                        V
+                    </div>
+                </div>
+
+                <div class="DivExpand">
+                    <ul class="Ul1">
+                        <li>Assist customers in loading lumber and other building materials (often up to 40kg) into their vehicles.</li>
+                        <li>Operate sitdown counterbalance forklift to clean yard, unload deliveries or assemble large orders.</li>
+                        <li>Complete regular safety checks and maintenance to forklift to ensure its safe use.
+                        </li>
+                        <li>Safely use the panel & table saw to cut customers materials to sizes they request.
+                        </li>
+                        <li>Opening and closing the yard, sometimes alone.
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="DivBar">
+                <div class="DivBar2" onclick="toggle(this)">
+                    <div style="padding-right: 15px">
+                        <div style="width: 50px; height: 50px; background: #333; border-radius: 50%;"></div>
+                    </div>
+
+                    <div class="DivFloat" style="width: 65%;">
+                        <p style="margin: 0; font-weight: bold;">McDonald's</p>
+                        <p style="margin: 0;">Drive Thru, Cashier & Kitchen Staff</p>
+                        <p style="margin: 0; color: #666; font-size: 0.9em;">06/2019 - 02/2022</p>
+                    </div>
+
+                    <div class="DivFloat Arrow" style="width: 15%;">
+                        V
+                    </div>
+                </div>
+
+                <div class="DivExpand">
+                    <ul class="Ul1">
+                        <li>Efficiently run drive thru in both the “1st window”, in charge of cashing handling/order taking, and “2nd window” with order preparation/delivery/drink creation
+                        </li>
+                        <li>Assemble and create food on every step, including cooking/frying, packaging and toppings
+                        </li>
+                        <li>Close the store and switch to overnight menu </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section class="Section1">
+            <div class="DivBar">
+                <p class="PTitle">
+                    Projects
+                </p>
+            </div>
+
+            <div class="DivBar">
+                <div class="DivBar2" onclick="toggle(this)">
+                    <div class="DivFloat TextColumn">
+                        <p class="PTitle">FLIC</p>
+                        <p class="PText">Fictional language learning mobile app, powered by Flutter & Dart.</p>
+
+                        <div class="DivGrid sortable-grid" id="ProjectGridFive">
+                            <div class="DivItem">
+                                <a href="https://github.com/WarrenWarrens/HonoursThesis" target="_blank">GitHub</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="DivFloat ImageColumn">
+                        <div class="DivProjectContentImage"></div>
+                    </div>
+                </div>
+
+
+                <div class="Big">
+                    <div class="DivProject2">
+                        <div class="DivProjectTop">
+                            <div class="DivProjectLeft" style="max-height: 50px;">
+                                <p class="PTitle">
+                                    FLIC
+                                </p>
+                            </div>
+
+                            <div class="DivProjectRight" style ="width: 50px;height: 50px;text-align: center" onclick="hideParent(this)">
+                                <p>X</p>
+                            </div>
+                        </div>
+
+                        <div class="DivProject">
+                            <div class="DivProjectContent">
+                                <div class="DivProjectContentImage"></div>
+                                <p class="PText2">
+                                    Metal Yokel serves as my public art portfolio, containing
+                                    everything that i create on my own time that might not be suitable
+                                    for a resume or this portfolio website.
+                                </p>
+
+                                <p class="PText3">Key Features:</p>
+                                <ul class="Ul1">
+                                    <li>hi</li>
+                                    <li>hi</li>
+                                    <li>hi</li>
+                                    <li>hi</li>
+                                    <li>hi</li>
+                                    <li>hi</li>
+                                </ul>
+
+                                <p class="PText3">Topics:</p>
+                                <div class="DivGrid sortable-grid" id="TopicGridFive" style="justify-content: left;">
+                                    <div class="DivItem">Java Script</div>
+                                    <div class="DivItem">HTML</div>
+                                    <div class="DivItem">CSS</div>
+                                    <div class="DivItem">WebRTC</div>
+                                    <div class="DivItem">ICE</div>
+                                </div>
+
+                                <p class="PText3">Links:</p>
+                                <div class="DivGrid sortable-grid" id="LinkGridFive" style="justify-content: left; padding-bottom: 40px">
+                                    <div class="DivItem">
+                                        <a href="https://github.com/WarrenWarrens/HonoursThesis" target="_blank">GitHub</a>
+                                    </div>
+                                    <div class="DivItem">
+                                        <a href="https://github.com/WarrenWarrens/HonoursThesis" target="_blank">Thesis Paper</a>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="DivBar">
+                <div class="DivBar2" onclick="toggle(this)">
+                    <div class="DivFloat TextColumn">
+                        <p class="PTitle">Lingua Lore</p>
+                        <p class="PText">Fictional language learning mobile app, powered by Flutter & Dart.</p>
+
+                        <div class="DivGrid sortable-grid" id="ProjectGridTwo">
+                            <div class="DivItem">
+                                <a href="https://github.com/WarrenWarrens/LinguaLore" target="_blank">GitHub</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="DivFloat ImageColumn">
+                        <div class="DivProjectContentImage"></div>
+                    </div>
+                </div>
+
+
+                <div class="Big">
+                    <div class="DivProject2">
+                        <div class="DivProjectTop">
+                            <div class="DivProjectLeft" style="max-height: 50px;">
+                                <p class="PTitle">
+                                    Lingua Lore
+                                </p>
+                            </div>
+
+                            <div class="DivProjectRight" style ="width: 50px;height: 50px;text-align: center" onclick="hideParent(this)">
+                                <p>X</p>
+                            </div>
+                        </div>
+
+                        <div class="DivProject">
+                            <div class="DivProjectContent">
+                                <div class="DivProjectContentImage"></div>
+                                <p class="PText2">
+                                    Metal Yokel serves as my public art portfolio, containing
+                                    everything that i create on my own time that might not be suitable
+                                    for a resume or this portfolio website.
+                                </p>
+
+                                <p class="PText3">Key Features:</p>
+                                <ul class="Ul1">
+                                    <li>hi</li>
+                                    <li>hi</li>
+                                    <li>hi</li>
+                                    <li>hi</li>
+                                    <li>hi</li>
+                                    <li>hi</li>
+                                </ul>
+
+                                <p class="PText3">Topics:</p>
+                                <div class="DivGrid sortable-grid" id="TopicGridTwo" style="justify-content: left;">
+                                    <div class="DivItem">Flutter</div>
+                                    <div class="DivItem">Dart</div>
+                                    <div class="DivItem">AI</div>
+
+                                </div>
+
+                                <p class="PText3">Links:</p>
+                                <div class="DivGrid sortable-grid" id="LinkGridTwo" style="justify-content: left; padding-bottom: 40px">
+                                    <div class="DivItem">
+                                        <a href="https://github.com/WarrenWarrens/LinguaLore" target="_blank">GitHub</a>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="DivBar">
+                <div class="DivBar2" onclick="toggle(this)">
+                    <div class="DivFloat TextColumn">
+                        <p class="PTitle">Local Link</p>
+                        <p class="PText">Fictional language learning mobile app, powered by Flutter & Dart.</p>
+
+                        <div class="DivGrid sortable-grid" id="ProjectGridThree">
+                            <div class="DivItem">
+                                <a href="https://github.com/Konner-Yi/Adv-Mobile-Final-Project" target="_blank">GitHub</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="DivFloat ImageColumn">
+                        <div class="DivProjectContentImage"></div>
+                    </div>
+                </div>
+
+
+                <div class="Big">
+                    <div class="DivProject2">
+                        <div class="DivProjectTop">
+                            <div class="DivProjectLeft" style="max-height: 50px;">
+                                <p class="PTitle">
+                                    Lingua Lore
+                                </p>
+                            </div>
+
+                            <div class="DivProjectRight" style ="width: 50px;height: 50px;text-align: center" onclick="hideParent(this)">
+                                <p>X</p>
+                            </div>
+                        </div>
+
+                        <div class="DivProject">
+                            <div class="DivProjectContent">
+                                <div class="DivProjectContentImage"></div>
+                                <p class="PText2">
+                                    Metal Yokel serves as my public art portfolio, containing
+                                    everything that i create on my own time that might not be suitable
+                                    for a resume or this portfolio website.
+                                </p>
+
+                                <p class="PText3">Key Features:</p>
+                                <ul class="Ul1">
+                                    <li>hi</li>
+                                    <li>hi</li>
+                                    <li>hi</li>
+                                    <li>hi</li>
+                                    <li>hi</li>
+                                    <li>hi</li>
+                                </ul>
+
+                                <p class="PText3">Topics:</p>
+                                <div class="DivGrid sortable-grid" id="TopicGridThree" style="justify-content: left;">
+                                    <div class="DivItem">Flutter</div>
+                                    <div class="DivItem">Dart</div>
+                                    <div class="DivItem">AI</div>
+
+                                </div>
+
+                                <p class="PText3">Links:</p>
+                                <div class="DivGrid sortable-grid" id="LinkGridThree" style="justify-content: left; padding-bottom: 40px">
+                                    <div class="DivItem">
+                                        <a href="https://github.com/Konner-Yi/Adv-Mobile-Final-Project" target="_blank">GitHub</a>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="DivBar">
+                <div class="DivBar2" onclick="toggle(this)">
+                    <div class="DivFloat TextColumn">
+                        <p class="PTitle">Vingt-Un</p>
+                        <p class="PText">Fictional language learning mobile app, powered by Flutter & Dart.</p>
+
+                        <div class="DivGrid sortable-grid" id="ProjectGridFour">
+                            <div class="DivItem">
+                                <a href="https://github.com/WarrenWarrens/VingtUn" target="_blank">GitHub</a>
+                            </div>
+                            <div class="DivItem">
+                                <a href="NEWTEST/newtest.html">Link</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="DivFloat ImageColumn">
+                        <div class="DivProjectContentImage"></div>
+                    </div>
+                </div>
+
+
+                <div class="Big">
+                    <div class="DivProject2">
+                        <div class="DivProjectTop">
+                            <div class="DivProjectLeft" style="max-height: 50px;">
+                                <p class="PTitle">
+                                    Lingua Lore
+                                </p>
+                            </div>
+
+                            <div class="DivProjectRight" style ="width: 50px;height: 50px;text-align: center" onclick="hideParent(this)">
+                                <p>X</p>
+                            </div>
+                        </div>
+
+                        <div class="DivProject">
+                            <div class="DivProjectContent">
+                                <div class="DivProjectContentImage"></div>
+                                <p class="PText2">
+                                    Metal Yokel serves as my public art portfolio, containing
+                                    everything that i create on my own time that might not be suitable
+                                    for a resume or this portfolio website.
+                                </p>
+
+                                <p class="PText3">Key Features:</p>
+                                <ul class="Ul1">
+                                    <li>hi</li>
+                                    <li>hi</li>
+                                    <li>hi</li>
+                                    <li>hi</li>
+                                    <li>hi</li>
+                                    <li>hi</li>
+                                </ul>
+
+                                <p class="PText3">Topics:</p>
+                                <div class="DivGrid sortable-grid" id="TopicGridFour" style="justify-content: left;">
+                                    <div class="DivItem">Flutter</div>
+                                    <div class="DivItem">Dart</div>
+                                    <div class="DivItem">AI</div>
+
+                                </div>
+
+                                <p class="PText3">Links:</p>
+                                <div class="DivGrid sortable-grid" id="LinkGridFour" style="justify-content: left; padding-bottom: 40px">
+                                    <div class="DivItem">
+                                        <a href="https://github.com/WarrenWarrens/VingtUn" target="_blank">GitHub</a>
+                                    </div>
+                                    <div class="DivItem">
+                                        <a href="NEWTEST/newtest.html">Link</a>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="DivBar">
+                <div class="DivBar2" onclick="toggle(this)">
+                    <div class="DivFloat TextColumn">
+                        <p class="PTitle">Metal Yokel</p>
+                        <p class="PText">My own personal website/art portfolio.
+                        containing art, code, games or anything else i create on my
+                        own spare time.</p>
+
+                        <div class="DivGrid sortable-grid" id="ProjectGridOne">
+                            <div class="DivItem">
+                                <a href="https://github.com/WarrenWarrens/WarrenWarrens.github.io" target="_blank">GitHub</a>
+                            </div>
+                            <div class="DivItem">
+                                <a href="../Yokel/Yokel.html">Link</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="DivFloat ImageColumn">
+                        <div class="DivProjectContentImage"></div>
+                    </div>
+                </div>
+
+
+                <div class="Big">
+                    <div class="DivProject2">
+                        <div class="DivProjectTop">
+                            <div class="DivProjectLeft" style="max-height: 50px;">
+                                <p class="PTitle">
+                                    Metal Yokel
+                                </p>
+                            </div>
+
+                            <div class="DivProjectRight" style ="width: 50px;height: 50px;text-align: center" onclick="hideParent(this)">
+                                <p>X</p>
+                            </div>
+                        </div>
+
+                        <div class="DivProject">
+                            <div class="DivProjectContent">
+                                <div class="DivProjectContentImage"></div>
+                                <p class="PText2">
+                                    Metal Yokel serves as my public art portfolio, containing
+                                    everything that i create on my own time that might not be suitable
+                                    for a resume or this portfolio website.
+                                    </p>
+
+                                <p class="PText3">Key Features:</p>
+                                <ul class="Ul1">
+                                    <li>hi</li>
+                                    <li>hi</li>
+                                    <li>hi</li>
+                                    <li>hi</li>
+                                    <li>hi</li>
+                                    <li>hi</li>
+                                </ul>
+
+                                <p class="PText3">Topics:</p>
+                                <div class="DivGrid sortable-grid" id="TopicGridOne" style="justify-content: left;">
+                                    <div class="DivItem">HTML</div>
+                                    <div class="DivItem">CSS</div>
+                                    <div class="DivItem">JS</div>
+
+                                </div>
+
+                                <p class="PText3">Links:</p>
+                                <div class="DivGrid sortable-grid" id="LinkGridOne" style="justify-content: left; padding-bottom: 40px">
+                                    <div class="DivItem">
+                                        <a href="https://github.com/WarrenWarrens/WarrenWarrens.github.io" target="_blank">GitHub</a>
+                                    </div>
+                                    <div class="DivItem">
+                                        <a href="../Yokel/Yokel.html">Link</a>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+
+            </div>
+
+
+
+
+        </section>
+
+        <section class="Section1">
+            <div class="DivBar">
+                <p class="PTitle">Skills</p>
+            </div>
+
+            <div class="DivBar">
+                <div class="DivGrid sortable-grid" id="SkillGridGuide">
+                    <div class="DivItem" onclick="toggleSkill('1', this)">Languages</div>
+                    <div class="DivItem" onclick="toggleSkill('2', this)">Software</div>
+                    <div class="DivItem" onclick="toggleSkill('3', this)">Topics</div>
+                </div>
+            </div>
+
+
+            <div class="DivSkill" id="Skill1">
+                <div class="DivGrid sortable-grid" id="SkillGridOne">
+                    <div class="DivItem">Python</div>
+                    <div class="DivItem">Dart</div>
+                    <div class="DivItem">HTML</div>
+                    <div class="DivItem">CSS</div>
+                    <div class="DivItem">JavaScript</div>
+                    <div class="DivItem">C++</div>
+                    <div class="DivItem">GDScript</div>
+                </div>
+            </div>
+
+            <div class="DivSkill" id="Skill2">
+                <div class="DivGrid sortable-grid" id="SkillGridTwo">
+                    <div class="DivItem">PyCharm</div>
+                    <div class="DivItem">IntelliJ IDEA</div>
+                    <div class="DivItem">Android Studio</div>
+                    <div class="DivItem">GitHub</div>
+                    <div class="DivItem">MongoDB</div>
+                    <div class="DivItem">GoDot</div>
+                    <div class="DivItem">Slack</div>
+                    <div class="DivItem">Figma</div>
+                </div>
+            </div>
+
+            <div class="DivSkill" id="Skill3">
+                <div class="DivGrid sortable-grid" id="SkillGridThree">
+                    <div class="DivItem">Frontend Dev.</div>
+                    <div class="DivItem">Mobile</div>
+                    <div class="DivItem">Databases</div>
+                    <div class="DivItem">Machine Learning</div>
+                </div>
+            </div>
+
+        </section>
+
+        <section class="Section1" id="Certifications/Licences">
+
+            <div class="DivBar">
+                <p class="PTitle">Certifications/Licences</p>
+            </div>
+
+            <div class="DivBar">
+                <div class="DivBar2" onclick="toggle(this)">
+                    <div style="padding-right: 15px">
+                        <div style="width: 50px; height: 50px; background: #333; border-radius: 50%;"></div>
+                    </div>
+
+                    <div class="DivFloat" style="width: 65%;">
+                        <p style="margin: 0; font-weight: bold;">Ontario Tech University</p>
+                        <p style="margin: 0;">Undergraduate BSC. Computer Science Student</p>
+                        <p style="margin: 0; color: #666; font-size: 0.9em;">2022-2026</p>
+                    </div>
+
+                    <div class="DivFloat Arrow" style="width: 15%;">
+                        V
+                    </div>
+                </div>
+
+                <div class="DivExpand">
+                    <ul class="Ul1">
+                        <li>Major: BSC. Computer Science</li>
+                        <li>Specialization: Data Science</li>
+                        <li>Dual Minor: Mathematics & Physics</li>
+                        <li>Honours Thesis: FLIC - "Feedback for Live Interactive Coding</li>
+                    </ul>
+                </div>
+            </div>
+
+        </section>
+
+
+        <section class="Section1">
+            <div class="DivBar">
+                <p class="PTitle">Contact/Links</p>
+            </div>
+
+            <div class="DivBar">
+                <div class="DivGrid sortable-grid" id="ContactGrid">
+                    <div class="DivItem">
+                        <a href="mailto:warrener.ryan@gmail.com">Email</a>
+                    </div>
+                    <div class="DivItem">
+                        <a href="https://github.com/WarrenWarrens" target="_blank">GitHub</a>
+                    </div>
+                    <div class="DivItem">
+                        <a href="https://www.linkedin.com/in/ryan-warrener/" target="_blank">Linkedin</a>
+
+                    </div>
+                    <div class="DivItem">
+                        <a href="https://leetcode.com/u/WarrenWarren/" target="_blank">LeetCode</a>
+
+                    </div>
+                    <div class="DivItem">
+                        <a href="https://bsky.app/profile/warrenwarrens.bsky.social" target="_blank">BlueSky</a>
+                    </div>
+                    <div class="DivItem">
+                        <a href="https://x.com/WarrenWarrenCS" target="_blank">Twitter(X)</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/sortablejs@1.15.2/Sortable.min.js"></script>
+
+    <script>
+        const allSortableGrids = document.querySelectorAll('.sortable-grid');
+
+        function toggle(element) {
+            var content = element.nextElementSibling;
+            content.classList.toggle("show");
+        }
+
+        allSortableGrids.forEach((gridElement) => {
+            Sortable.create(gridElement, {
+                animation: 150,
+                swapThreshold: 0.65,
+                chosenClass: "SortChosen",
+                ghostClass: "SortGhost",
+            });
+        });
+
+        function toggleSkill(idSuffix, btnElement) {
+            var targetId = 'Skill' + idSuffix;
+            var targetDiv = document.getElementById(targetId);
+
+            var isCurrentlyVisible = targetDiv.style.display === 'block';
+
+            var allGuides = document.querySelectorAll('.DivSkill');
+            allGuides.forEach(function (div) {
+                div.style.display = 'none';
+            });
+
+            var allBtns = document.querySelectorAll('#SkillGridGuide .DivItem');
+            allBtns.forEach(function (btn) {
+                btn.classList.remove('active-btn');
+            });
+
+            if (!isCurrentlyVisible) {
+                targetDiv.style.display = 'block';
+                btnElement.classList.add('active-btn');
+            }
+        }
+
+        function hideParent(button)
+        {
+            let el = button;
+            while (el && !el.classList.contains("Big")) {
+                el = el.parentNode;
+            }
+            button.parentNode.parentNode.classList.toggle("show");
+            if (el) el.classList.toggle("show");
+
+        }
+
+        function resizeText() {
+            const redBox = document.querySelector('.DivIntroLeft');
+            const textElement = document.querySelector('.DivDynamicText');
+
+            // Set our search range for font sizes
+            let minSize = 10;
+            let maxSize = 150; // The maximum height of the red box
+            let optimalSize = minSize;
+
+            // Use a binary search to find the perfect font size instantly
+            while (minSize <= maxSize) {
+                let midSize = Math.floor((minSize + maxSize) / 2);
+                textElement.style.fontSize = midSize + 'px';
+
+                // Check if the text fits within the padding (10px on each side = 20px total)
+                let isOverflowing =
+                    textElement.scrollHeight > (redBox.clientHeight - 20) ||
+                    textElement.scrollWidth > (redBox.clientWidth - 20);
+
+                if (!isOverflowing) {
+                    optimalSize = midSize; // This size fits, save it
+                    minSize = midSize + 1; // Try going larger
+                } else {
+                    maxSize = midSize - 1; // It overflowed, try going smaller
+                }
+            }
+
+            // Apply the largest size that fit successfully
+            textElement.style.fontSize = optimalSize + 'px';
+        }
+
+        // Run the function when the page loads
+        window.addEventListener('load', resizeText);
+
+        // Run the function every time the user resizes the browser window
+        window.addEventListener('resize', resizeText);
+
+        const imageList = [
+            "Main/New/Media/Me1.png",
+            "Main/New/Media/Me2.jpg",
+            "Main/New/Media/Me3.jpg",
+        ]; // Replace these URLs with your actual image paths!
+
+        let currentImageIndex = 0;
+        const clickableImg = document.getElementById('ImageClick');
+
+        // 2. Add the click event listener
+        clickableImg.addEventListener('click', function() {
+            // Increase the index by 1 to move to the next image
+            currentImageIndex++;
+
+            // If we've reached the end of the list, loop back to the beginning (index 0)
+            if (currentImageIndex >= imageList.length) {
+                currentImageIndex = 0;
+            }
+
+            // Update the image source on the page
+            clickableImg.src = imageList[currentImageIndex];
+        });
+
+        function toggleAbout(id, btnElement) {
+            var allDivs = document.querySelectorAll('#About .DivSkill');
+            allDivs.forEach(function(div) { div.style.display = 'none'; });
+
+            var allBtns = document.querySelectorAll('#AboutGrid .DivItem');
+            allBtns.forEach(function(btn) { btn.classList.remove('active-btn'); });
+
+            document.getElementById('About' + id).style.display = 'block';
+            btnElement.classList.add('active-btn');
+        }
+
+        function toggleTheme() {
+            var btn = document.getElementById('ThemeBtn');
+            btn.classList.toggle('active');
+        }
+
+        // ── Codec image cycler ──
+        const codecImages = [
+            "Main/New/Media/Me1.png",
+            "Main/New/Media/Me2.jpg",
+            "Main/New/Media/Me3.jpg",
+            "Main/New/Media/Me4.jpg",   // add your 4th image path here
+        ];
+        let codecIndex = 0;
+
+        function updateCodec() {
+            document.getElementById('CodecImage').src = codecImages[codecIndex];
+            document.getElementById('CodecCounter').textContent = (codecIndex + 1) + '/' + codecImages.length;
+            document.getElementById('CodecPrev').disabled = codecIndex === 0;
+            document.getElementById('CodecNext').disabled = codecIndex === codecImages.length - 1;
+        }
+
+        function codecPrev() { if (codecIndex > 0) { codecIndex--; updateCodec(); } }
+        function codecNext() { if (codecIndex < codecImages.length - 1) { codecIndex++; updateCodec(); } }
+
+        updateCodec(); // set initial state
+
+        // ── Codec typewriter ──
+        const codecLines = [
+            "Fourth Year BSC Computer Science student at Ontario Tech.",
+            "I build mobile applications, games & Python scripts.",
+            "Focused on creativity and accessibility.",
+        ];
+        let lineIndex = 0;
+        let charIndex = 0;
+        let isDeleting = false;
+        const typeEl = document.getElementById('CodecTypewriter');
+        const typeSpeed = 45, deleteSpeed = 22, pauseAfterType = 2200, pauseAfterDelete = 400;
+
+        function codecType() {
+            const current = codecLines[lineIndex];
+            if (!isDeleting) {
+                typeEl.textContent = current.substring(0, charIndex + 1);
+                charIndex++;
+                if (charIndex === current.length) {
+                    isDeleting = true;
+                    setTimeout(codecType, pauseAfterType);
+                    return;
+                }
+            } else {
+                typeEl.textContent = current.substring(0, charIndex - 1);
+                charIndex--;
+                if (charIndex === 0) {
+                    isDeleting = false;
+                    lineIndex = (lineIndex + 1) % codecLines.length;
+                    setTimeout(codecType, pauseAfterDelete);
+                    return;
+                }
+            }
+            setTimeout(codecType, isDeleting ? deleteSpeed : typeSpeed);
+        }
+
+        codecType();
+    </script>
+
+</body>
+
+</html>
