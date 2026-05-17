@@ -9,10 +9,25 @@
             margin: 0;
             padding: 0;
             font-family: sans-serif;
-            background-color: whitesmoke;
+            background-color: darkgrey;
         }
 
-        /* --- FIX #3: Changed to Flexbox so children stretch to full height automatically --- */
+        /*::-webkit-scrollbar {*/
+        /*    width: 20px;*/
+        /*}*/
+
+        /*!* Track *!*/
+        /*::-webkit-scrollbar-track {*/
+        /*    box-shadow: inset 0 0 5px grey;*/
+        /*    border-radius: 10px;*/
+        /*}*/
+
+        /*!* Handle *!*/
+        /*::-webkit-scrollbar-thumb {*/
+        /*    background: red;*/
+        /*    border-radius: 10px;*/
+        /*}*/
+
         .SectionNav {
             position: sticky;
             top: 0;
@@ -21,13 +36,13 @@
             font-size: 20px;
             width: 100%;
             display: flex;
-            justify-content: space-between; /* Pushes Title left and Icon right */
-            align-items: stretch; /* Forces the black background to stretch top-to-bottom */
+            justify-content: space-between;
+            align-items: stretch;
         }
 
         .DivTitle {
             display: flex;
-            align-items: center; /* Centers the text vertically */
+            align-items: center;
             padding: 10px 20px;
             background-color: black;
             color: white;
@@ -35,8 +50,9 @@
 
         .DivIcon {
             display: flex;
-            align-items: center; /* Centers the icon vertically */
+            align-items: center;
             padding: 10px 20px;
+            gap: 15px; /* FIX 1: Added a gap to space out the nav buttons */
         }
 
         .SectionIntroduction {
@@ -59,11 +75,10 @@
             padding: 15px 0;
         }
 
-        .DivBar
-        {
+        .DivBar {
             width: 100%;
             min-height: 50px;
-            background-color: greenyellow;
+            background-color: whitesmoke;
             text-align: center;
         }
 
@@ -77,15 +92,15 @@
             padding: 10px 20px;
             cursor: pointer;
             font-size: 16px;
-            border: 2px solid black;
-            background-color: white;
+            color:white;
+            background-color: black;
             font-weight: bold;
             box-sizing: border-box;
         }
 
         .ButtonTab.active {
-            background-color: black;
-            color: white;
+            background-color: white;
+            color: black;
         }
 
         .DivContent {
@@ -107,8 +122,7 @@
         .ViewDefault, .DivViewExpanded {
             width: 100%;
             display: flex;
-            align-items: center;
-            padding: 10px;
+            padding: 20px;
             box-sizing: border-box;
         }
 
@@ -118,6 +132,28 @@
 
         .DivFloat {
             width: 50%;
+            padding: 0 15px;
+            box-sizing: border-box;
+        }
+
+        .TextColumn {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start;
+        }
+
+        .PTitle3 {
+            text-align: left;
+            font-size: 28px;
+            margin: 0 0 10px 0;
+            font-weight: bold;
+        }
+
+        .PText3 {
+            text-align: left;
+            font-size: 16px;
+            margin: 0 0 15px 0;
         }
 
         .PText {
@@ -139,10 +175,10 @@
 
         .DivExpand {
             display: none;
-            background-color:lightblue;
         }
 
         .DivExpand.show {
+            padding: 10px;
             display: block;
             animation: slideDown 0.3s ease;
         }
@@ -156,8 +192,10 @@
         }
 
         .DivViewExpanded:hover {
-            background-color:red;
+            background-color:darkgrey;
+            color:white;
         }
+
 
         .ExpandedTitle {
             font-size: 28px;
@@ -177,16 +215,15 @@
             width: 100%;
             margin: 0 auto;
             padding: 20px 30px;
-            background-color: yellow;
             box-sizing: border-box;
             align-content:center;
             align-items:center;
         }
 
         .DivProjectContent2 {
-            background-color:pink;
-            height:auto;
-            width:100%;
+            /* FIX 2: Removed padding-left: 20px; so it aligns with the image perfectly */
+            height: auto;
+            width: 100%;
         }
 
         .ExperienceHeader {
@@ -240,12 +277,11 @@
             align-items: center;
             width: 100%;
             background-color: #ddd;
-            padding: 20px 0;
         }
 
         .DivTitle2 {
             width: 50%;
-            background-color: #007bff;
+            background-color: black;
             color: white;
             padding: 20px;
             text-align: center;
@@ -256,16 +292,16 @@
             text-align: left;
         }
 
-        /* --- FIX #1: Strips the default browser top-margin off the lists so they sit flush with the header --- */
         .Ul1 {
             margin-top: 0;
+            margin-bottom: 0; /* FIX 3: Strips default bottom spacing off the lists */
         }
 
         .DivSkill {
             width: 100%;
             margin-bottom: 10px;
             display: none;
-            background-color:lightgreen;
+            background-color:whitesmoke;
         }
 
         .DivGrid {
@@ -279,17 +315,32 @@
         .DivGrid2 {
             display: flex;
             flex-wrap: wrap;
+            gap: 15px;
+            padding: 10px;
+        }
+
+        .DivGridProject {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: flex-start;
+            gap: 10px;
+            padding: 5px 0;
+            width: 100%;
+        }
+
+        .DivGrid3 {
+            display: flex;
+            flex-wrap: wrap;
             justify-content: center;
             gap: 15px;
             padding: 10px;
         }
 
-        .DivItem2 {
+        .DivItem3 {
             flex: 0 1 120px;
-            height: auto;
-            width:auto;
-            background: whitesmoke;
-            color: black;
+            height: 50px;
+            background: black;
+            color: white;
             border: 10px black;
             border-radius: 8px;
             display: flex;
@@ -300,17 +351,38 @@
             font-size: 16px;
         }
 
-        /* --- FIX #2: Changed .hover to :hover --- */
+        .DivItem3:hover {
+            background-color:white;
+            color:black;
+            cursor:pointer;
+        }
+
+
+        .DivItem2 {
+            flex: 0 1 100px;
+            height: 30px;
+            width: auto;
+            background: dimgrey;
+            color: white;
+            border: 10px black;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            user-select: none;
+            transition: transform 150ms ease;
+            font-size: 16px;
+        }
+
         .DivItem2:hover {
-            color: purple;
             cursor: pointer;
         }
 
         .DivItem {
             flex: 0 1 120px;
             height: 50px;
-            background: whitesmoke;
-            color: black;
+            background: black;
+            color: white;
             border: 10px black;
             border-radius: 8px;
             display: flex;
@@ -321,23 +393,65 @@
             font-size: 16px;
         }
 
-        /* --- FIX #2: Changed .hover to :hover --- */
         .DivItem:hover {
-            color: purple;
+            background-color:black;
+            color: white;
             cursor: pointer;
         }
 
-        @media (max-width: 1000px) {
+        .DivButton {
+            background-color:black;
+            color:white;
+            border: 10px white;
+        }
+
+        .DivButton:hover {
+            background-color: grey;
+            color:black;
+            border: 10px black;
+        }
+
+        .ViewReverse {
+            flex-direction: row-reverse;
+        }
+
+        .ViewReverse .TextColumn {
+            align-items: flex-end;
+        }
+
+        .ViewReverse .PTitle3,
+        .ViewReverse .PText3 {
+            text-align: right;
+        }
+
+        .ViewReverse .DivGridProject {
+            justify-content: flex-end;
+        }
+
+        @media (max-width: 600px) {
             .ImageColumn {
                 display: none;
             }
             .TextColumn {
                 width: 100%;
-                text-align: center;
+                text-align: left;
+                align-items: flex-start;
+                padding: 0;
             }
             .DivTitle2 {
                 width: 100%;
                 padding: 20px 10px;
+            }
+
+            .ViewReverse .TextColumn {
+                align-items: flex-start;
+            }
+            .ViewReverse .PTitle3,
+            .ViewReverse .PText3 {
+                text-align: left;
+            }
+            .ViewReverse .DivGridProject {
+                justify-content: flex-start;
             }
         }
 
@@ -350,7 +464,8 @@
     </div>
 
     <div class="DivIcon">
-        <button>Icon</button>
+        <button class="DivButton">Icon</button>
+        <button class="DivButton">Icon</button>
     </div>
 
 </section>
@@ -368,10 +483,15 @@
         <div class="DivBar">
             <div class="DivBar2" onclick="toggle(this)">
                 <div class="ViewDefault">
+                    <div class="DivFloat ImageColumn">
+                        <div class="DivProjectContentImage"></div>
+                    </div>
+
                     <div class="DivFloat TextColumn">
-                        <p class="PTitle">Vingt-Un</p>
-                        <p class="PText">Rougelike deck building card game with blackjack rules and a score ceiling that creeps lower and lower</p>
-                        <div class="DivGrid2 sortable-grid" id="ProjectGridFour">
+                        <p class="PTitle3">Vingt-Un</p>
+                        <p class="PText3">Rougelike deck building card game with blackjack rules and a score ceiling that creeps lower and lower</p>
+
+                        <div class="DivGridProject">
                             <div class="DivItem2">
                                 <a>Godot4</a>
                             </div>
@@ -379,18 +499,17 @@
                                 <a>G#</a>
                             </div>
                         </div>
-                        <div class="DivGrid sortable-grid" id="ProjectGrid7">
+
+                        <div class="DivGridProject">
                             <div class="DivItem">
-                                <a href="https://github.com/WarrenWarrens/VingtUn" target="_blank">GitHub</a>
+                                <a href="https://github.com/WarrenWarrens/VingtUn" target="_blank" style="color:white; text-decoration: none;">GitHub</a>
                             </div>
                             <div class="DivItem">
-                                <a href="NEWTEST/newtest.html">Link</a>
+                                <a href="NEWTEST/newtest.html" style="color:white; text-decoration: none;">Link</a>
                             </div>
                         </div>
                     </div>
-                    <div class="DivFloat ImageColumn">
-                        <div class="DivProjectContentImage"></div>
-                    </div>
+
                 </div>
 
                 <div class="DivViewExpanded">
@@ -407,45 +526,37 @@
                     <div class="DivProjectContent2">
                         <p class="PText2">Key Features</p>
                         <ul class="PText2 Ul1">
-                            <li>
-                                Score ceiling that increments downwards
-                            </li>
-                            <li>
-                                Card animations
-                            </li>
-                            <li>
-                                Economy that rewards scoring at or just under the ceiling.
-                            </li>
-                            <li>
-                                In game store to purchase cards
-                            </li>
+                            <li>Score ceiling that increments downwards</li>
+                            <li>Card animations</li>
+                            <li>Economy that rewards scoring at or just under the ceiling.</li>
+                            <li>In game store to purchase cards</li>
                         </ul>
                     </div>
                     <div class="DivProjectContent2">
                         <p class="PText2">Links</p>
-                        <div class="DivGrid sortable-grid" id="ProjectGridFive" style="justify-content:left">
+                        <div class="DivGrid sortable-grid" id="ProjectGridFive2" style="justify-content:flex-start">
                             <div class="DivItem">
-                                <a href="https://github.com/WarrenWarrens/VingtUn" target="_blank">GitHub</a>
+                                <a href="https://github.com/WarrenWarrens/VingtUn" target="_blank" style="color:white; text-decoration:none;">GitHub</a>
                             </div>
                             <div class="DivItem">
-                                <a href="NEWTEST/newtest.html">Link</a>
+                                <a href="NEWTEST/newtest.html" style="color:white; text-decoration:none;">Link</a>
                             </div>
                             <div class="DivItem">
-                                <a href="https://github.com/WarrenWarrens/VingtUn" target="_blank">GitHub</a>
+                                <a href="https://github.com/WarrenWarrens/VingtUn" target="_blank" style="color:white; text-decoration:none;">GitHub</a>
                             </div>
                         </div>
                     </div>
                     <div class="DivProjectContent2">
                         <p class="PText2">Techs</p>
-                        <div class="DivGrid sortable-grid" id="ProjectGridSix" style="justify-content:left">
+                        <div class="DivGrid sortable-grid" id="ProjectGridSix1" style="justify-content:flex-start">
                             <div class="DivItem">
-                                <a href="https://github.com/WarrenWarrens/VingtUn" target="_blank">GitHub</a>
+                                <a href="https://github.com/WarrenWarrens/VingtUn" target="_blank" style="color:white; text-decoration:none;">GitHub</a>
                             </div>
                             <div class="DivItem">
-                                <a href="NEWTEST/newtest.html">Link</a>
+                                <a href="NEWTEST/newtest.html" style="color:white; text-decoration:none;">Link</a>
                             </div>
                             <div class="DivItem">
-                                <a href="https://github.com/WarrenWarrens/VingtUn" target="_blank">GitHub</a>
+                                <a href="https://github.com/WarrenWarrens/VingtUn" target="_blank" style="color:white; text-decoration:none;">GitHub</a>
                             </div>
                         </div>
                     </div>
@@ -456,36 +567,94 @@
 
         <div class="DivBar">
             <div class="DivBar2" onclick="toggle(this)">
-                <div class="ViewDefault">
-                    <div class="DivFloat TextColumn">
-                        <p class="PTitle">Second Project</p>
-                        <p class="PText">Another cool project description goes here.</p>
-                    </div>
+                <div class="ViewDefault ViewReverse">
                     <div class="DivFloat ImageColumn">
                         <div class="DivProjectContentImage"></div>
                     </div>
+
+                    <div class="DivFloat TextColumn">
+                        <p class="PTitle3">Vingt-Un</p>
+                        <p class="PText3">Rougelike deck building card game with blackjack rules and a score ceiling that creeps lower and lower</p>
+
+                        <div class="DivGridProject">
+                            <div class="DivItem2">
+                                <a>Godot4</a>
+                            </div>
+                            <div class="DivItem2">
+                                <a>G#</a>
+                            </div>
+                        </div>
+
+                        <div class="DivGridProject">
+                            <div class="DivItem">
+                                <a href="https://github.com/WarrenWarrens/VingtUn" target="_blank" style="color:white; text-decoration: none;">GitHub</a>
+                            </div>
+                            <div class="DivItem">
+                                <a href="NEWTEST/newtest.html" style="color:white; text-decoration: none;">Link</a>
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
 
                 <div class="DivViewExpanded">
-                    <div class="ExpandedTitle">Second Project Expanded</div>
+                    <div class="ExpandedTitle">Vingt-Un</div>
                 </div>
             </div>
 
             <div class="DivExpand">
                 <div class="DivProjectContent">
-                    Detailed information about Project 2 goes here!
+                    <div class="DivProjectContentImage"></div>
+                    <div class="DivProjectContent2">
+                        <p class="PText2">Vingt-Un is a simple rougelike deckbuilder video game, ran using the Godot 4 engine.</p>
+                    </div>
+                    <div class="DivProjectContent2">
+                        <p class="PText2">Key Features</p>
+                        <ul class="PText2 Ul1">
+                            <li>Score ceiling that increments downwards</li>
+                            <li>Card animations</li>
+                            <li>Economy that rewards scoring at or just under the ceiling.</li>
+                            <li>In game store to purchase cards</li>
+                        </ul>
+                    </div>
+                    <div class="DivProjectContent2">
+                        <p class="PText2">Links</p>
+                        <div class="DivGrid sortable-grid" id="ProjectGridFive" style="justify-content:flex-start">
+                            <div class="DivItem">
+                                <a href="https://github.com/WarrenWarrens/VingtUn" target="_blank" style="color:white; text-decoration:none;">GitHub</a>
+                            </div>
+                            <div class="DivItem">
+                                <a href="NEWTEST/newtest.html" style="color:white; text-decoration:none;">Link</a>
+                            </div>
+                            <div class="DivItem">
+                                <a href="https://github.com/WarrenWarrens/VingtUn" target="_blank" style="color:white; text-decoration:none;">GitHub</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="DivProjectContent2">
+                        <p class="PText2">Techs</p>
+                        <div class="DivGrid sortable-grid" id="ProjectGridSix" style="justify-content:flex-start">
+                            <div class="DivItem">
+                                <a href="https://github.com/WarrenWarrens/VingtUn" target="_blank" style="color:white; text-decoration:none;">GitHub</a>
+                            </div>
+                            <div class="DivItem">
+                                <a href="NEWTEST/newtest.html" style="color:white; text-decoration:none;">Link</a>
+                            </div>
+                            <div class="DivItem">
+                                <a href="https://github.com/WarrenWarrens/VingtUn" target="_blank" style="color:white; text-decoration:none;">GitHub</a>
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
             </div>
         </div>
 
     </section>
 
-    <!-- ///// EDUCATION & CERTIFICATIONS SECTION ///// -->
-
     <section class="Section1">
         <div class="DivBar">
 
-            <!-- Replaced the Grid with our new Flexbox Tab Container -->
             <div class="TabContainer">
                 <button class="ButtonTab active" onclick="showContent(event, 'DivEducation')">Education</button>
                 <button class="ButtonTab" onclick="showContent(event, 'DivCertifications')">Certifications</button>
@@ -498,23 +667,22 @@
                             <div class="ExpIcon">🏢</div>
 
                             <div class="ExpDetails">
-                                <p class="ExpTitle">RONA</p>
-                                <p class="ExpRole">Forklift Operator & General Yard Labourer</p>
+                                <p class="ExpTitle">Ontario Tech </p>
+                                <p class="ExpRole">Undergraduate BSC. Computer Science, Data Science Specialization</p>
                             </div>
 
                             <div class="ExpRightText">
-                                06/2022 - 09/2023
+                                09/2022 - 12/2026
                             </div>
                         </div>
                     </div>
 
                     <div class="DivExpand">
-                        <ul class="Ul1" style="text-align: left;">
-                            <li>Assist customers in loading lumber and other building materials (often up to 40kg) into their vehicles.</li>
-                            <li>Operate sitdown counterbalance forklift to clean yard, unload deliveries or assemble large orders.</li>
-                            <li>Complete regular safety checks and maintenance to forklift to ensure its safe use.</li>
-                            <li>Safely use the panel & table saw to cut customers materials to sizes they request.</li>
-                            <li>Opening and closing the yard, sometimes alone.</li>
+                        <ul class="Ul1" style="text-align: left; padding: 0 40px 10px 40px;">
+                            <li>Major: Computer Science</li>
+                            <li>Specialization: Data Science</li>
+                            <li>Dual Minor: Mathematics & Physics</li>
+                            <li>Honours Thesis: "FLIC: Feedback for Live Interactive Coding"</li>
                         </ul>
                     </div>
                 </div>
@@ -538,34 +706,19 @@
                     </div>
 
                     <div class="DivExpand">
-                        <ul class="Ul1" style="text-align: left;">
+                        <ul class="Ul1" style="text-align: left; padding: 0 40px 10px 40px;">
                             <li>Assist customers in loading lumber and other building materials (often up to 40kg) into their vehicles.</li>
                             <li>Operate sitdown counterbalance forklift to clean yard, unload deliveries or assemble large orders.</li>
                             <li>Complete regular safety checks and maintenance to forklift to ensure its safe use.</li>
                             <li>Safely use the panel & table saw to cut customers materials to sizes they request.</li>
                             <li>Opening and closing the yard, sometimes alone.</li>
                         </ul>
-                        <div class="DivProjectContent2">
-                            <p class="PText2">Techs</p>
-                            <div class="DivGrid sortable-grid" style="justify-content:left">
-                                <div class="DivItem">
-                                    <a href="https://github.com/WarrenWarrens/VingtUn" target="_blank">GitHub</a>
-                                </div>
-                                <div class="DivItem">
-                                    <a href="NEWTEST/newtest.html">Link</a>
-                                </div>
-                                <div class="DivItem">
-                                    <a href="https://github.com/WarrenWarrens/VingtUn" target="_blank">GitHub</a>
-                                </div>
-                            </div>
-                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- ///// EXPERIENCE SECTION ///// -->
     <section class="Section1">
         <div class="DivBarTitle">
             <div class="DivTitle2">
@@ -573,6 +726,33 @@
             </div>
         </div>
 
+        <div class="DivBar">
+            <div class="DivBar2" onclick="toggle(this)">
+                <div class="ExperienceHeader">
+                    <div class="ExpIcon">🏢</div>
+
+                    <div class="ExpDetails">
+                        <p class="ExpTitle">Princess Auto</p>
+                        <p class="ExpRole">Day Receiver, Forklift Operator & Hydraulics Lvl 1 Specialist</p>
+                    </div>
+
+                    <div class="ExpRightText">
+                        08/2024 - Present
+                    </div>
+                </div>
+            </div>
+
+            <div class="DivExpand">
+                <ul class="Ul1" style="text-align: left; padding: 0 40px 10px 40px;">
+                    <li>Assist customers in loading lumber and other building materials (often up to 40kg) into their vehicles.</li>
+                    <li>Operate sitdown counterbalance forklift to clean yard, unload deliveries or assemble large orders.</li>
+                    <li>Complete regular safety checks and maintenance to forklift to ensure its safe use.</li>
+                    <li>Safely use the panel & table saw to cut customers materials to sizes they request.</li>
+                    <li>Opening and closing the yard, sometimes alone.</li>
+                </ul>
+
+            </div>
+        </div>
 
         <div class="DivBar">
             <div class="DivBar2" onclick="toggle(this)">
@@ -580,18 +760,18 @@
                     <div class="ExpIcon">🏢</div>
 
                     <div class="ExpDetails">
-                        <p class="ExpTitle">RONA</p>
-                        <p class="ExpRole">Forklift Operator & General Yard Labourer</p>
+                        <p class="ExpTitle">Afillia</p>
+                        <p class="ExpRole">Backend Software Developer</p>
                     </div>
 
                     <div class="ExpRightText">
-                        06/2022 - 09/2023
+                        05/2025 - 12/2025
                     </div>
                 </div>
             </div>
 
             <div class="DivExpand">
-                <ul class="Ul1" style="text-align: left;">
+                <ul class="Ul1" style="text-align: left; padding: 0 40px 10px 40px;">
                     <li>Assist customers in loading lumber and other building materials (often up to 40kg) into their vehicles.</li>
                     <li>Operate sitdown counterbalance forklift to clean yard, unload deliveries or assemble large orders.</li>
                     <li>Complete regular safety checks and maintenance to forklift to ensure its safe use.</li>
@@ -618,7 +798,7 @@
             </div>
 
             <div class="DivExpand">
-                <ul class="Ul1" style="text-align: left; padding: 0 40px 20px 40px;">
+                <ul class="Ul1" style="text-align: left; padding: 0 40px 10px 40px;">
                     <li>Assist customers in loading lumber and other building materials (often up to 40kg) into their vehicles.</li>
                     <li>Operate sitdown counterbalance forklift to clean yard, unload deliveries or assemble large orders.</li>
                     <li>Complete regular safety checks and maintenance to forklift to ensure its safe use.</li>
@@ -634,18 +814,18 @@
                     <div class="ExpIcon">🏢</div>
 
                     <div class="ExpDetails">
-                        <p class="ExpTitle">RONA</p>
-                        <p class="ExpRole">Forklift Operator & General Yard Labourer</p>
+                        <p class="ExpTitle">McDonalds</p>
+                        <p class="ExpRole">Crew Member, Cashier, Drive Thru & Cook</p>
                     </div>
 
                     <div class="ExpRightText">
-                        06/2022 - 09/2023
+                        06/2019 - 02/2022
                     </div>
                 </div>
             </div>
 
             <div class="DivExpand">
-                <ul class="Ul1" style="text-align: left; padding: 0 40px 20px 40px;">
+                <ul class="Ul1" style="text-align: left; padding: 0 40px 10px 40px;">
                     <li>Assist customers in loading lumber and other building materials (often up to 40kg) into their vehicles.</li>
                     <li>Operate sitdown counterbalance forklift to clean yard, unload deliveries or assemble large orders.</li>
                     <li>Complete regular safety checks and maintenance to forklift to ensure its safe use.</li>
@@ -666,10 +846,12 @@
 
 
         <div class="DivBar">
-            <div class="DivGrid sortable-grid" id="SkillGridGuide">
-                <div class="DivItem" onclick="toggleSkill('1', this)">Languages</div>
-                <div class="DivItem" onclick="toggleSkill('2', this)">Software</div>
-                <div class="DivItem" onclick="toggleSkill('3', this)">Topics</div>
+            <div class="DivGrid3 sortable-grid" id="SkillGridGuide">
+                <div class="DivItem3" onclick="toggleSkill('1', this)">Languages</div>
+                <div class="DivItem3" onclick="toggleSkill('2', this)">Software</div>
+                <div class="DivItem3" onclick="toggleSkill('3', this)">Topics</div>
+                <div class="DivItem3" onclick="toggleSkill('4', this)">Topics</div>
+                <div class="DivItem3" onclick="toggleSkill('5', this)">Topics</div>
             </div>
         </div>
 
@@ -720,24 +902,22 @@
         <div class="DivBar">
             <div class="DivGrid sortable-grid" id="ContactGrid">
                 <div class="DivItem">
-                    <a href="mailto:warrener.ryan@gmail.com">Email</a>
+                    <a href="mailto:warrener.ryan@gmail.com" style="color:white; text-decoration:none;">Email</a>
                 </div>
                 <div class="DivItem">
-                    <a href="https://github.com/WarrenWarrens" target="_blank">GitHub</a>
+                    <a href="https://github.com/WarrenWarrens" target="_blank" style="color:white; text-decoration:none;">GitHub</a>
                 </div>
                 <div class="DivItem">
-                    <a href="https://www.linkedin.com/in/ryan-warrener/" target="_blank">Linkedin</a>
-
+                    <a href="https://www.linkedin.com/in/ryan-warrener/" target="_blank" style="color:white; text-decoration:none;">Linkedin</a>
                 </div>
                 <div class="DivItem">
-                    <a href="https://leetcode.com/u/WarrenWarren/" target="_blank">LeetCode</a>
-
+                    <a href="https://leetcode.com/u/WarrenWarren/" target="_blank" style="color:white; text-decoration:none;">LeetCode</a>
                 </div>
                 <div class="DivItem">
-                    <a href="https://bsky.app/profile/warrenwarrens.bsky.social" target="_blank">BlueSky</a>
+                    <a href="https://bsky.app/profile/warrenwarrens.bsky.social" target="_blank" style="color:white; text-decoration:none;">BlueSky</a>
                 </div>
                 <div class="DivItem">
-                    <a href="https://x.com/WarrenWarrenCS" target="_blank">Twitter(X)</a>
+                    <a href="https://x.com/WarrenWarrenCS" target="_blank" style="color:white; text-decoration:none;">Twitter(X)</a>
                 </div>
             </div>
         </div>
@@ -798,7 +978,7 @@
             div.style.display = 'none';
         });
 
-        var allBtns = document.querySelectorAll('#SkillGridGuide .DivItem');
+        var allBtns = document.querySelectorAll('#SkillGridGuide .DivItem3');
         allBtns.forEach(function (btn) {
             btn.classList.remove('active-btn');
         });
