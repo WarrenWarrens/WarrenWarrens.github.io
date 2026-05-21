@@ -1,11 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="Main/Main.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portfolio</title>
+
+<!--    <meta charset="UTF-8">-->
+    <link rel="stylesheet" href="Main/Main.css">
+<!--    <title>Portfolio</title>-->
 </head>
 <body>
+
 <section class="SectionNav">
     <div class="DivTitle">
         Ryan Warrener
@@ -13,10 +19,36 @@
 
     <div class="DivIcon">
         <button class="DivButton">Icon</button>
-        <button class="DivButton">Icon</button>
+        <button class="DivButton" id="MenuButton" onclick="toggleNavMenu()">Menu ▼</button>
     </div>
 
+    <div id="NavDropdown" class="DropdownMenu">
+        <a href="#">Projects</a>
+        <a href="#">Experience</a>
+        <a href="#">Skills</a>
+        <a href="#">Contact</a>
+    </div>
 </section>
+
+    <!--<section class="SectionNav">-->
+    <!--    <div class="DivTitle">-->
+    <!--        Ryan Warrener-->
+    <!--    </div>-->
+
+    <!--    <div class="DivIcon">-->
+    <!--        <button class="DivButton">Icon</button>-->
+    <!--        <button class="DivButton" id="MenuButton" onclick="toggleNavMenu()">Menu ▼</button>-->
+
+    <!--        <div id="NavDropdown" class="DropdownMenu">-->
+    <!--            <a href="#">Projects</a>-->
+    <!--            <a href="#">Experience</a>-->
+    <!--            <a href="#">Skills</a>-->
+    <!--            <a href="#">Contact</a>-->
+    <!--        </div>-->
+    <!--    </div>-->
+
+
+    <!--</section>-->
 
 <section class="SectionIntroduction"></section>
 
@@ -36,15 +68,20 @@
                     </div>
 
                     <div class="DivFloat TextColumn">
-                        <p class="PTitle3">Vingt-Un</p>
-                        <p class="PText3">Rougelike deck building card game with blackjack rules and a score ceiling that creeps lower and lower</p>
+                        <p class="PTitle3">FLIC: Feedback for Live Interactive Coding</p>
+                        <p class="PText3">Firefox extension and website, that allows professors to stream
+                            their screen to an audience via room code. Viewers can interact with the stream, by placing markers and comments on the screen
+                            that appear in the exact same position on the professors screen.</p>
 
                         <div class="DivGridProject">
                             <div class="DivItem2">
-                                <a>Godot4</a>
+                                <a>JS</a>
                             </div>
                             <div class="DivItem2">
-                                <a>G#</a>
+                                <a>HTML</a>
+                            </div>
+                            <div class="DivItem2">
+                                <a>CSS</a>
                             </div>
                         </div>
 
@@ -56,12 +93,20 @@
                                 <span>🌐</span>
                                 <a href="NEWTEST/newtest.html" style="color:white; text-decoration: none;">Link</a>
                             </div>
+                            <div class="DivItem">
+                                <span>🌐</span>
+                                <a href="NEWTEST/newtest.html" style="color:white; text-decoration: none;">Paper</a>
+                            </div>
+                            <div class="DivItem">
+                                <span>🌐</span>
+                                <a href="NEWTEST/newtest.html" style="color:white; text-decoration: none;">Video</a>
+                            </div>
                         </div>
                     </div>
                 </div>
 
                 <div class="DivViewExpanded">
-                    <div class="ExpandedTitle">Vingt-Un</div>
+                    <div class="ExpandedTitle">FLIC</div>
                 </div>
             </div>
 
@@ -79,7 +124,11 @@
                         <div class="CarouselIndicator">1 / 3</div>
                     </div>
                     <div class="DivProjectContent2">
-                        <p class="PText2">Vingt-Un is a simple rougelike deckbuilder video game, ran using the Godot 4 engine.</p>
+                        <p class="PText2">Created as my Honours Thesis project at Ontario Tech and supervised by Dr.
+                            Eric Rapos & Dr. Michael Miljanovic. FLIC aims to bridge the gap of communication between professors
+                            & students during CS lectures, by allowing precise, anonomyous and direct communication via markers that
+                            signal different intentions or comments precisely on a professors screen.
+                        </p>
                     </div>
                     <div class="DivProjectContent2">
                         <p class="PText2">Key Features</p>
@@ -190,7 +239,7 @@
                     </div>
 
                     <div class="DivFloat TextColumn">
-                        <p class="PTitle3">Vingt-Un</p>
+                        <p class="PTitle3">Lingua Lore</p>
                         <p class="PText3">Rougelike deck building card game with blackjack rules and a score ceiling that creeps lower and lower</p>
 
                         <div class="DivGridProject">
@@ -215,7 +264,7 @@
                 </div>
 
                 <div class="DivViewExpanded">
-                    <div class="ExpandedTitle">Vingt-Un</div>
+                    <div class="ExpandedTitle">Lingua Lore</div>
                 </div>
             </div>
 
@@ -267,7 +316,7 @@
                     </div>
 
                     <div class="DivFloat TextColumn">
-                        <p class="PTitle3">Vingt-Un</p>
+                        <p class="PTitle3">Local Link</p>
                         <p class="PText3">Rougelike deck building card game with blackjack rules and a score ceiling that creeps lower and lower</p>
 
                         <div class="DivGridProject">
@@ -292,7 +341,161 @@
                 </div>
 
                 <div class="DivViewExpanded">
-                    <div class="ExpandedTitle">Vingt-Un</div>
+                    <div class="ExpandedTitle">Local Link</div>
+                </div>
+            </div>
+
+            <div class="DivExpand">
+                <div class="DivProjectContent">
+
+                    <div class="CarouselContainer">
+                        <button class="CarouselBtn Left" onclick="changeSlide(event, -1)">&#10094;</button>
+
+                        <div class="CarouselSlide active" style="background-color: darkgrey;">Slide 1 Placeholder</div>
+                        <div class="CarouselSlide" style="background-color: slategrey;">Slide 2 Placeholder</div>
+                        <div class="CarouselSlide" style="background-color: dimgrey;">Slide 3 Placeholder</div>
+
+                        <button class="CarouselBtn Right" onclick="changeSlide(event, 1)">&#10095;</button>
+                        <div class="CarouselIndicator">1 / 3</div>
+                    </div>
+                    <div class="DivProjectContent2">
+                        <p class="PText2">Vingt-Un is a simple rougelike deckbuilder video game, ran using the Godot 4 engine.</p>
+                    </div>
+                    <div class="DivProjectContent2">
+                        <p class="PText2">Key Features</p>
+                        <ul class="PText2 Ul1">
+                            <li>Score ceiling that increments downwards</li>
+                            <li>Card animations</li>
+                            <li>Economy that rewards scoring at or just under the ceiling.</li>
+                            <li>In game store to purchase cards</li>
+                        </ul>
+                    </div>
+                    <div class="DivProjectContent2">
+                        <p class="PText2">Links</p>
+                        <div class="DivGrid sortable-grid" style="justify-content:flex-start">
+                            <div class="DivItem">
+                                <a href="https://github.com/WarrenWarrens/VingtUn" target="_blank" style="color:white; text-decoration:none;">GitHub</a>
+                            </div>
+                            <div class="DivItem">
+                                <a href="NEWTEST/newtest.html" style="color:white; text-decoration:none;">Link</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="DivBar">
+            <div class="DivBar2" onclick="toggle(this)">
+                <div class="ViewDefault">
+                    <div class="DivFloat ImageColumn">
+                        <div class="DivProjectContentImage"></div>
+                    </div>
+
+                    <div class="DivFloat TextColumn">
+                        <p class="PTitle3">Body Forge</p>
+                        <p class="PText3">Rougelike deck building card game with blackjack rules and a score ceiling that creeps lower and lower</p>
+
+                        <div class="DivGridProject">
+                            <div class="DivItem2">
+                                <a>Godot4</a>
+                            </div>
+                            <div class="DivItem2">
+                                <a>G#</a>
+                            </div>
+                        </div>
+
+                        <div class="DivGridProject">
+                            <div class="DivItem">
+                                <a href="https://github.com/WarrenWarrens/VingtUn" target="_blank" style="color:white; text-decoration: none;">GitHub</a>
+                            </div>
+                            <div class="DivItem">
+                                <span>🌐</span>
+                                <a href="NEWTEST/newtest.html" style="color:white; text-decoration: none;">Link</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="DivViewExpanded">
+                    <div class="ExpandedTitle">Body Forge</div>
+                </div>
+            </div>
+
+            <div class="DivExpand">
+                <div class="DivProjectContent">
+
+                    <div class="CarouselContainer">
+                        <button class="CarouselBtn Left" onclick="changeSlide(event, -1)">&#10094;</button>
+
+                        <div class="CarouselSlide active" style="background-color: darkgrey;">Slide 1 Placeholder</div>
+                        <div class="CarouselSlide" style="background-color: slategrey;">Slide 2 Placeholder</div>
+                        <div class="CarouselSlide" style="background-color: dimgrey;">Slide 3 Placeholder</div>
+
+                        <button class="CarouselBtn Right" onclick="changeSlide(event, 1)">&#10095;</button>
+                        <div class="CarouselIndicator">1 / 3</div>
+                    </div>
+                    <div class="DivProjectContent2">
+                        <p class="PText2">Vingt-Un is a simple rougelike deckbuilder video game, ran using the Godot 4 engine.</p>
+                    </div>
+                    <div class="DivProjectContent2">
+                        <p class="PText2">Key Features</p>
+                        <ul class="PText2 Ul1">
+                            <li>Score ceiling that increments downwards</li>
+                            <li>Card animations</li>
+                            <li>Economy that rewards scoring at or just under the ceiling.</li>
+                            <li>In game store to purchase cards</li>
+                        </ul>
+                    </div>
+                    <div class="DivProjectContent2">
+                        <p class="PText2">Links</p>
+                        <div class="DivGrid sortable-grid" style="justify-content:flex-start">
+                            <div class="DivItem">
+                                <a href="https://github.com/WarrenWarrens/VingtUn" target="_blank" style="color:white; text-decoration:none;">GitHub</a>
+                            </div>
+                            <div class="DivItem">
+                                <a href="NEWTEST/newtest.html" style="color:white; text-decoration:none;">Link</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="DivBar">
+            <div class="DivBar2" onclick="toggle(this)">
+                <div class="ViewDefault ViewReverse">
+                    <div class="DivFloat ImageColumn">
+                        <div class="DivProjectContentImage"></div>
+                    </div>
+
+                    <div class="DivFloat TextColumn">
+                        <p class="PTitle3">Mine Sweeper</p>
+                        <p class="PText3">Rougelike deck building card game with blackjack rules and a score ceiling that creeps lower and lower</p>
+
+                        <div class="DivGridProject">
+                            <div class="DivItem2">
+                                <a>Godot4</a>
+                            </div>
+                            <div class="DivItem2">
+                                <a>G#</a>
+                            </div>
+                        </div>
+
+                        <div class="DivGridProject">
+                            <div class="DivItem">
+                                <a href="https://github.com/WarrenWarrens/VingtUn" target="_blank" style="color:white; text-decoration: none;">GitHub</a>
+                            </div>
+                            <div class="DivItem">
+                                <span>🌐</span>
+                                <a href="NEWTEST/newtest.html" style="color:white; text-decoration: none;">Link</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="DivViewExpanded">
+                    <div class="ExpandedTitle">Mine Sweeper</div>
                 </div>
             </div>
 
@@ -383,8 +586,8 @@
                             <div class="ExpIcon">🏢</div>
 
                             <div class="ExpDetails">
-                                <p class="ExpTitle">AWS</p>
-                                <p class="ExpRole">Certified Cloud Practitioner</p>
+                                <p class="ExpTitle">Princess Auto, Royal Service Academy</p>
+                                <p class="ExpRole">EMPOWER.ed Hydraulics Level I</p>
                             </div>
 
                             <div class="ExpArrow">&#9658;</div>
@@ -542,6 +745,23 @@
 </main>
 
 <script>
+
+    // 1. Toggles the menu when the button is clicked
+    function toggleNavMenu() {
+        document.getElementById("NavDropdown").classList.toggle("show");
+    }
+
+    // 2. Automatically closes the menu if you click anywhere outside of it
+    window.onclick = function(event) {
+        // Check if the thing we clicked was NOT the MenuButton
+        if (!event.target.closest('#MenuButton')) {
+            const dropdown = document.getElementById("NavDropdown");
+            // If the dropdown is currently open, remove the 'show' class
+            if (dropdown && dropdown.classList.contains('show')) {
+                dropdown.classList.remove('show');
+            }
+        }
+    }
 
     function showContent(event, targetPanelId) {
         const allPanels = document.querySelectorAll('.DivContent');
