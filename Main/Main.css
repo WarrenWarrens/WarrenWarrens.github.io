@@ -29,32 +29,61 @@ html, body {
 .DivIcon {
     display: flex;
     align-items: center;
+    justify-content: flex-end; /* Forces the buttons to stay on the right */
     padding: 10px 20px;
     gap: 15px;
-    position: relative; /* <--- ADD THIS LINE */
+
+    flex-grow: 1; /* MAGIC FIX: Takes up 100% of the screen minus the DivTitle! */
+    position: relative;
 }
 
-/* 2. The New Dropdown Styles */
+/*.DivIcon {*/
+/*    display: flex;*/
+/*    align-items: center;*/
+/*    padding: 10px 20px;*/
+/*    gap: 15px;*/
+/*    position: relative; !* <--- ADD THIS LINE *!*/
+/*}*/
+
 .DropdownMenu {
     display: none;
     position: absolute;
-    top: 100%; /* Sits exactly under the Nav Bar */
-    right: 0;  /* Snaps perfectly to the right edge of the screen */
-    width: 50%; /* Takes up exactly 50% of the screen width */
+    top: 100%;
+    right: 0;
+    width: 250px; /* A nice, standard width for Desktop viewing */
     background-color: white;
     border: 2px solid black;
-    border-right: none; /* Prevents a double border on the right edge */
-    box-shadow: -4px 8px 16px rgba(0,0,0,0.2); /* Shadow shifted slightly to the left */
+    box-shadow: -4px 8px 16px rgba(0,0,0,0.2);
     z-index: 1001;
     flex-direction: column;
-    box-sizing: border-box; /* Ensures the borders don't break the 50% width */
+    box-sizing: border-box;
 }
 
-/* Add the animation to the show class */
 .DropdownMenu.show {
     display: flex;
-    animation: slideInRight 0.3s ease-out; /* Triggers the animation below */
+    animation: slideInRight 0.3s ease-out;
 }
+/* 2. The New Dropdown Styles */
+/*.DropdownMenu {*/
+/*    display: none;*/
+/*    position: absolute;*/
+/*    top: 100%; !* Sits exactly under the Nav Bar *!*/
+/*    right: 0;  !* Snaps perfectly to the right edge of the screen *!*/
+/*    width: 50%; !* Takes up exactly 50% of the screen width *!*/
+/*    background-color: white;*/
+/*    border: 2px solid black;*/
+/*    border-right: none; !* Prevents a double border on the right edge *!*/
+/*    box-shadow: -4px 8px 16px rgba(0,0,0,0.2); !* Shadow shifted slightly to the left *!*/
+/*    z-index: 1001;*/
+/*    flex-direction: column;*/
+/*    box-sizing: border-box; !* Ensures the borders don't break the 50% width *!*/
+/*}*/
+
+/*!* Add the animation to the show class *!*/
+/*.DropdownMenu.show {*/
+/*    display: flex;*/
+/*    animation: slideInRight 0.3s ease-out; !* Triggers the animation below *!*/
+/*}*/
 
 @keyframes slideInRight {
     from {
@@ -66,6 +95,17 @@ html, body {
         opacity: 1;
     }
 }
+
+/*@keyframes slideInRight {*/
+/*    from {*/
+/*        transform: translateX(100%);*/
+/*        opacity: 0;*/
+/*    }*/
+/*    to {*/
+/*        transform: translateX(0);*/
+/*        opacity: 1;*/
+/*    }*/
+/*}*/
 
 /* Styling the clickable links inside the menu */
 .DropdownMenu a {
@@ -531,16 +571,36 @@ html, body {
 }
 
 .DivButton {
-    background-color:black;
-    color:white;
-    border: 10px white;
+    background-color: black;
+    color: white;
+    border: 2px solid white; /* Fixed the border rule so it shows up */
+
+    /* THIS IS THE FIX: 12px top/bottom, 20px left/right */
+    padding: 12px 20px;
+
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px; /* Optional: Gives the buttons a slightly modern, rounded look */
+    font-weight: bold;
 }
 
 .DivButton:hover {
     background-color: grey;
-    color:black;
-    border: 10px black;
+    color: black;
+    border: 2px solid black;
 }
+
+/*.DivButton {*/
+/*    background-color:black;*/
+/*    color:white;*/
+/*    border: 10px white;*/
+/*}*/
+
+/*.DivButton:hover {*/
+/*    background-color: grey;*/
+/*    color:black;*/
+/*    border: 10px black;*/
+/*}*/
 
 .ViewReverse {
     flex-direction: row-reverse;
@@ -583,5 +643,16 @@ html, body {
     }
     .ViewReverse .DivGridProject {
         justify-content: flex-start;
+    }
+
+
+    .DropdownMenu {
+        width: auto; /* Removes the fixed 250px desktop width */
+        right: -20px; /* Snaps flush to the right edge of the screen */
+        left: -20px; /* Snaps flush perfectly to where DivTitle ends! */
+    }
+
+    .DivTitle {
+        white-space: nowrap; /* Prevents your name from stacking on super small screens */
     }
 }
