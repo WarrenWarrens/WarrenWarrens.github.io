@@ -6,6 +6,11 @@ html, body {
     background-color: darkgrey;
 }
 
+.NavLeftGroup {
+    display: flex;
+    align-items: stretch;
+}
+
 .SectionNav {
     position: sticky;
     top: 0;
@@ -21,21 +26,65 @@ html, body {
 .DivTitle {
     display: flex;
     align-items: center;
-    padding: 10px 20px;
+    padding: 10px 30px 10px 20px;
     background-color: black;
     color: white;
+    border-radius: 0 25px 25px 0; /* Creates the curved right edge */
 }
+
+.DesktopLinks {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding-left: 15px;
+}
+
+.DesktopBtn {
+    background-color: transparent;
+    border: none;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    padding: 10px 15px;
+    color: black;
+    border-radius: 5px;
+}
+
+.DesktopBtn:hover {
+    background-color: #eee;
+}
+
+/* Hide the "Icon" button by default on large desktop screens */
+#IconButton {
+    display: none;
+}
+
+/*.DivTitle {*/
+/*    display: flex;*/
+/*    align-items: center;*/
+/*    padding: 10px 20px;*/
+/*    background-color: black;*/
+/*    color: white;*/
+/*}*/
 
 .DivIcon {
     display: flex;
     align-items: center;
-    justify-content: flex-end; /* Forces the buttons to stay on the right */
     padding: 10px 20px;
     gap: 15px;
-
-    flex-grow: 1; /* MAGIC FIX: Takes up 100% of the screen minus the DivTitle! */
     position: relative;
 }
+
+/*.DivIcon {*/
+/*    display: flex;*/
+/*    align-items: center;*/
+/*    justify-content: flex-end; !* Forces the buttons to stay on the right *!*/
+/*    padding: 10px 20px;*/
+/*    gap: 15px;*/
+
+/*    flex-grow: 1; !* MAGIC FIX: Takes up 100% of the screen minus the DivTitle! *!*/
+/*    position: relative;*/
+/*}*/
 
 /*.DivIcon {*/
 /*    display: flex;*/
@@ -50,19 +99,31 @@ html, body {
     position: absolute;
     top: 100%;
     right: 0;
-    width: 250px; /* A nice, standard width for Desktop viewing */
+    width: 50%; /* Takes up exactly 50% of the Desktop screen */
     background-color: white;
     border: 2px solid black;
+    border-right: none; /* Prevents a thick double border on the right screen edge */
     box-shadow: -4px 8px 16px rgba(0,0,0,0.2);
     z-index: 1001;
     flex-direction: column;
     box-sizing: border-box;
 }
 
-.DropdownMenu.show {
-    display: flex;
-    animation: slideInRight 0.3s ease-out;
-}
+/*.DropdownMenu {*/
+/*    display: none;*/
+/*    position: absolute;*/
+/*    top: 100%;*/
+/*    right: 0;*/
+/*    width: 250px; !* A nice, standard width for Desktop viewing *!*/
+/*    background-color: white;*/
+/*    border: 2px solid black;*/
+/*    box-shadow: -4px 8px 16px rgba(0,0,0,0.2);*/
+/*    z-index: 1001;*/
+/*    flex-direction: column;*/
+/*    box-sizing: border-box;*/
+/*}*/
+
+
 /* 2. The New Dropdown Styles */
 /*.DropdownMenu {*/
 /*    display: none;*/
@@ -82,8 +143,10 @@ html, body {
 /*!* Add the animation to the show class *!*/
 /*.DropdownMenu.show {*/
 /*    display: flex;*/
-/*    animation: slideInRight 0.3s ease-out; !* Triggers the animation below *!*/
-/*}*/
+.DropdownMenu.show {
+    display: flex;
+    animation: slideInRight 0.3s ease-out;
+}
 
 @keyframes slideInRight {
     from {
@@ -590,17 +653,6 @@ html, body {
     border: 2px solid black;
 }
 
-/*.DivButton {*/
-/*    background-color:black;*/
-/*    color:white;*/
-/*    border: 10px white;*/
-/*}*/
-
-/*.DivButton:hover {*/
-/*    background-color: grey;*/
-/*    color:black;*/
-/*    border: 10px black;*/
-/*}*/
 
 .ViewReverse {
     flex-direction: row-reverse;
@@ -617,6 +669,16 @@ html, body {
 
 .ViewReverse .DivGridProject {
     justify-content: flex-end;
+}
+
+@media (max-width: 800px) {
+    .DesktopLinks {
+        display: none;
+    }
+
+    #IconButton {
+        display: block;
+    }
 }
 
 @media (max-width: 600px) {
@@ -645,11 +707,9 @@ html, body {
         justify-content: flex-start;
     }
 
-
     .DropdownMenu {
-        width: auto; /* Removes the fixed 250px desktop width */
-        right: -20px; /* Snaps flush to the right edge of the screen */
-        left: -20px; /* Snaps flush perfectly to where DivTitle ends! */
+        width: 100%; /* Takes up 100% of the mobile screen */
+        border-right: 2px solid black; /* Restores the right border */
     }
 
     .DivTitle {

@@ -5,62 +5,37 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portfolio</title>
-
-<!--    <meta charset="UTF-8">-->
     <link rel="stylesheet" href="Main/Main.css">
-<!--    <title>Portfolio</title>-->
 </head>
 <body>
 
+
 <section class="SectionNav">
-    <div class="DivTitle">
-        Ryan Warrener
-    </div>
+    <div class="NavLeftGroup">
+        <div class="DivTitle">
+            Ryan Warrener
+        </div>
 
-    <div class="DivIcon">
-        <button class="DivButton">Icon</button>
-        <button class="DivButton" id="MenuButton" onclick="toggleNavMenu()">Menu ▼</button>
-
-        <div id="NavDropdown" class="DropdownMenu">
-            <a href="#">Projects</a>
-            <a href="#">Experience</a>
-            <a href="#">Skills</a>
-            <a href="#">Contact</a>
+        <div class="DesktopLinks">
+            <button class="DesktopBtn">Test1</button>
+            <button class="DesktopBtn">Test2</button>
+            <button class="DesktopBtn">Test3</button>
         </div>
     </div>
 
-<!--    <div class="DivIcon">-->
-<!--        <button class="DivButton">Icon</button>-->
-<!--        <button class="DivButton" id="MenuButton" onclick="toggleNavMenu()">Menu ▼</button>-->
-<!--    </div>-->
+    <div class="DivIcon">
+        <button class="DivButton" id="IconButton" onclick="toggleNavMenu()">Icon</button>
+        <button class="DivButton" id="MenuButton" onclick="toggleNavMenu()">Menu ▼</button>
+    </div>
 
-<!--    <div id="NavDropdown" class="DropdownMenu">-->
-<!--        <a href="#">Projects</a>-->
-<!--        <a href="#">Experience</a>-->
-<!--        <a href="#">Skills</a>-->
-<!--        <a href="#">Contact</a>-->
-<!--    </div>-->
+    <div id="NavDropdown" class="DropdownMenu">
+        <a href="#">Projects</a>
+        <a href="#">Experience</a>
+        <a href="#">Skills</a>
+        <a href="#">Contact</a>
+    </div>
 </section>
 
-    <!--<section class="SectionNav">-->
-    <!--    <div class="DivTitle">-->
-    <!--        Ryan Warrener-->
-    <!--    </div>-->
-
-    <!--    <div class="DivIcon">-->
-    <!--        <button class="DivButton">Icon</button>-->
-    <!--        <button class="DivButton" id="MenuButton" onclick="toggleNavMenu()">Menu ▼</button>-->
-
-    <!--        <div id="NavDropdown" class="DropdownMenu">-->
-    <!--            <a href="#">Projects</a>-->
-    <!--            <a href="#">Experience</a>-->
-    <!--            <a href="#">Skills</a>-->
-    <!--            <a href="#">Contact</a>-->
-    <!--        </div>-->
-    <!--    </div>-->
-
-
-    <!--</section>-->
 
 <section class="SectionIntroduction"></section>
 
@@ -763,17 +738,16 @@
         document.getElementById("NavDropdown").classList.toggle("show");
     }
 
-    // 2. Automatically closes the menu if you click anywhere outside of it
     window.onclick = function(event) {
-        // Check if the thing we clicked was NOT the MenuButton
-        if (!event.target.closest('#MenuButton')) {
+        // We now check to make sure the click wasn't on MenuButton OR IconButton
+        if (!event.target.closest('#MenuButton') && !event.target.closest('#IconButton')) {
             const dropdown = document.getElementById("NavDropdown");
-            // If the dropdown is currently open, remove the 'show' class
             if (dropdown && dropdown.classList.contains('show')) {
                 dropdown.classList.remove('show');
             }
         }
     }
+
 
     function showContent(event, targetPanelId) {
         const allPanels = document.querySelectorAll('.DivContent');
