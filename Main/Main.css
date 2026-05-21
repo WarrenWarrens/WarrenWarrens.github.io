@@ -4,6 +4,7 @@ html, body {
     padding: 0;
     font-family: sans-serif;
     background-color: darkgrey;
+    scroll-behavior: smooth;
 }
 
 .NavLeftGroup {
@@ -48,6 +49,8 @@ html, body {
     padding: 10px 15px;
     color: black;
     border-radius: 5px;
+    text-decoration: none; /* Removes the default blue underline from links */
+    display: inline-block;
 }
 
 .DesktopBtn:hover {
@@ -225,6 +228,7 @@ html, body {
     text-align: center;
     margin-bottom: 15px;
     padding: 15px 0;
+    scroll-margin-top: 80px;
 }
 
 .DivBar {

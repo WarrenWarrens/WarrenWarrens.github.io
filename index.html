@@ -17,30 +17,52 @@
         </div>
 
         <div class="DesktopLinks">
-            <button class="DesktopBtn">Test1</button>
-            <button class="DesktopBtn">Test2</button>
-            <button class="DesktopBtn">Test3</button>
+            <a href="#ProjectsSection" class="DesktopBtn">Projects</a>
+            <a href="#ExperienceSection" class="DesktopBtn">Experience</a>
+            <a href="#ContactSection" class="DesktopBtn">Contact</a>
         </div>
+
+<!--        <div class="DesktopLinks">-->
+<!--            <button class="DesktopBtn">Projects</button>-->
+<!--            <button class="DesktopBtn">Education</button>-->
+<!--            <button class="DesktopBtn">Contact</button>-->
+<!--        </div>-->
     </div>
 
     <div class="DivIcon">
-        <button class="DivButton" id="IconButton" onclick="toggleNavMenu()">Icon</button>
-        <button class="DivButton" id="MenuButton" onclick="toggleNavMenu()">Menu ▼</button>
+        <button class="DivButton" onclick="toggleNavMenu(event, 'NavDropdown1')">Icon 1</button>
+        <button class="DivButton" onclick="toggleNavMenu(event, 'NavDropdown2')">Menu</button>
     </div>
 
-    <div id="NavDropdown" class="DropdownMenu">
-        <a href="#">Projects</a>
-        <a href="#">Experience</a>
-        <a href="#">Skills</a>
-        <a href="#">Contact</a>
+    <div id="NavDropdown1" class="DropdownMenu">
+        <a href="#">Social Links</a>
+        <a href="#">Resume</a>
     </div>
+
+    <div id="NavDropdown2" class="DropdownMenu">
+        <a href="#ProjectsSection">Projects</a>
+        <a href="#ExperienceSection">Experience</a>
+        <a href="#ContactSection">Contact</a>
+    </div>
+
+<!--    <div class="DivIcon">-->
+<!--        <button class="DivButton" id="IconButton" onclick="toggleNavMenu()">Nav</button>-->
+<!--        <button class="DivButton" id="MenuButton" onclick="toggleNavMenu()">Gear</button>-->
+<!--    </div>-->
+
+<!--    <div id="NavDropdown" class="DropdownMenu">-->
+<!--        <a href="#">Projects</a>-->
+<!--        <a href="#">Experience</a>-->
+<!--        <a href="#">Skills</a>-->
+<!--        <a href="#">Contact</a>-->
+<!--    </div>-->
 </section>
 
 
 <section class="SectionIntroduction"></section>
 
 <main class="Main" style="padding-top:0">
-    <section class="Section1" style="padding-top:0">
+    <section class="Section1" id="ProjectsSection" style="padding-top:0">
         <div class="DivBarTitle">
             <div class="DivTitle2">
                 Projects
@@ -595,7 +617,7 @@
         </div>
     </section>
 
-    <section class="Section1">
+    <section class="Section1" id="ExperienceSection">
         <div class="DivBarTitle">
             <div class="DivTitle2">
                 Experience
@@ -706,7 +728,7 @@
 
     </section>
 
-    <section class="Section1">
+    <section class="Section1" id="ContactSection">
         <div class="DivBarTitle">
             <div class="DivTitle2">
                 Contact
@@ -734,17 +756,35 @@
 <script>
 
     // 1. Toggles the menu when the button is clicked
-    function toggleNavMenu() {
-        document.getElementById("NavDropdown").classList.toggle("show");
-    }
+    // 1. Toggles specific menus and ensures only one is open
+    function toggleNavMenu(event, dropdownId) {
+        event.stopPropagation(); // Stops the click from triggering the window.onclick immediately
 
-    window.onclick = function(event) {
-        // We now check to make sure the click wasn't on MenuButton OR IconButton
-        if (!event.target.closest('#MenuButton') && !event.target.closest('#IconButton')) {
-            const dropdown = document.getElementById("NavDropdown");
-            if (dropdown && dropdown.classList.contains('show')) {
+        // Grab all dropdowns on the page
+        const allDropdowns = document.querySelectorAll('.DropdownMenu');
+
+        // Loop through every dropdown
+        allDropdowns.forEach(dropdown => {
+            if (dropdown.id === dropdownId) {
+                // If this is the one we clicked, toggle it on/off
+                dropdown.classList.toggle('show');
+            } else {
+                // If it's ANY other dropdown, force it to close
                 dropdown.classList.remove('show');
             }
+        });
+    }
+
+    // 2. Automatically closes ALL menus if you click anywhere outside of them
+    window.onclick = function(event) {
+        // If the user clicked something that wasn't a DivButton or inside a DropdownMenu...
+        if (!event.target.closest('.DivButton') && !event.target.closest('.DropdownMenu')) {
+
+            // Sweep through and close everything
+            const allDropdowns = document.querySelectorAll('.DropdownMenu');
+            allDropdowns.forEach(dropdown => {
+                dropdown.classList.remove('show');
+            });
         }
     }
 
