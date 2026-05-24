@@ -5,6 +5,7 @@ html, body {
     font-family: sans-serif;
     background-color: darkgrey;
     scroll-behavior: smooth;
+    overscroll-behavior: none;
 }
 
 .NavLeftGroup {
@@ -58,7 +59,8 @@ html, body {
 }
 
 /* Hide the "Icon" button by default on large desktop screens */
-#IconButton {
+#IconButton
+{
     display: none;
 }
 
@@ -396,6 +398,7 @@ html, body {
 }
 
 .DivExpand.show {
+    /*padding-left:50px;*/
     padding: 10px;
     display: block;
     animation: slideDown 0.3s ease;
@@ -444,14 +447,14 @@ html, body {
 
 .ExperienceHeader {
     display: flex;
-    align-items: center;
+    /* FIX 1: Pushes the icon, text, and date to the top of the container */
+    align-items: flex-start;
     width: 100%;
     padding: 15px;
     box-sizing: border-box;
 }
 
-.ExperienceHeader:hover
-{
+.ExperienceHeader:hover {
     background-color: #eee;
 }
 
@@ -460,6 +463,8 @@ html, body {
     font-size: 24px;
     width: 50px;
     text-align: left;
+    /* Optional: Add a tiny top margin if the emoji feels slightly higher than the text */
+    margin-top: -2px;
 }
 
 .ExpDetails {
@@ -469,33 +474,48 @@ html, body {
     flex-grow: 1;
 }
 
+.ExpTitleRow
+{
+    display: flex;
+    align-items: center; /* Keeps the arrow vertically centered with the text */
+    gap: 10px; /* Adds space between the company name and the arrow */
+    margin-bottom: 5px;
+}
+
 .ExpTitle {
     margin: 0;
     font-weight: bold;
     font-size: 18px;
 }
 
+
 .ExpRole {
-    margin: 5px 0 0 0;
+    margin: 0; /* Reset this to 0 since we added margin to the TitleRow above */
     color: #333;
     font-size: 15px;
 }
 
-
-/* --- ANIMATED ARROW STYLES (Tweak 2) --- */
 .ExpArrow {
     font-size: 14px;
-    margin-right: 15px;
-    transition: transform 0.3s ease; /* Makes the rotation smooth */
     color: #333;
+    opacity: 0;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    /* Removed margin-right so it sits tight against the title */
 }
 
 
-.DivBar2.is-expanded .ExpArrow
-{
-    transform: rotate(90deg); /* Points down when expanded */
+
+.DivBar2:hover .ExpArrow {
+    opacity: 1;
 }
-/* --------------------------------------- */
+
+.DivBar2.is-expanded .ExpArrow {
+    opacity: 1;
+    transform: rotate(90deg);
+}
+
+
+
 
 .ExpRightText {
     margin: 0;
@@ -526,7 +546,14 @@ html, body {
     text-align: left;
 }
 
+.Ul2
+{
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
 .Ul1 {
+    margin-left: 30px;
     margin-top: 0;
     margin-bottom: 0;
 }
@@ -711,12 +738,17 @@ html, body {
         justify-content: flex-start;
     }
 
-    .DropdownMenu {
-        width: 100%; /* Takes up 100% of the mobile screen */
-        border-right: 2px solid black; /* Restores the right border */
+    .DropdownMenu
+    {
+        width: 100%;
+        border-right: 2px solid black;
     }
 
     .DivTitle {
-        white-space: nowrap; /* Prevents your name from stacking on super small screens */
+        white-space: nowrap;
+    }
+
+    .ExpArrow {
+        opacity: 1;
     }
 }

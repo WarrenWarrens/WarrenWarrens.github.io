@@ -21,41 +21,27 @@
             <a href="#ExperienceSection" class="DesktopBtn">Experience</a>
             <a href="#ContactSection" class="DesktopBtn">Contact</a>
         </div>
-
-<!--        <div class="DesktopLinks">-->
-<!--            <button class="DesktopBtn">Projects</button>-->
-<!--            <button class="DesktopBtn">Education</button>-->
-<!--            <button class="DesktopBtn">Contact</button>-->
-<!--        </div>-->
     </div>
 
     <div class="DivIcon">
-        <button class="DivButton" onclick="toggleNavMenu(event, 'NavDropdown1')">Icon 1</button>
-        <button class="DivButton" onclick="toggleNavMenu(event, 'NavDropdown2')">Menu</button>
+        <button class="DivButton" onclick="toggleNavMenu(event, 'NavDropdown1')" id="IconButton">Guide</button>
+        <button class="DivButton" onclick="toggleNavMenu(event, 'NavDropdown2')">Gear</button>
     </div>
 
     <div id="NavDropdown1" class="DropdownMenu">
-        <a href="#">Social Links</a>
-        <a href="#">Resume</a>
+        <a href="#ProjectsSection">Projects</a>
+        <a href="#ExperienceSection">Experience</a>
+        <a href="#ContactSection">Contact</a>
+<!--        Guide-->
     </div>
 
     <div id="NavDropdown2" class="DropdownMenu">
+<!--        Settings-->
         <a href="#ProjectsSection">Projects</a>
         <a href="#ExperienceSection">Experience</a>
         <a href="#ContactSection">Contact</a>
     </div>
 
-<!--    <div class="DivIcon">-->
-<!--        <button class="DivButton" id="IconButton" onclick="toggleNavMenu()">Nav</button>-->
-<!--        <button class="DivButton" id="MenuButton" onclick="toggleNavMenu()">Gear</button>-->
-<!--    </div>-->
-
-<!--    <div id="NavDropdown" class="DropdownMenu">-->
-<!--        <a href="#">Projects</a>-->
-<!--        <a href="#">Experience</a>-->
-<!--        <a href="#">Skills</a>-->
-<!--        <a href="#">Contact</a>-->
-<!--    </div>-->
 </section>
 
 
@@ -141,7 +127,7 @@
                     </div>
                     <div class="DivProjectContent2">
                         <p class="PText2">Key Features</p>
-                        <ul class="PText2 Ul1">
+                        <ul class="PText2 Ul2">
                             <li>Score ceiling that increments downwards</li>
                             <li>Card animations</li>
                             <li>Economy that rewards scoring at or just under the ceiling.</li>
@@ -218,7 +204,7 @@
                     </div>
                     <div class="DivProjectContent2">
                         <p class="PText2">Key Features</p>
-                        <ul class="PText2 Ul1">
+                        <ul class="PText2 Ul2">
                             <li>Score ceiling that increments downwards</li>
                             <li>Card animations</li>
                             <li>Economy that rewards scoring at or just under the ceiling.</li>
@@ -295,7 +281,7 @@
                     </div>
                     <div class="DivProjectContent2">
                         <p class="PText2">Key Features</p>
-                        <ul class="PText2 Ul1">
+                        <ul class="PText2 Ul2">
                             <li>Score ceiling that increments downwards</li>
                             <li>Card animations</li>
                             <li>Economy that rewards scoring at or just under the ceiling.</li>
@@ -372,7 +358,7 @@
                     </div>
                     <div class="DivProjectContent2">
                         <p class="PText2">Key Features</p>
-                        <ul class="PText2 Ul1">
+                        <ul class="PText2 Ul2">
                             <li>Score ceiling that increments downwards</li>
                             <li>Card animations</li>
                             <li>Economy that rewards scoring at or just under the ceiling.</li>
@@ -449,7 +435,7 @@
                     </div>
                     <div class="DivProjectContent2">
                         <p class="PText2">Key Features</p>
-                        <ul class="PText2 Ul1">
+                        <ul class="PText2 Ul2">
                             <li>Score ceiling that increments downwards</li>
                             <li>Card animations</li>
                             <li>Economy that rewards scoring at or just under the ceiling.</li>
@@ -526,7 +512,7 @@
                     </div>
                     <div class="DivProjectContent2">
                         <p class="PText2">Key Features</p>
-                        <ul class="PText2 Ul1">
+                        <ul class="PText2 Ul2">
                             <li>Score ceiling that increments downwards</li>
                             <li>Card animations</li>
                             <li>Economy that rewards scoring at or just under the ceiling.</li>
@@ -565,18 +551,20 @@
                             <div class="ExpIcon">🏢</div>
 
                             <div class="ExpDetails">
-                                <p class="ExpTitle">Ontario Tech </p>
+
+                                <div class="ExpTitleRow">
+                                    <p class="ExpTitle">Ontario Tech</p>
+                                    <div class="ExpArrow">&#9658;</div>
+                                </div>
+
                                 <p class="ExpRole">Undergraduate BSC. Computer Science, Data Science Specialization</p>
                             </div>
-
-                            <div class="ExpArrow">&#9658;</div>
 
                             <div class="ExpRightText">
                                 09/2022 - 12/2026
                             </div>
                         </div>
                     </div>
-
                     <div class="DivExpand">
                         <ul class="Ul1" style="text-align: left; padding: 0 40px 10px 40px;">
                             <li>Major: Computer Science</li>
@@ -589,17 +577,19 @@
             </div>
 
             <div class="DivContent" id="DivCertifications">
-                <div class="DivBar">
                     <div class="DivBar2" onclick="toggle(this)">
                         <div class="ExperienceHeader">
                             <div class="ExpIcon">🏢</div>
 
                             <div class="ExpDetails">
-                                <p class="ExpTitle">Princess Auto, Royal Service Academy</p>
+
+                                <div class="ExpTitleRow">
+                                    <p class="ExpTitle">Princess Auto, Royal Service Academy</p>
+                                    <div class="ExpArrow">&#9658;</div>
+                                </div>
+
                                 <p class="ExpRole">EMPOWER.ed Hydraulics Level I</p>
                             </div>
-
-                            <div class="ExpArrow">&#9658;</div>
 
                             <div class="ExpRightText">
                                 06/2022 - 09/2023
@@ -630,17 +620,21 @@
                     <div class="ExpIcon">🏢</div>
 
                     <div class="ExpDetails">
-                        <p class="ExpTitle">Princess Auto</p>
+
+                        <div class="ExpTitleRow">
+                            <p class="ExpTitle">Princess Auto</p>
+                            <div class="ExpArrow">&#9658;</div>
+                        </div>
+
                         <p class="ExpRole">Day Receiver, Forklift Operator & Hydraulics Lvl 1 Specialist</p>
                     </div>
-
-                    <div class="ExpArrow">&#9658;</div>
 
                     <div class="ExpRightText">
                         08/2024 - Present
                     </div>
                 </div>
             </div>
+
 
             <div class="DivExpand">
                 <ul class="Ul1" style="text-align: left; padding: 0 40px 10px 40px;">
@@ -657,11 +651,14 @@
                     <div class="ExpIcon">🏢</div>
 
                     <div class="ExpDetails">
-                        <p class="ExpTitle">RONA</p>
+
+                        <div class="ExpTitleRow">
+                            <p class="ExpTitle">RONA</p>
+                            <div class="ExpArrow">&#9658;</div>
+                        </div>
+
                         <p class="ExpRole">Forklift Operator & General Yard Labourer</p>
                     </div>
-
-                    <div class="ExpArrow">&#9658;</div>
 
                     <div class="ExpRightText">
                         06/2022 - 09/2023
@@ -883,6 +880,16 @@
         // Update the text indicator
         indicator.innerText = (currentIndex + 1) + ' / ' + slides.length;
     }
+
+    window.addEventListener('resize', function() {
+        if (window.innerWidth <= 800) {
+            const iconDropdown = document.getElementById('NavDropdown1');
+            // If the dropdown is currently open, remove the 'show' class
+            if (iconDropdown && iconDropdown.classList.contains('show')) {
+                iconDropdown.classList.remove('show');
+            }
+        }
+    });
 
 </script>
 </body>
