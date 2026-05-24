@@ -565,6 +565,89 @@ html, body {
     background-color:whitesmoke;
 }
 
+/* The Right Column (Holds the stacked text) */
+.SkillInfo {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1; /* Takes up all remaining space to the right */
+}
+
+
+.SkillTop {
+    display: flex;
+    height: 40px;
+}
+
+.SkillDivider {
+    width: 80%; /* Keeps it from touching the absolute edges */
+    margin: 5px auto;
+    border: none;
+    border-top: 1px solid #ccc; /* Subtle grey line */
+}
+
+/* The Blue Box from your diagram */
+.SkillBottom {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    color: #555; /* Slightly softer text color for secondary info */
+    padding-bottom: 8px;
+}
+
+.SkillName {
+    flex: 1; /* Takes up exactly 50% of the vertical space */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    color: black;
+    font-size: 16px;
+    /* Optional: Adds a very subtle grey line to separate the text cleanly */
+    border-bottom: 1px solid #eee;
+}
+
+
+.SkillYears {
+    flex: 1; /* Takes up the other 50% of the vertical space */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    color: #555; /* Slightly softer color to establish hierarchy */
+}
+
+.SkillIconSmall {
+    background: black;
+    color: white;
+    width: 35px; /* Matches the 35px height for a perfect square */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+}
+
+.SkillInfoSmall {
+    display: flex;
+    flex-grow: 1;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    color: black;
+}
+
+.SkillIcon {
+    background: black;
+    color: white;
+    width: 60px; /* Fixed width so all icons line up perfectly */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+}
+
+
+
 .DivGrid {
     display: flex;
     flex-wrap: wrap;
@@ -589,6 +672,37 @@ html, body {
     width: 100%;
 }
 
+.DivItem {
+    flex: 0 1 140px;
+    height: 50px;
+    background: white;
+    color: black;
+    border: 2px solid black;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px; /* Keeps the space between your icons and text */
+    user-select: none;
+
+    /* Same hover transition as DivItem5 */
+    transition: transform 150ms ease, box-shadow 150ms ease;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.DivItem:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+    cursor: pointer;
+}
+
+/* Forces links inside these buttons to be black, overriding your inline HTML styles */
+.DivItem a {
+    color: black !important;
+    text-decoration: none;
+}
+
 .DivGrid3 {
     display: flex;
     flex-wrap: wrap;
@@ -598,72 +712,80 @@ html, body {
 }
 
 /* Tweak 3: Added 'gap: 8px;' to these items to support icons next to text */
-.DivItem3 {
-    flex: 0 1 120px;
-    height: 50px;
-    background: black;
-    color: white;
-    border: 10px black;
+.DivItem3
+{
+    flex: 0 1 180px; /* Matches the width of your other cards */
+    height: 60px;    /* Matches the height */
+    background: white;
+    color: black;
+    border: 2px solid black;
     border-radius: 8px;
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 8px; /* Tweak 3 */
+    font-weight: bold;
     user-select: none;
-    transition: transform 150ms ease;
+
+    /* Inherits the exact same hover animation as DivItem5 */
+    transition: transform 150ms ease, box-shadow 150ms ease, background-color 150ms ease, color 150ms ease;
     font-size: 16px;
 }
-
 .DivItem3:hover {
-    background-color:white;
-    color:black;
-    cursor:pointer;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+    cursor: pointer;
 }
 
+.DivItem3.active-btn {
+    background-color: black;
+    color: white;
+}
 
 .DivItem2 {
     flex: 0 1 100px;
-    height: 30px;
-    width: auto;
-    background: dimgrey;
-    color: white;
-    border: 10px black;
-    border-radius: 8px;
+    height: 35px;
+    background: white;
+    border: 2px solid black;
+    border-radius: 6px;
+
+    /* Changed to row layout to support the split color boxes */
     display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px; /* Tweak 3 */
+    flex-direction: row;
+    overflow: hidden;
+
     user-select: none;
-    transition: transform 150ms ease;
-    font-size: 16px;
+    transition: transform 150ms ease, box-shadow 150ms ease;
+    font-weight: bold;
 }
+
+/*.DivItem2 {*/
+/*    flex: 0 1 100px;*/
+/*    height: 35px; !* Noticeably smaller height *!*/
+/*    background: white;*/
+/*    color: black;*/
+/*    border: 2px solid black;*/
+/*    border-radius: 6px; !* Slightly tighter border radius for smaller items *!*/
+/*    display: flex;*/
+/*    align-items: center;*/
+/*    justify-content: center;*/
+/*    gap: 6px;*/
+/*    user-select: none;*/
+
+/*    transition: transform 150ms ease, box-shadow 150ms ease;*/
+/*    font-size: 14px; !* Smaller font size *!*/
+/*    font-weight: bold;*/
+/*}*/
 
 .DivItem2:hover {
+    transform: translateY(-2px); /* Slightly smaller lift */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.15); /* Slightly smaller shadow */
     cursor: pointer;
 }
 
-.DivItem {
-    flex: 0 1 120px;
-    height: 50px;
-    background: black;
-    color: white;
-    border: 10px black;
-    border-radius: 8px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px; /* Tweak 3 */
-    user-select: none;
-    transition: transform 150ms ease;
-    font-size: 16px;
+.DivItem2 a {
+    color: black !important;
+    text-decoration: none;
 }
-
-.DivItem:hover {
-    background-color:black;
-    color: white;
-    cursor: pointer;
-}
-
 .DivButton {
     background-color: black;
     color: white;
@@ -700,6 +822,61 @@ html, body {
 
 .ViewReverse .DivGridProject {
     justify-content: flex-end;
+}
+
+.DivItem4 {
+    flex: 0 1 180px; /* Slightly wider to fit the side-by-side layout comfortably */
+    height: 60px; /* Set a fixed height for consistency */
+    background: white;
+    border: 2px solid black;
+    border-radius: 8px;
+
+    display: flex;
+    flex-direction: row; /* Puts the Icon and Text block side-by-side */
+    overflow: hidden; /* Keeps the black icon background inside the rounded corners */
+
+    user-select: none;
+    transition: transform 150ms ease, box-shadow 150ms ease;
+}
+
+
+.DivItem4:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+    cursor: pointer;
+}
+
+/* --- NEW SINGLE-LINE SKILL CARD (DivItem5) --- */
+.DivItem5 {
+    flex: 0 1 180px; /* Matches DivItem4 width */
+    height: 60px;    /* Matches DivItem4 height */
+    background: white;
+    border: 2px solid black;
+    border-radius: 8px;
+
+    display: flex;
+    flex-direction: row;
+    overflow: hidden;
+
+    user-select: none;
+    transition: transform 150ms ease, box-shadow 150ms ease;
+}
+
+.DivItem5:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+    cursor: pointer;
+}
+
+/* The Right Column (Perfectly centered single line) */
+.SkillInfoSingle {
+    display: flex;
+    flex-grow: 1; /* Takes up all remaining space next to the icon */
+    align-items: center; /* Centers vertically */
+    justify-content: center; /* Centers horizontally */
+    font-weight: bold;
+    color: black;
+    font-size: 16px;
 }
 
 @media (max-width: 800px) {
