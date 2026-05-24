@@ -280,9 +280,11 @@ html, body {
 .ViewDefault, .DivViewExpanded {
     width: 100%;
     display: flex;
+    align-items: center; /* <--- THE MAGIC FIX */
     padding: 20px;
     box-sizing: border-box;
 }
+
 
 .ViewDefault:hover {
     background-color: #eee;
@@ -300,6 +302,7 @@ html, body {
     justify-content: center;
     align-items: flex-start;
 }
+
 
 .PTitle3 {
     text-align: left;
@@ -758,24 +761,6 @@ html, body {
     font-weight: bold;
 }
 
-/*.DivItem2 {*/
-/*    flex: 0 1 100px;*/
-/*    height: 35px; !* Noticeably smaller height *!*/
-/*    background: white;*/
-/*    color: black;*/
-/*    border: 2px solid black;*/
-/*    border-radius: 6px; !* Slightly tighter border radius for smaller items *!*/
-/*    display: flex;*/
-/*    align-items: center;*/
-/*    justify-content: center;*/
-/*    gap: 6px;*/
-/*    user-select: none;*/
-
-/*    transition: transform 150ms ease, box-shadow 150ms ease;*/
-/*    font-size: 14px; !* Smaller font size *!*/
-/*    font-weight: bold;*/
-/*}*/
-
 .DivItem2:hover {
     transform: translateY(-2px); /* Slightly smaller lift */
     box-shadow: 0 4px 8px rgba(0,0,0,0.15); /* Slightly smaller shadow */
@@ -879,6 +864,14 @@ html, body {
     font-size: 16px;
 }
 
+.ImageColumn
+{
+    display: flex;
+    align-items: center;      /* Centers the image vertically */
+    justify-content: center;  /* Centers the image horizontally */
+    height: 100%;             /* Ensures it takes up the full height of the row */
+}
+
 @media (max-width: 800px) {
     .DesktopLinks {
         display: none;
@@ -890,7 +883,8 @@ html, body {
 }
 
 @media (max-width: 700px) {
-    .ImageColumn {
+    .ImageColumn
+    {
         display: none;
     }
     .TextColumn {
