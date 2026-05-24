@@ -889,7 +889,7 @@ html, body {
     }
 }
 
-@media (max-width: 600px) {
+@media (max-width: 700px) {
     .ImageColumn {
         display: none;
     }
@@ -927,5 +927,22 @@ html, body {
 
     .ExpArrow {
         opacity: 1;
+    }
+
+    .DivItem, .DivItem3, .DivItem4, .DivItem5 {
+        /* Using a percentage forces them to shrink and fit exactly 2 in a row! */
+        flex: 0 1 46%;
+        height: 45px; /* Slightly shorter to save vertical space */
+    }
+
+    /* Shrinks the black icon boxes to perfectly match the new 45px height */
+    .SkillIcon {
+        width: 45px;
+        font-size: 18px; /* Slightly smaller emojis */
+    }
+
+    /* Scales down the text inside the buttons slightly to prevent cut-offs */
+    .SkillInfoSingle, .SkillName, .SkillYears, .DivItem {
+        font-size: 14px;
     }
 }
