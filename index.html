@@ -50,7 +50,6 @@
 
 </section>
 
-
 <section class="SectionIntroduction"></section>
 
 <main class="Main" style="padding-top:0">
@@ -1033,32 +1032,24 @@
 
 <script>
 
-    // 1. Toggles the menu when the button is clicked
-    // 1. Toggles specific menus and ensures only one is open
-    function toggleNavMenu(event, dropdownId) {
-        event.stopPropagation(); // Stops the click from triggering the window.onclick immediately
 
-        // Grab all dropdowns on the page
+    function toggleNavMenu(event, dropdownId) {
+        event.stopPropagation();
+
         const allDropdowns = document.querySelectorAll('.DropdownMenu');
 
-        // Loop through every dropdown
         allDropdowns.forEach(dropdown => {
             if (dropdown.id === dropdownId) {
-                // If this is the one we clicked, toggle it on/off
                 dropdown.classList.toggle('show');
             } else {
-                // If it's ANY other dropdown, force it to close
                 dropdown.classList.remove('show');
             }
         });
     }
 
-    // 2. Automatically closes ALL menus if you click anywhere outside of them
     window.onclick = function(event) {
-        // If the user clicked something that wasn't a DivButton or inside a DropdownMenu...
         if (!event.target.closest('.DivButton') && !event.target.closest('.DropdownMenu')) {
 
-            // Sweep through and close everything
             const allDropdowns = document.querySelectorAll('.DropdownMenu');
             allDropdowns.forEach(dropdown => {
                 dropdown.classList.remove('show');
@@ -1128,26 +1119,19 @@
         }
     }
 
-    /* --- FIX 1: New JS function for the Image Carousel --- */
     function changeSlide(event, direction) {
-        // Prevent clicking the button from also clicking the accordion header if layered
         event.stopPropagation();
 
-        // Find the specific carousel container we are currently inside
         const carousel = event.currentTarget.closest('.CarouselContainer');
         const slides = carousel.querySelectorAll('.CarouselSlide');
         const indicator = carousel.querySelector('.CarouselIndicator');
 
-        // Find which slide is currently active
         let currentIndex = Array.from(slides).findIndex(slide => slide.classList.contains('active'));
 
-        // Remove active class from current slide
         slides[currentIndex].classList.remove('active');
 
-        // Calculate new index
         currentIndex += direction;
 
-        // Loop back around if we go past the end or beginning
         if (currentIndex < 0) {
             currentIndex = slides.length - 1;
         }
@@ -1155,17 +1139,14 @@
             currentIndex = 0;
         }
 
-        // Add active class to the new slide
         slides[currentIndex].classList.add('active');
 
-        // Update the text indicator
         indicator.innerText = (currentIndex + 1) + ' / ' + slides.length;
     }
 
     window.addEventListener('resize', function() {
         if (window.innerWidth <= 800) {
             const iconDropdown = document.getElementById('NavDropdown1');
-            // If the dropdown is currently open, remove the 'show' class
             if (iconDropdown && iconDropdown.classList.contains('show')) {
                 iconDropdown.classList.remove('show');
             }

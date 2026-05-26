@@ -64,13 +64,6 @@ html, body {
     display: none;
 }
 
-/*.DivTitle {*/
-/*    display: flex;*/
-/*    align-items: center;*/
-/*    padding: 10px 20px;*/
-/*    background-color: black;*/
-/*    color: white;*/
-/*}*/
 
 .DivIcon {
     display: flex;
@@ -80,74 +73,23 @@ html, body {
     position: relative;
 }
 
-/*.DivIcon {*/
-/*    display: flex;*/
-/*    align-items: center;*/
-/*    justify-content: flex-end; !* Forces the buttons to stay on the right *!*/
-/*    padding: 10px 20px;*/
-/*    gap: 15px;*/
-
-/*    flex-grow: 1; !* MAGIC FIX: Takes up 100% of the screen minus the DivTitle! *!*/
-/*    position: relative;*/
-/*}*/
-
-/*.DivIcon {*/
-/*    display: flex;*/
-/*    align-items: center;*/
-/*    padding: 10px 20px;*/
-/*    gap: 15px;*/
-/*    position: relative; !* <--- ADD THIS LINE *!*/
-/*}*/
 
 .DropdownMenu {
     display: none;
     position: absolute;
     top: 100%;
     right: 0;
-    width: 50%; /* Takes up exactly 50% of the Desktop screen */
+    width: 50%;
     background-color: white;
     border: 2px solid black;
-    border-right: none; /* Prevents a thick double border on the right screen edge */
+    border-right: none;
     box-shadow: -4px 8px 16px rgba(0,0,0,0.2);
     z-index: 1001;
     flex-direction: column;
     box-sizing: border-box;
 }
 
-/*.DropdownMenu {*/
-/*    display: none;*/
-/*    position: absolute;*/
-/*    top: 100%;*/
-/*    right: 0;*/
-/*    width: 250px; !* A nice, standard width for Desktop viewing *!*/
-/*    background-color: white;*/
-/*    border: 2px solid black;*/
-/*    box-shadow: -4px 8px 16px rgba(0,0,0,0.2);*/
-/*    z-index: 1001;*/
-/*    flex-direction: column;*/
-/*    box-sizing: border-box;*/
-/*}*/
 
-
-/* 2. The New Dropdown Styles */
-/*.DropdownMenu {*/
-/*    display: none;*/
-/*    position: absolute;*/
-/*    top: 100%; !* Sits exactly under the Nav Bar *!*/
-/*    right: 0;  !* Snaps perfectly to the right edge of the screen *!*/
-/*    width: 50%; !* Takes up exactly 50% of the screen width *!*/
-/*    background-color: white;*/
-/*    border: 2px solid black;*/
-/*    border-right: none; !* Prevents a double border on the right edge *!*/
-/*    box-shadow: -4px 8px 16px rgba(0,0,0,0.2); !* Shadow shifted slightly to the left *!*/
-/*    z-index: 1001;*/
-/*    flex-direction: column;*/
-/*    box-sizing: border-box; !* Ensures the borders don't break the 50% width *!*/
-/*}*/
-
-/*!* Add the animation to the show class *!*/
-/*.DropdownMenu.show {*/
-/*    display: flex;*/
 .DropdownMenu.show {
     display: flex;
     animation: slideInRight 0.3s ease-out;
@@ -211,12 +153,6 @@ html, body {
     align-items: center;
 }
 
-
-/*.SectionIntroduction {*/
-/*    width: 100%;*/
-/*    background-color: black;*/
-/*    height: 700px;*/
-/*}*/
 
 .Main {
     align-content: center;
@@ -475,15 +411,20 @@ html, body {
     flex-direction: column;
     text-align: left;
     flex-grow: 1;
+
+    /* THE FIXES */
+    min-width: 0; /* Forces long text to wrap inside its boundaries */
+    padding-right: 15px; /* Adds a buffer so the arrow never touches the date */
 }
 
-.ExpTitleRow
-{
+.ExpTitleRow {
     display: flex;
-    align-items: center; /* Keeps the arrow vertically centered with the text */
-    gap: 10px; /* Adds space between the company name and the arrow */
+    align-items: flex-start; /* Aligns the arrow with the top line of wrapped text */
+    gap: 10px;
     margin-bottom: 5px;
 }
+
+
 
 .ExpTitle {
     margin: 0;
@@ -503,9 +444,11 @@ html, body {
     color: #333;
     opacity: 0;
     transition: transform 0.3s ease, opacity 0.3s ease;
-    /* Removed margin-right so it sits tight against the title */
-}
 
+    /* THE FIXES */
+    flex-shrink: 0; /* Stops the arrow from getting squished into an oval */
+    margin-top: 2px; /* Nudges the arrow down to perfectly align with the text */
+}
 
 
 .DivBar2:hover .ExpArrow {
@@ -637,6 +580,11 @@ html, body {
     justify-content: center;
     font-size: 14px;
     color: black;
+
+    /* THE FIXES */
+    text-align: center; /* Centers the text when it wraps to two lines */
+    line-height: 1.1; /* Keeps multi-line text snug and neat */
+    padding: 5px; /* Gives the text a little breathing room from the edges */
 }
 
 .SkillIcon {
@@ -746,20 +694,23 @@ html, body {
 
 .DivItem2 {
     flex: 0 1 100px;
-    height: 35px;
+
+    /* THE FIX: Changed from height to min-height so it expands vertically if needed */
+    min-height: 35px;
+    height: auto;
+
     background: white;
     border: 2px solid black;
     border-radius: 6px;
-
-    /* Changed to row layout to support the split color boxes */
     display: flex;
     flex-direction: row;
     overflow: hidden;
-
     user-select: none;
     transition: transform 150ms ease, box-shadow 150ms ease;
     font-weight: bold;
 }
+
+
 
 .DivItem2:hover {
     transform: translateY(-2px); /* Slightly smaller lift */
@@ -871,6 +822,8 @@ html, body {
     justify-content: center;  /* Centers the image horizontally */
     height: 100%;             /* Ensures it takes up the full height of the row */
 }
+
+
 
 @media (max-width: 800px) {
     .DesktopLinks {
