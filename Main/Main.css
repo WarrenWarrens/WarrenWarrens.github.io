@@ -141,16 +141,51 @@ html, body {
 
 .SectionIntroduction {
     width: 100%;
-    background-color: black;
-
-    /* REMOVED: height: 700px; */
-    /* ADDED: Takes up 100% of screen height minus an estimated 60px for the Nav Bar */
+    /* Changed from black to transparent so the black is only on the grid */
+    background-color: transparent;
     min-height: calc(100vh - 60px);
-
-    /* Optional: Flexbox to perfectly center whatever text/image you eventually put in here */
     display: flex;
-    justify-content: center;
-    align-items: center;
+    flex-direction: column;
+
+    /*width: 100%;*/
+    /*background-color: black;*/
+
+    /*!* REMOVED: height: 700px; *!*/
+    /*!* ADDED: Takes up 100% of screen height minus an estimated 60px for the Nav Bar *!*/
+    /*min-height: calc(100vh - 60px);*/
+
+    /*!* Optional: Flexbox to perfectly center whatever text/image you eventually put in here *!*/
+    /*display: flex;*/
+    /*justify-content: center;*/
+    /*align-items: center;*/
+}
+
+.intro-purple-bar {
+    width: 100%;
+    height: 120px; /* Adjust height to your liking */
+    background-color: mediumpurple;
+    color: white;
+    text-decoration-color: white;
+}
+
+.intro-grid {
+    display: grid;
+    width: 100%;
+    background-color: black;
+    /* padding creates the outer black border; gap creates the inner lines */
+    padding: 15px;
+    gap: 15px;
+    box-sizing: border-box;
+    flex-grow: 1; /* Makes the grid stretch to fill the rest of the section height */
+
+    /* -- MOBILE DEFAULT (Stacked Layout) -- */
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 2fr 2fr 1fr; /* Adjusting proportions to match your drawing */
+    grid-template-areas:
+        "box-pink-small box-orange"
+        "box-green box-green"
+        "box-pink-large box-pink-large"
+        "box-blue box-blue";
 }
 
 
@@ -823,6 +858,51 @@ html, body {
     height: 100%;             /* Ensures it takes up the full height of the row */
 }
 
+.intro-grid {
+    display: grid;
+    width: 100%;
+    background-color: black;
+    /* padding creates the outer black border; gap creates the inner lines */
+    padding: 15px;
+    gap: 15px;
+    box-sizing: border-box;
+    flex-grow: 1;
+
+    grid-template-columns: 3.5fr 2fr 3fr 2fr;
+    grid-template-rows: 1fr 1fr;
+    grid-template-areas:
+        "box-pink-large box-pink-small box-green box-green"
+        "box-pink-large box-blue box-blue box-orange";
+}
+
+.intro-box {
+    width: 100%;
+    height: 100%;
+    min-height: 80px; /* Prevents boxes from collapsing entirely if empty */
+}
+
+/* Colors mapped from your mockup */
+.box-pink-small {
+    grid-area: box-pink-small;
+    background-color: #e63964;
+}
+.box-orange {
+    grid-area: box-orange;
+    background-color: #f18734;
+}
+.box-green {
+    grid-area: box-green;
+    background-color: #a6f29e;
+}
+.box-pink-large {
+    grid-area: box-pink-large;
+    background-color: #e63964;
+}
+.box-blue {
+    grid-area: box-blue;
+    background-color: #2b00ff;
+}
+
 
 
 @media (max-width: 800px) {
@@ -892,4 +972,19 @@ html, body {
     .SkillInfoSingle, .SkillName, .SkillYears, .DivItem {
         font-size: 14px;
     }
+
+    .intro-grid {
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr 2fr 2fr 1fr;
+        grid-template-areas:
+            "box-pink-small box-orange"
+            "box-green box-green"
+            "box-pink-large box-pink-large"
+            "box-blue box-blue";
+    }
+
+
 }
+
+
+
