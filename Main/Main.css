@@ -106,6 +106,17 @@ html, body {
     }
 }
 
+@keyframes slideInTop {
+    from {
+        transform: translateY(-5px); /* Starts slightly tucked up */
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0); /* Settles into its natural absolute position */
+        opacity: 1;
+    }
+}
+
 /*@keyframes slideInRight {*/
 /*    from {*/
 /*        transform: translateX(100%);*/
@@ -973,15 +984,30 @@ html, body {
         font-size: 14px;
     }
 
+
     .intro-grid {
         grid-template-columns: 1fr 1fr;
-        grid-template-rows: 1fr 2fr 2fr 1fr;
+        /* Adjusted rows so the 3rd row is short (blue) and 4th is tall (pink) */
+        grid-template-rows: 1fr 2fr 1fr 2fr;
         grid-template-areas:
             "box-pink-small box-orange"
             "box-green box-green"
-            "box-pink-large box-pink-large"
-            "box-blue box-blue";
+            "box-blue box-blue"
+            "box-pink-large box-pink-large";
     }
+
+    .DropdownMenu {
+        width: 100%;
+        border-right: 2px solid black;
+        /* This tucks the menu behind the white nav bar during the slide */
+        z-index: -1;
+    }
+
+    .DropdownMenu.show {
+        animation: slideInTop 0.1s ease-out;
+    }
+
+
 
 
 }
