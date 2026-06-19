@@ -31,7 +31,7 @@ html, body {
     padding: 10px 30px 10px 20px;
     background-color: black;
     color: white;
-    border-radius: 0 25px 25px 0; /* Creates the curved right edge */
+    border-radius: 0 15px 15px 0; /* Creates the curved right edge */
 }
 
 .DesktopLinks {
@@ -108,7 +108,7 @@ html, body {
 
 @keyframes slideInTop {
     from {
-        transform: translateY(-5px); /* Starts slightly tucked up */
+        transform: translateY(0px); /* Starts slightly tucked up */
         opacity: 0;
     }
     to {
@@ -174,7 +174,7 @@ html, body {
 .intro-purple-bar {
     width: 100%;
     height: 120px; /* Adjust height to your liking */
-    background-color: mediumpurple;
+    background-color: black;
     color: white;
     text-decoration-color: white;
 }
@@ -895,23 +895,23 @@ html, body {
 /* Colors mapped from your mockup */
 .box-pink-small {
     grid-area: box-pink-small;
-    background-color: #e63964;
+    background-color: #f1d217;
 }
 .box-orange {
     grid-area: box-orange;
-    background-color: #f18734;
+    background-color: #edb926;
 }
 .box-green {
     grid-area: box-green;
-    background-color: #a6f29e;
+    background-color: #444444;
 }
 .box-pink-large {
     grid-area: box-pink-large;
-    background-color: #e63964;
+    background-color: #f1d217;
 }
 .box-blue {
     grid-area: box-blue;
-    background-color: #2b00ff;
+    background-color: #444444;
 }
 
 
