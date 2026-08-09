@@ -8,8 +8,9 @@ body, html {
 /* Base Desktop Layout (Left side of image_930055.png) */
 .Main {
     display: flex;
-    height: auto;
+    height: 100vh;
     position: relative;
+    overflow: hidden;
 }
 
 .SectionLeft {
@@ -27,22 +28,22 @@ body, html {
     background-color: black; /* Standard blue */
     flex-grow: 1; /* Takes up the remaining space */
     height: 100%;
-    padding-top: 100px;
-    display:grid;
+    padding-top:80px;
+    display:block;
+    overflow-y:auto;
 }
 
 .DivGrid
 {
     flex-grow: 1;
-    height: 100%;
-
+    height: auto;
+    margin-bottom: 40px;
     display: grid;
     grid-template-columns: repeat(2,1fr);
     gap: 20px;
     padding:20px;
     box-sizing:border-box;
     align-content: start;
-    overflow-y:auto;
 
 }
 
@@ -100,6 +101,32 @@ body, html {
     display: none;
 }
 
+.DivSpace
+{
+    width: 100%;
+    height:150px;
+}
+
+.AGuide
+{
+    color: lightgray;
+}
+
+.AGuide:hover
+{
+    color:red;
+}
+
+.ALink
+{
+    text-decoration:none;
+    color:white;
+}
+.ALink:hover
+{
+    color:red;
+}
+
 /* Mobile Layout (Right side of image_930055.png) */
 @media (max-width: 768px) {
     /* Hide the red panel by default on mobile */
@@ -121,6 +148,7 @@ body, html {
     /* Blue div takes full width on mobile */
     .SectionRight {
         width: 100vw;
+        padding-top: 40px;
     }
 
     /* Style and position the green button */
@@ -142,13 +170,17 @@ body, html {
 
     .DivContact
     {
-        padding-bottom: 100px;
-        transform: translateY(-40%);
+        bottom: 90px;
     }
 
     .DivGrid
     {
         grid-template-columns: 1fr;
+    }
+
+    body.no-scroll
+    {
+        overflow: hidden;
     }
 
 
