@@ -83,7 +83,7 @@ body, html {
 
 .DivGridItem
 {
-    background-color: rgba(255,255,255,0.8);
+    /*background-color: rgba(255,255,255,0.8);*/
     height:auto;
     border-radius:10px;
 
@@ -248,41 +248,18 @@ body, html {
 
 
 
-
-
-/* Container holding both status boxes */
-.status-container {
-    display: flex;
-    flex-direction: row;
-    gap: 20px;
-    margin: 40px 0; /* Adjust to match the spacing around your divGrids */
-    padding: 20px;
-    background-color: #1e1e1e; /* Adjust to match your Metal Yokel theme */
-    border-radius: 8px;
-    color: #ffffff;
-}
-
-/* Individual sections */
-.status-box {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
-
-.status-box h4 {
-    margin-top: 0;
-    margin-bottom: 10px;
-    font-size: 1.1rem;
-    color: #4da6ff; /* A nice accent color, adjust as needed */
-}
-
 /* Specific styling for the live time */
 .DivTime {
     font-family: monospace; /* Gives a nice digital clock feel */
     font-size: 1.2rem;
     font-weight: bold;
     color: whitesmoke;
+}
+
+.PIntro
+{
+    color: white;
+    font-size: 20px;
 }
 
 
