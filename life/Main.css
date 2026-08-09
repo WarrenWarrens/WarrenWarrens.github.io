@@ -36,6 +36,28 @@ body, html {
     padding-top:80px;
     display:block;
     overflow-y:auto;
+    scrollbar-width: thin; /* Makes the scrollbar thinner */
+    scrollbar-color: rgba(255, 255, 255, 0.5) transparent; /* Thumb color (white at 50% opacity), Track color (transparent) */
+    scroll-behavior: smooth; /* Makes anchor link jumps smooth instead of instant */
+}
+
+/* 2. WebKit (Chrome, Edge, Safari) Scrollbar Styling */
+.SectionRight::-webkit-scrollbar {
+    width: 8px; /* Width of the vertical scrollbar */
+}
+
+.SectionRight::-webkit-scrollbar-track {
+    background: transparent; /* Removes the background track entirely */
+}
+
+.SectionRight::-webkit-scrollbar-thumb {
+    background-color: rgba(255, 255, 255, 0.5); /* A softer, contrasting white */
+    border-radius: 10px; /* Gives the scrollbar smooth, rounded edges */
+}
+
+/* Optional: Make the scrollbar slightly brighter when hovered */
+.SectionRight::-webkit-scrollbar-thumb:hover {
+    background-color: rgba(255, 255, 255, 0.8);
 }
 
 .DivBottom
@@ -76,13 +98,44 @@ body, html {
 }
 
 .DivIcon {
-    background-color: lightgray;
+    background-color: #333; /* Darkened from lightgray to contrast the white text/icon */
     position: absolute;
-    top: 20px; /* Anchored to the top */
+    top: 20px;
     left: 20px;
-    right: 20px; /* Left/Right creates the red border look */
+    right: 20px;
     height: 80px;
-    z-index: 10; /* Keeps it above the pink div */
+    z-index: 10;
+
+    /* NEW: Flexbox properties */
+    display: flex;
+    align-items: center; /* Vertically centers the image and text */
+    gap: 15px; /* Adds space between the image and text */
+    padding: 0 15px; /* Adds breathing room on the left and right */
+    box-sizing: border-box; /* Keeps padding inside the set width */
+    border-radius: 8px; /* Optional: smooths the corners of the box */
+}
+
+.DivIconImage {
+    width: 50px;
+    height: 50px;
+    flex-shrink: 0; /* Prevents the image container from squishing */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Ensures the SVG placeholder fills its container */
+.DivIconImage svg {
+    width: 100%;
+    height: 100%;
+}
+
+/* Styling for the right text container */
+.DivIconText {
+    color: #ffffff; /* Contrasting white text */
+    font-weight: bold;
+    font-size: 1.2rem;
+    font-family: sans-serif;
 }
 
 .DivGuide {
@@ -157,6 +210,94 @@ body, html {
     width:100%;
     height:auto;
 }
+
+.DivDivide2
+{
+    width:100%;
+    display: flex;
+    align-items: center; /* Vertically centers the image and text */
+    gap: 15px; /* Adds space between the image and text */
+    padding: 0 15px; /* Adds breathing room on the left and right */
+    box-sizing: border-box; /* Keeps padding inside the set width */
+    border-radius: 8px; /* Optional: smooths the corners of the box */
+}
+
+/* The Parent Container */
+.DivDualWrapper {
+    display: flex;
+    flex-direction: row; /* Aligns children side-by-side */
+    gap: 20px; /* Adds space between the two divs */
+    align-items: flex-start; /* Keeps items at the top rather than stretching their heights */
+}
+
+.DivIntro
+{
+    width:100%;
+    height:auto;
+    padding: 15px;
+}
+/* The Child Divs */
+.DivDual {
+    width: auto; /* As requested, size is dictated by the content */
+    background-color: #333; /* Dark background to see the boxes */
+    color: white;
+    padding: 15px;
+    border-radius: 8px;
+    border: 1px solid #555;
+}
+
+/* The Breakpoint for Stacking */
+@media (max-width: 768px) {
+    .DivDualWrapper {
+        flex-direction: column; /* Swaps the layout from side-by-side to vertical */
+        align-items: flex-start; /* CRITICAL: This prevents the divs from stretching to 100% width when stacked, preserving 'width: auto' */
+    }
+}
+
+
+
+/* Container holding both status boxes */
+.status-container {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    margin: 40px 0; /* Adjust to match the spacing around your divGrids */
+    padding: 20px;
+    background-color: #1e1e1e; /* Adjust to match your Metal Yokel theme */
+    border-radius: 8px;
+    color: #ffffff;
+}
+
+/* Individual sections */
+.status-box {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.status-box h4 {
+    margin-top: 0;
+    margin-bottom: 10px;
+    font-size: 1.1rem;
+    color: #4da6ff; /* A nice accent color, adjust as needed */
+}
+
+/* Specific styling for the live time */
+.DivTime {
+    font-family: monospace; /* Gives a nice digital clock feel */
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: whitesmoke;
+}
+
+/* Responsive layout for mobile devices */
+@media (max-width: 600px) {
+    .status-container {
+        flex-direction: column;
+    }
+}
+
 
 /* Mobile Layout (Right side of image_930055.png) */
 @media (max-width: 768px) {
