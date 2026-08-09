@@ -5,6 +5,11 @@ body, html {
     height: 100%;
 }
 
+/*#f7f7f8*/
+/*#272930*/
+/*#202127*/
+/*#191a1e*/
+/*#121215*/
 /* Base Desktop Layout (Left side of image_930055.png) */
 .Main {
     display: flex;
@@ -14,7 +19,7 @@ body, html {
 }
 
 .SectionLeft {
-    background-color: black;
+    background-color: #191a1e;
     width: 300px; /* Use a fixed pixel value instead of vw */
     flex-shrink: 0; /* Forces Flexbox to never shrink this element */
     height: 100%;
@@ -25,12 +30,19 @@ body, html {
 
 
 .SectionRight {
-    background-color: black; /* Standard blue */
+    background-color: #191a1e; /* Standard blue */
     flex-grow: 1; /* Takes up the remaining space */
     height: 100%;
     padding-top:80px;
     display:block;
     overflow-y:auto;
+}
+
+.DivBottom
+{
+    height:400px;
+    width:100%;
+    background-color: #121215;
 }
 
 .DivGrid
@@ -74,7 +86,6 @@ body, html {
 }
 
 .DivGuide {
-    background-color: grey;
     position: absolute;
     top: 120px; /* Anchored below the yellow div (20px top + 80px yellow + 20px gap) */
     left: 20px;
@@ -85,7 +96,6 @@ body, html {
 }
 
 .DivContact {
-    background-color: darkgrey;
     position: absolute;
     bottom: 20px; /* Anchored to the bottom */
     left: 20px;
@@ -110,21 +120,27 @@ body, html {
 .AGuide
 {
     color: lightgray;
+    text-decoration:none;
 }
 
 .AGuide:hover
 {
-    color:red;
+    color:whitesmoke;
 }
 
 .ALink
 {
     text-decoration:none;
-    color:white;
+    color:lightgray;
 }
 .ALink:hover
 {
-    color:red;
+    color:whitesmoke;
+}
+
+#GuideHome
+{
+    color:white;
 }
 
 /* Mobile Layout (Right side of image_930055.png) */
@@ -154,7 +170,7 @@ body, html {
     /* Style and position the green button */
     .DivMenu {
         display: block;
-        background-color: black;
+        background-color: #191a1e;
         position: fixed;
         bottom: 30px; /* Placed at the bottom */
         left: 50%;
