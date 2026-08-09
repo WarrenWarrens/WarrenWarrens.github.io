@@ -111,11 +111,6 @@ body, html {
     display: none;
 }
 
-.DivSpace
-{
-    width: 100%;
-    height:150px;
-}
 
 .AGuide
 {
@@ -141,6 +136,26 @@ body, html {
 #GuideHome
 {
     color:white;
+}
+
+.PTitle
+{
+    color:white;
+    font-size:30px;
+}
+
+.PText
+{
+    color:lightgrey;
+    font-size:18px;
+}
+
+.DivDivide
+{
+    gap: 20px;
+    padding:20px;
+    width:100%;
+    height:auto;
 }
 
 /* Mobile Layout (Right side of image_930055.png) */
