@@ -1,0 +1,1173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio</title>
+    <link rel="stylesheet" href="Main.css">
+</head>
+<body>
+
+
+<section class="SectionNav">
+    <div class="NavLeftGroup">
+        <div class="DivTitle">
+            RW
+        </div>
+
+        <div class="DesktopLinks">
+            <a href="#ProjectsSection" class="DesktopBtn">Projects</a>
+            <a href="#ExperienceSection" class="DesktopBtn">Experience</a>
+            <a href="#ContactSection" class="DesktopBtn">Contact</a>
+        </div>
+    </div>
+
+    <div class="DivIcon">
+        <button class="DivButton" onclick="toggleNavMenu(event, 'NavDropdown1')" id="IconButton">Guide</button>
+        <button class="DivButton" onclick="toggleNavMenu(event, 'NavDropdown2')">Gear</button>
+    </div>
+
+    <div id="NavDropdown1" class="DropdownMenu">
+        <a href="#ProjectsSection">Projects</a>
+        <a href="#EducationSection">Education</a>
+        <a href="#ExperienceSection">Experience</a>
+        <a href="#SkillsSection">Skills</a>
+        <a href="#ContactSection">Contact</a>
+        <!--        Guide-->
+    </div>
+
+    <div id="NavDropdown2" class="DropdownMenu">
+<!--        Settings-->
+        <a href="#ProjectsSection">Language</a>
+        <a href="#ExperienceSection">Font Size</a>
+        <a href="#ContactSection">Theme</a>
+        <a href="#ContactSection">Contrast</a>
+        <a href="#ContactSection">Colourblind</a>
+        <a href="#ContactSection">Reduce Animations</a>
+        <a href="#ContactSection">Force Mobile</a>
+    </div>
+
+</section>
+<section class="SectionIntroduction">
+    <div class="intro-purple-bar">Style and shit</div>
+
+    <div class="intro-grid">
+        <div class="intro-box box-pink-small">Me Img</div>
+        <div class="intro-box box-orange">Status</div>
+        <div class="intro-box box-green">Bio</div>
+        <div class="intro-box box-pink-large">BG</div>
+        <div class="intro-box box-blue">Bio 2</div>
+    </div>
+</section>
+<!--<section class="SectionIntroduction"></section>-->
+
+<main class="Main" style="padding-top:0">
+    <section class="Section1" id="ProjectsSection" style="padding-top:0">
+        <div class="DivBarTitle">
+            <div class="DivTitle2">
+                Projects
+            </div>
+        </div>
+
+        <div class="DivBar">
+            <div class="DivBar2" onclick="toggle(this)">
+                <div class="ViewDefault">
+                    <div class="DivFloat ImageColumn">
+                        <div class="DivProjectContentImage"></div>
+                    </div>
+
+                    <div class="DivFloat TextColumn">
+                        <p class="PTitle3">FLIC: Feedback for Live Interactive Coding</p>
+                        <p class="PText3">Firefox extension and website, that allows professors to stream
+                            their screen to an audience via room code. Viewers can interact with the stream, by placing markers and comments on the screen
+                            that appear in the exact same position on the professors screen.</p>
+
+                        <div class="DivGridProject">
+                            <div class="DivItem2">
+                                <div class="SkillIconSmall">🟨</div>
+                                <div class="SkillInfoSmall">JS</div>
+                            </div>
+                            <div class="DivItem2">
+                                <div class="SkillIconSmall">🌐</div>
+                                <div class="SkillInfoSmall">HTML</div>
+                            </div>
+                            <div class="DivItem2">
+                                <div class="SkillIconSmall">🎨</div>
+                                <div class="SkillInfoSmall">CSS</div>
+                            </div>
+                        </div>
+
+                        <div class="DivGridProject">
+                            <div class="DivItem5">
+                                <div class="SkillIcon">🐙</div>
+                                <a href="https://github.com/WarrenWarrens/VingtUn" target="_blank" class="SkillInfoSingle" style="text-decoration: none; color: black;">GitHub</a>
+                            </div>
+                            <div class="DivItem5">
+                                <div class="SkillIcon">🔗</div>
+                                <a href="NEWTEST/newtest.html" class="SkillInfoSingle" style="text-decoration: none; color: black;">Link</a>
+                            </div>
+                            <div class="DivItem5">
+                                <div class="SkillIcon">📄</div>
+                                <a href="NEWTEST/newtest.html" class="SkillInfoSingle" style="text-decoration: none; color: black;">Paper</a>
+                            </div>
+                            <div class="DivItem5">
+                                <div class="SkillIcon">🎥</div>
+                                <a href="NEWTEST/newtest.html" class="SkillInfoSingle" style="text-decoration: none; color: black;">Video</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="DivViewExpanded">
+                    <div class="ExpandedTitle">FLIC</div>
+                </div>
+            </div>
+
+            <div class="DivExpand">
+                <div class="DivProjectContent">
+
+                    <div class="CarouselContainer">
+                        <button class="CarouselBtn Left" onclick="changeSlide(event, -1)">&#10094;</button>
+
+                        <div class="CarouselSlide active" style="background-color: darkgrey;">Slide 1 Placeholder</div>
+                        <div class="CarouselSlide" style="background-color: slategrey;">Slide 2 Placeholder</div>
+                        <div class="CarouselSlide" style="background-color: dimgrey;">Slide 3 Placeholder</div>
+
+                        <button class="CarouselBtn Right" onclick="changeSlide(event, 1)">&#10095;</button>
+                        <div class="CarouselIndicator">1 / 3</div>
+                    </div>
+                    <div class="DivProjectContent2">
+                        <p class="PText2">Created as my Honours Thesis project at Ontario Tech and supervised by Dr.
+                            Eric Rapos & Dr. Michael Miljanovic. FLIC aims to bridge the gap of communication between professors
+                            & students during CS lectures, by allowing precise, anonomyous and direct communication via markers that
+                            signal different intentions or comments precisely on a professors screen.
+                        </p>
+                    </div>
+                    <div class="DivProjectContent2">
+                        <p class="PText2">Key Features</p>
+                        <ul class="PText2 Ul2">
+                            <li>Score ceiling that increments downwards</li>
+                            <li>Card animations</li>
+                            <li>Economy that rewards scoring at or just under the ceiling.</li>
+                            <li>In game store to purchase cards</li>
+                        </ul>
+                    </div>
+                    <div class="DivProjectContent2">
+                        <p class="PText2">Links</p>
+                        <div class="DivGrid sortable-grid" style="justify-content:flex-start">
+                            <div class="DivItem5">
+                                <div class="SkillIcon">🐙</div>
+                                <a href="https://github.com/WarrenWarrens/VingtUn" target="_blank" class="SkillInfoSingle" style="text-decoration: none; color: black;">GitHub</a>
+                            </div>
+                            <div class="DivItem5">
+                                <div class="SkillIcon">🔗</div>
+                                <a href="NEWTEST/newtest.html" class="SkillInfoSingle" style="text-decoration: none; color: black;">Link</a>
+                            </div>
+                            <div class="DivItem5">
+                                <div class="SkillIcon">📄</div>
+                                <a href="NEWTEST/newtest.html" class="SkillInfoSingle" style="text-decoration: none; color: black;">Paper</a>
+                            </div>
+                            <div class="DivItem5">
+                                <div class="SkillIcon">🎥</div>
+                                <a href="NEWTEST/newtest.html" class="SkillInfoSingle" style="text-decoration: none; color: black;">Video</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="DivBar">
+            <div class="DivBar2" onclick="toggle(this)">
+                <div class="ViewDefault ViewReverse">
+                    <div class="DivFloat ImageColumn">
+                        <div class="DivProjectContentImage"></div>
+                    </div>
+
+                    <div class="DivFloat TextColumn">
+                        <p class="PTitle3">Vingt-Un</p>
+                        <p class="PText3">Rougelike deck building card game with blackjack rules and a score ceiling that creeps lower and lower</p>
+
+                        <div class="DivGridProject">
+                            <div class="DivItem2">
+                                <div class="SkillIconSmall">🟨</div>
+                                <div class="SkillInfoSmall">Godot4</div>
+                            </div>
+                            <div class="DivItem2">
+                                <div class="SkillIconSmall">🟨</div>
+                                <div class="SkillInfoSmall">G#</div>
+                            </div>
+                            <div class="DivItem2">
+                                <div class="SkillIconSmall">🟨</div>
+                                <div class="SkillInfoSmall">Game Dev.</div>
+                            </div>
+                        </div>
+
+                        <div class="DivGridProject">
+                            <div class="DivItem5">
+                                <div class="SkillIcon">🐙</div>
+                                <a href="https://github.com/WarrenWarrens/VingtUn" target="_blank" class="SkillInfoSingle" style="text-decoration: none; color: black;">GitHub</a>
+                            </div>
+                            <div class="DivItem5">
+                                <div class="SkillIcon">🐙</div>
+                                <a href="https://github.com/WarrenWarrens/VingtUn" target="_blank" class="SkillInfoSingle" style="text-decoration: none; color: black;">Video</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="DivViewExpanded">
+                    <div class="ExpandedTitle">Vingt-Un</div>
+                </div>
+            </div>
+
+            <div class="DivExpand">
+                <div class="DivProjectContent">
+
+                    <div class="CarouselContainer">
+                        <button class="CarouselBtn Left" onclick="changeSlide(event, -1)">&#10094;</button>
+
+                        <div class="CarouselSlide active" style="background-color: darkgrey;">Slide 1 Placeholder</div>
+                        <div class="CarouselSlide" style="background-color: slategrey;">Slide 2 Placeholder</div>
+                        <div class="CarouselSlide" style="background-color: dimgrey;">Slide 3 Placeholder</div>
+
+                        <button class="CarouselBtn Right" onclick="changeSlide(event, 1)">&#10095;</button>
+                        <div class="CarouselIndicator">1 / 3</div>
+                    </div>
+                    <div class="DivProjectContent2">
+                        <p class="PText2">Vingt-Un is a simple rougelike deckbuilder video game, ran using the Godot 4 engine.</p>
+                    </div>
+                    <div class="DivProjectContent2">
+                        <p class="PText2">Key Features</p>
+                        <ul class="PText2 Ul2">
+                            <li>Score ceiling that increments downwards</li>
+                            <li>Card animations</li>
+                            <li>Economy that rewards scoring at or just under the ceiling.</li>
+                            <li>In game store to purchase cards</li>
+                        </ul>
+                    </div>
+                    <div class="DivProjectContent2">
+                        <p class="PText2">Links</p>
+                        <div class="DivGrid sortable-grid" style="justify-content:flex-start">
+                            <div class="DivItem5">
+                                <div class="SkillIcon">🐙</div>
+                                <a href="https://github.com/WarrenWarrens/VingtUn" target="_blank" class="SkillInfoSingle" style="text-decoration:none; color:black;">GitHub</a>
+                            </div>
+                            <div class="DivItem5">
+                                <div class="SkillIcon">🔗</div>
+                                <a href="NEWTEST/newtest.html" class="SkillInfoSingle" style="text-decoration:none; color:black;">Video</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="DivBar">
+            <div class="DivBar2" onclick="toggle(this)">
+                <div class="ViewDefault">
+                    <div class="DivFloat ImageColumn">
+                        <div class="DivProjectContentImage"></div>
+                    </div>
+
+                    <div class="DivFloat TextColumn">
+                        <p class="PTitle3">Lingua Lore</p>
+                        <p class="PText3">Rougelike deck building card game with blackjack rules and a score ceiling that creeps lower and lower</p>
+                        <div class="DivGridProject">
+                            <div class="DivItem2">
+                                <div class="SkillIconSmall">🟨</div>
+                                <div class="SkillInfoSmall">Dart</div>
+                            </div>
+                            <div class="DivItem2">
+                                <div class="SkillIconSmall">🟨</div>
+                                <div class="SkillInfoSmall">Flutter</div>
+                            </div>
+                            <div class="DivItem2">
+                                <div class="SkillIconSmall">🟨</div>
+                                <div class="SkillInfoSmall">LLM</div>
+                            </div>
+                            <div class="DivItem2">
+                                <div class="SkillIconSmall">🟨</div>
+                                <div class="SkillInfoSmall">Firebase</div>
+                            </div>
+                        </div>
+
+                        <div class="DivGridProject">
+                            <div class="DivItem5">
+                                <div class="SkillIcon">🐙</div>
+                                <a href="https://github.com/WarrenWarrens/VingtUn" target="_blank" class="SkillInfoSingle" style="text-decoration: none; color: black;">GitHub</a>
+                            </div>
+                            <div class="DivItem5">
+                                <div class="SkillIcon">🐙</div>
+                                <a href="https://github.com/WarrenWarrens/VingtUn" target="_blank" class="SkillInfoSingle" style="text-decoration: none; color: black;">Video</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="DivViewExpanded">
+                    <div class="ExpandedTitle">Lingua Lore</div>
+                </div>
+            </div>
+
+            <div class="DivExpand">
+                <div class="DivProjectContent">
+
+                    <div class="CarouselContainer">
+                        <button class="CarouselBtn Left" onclick="changeSlide(event, -1)">&#10094;</button>
+
+                        <div class="CarouselSlide active" style="background-color: darkgrey;">Slide 1 Placeholder</div>
+                        <div class="CarouselSlide" style="background-color: slategrey;">Slide 2 Placeholder</div>
+                        <div class="CarouselSlide" style="background-color: dimgrey;">Slide 3 Placeholder</div>
+
+                        <button class="CarouselBtn Right" onclick="changeSlide(event, 1)">&#10095;</button>
+                        <div class="CarouselIndicator">1 / 3</div>
+                    </div>
+                    <div class="DivProjectContent2">
+                        <p class="PText2">Vingt-Un is a simple rougelike deckbuilder video game, ran using the Godot 4 engine.</p>
+                    </div>
+                    <div class="DivProjectContent2">
+                        <p class="PText2">Key Features</p>
+                        <ul class="PText2 Ul2">
+                            <li>Score ceiling that increments downwards</li>
+                            <li>Card animations</li>
+                            <li>Economy that rewards scoring at or just under the ceiling.</li>
+                            <li>In game store to purchase cards</li>
+                        </ul>
+                    </div>
+                    <div class="DivProjectContent2">
+                        <p class="PText2">Links</p>
+                        <div class="DivGrid sortable-grid" style="justify-content:flex-start">
+                            <div class="DivItem5">
+                                <div class="SkillIcon">🐙</div>
+                                <a href="https://github.com/WarrenWarrens/VingtUn" target="_blank" class="SkillInfoSingle" style="text-decoration:none; color:black;">GitHub</a>
+                            </div>
+                            <div class="DivItem5">
+                                <div class="SkillIcon">🔗</div>
+                                <a href="NEWTEST/newtest.html" class="SkillInfoSingle" style="text-decoration:none; color:black;">Video</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="DivBar">
+            <div class="DivBar2" onclick="toggle(this)">
+                <div class="ViewDefault ViewReverse">
+                    <div class="DivFloat ImageColumn">
+                        <div class="DivProjectContentImage"></div>
+                    </div>
+
+                    <div class="DivFloat TextColumn">
+                        <p class="PTitle3">Local Link</p>
+                        <p class="PText3">Rougelike deck building card game with blackjack rules and a score ceiling that creeps lower and lower</p>
+                        <div class="DivGridProject">
+                            <div class="DivItem2">
+                                <div class="SkillIconSmall">🟨</div>
+                                <div class="SkillInfoSmall">Flutter</div>
+                            </div>
+                            <div class="DivItem2">
+                                <div class="SkillIconSmall">🟨</div>
+                                <div class="SkillInfoSmall">Dart</div>
+                            </div>
+                            <div class="DivItem2">
+                                <div class="SkillIconSmall">🟨</div>
+                                <div class="SkillInfoSmall">Map</div>
+                            </div>
+                            <div class="DivItem2">
+                                <div class="SkillIconSmall">🟨</div>
+                                <div class="SkillInfoSmall">Firebase</div>
+                            </div>
+                        </div>
+
+                        <div class="DivGridProject">
+                            <div class="DivItem5">
+                                <div class="SkillIcon">🐙</div>
+                                <a href="https://github.com/WarrenWarrens/VingtUn" target="_blank" class="SkillInfoSingle" style="text-decoration: none; color: black;">GitHub</a>
+                            </div>
+                            <div class="DivItem5">
+                                <div class="SkillIcon">🐙</div>
+                                <a href="https://github.com/WarrenWarrens/VingtUn" target="_blank" class="SkillInfoSingle" style="text-decoration: none; color: black;">Video</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="DivViewExpanded">
+                    <div class="ExpandedTitle">Local Link</div>
+                </div>
+            </div>
+
+            <div class="DivExpand">
+                <div class="DivProjectContent">
+
+                    <div class="CarouselContainer">
+                        <button class="CarouselBtn Left" onclick="changeSlide(event, -1)">&#10094;</button>
+
+                        <div class="CarouselSlide active" style="background-color: darkgrey;">Slide 1 Placeholder</div>
+                        <div class="CarouselSlide" style="background-color: slategrey;">Slide 2 Placeholder</div>
+                        <div class="CarouselSlide" style="background-color: dimgrey;">Slide 3 Placeholder</div>
+
+                        <button class="CarouselBtn Right" onclick="changeSlide(event, 1)">&#10095;</button>
+                        <div class="CarouselIndicator">1 / 3</div>
+                    </div>
+                    <div class="DivProjectContent2">
+                        <p class="PText2">Vingt-Un is a simple rougelike deckbuilder video game, ran using the Godot 4 engine.</p>
+                    </div>
+                    <div class="DivProjectContent2">
+                        <p class="PText2">Key Features</p>
+                        <ul class="PText2 Ul2">
+                            <li>Score ceiling that increments downwards</li>
+                            <li>Card animations</li>
+                            <li>Economy that rewards scoring at or just under the ceiling.</li>
+                            <li>In game store to purchase cards</li>
+                        </ul>
+                    </div>
+                    <div class="DivProjectContent2">
+                        <p class="PText2">Links</p>
+                        <div class="DivGrid sortable-grid" style="justify-content:flex-start">
+                            <div class="DivItem5">
+                                <div class="SkillIcon">🐙</div>
+                                <a href="https://github.com/WarrenWarrens/VingtUn" target="_blank" class="SkillInfoSingle" style="text-decoration:none; color:black;">GitHub</a>
+                            </div>
+                            <div class="DivItem5">
+                                <div class="SkillIcon">🔗</div>
+                                <a href="NEWTEST/newtest.html" class="SkillInfoSingle" style="text-decoration:none; color:black;">Video</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="DivBar">
+            <div class="DivBar2" onclick="toggle(this)">
+                <div class="ViewDefault">
+                    <div class="DivFloat ImageColumn">
+                        <div class="DivProjectContentImage"></div>
+                    </div>
+
+                    <div class="DivFloat TextColumn">
+                        <p class="PTitle3">Body Forge</p>
+                        <p class="PText3">Rougelike deck building card game with blackjack rules and a score ceiling that creeps lower and lower</p>
+                        <div class="DivGridProject">
+                            <div class="DivItem2">
+                                <div class="SkillIconSmall">🟨</div>
+                                <div class="SkillInfoSmall">Flutter</div>
+                            </div>
+                            <div class="DivItem2">
+                                <div class="SkillIconSmall">🟨</div>
+                                <div class="SkillInfoSmall">Dart</div>
+                            </div>
+                            <div class="DivItem2">
+                                <div class="SkillIconSmall">🟨</div>
+                                <div class="SkillInfoSmall">Firebase</div>
+                            </div>
+                        </div>
+
+                        <div class="DivGridProject">
+                            <div class="DivItem5">
+                                <div class="SkillIcon">🐙</div>
+                                <a href="https://github.com/WarrenWarrens/VingtUn" target="_blank" class="SkillInfoSingle" style="text-decoration: none; color: black;">GitHub</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="DivViewExpanded">
+                    <div class="ExpandedTitle">Body Forge</div>
+                </div>
+            </div>
+
+            <div class="DivExpand">
+                <div class="DivProjectContent">
+
+                    <div class="CarouselContainer">
+                        <button class="CarouselBtn Left" onclick="changeSlide(event, -1)">&#10094;</button>
+
+                        <div class="CarouselSlide active" style="background-color: darkgrey;">Slide 1 Placeholder</div>
+                        <div class="CarouselSlide" style="background-color: slategrey;">Slide 2 Placeholder</div>
+                        <div class="CarouselSlide" style="background-color: dimgrey;">Slide 3 Placeholder</div>
+
+                        <button class="CarouselBtn Right" onclick="changeSlide(event, 1)">&#10095;</button>
+                        <div class="CarouselIndicator">1 / 3</div>
+                    </div>
+                    <div class="DivProjectContent2">
+                        <p class="PText2">Vingt-Un is a simple rougelike deckbuilder video game, ran using the Godot 4 engine.</p>
+                    </div>
+                    <div class="DivProjectContent2">
+                        <p class="PText2">Key Features</p>
+                        <ul class="PText2 Ul2">
+                            <li>Score ceiling that increments downwards</li>
+                            <li>Card animations</li>
+                            <li>Economy that rewards scoring at or just under the ceiling.</li>
+                            <li>In game store to purchase cards</li>
+                        </ul>
+                    </div>
+                    <div class="DivProjectContent2">
+                        <p class="PText2">Links</p>
+                        <div class="DivGrid sortable-grid" style="justify-content:flex-start">
+                            <div class="DivItem5">
+                                <div class="SkillIcon">🐙</div>
+                                <a href="https://github.com/WarrenWarrens/VingtUn" target="_blank" class="SkillInfoSingle" style="text-decoration:none; color:black;">GitHub</a>
+                            </div>
+                            <div class="DivItem5">
+                                <div class="SkillIcon">🔗</div>
+                                <a href="NEWTEST/newtest.html" class="SkillInfoSingle" style="text-decoration:none; color:black;">Link</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="DivBar">
+            <div class="DivBar2" onclick="toggle(this)">
+                <div class="ViewDefault ViewReverse">
+                    <div class="DivFloat ImageColumn">
+                        <div class="DivProjectContentImage"></div>
+                    </div>
+
+                    <div class="DivFloat TextColumn">
+                        <p class="PTitle3">Mine Sweeper</p>
+                        <p class="PText3">Rougelike deck building card game with blackjack rules and a score ceiling that creeps lower and lower</p>
+                        <div class="DivGridProject">
+                            <div class="DivItem2">
+                                <div class="SkillIconSmall">🟨</div>
+                                <div class="SkillInfoSmall">Visual Basic</div>
+                            </div>
+                        </div>
+
+                        <div class="DivGridProject">
+                            <div class="DivItem5">
+                                <div class="SkillIcon">🐙</div>
+                                <a href="https://github.com/WarrenWarrens/VingtUn" target="_blank" class="SkillInfoSingle" style="text-decoration: none; color: black;">GitHub</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="DivViewExpanded">
+                    <div class="ExpandedTitle">Mine Sweeper</div>
+                </div>
+            </div>
+
+            <div class="DivExpand">
+                <div class="DivProjectContent">
+
+                    <div class="CarouselContainer">
+                        <button class="CarouselBtn Left" onclick="changeSlide(event, -1)">&#10094;</button>
+
+                        <div class="CarouselSlide active" style="background-color: darkgrey;">Slide 1 Placeholder</div>
+                        <div class="CarouselSlide" style="background-color: slategrey;">Slide 2 Placeholder</div>
+                        <div class="CarouselSlide" style="background-color: dimgrey;">Slide 3 Placeholder</div>
+
+                        <button class="CarouselBtn Right" onclick="changeSlide(event, 1)">&#10095;</button>
+                        <div class="CarouselIndicator">1 / 3</div>
+                    </div>
+                    <div class="DivProjectContent2">
+                        <p class="PText2">Vingt-Un is a simple rougelike deckbuilder video game, ran using the Godot 4 engine.</p>
+                    </div>
+                    <div class="DivProjectContent2">
+                        <p class="PText2">Key Features</p>
+                        <ul class="PText2 Ul2">
+                            <li>Score ceiling that increments downwards</li>
+                            <li>Card animations</li>
+                            <li>Economy that rewards scoring at or just under the ceiling.</li>
+                            <li>In game store to purchase cards</li>
+                        </ul>
+                    </div>
+                    <div class="DivProjectContent2">
+                        <p class="PText2">Links</p>
+                        <div class="DivGrid sortable-grid" style="justify-content:flex-start">
+                            <div class="DivItem5">
+                                <div class="SkillIcon">🐙</div>
+                                <a href="https://github.com/WarrenWarrens/VingtUn" target="_blank" class="SkillInfoSingle" style="text-decoration:none; color:black;">GitHub</a>
+                            </div>
+                            <div class="DivItem5">
+                                <div class="SkillIcon">🔗</div>
+                                <a href="NEWTEST/newtest.html" class="SkillInfoSingle" style="text-decoration:none; color:black;">Link</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+    <section class="Section1" id="EducationSection">
+        <div class="DivBar">
+
+            <div class="TabContainer">
+                <button class="ButtonTab active" onclick="showContent(event, 'DivEducation')">Education</button>
+                <button class="ButtonTab" onclick="showContent(event, 'DivCertifications')">Certifications</button>
+            </div>
+
+            <div class="DivContent active" id="DivEducation">
+                <div class="DivBar">
+                    <div class="DivBar2" onclick="toggle(this)">
+                        <div class="ExperienceHeader">
+                            <div class="ExpIcon">🏢</div>
+
+                            <div class="ExpDetails">
+
+                                <div class="ExpTitleRow">
+                                    <p class="ExpTitle">Ontario Tech</p>
+                                    <div class="ExpArrow">&#9658;</div>
+                                </div>
+
+                                <p class="ExpRole">Undergraduate BSC. Computer Science, Data Science Specialization</p>
+                            </div>
+
+                            <div class="ExpRightText">
+                                09/2022 - 12/2026
+                            </div>
+                        </div>
+                    </div>
+                    <div class="DivExpand">
+                        <ul class="Ul1" style="text-align: left; padding: 0 40px 10px 40px;">
+                            <li>Major: Computer Science</li>
+                            <li>Specialization: Data Science</li>
+                            <li>Dual Minor: Mathematics & Physics</li>
+                            <li>Honours Thesis: "FLIC: Feedback for Live Interactive Coding"</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="DivContent" id="DivCertifications">
+                    <div class="DivBar2" onclick="toggle(this)">
+                        <div class="ExperienceHeader">
+                            <div class="ExpIcon">🏢</div>
+
+                            <div class="ExpDetails">
+
+                                <div class="ExpTitleRow">
+                                    <p class="ExpTitle">Princess Auto, Royal Service Academy</p>
+                                    <div class="ExpArrow">&#9658;</div>
+                                </div>
+
+                                <p class="ExpRole">EMPOWER.ed Hydraulics Level I</p>
+                            </div>
+
+                            <div class="ExpRightText">
+                                06/2022 - 09/2023
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="DivExpand">
+                        <ul class="Ul1" style="text-align: left; padding: 0 40px 10px 40px;">
+                            <li>Completed comprehensive exam covering cloud concepts.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="Section1" id="ExperienceSection">
+        <div class="DivBarTitle">
+            <div class="DivTitle2">
+                Experience
+            </div>
+        </div>
+
+        <div class="DivBar">
+            <div class="DivBar2" onclick="toggle(this)">
+                <div class="ExperienceHeader">
+                    <div class="ExpIcon">🏢</div>
+
+                    <div class="ExpDetails">
+
+                        <div class="ExpTitleRow">
+                            <p class="ExpTitle">Princess Auto</p>
+                            <div class="ExpArrow">&#9658;</div>
+                        </div>
+
+                        <p class="ExpRole">Warehouse, Forklift & Hydraulics Staff</p>
+                    </div>
+
+                    <div class="ExpRightText">
+                        08/2024 - Present
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="DivExpand">
+                <ul class="Ul1" style="text-align: left; padding: 0 40px 10px 40px;">
+                    <li>Loading & unloading delivery trucks</li>
+                    <li>Fulfill online orders for both instore pickup, & outgoing delivery</li>
+                    <li>Package, ship and label freights and packages for Canada Post, FedEx & Purolator</li>
+                    <li>Inventory management, warehouse logistics, inventory counts & write offs</li>
+                    <li>Operating standing forklift for any above operations when needed</li>
+                    <li>Cutting, crimping and designing hydraulic hoses</li>
+                    <li>Assisting customers on the floor with product questions, physical lifting & cash checkout</li>
+                    <li>Answering phone calls from customers regarding inventory, and other stores regarding inventory transfers</li>
+                    <li>Store opening & closing procedures</li>
+                </ul>
+
+            </div>
+        </div>
+
+        <div class="DivBar">
+            <div class="DivBar2" onclick="toggle(this)">
+                <div class="ExperienceHeader">
+                    <div class="ExpIcon">🏢</div>
+
+                    <div class="ExpDetails">
+
+                        <div class="ExpTitleRow">
+                            <p class="ExpTitle">Afillia</p>
+                            <div class="ExpArrow">&#9658;</div>
+                        </div>
+
+                        <p class="ExpRole">Backend Software Engineer</p>
+                    </div>
+
+                    <div class="ExpRightText">
+                        05/2025 - 12/2025
+                    </div>
+                </div>
+            </div>
+
+            <div class="DivExpand">
+                <ul class="Ul1" style="text-align: left; padding: 0 40px 10px 40px;">
+                    <li>Foundational member in setting up initial scope of the company, prototypes & demos</li>
+                    <li>Established database for user accounts via MongoDB</li>
+                    <li>Developed systems to link Afillia user accounts to Google accounts and API calls for obtaining user information from Google Calender</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="DivBar">
+            <div class="DivBar2" onclick="toggle(this)">
+                <div class="ExperienceHeader">
+                    <div class="ExpIcon">🏢</div>
+
+                    <div class="ExpDetails">
+
+                        <div class="ExpTitleRow">
+                            <p class="ExpTitle">RONA</p>
+                            <div class="ExpArrow">&#9658;</div>
+                        </div>
+
+                        <p class="ExpRole">Forklift Operator & General Yard Labourer</p>
+                    </div>
+
+                    <div class="ExpRightText">
+                        06/2022 - 09/2023
+                    </div>
+                </div>
+            </div>
+
+            <div class="DivExpand">
+                <ul class="Ul1" style="text-align: left; padding: 0 40px 10px 40px;">
+                    <li>Assist customers in loading lumber and other building materials (often up to 40kg) into their vehicles.</li>
+                    <li>Operate sitdown counterbalance forklift to clean yard, unload deliveries or assemble large orders.</li>
+                    <li>Complete regular safety checks and maintenance to forklift to ensure its safe use.</li>
+                    <li>Safely use the panel & table saw to cut customers materials to sizes they request.</li>
+                    <li>Opening and closing the yard, sometimes alone.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="DivBar">
+            <div class="DivBar2" onclick="toggle(this)">
+                <div class="ExperienceHeader">
+                    <div class="ExpIcon">🏢</div>
+
+                    <div class="ExpDetails">
+
+                        <div class="ExpTitleRow">
+                            <p class="ExpTitle">McDonald's</p>
+                            <div class="ExpArrow">&#9658;</div>
+                        </div>
+
+                        <p class="ExpRole">Drive Thru, Cashier & Kitchen Staff</p>
+                    </div>
+
+                    <div class="ExpRightText">
+                        06/2019 - 02/2022
+                    </div>
+                </div>
+            </div>
+
+            <div class="DivExpand">
+                <ul class="Ul1" style="text-align: left; padding: 0 40px 10px 40px;">
+                    <li>Assist customers in loading lumber and other building materials (often up to 40kg) into their vehicles.</li>
+                    <li>Operate sitdown counterbalance forklift to clean yard, unload deliveries or assemble large orders.</li>
+                    <li>Complete regular safety checks and maintenance to forklift to ensure its safe use.</li>
+                    <li>Safely use the panel & table saw to cut customers materials to sizes they request.</li>
+                    <li>Opening and closing the yard, sometimes alone.</li>
+                </ul>
+            </div>
+        </div>
+
+    </section>
+
+    <section class="Section1" id="SkillsSection">
+        <div class="DivBarTitle">
+            <div class="DivTitle2">
+                Skills
+            </div>
+        </div>
+
+
+        <div class="DivBar">
+            <div class="DivGrid3 sortable-grid" id="SkillGridGuide">
+                <div class="DivItem3" onclick="toggleSkill('1', this)">Languages</div>
+                <div class="DivItem3" onclick="toggleSkill('2', this)">Software</div>
+                <div class="DivItem3" onclick="toggleSkill('3', this)">Topics</div>
+            </div>
+        </div>
+
+        <div class="DivSkill" id="Skill1">
+            <div class="DivGrid sortable-grid" id="SkillGridOne">
+                <div class="DivItem4">
+                    <div class="SkillIcon">🐍</div>
+                    <div class="SkillInfo">
+                        <div class="SkillName">Python</div>
+                        <div class="SkillYears">5+ Years</div>
+                    </div>
+                </div>
+
+                <div class="DivItem4">
+                    <div class="SkillIcon">🎯</div>
+                    <div class="SkillInfo">
+                        <div class="SkillName">Dart</div>
+                        <div class="SkillYears">3 Years</div>
+                    </div>
+                </div>
+
+                <div class="DivItem4">
+                    <div class="SkillIcon">🌐</div>
+                    <div class="SkillInfo">
+                        <div class="SkillName">HTML</div>
+                        <div class="SkillYears">5 Years</div>
+                    </div>
+                </div>
+
+                <div class="DivItem4">
+                    <div class="SkillIcon">🌐</div>
+                    <div class="SkillInfo">
+                        <div class="SkillName">CSS</div>
+                        <div class="SkillYears">5 Years</div>
+                    </div>
+                </div>
+
+                <div class="DivItem4">
+                    <div class="SkillIcon">🌐</div>
+                    <div class="SkillInfo">
+                        <div class="SkillName">JS</div>
+                        <div class="SkillYears">4 Years</div>
+                    </div>
+                </div>
+
+                <div class="DivItem4">
+                    <div class="SkillIcon">🌐</div>
+                    <div class="SkillInfo">
+                        <div class="SkillName">C++</div>
+                        <div class="SkillYears">5 Years</div>
+                    </div>
+                </div>
+
+                <div class="DivItem4">
+                    <div class="SkillIcon">🌐</div>
+                    <div class="SkillInfo">
+                        <div class="SkillName">G#</div>
+                        <div class="SkillYears">1 Year</div>
+                    </div>
+                </div>
+
+                <div class="DivItem4">
+                    <div class="SkillIcon">🌐</div>
+                    <div class="SkillInfo">
+                        <div class="SkillName">Rust</div>
+                        <div class="SkillYears"> <1 Year</div>
+                    </div>
+                </div>
+
+                <div class="DivItem4">
+                    <div class="SkillIcon">🌐</div>
+                    <div class="SkillInfo">
+                        <div class="SkillName">VB</div>
+                        <div class="SkillYears">2 Years</div>
+                    </div>
+                </div>
+
+                <div class="DivItem4">
+                    <div class="SkillIcon">🌐</div>
+                    <div class="SkillInfo">
+                        <div class="SkillName">Java</div>
+                        <div class="SkillYears">4 Years</div>
+                    </div>
+                </div>
+
+                <div class="DivItem4">
+                    <div class="SkillIcon">🌐</div>
+                    <div class="SkillInfo">
+                        <div class="SkillName">SQL</div>
+                        <div class="SkillYears">1 Year</div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="DivSkill" id="Skill2">
+            <div class="DivGrid sortable-grid" id="SkillGridTwo">
+
+                <div class="DivItem5">
+                    <div class="SkillIcon">💻</div>
+                    <div class="SkillInfoSingle">PyCharm</div>
+                </div>
+
+                <div class="DivItem5">
+                    <div class="SkillIcon">🐙</div>
+                    <div class="SkillInfoSingle">GitHub</div>
+                </div>
+
+                <div class="DivItem5">
+                    <div class="SkillIcon">🎨</div>
+                    <div class="SkillInfoSingle">Figma</div>
+                </div>
+
+                <div class="DivItem5">
+                    <div class="SkillIcon">🎨</div>
+                    <div class="SkillInfoSingle">IntelliJ IDEA</div>
+                </div>
+
+                <div class="DivItem5">
+                    <div class="SkillIcon">🎨</div>
+                    <div class="SkillInfoSingle">Godot</div>
+                </div>
+
+                <div class="DivItem5">
+                    <div class="SkillIcon">🎨</div>
+                    <div class="SkillInfoSingle">Visual Studio Code</div>
+                </div>
+
+                <div class="DivItem5">
+                    <div class="SkillIcon">🎨</div>
+                    <div class="SkillInfoSingle">Aseprite</div>
+                </div>
+
+                <div class="DivItem5">
+                    <div class="SkillIcon">🎨</div>
+                    <div class="SkillInfoSingle">Photoshop</div>
+                </div>
+
+                <div class="DivItem5">
+                    <div class="SkillIcon">🎨</div>
+                    <div class="SkillInfoSingle">Premiere Pro</div>
+                </div>
+
+                <div class="DivItem5">
+                    <div class="SkillIcon">🎨</div>
+                    <div class="SkillInfoSingle">Capcut</div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="DivSkill" id="Skill3">
+            <div class="DivGrid sortable-grid" id="SkillGridThree">
+
+                <div class="DivItem5">
+                    <div class="SkillIcon">💻</div>
+                    <div class="SkillInfoSingle">Frontend Dev.</div>
+                </div>
+
+                <div class="DivItem5">
+                    <div class="SkillIcon">🐙</div>
+                    <div class="SkillInfoSingle">Mobile</div>
+                </div>
+
+                <div class="DivItem5">
+                    <div class="SkillIcon">🎨</div>
+                    <div class="SkillInfoSingle">ML</div>
+                </div>
+
+            </div>
+        </div>
+
+
+    </section>
+
+    <section class="Section1" id="ContactSection">
+        <div class="DivBarTitle">
+            <div class="DivTitle2">
+                Contact & Links
+            </div>
+        </div>
+        <div class="DivBar">
+            <div class="DivGrid sortable-grid" id="ContactGrid">
+
+                <div class="DivItem5">
+                    <div class="SkillIcon">📧</div>
+                    <a href="mailto:warrener.ryan@gmail.com" class="SkillInfoSingle" style="text-decoration:none; color:black;">Email</a>
+                </div>
+
+                <div class="DivItem5">
+                    <div class="SkillIcon">🐙</div>
+                    <a href="https://github.com/WarrenWarrens" target="_blank" class="SkillInfoSingle" style="text-decoration:none; color:black;">GitHub</a>
+                </div>
+
+                <div class="DivItem5">
+                    <div class="SkillIcon">💼</div>
+                    <a href="https://www.linkedin.com/in/ryan-warrener/" target="_blank" class="SkillInfoSingle" style="text-decoration:none; color:black;">LinkedIn</a>
+                </div>
+
+                <div class="DivItem5">
+                    <div class="SkillIcon">💻</div>
+                    <a href="https://leetcode.com/u/WarrenWarren/" target="_blank" class="SkillInfoSingle" style="text-decoration:none; color:black;">LeetCode</a>
+                </div>
+
+                <div class="DivItem5">
+                    <div class="SkillIcon">🦋</div>
+                    <a href="https://bsky.app/profile/warrenwarrens.bsky.social" target="_blank" class="SkillInfoSingle" style="text-decoration:none; color:black;">BlueSky</a>
+                </div>
+
+                <div class="DivItem5">
+                    <div class="SkillIcon">🐦</div>
+                    <a href="https://x.com/WarrenWarrenCS" target="_blank" class="SkillInfoSingle" style="text-decoration:none; color:black;">Twitter(X)</a>
+                </div>
+
+            </div>
+        </div>
+
+    </section>
+
+</main>
+
+<script>
+
+
+    function toggleNavMenu(event, dropdownId) {
+        event.stopPropagation();
+
+        const allDropdowns = document.querySelectorAll('.DropdownMenu');
+
+        allDropdowns.forEach(dropdown => {
+            if (dropdown.id === dropdownId) {
+                dropdown.classList.toggle('show');
+            } else {
+                dropdown.classList.remove('show');
+            }
+        });
+    }
+
+    window.onclick = function(event) {
+        if (!event.target.closest('.DivButton') && !event.target.closest('.DropdownMenu')) {
+
+            const allDropdowns = document.querySelectorAll('.DropdownMenu');
+            allDropdowns.forEach(dropdown => {
+                dropdown.classList.remove('show');
+            });
+        }
+    }
+
+
+    function showContent(event, targetPanelId) {
+        const allPanels = document.querySelectorAll('.DivContent');
+        allPanels.forEach(panel => {
+            panel.classList.remove('active');
+        });
+
+        const allButtons = document.querySelectorAll('.ButtonTab');
+        allButtons.forEach(button => {
+            button.classList.remove('active');
+        });
+
+        document.getElementById(targetPanelId).classList.add('active');
+        event.currentTarget.classList.add('active');
+    }
+
+    function toggle(clickedElement) {
+        const isAlreadyExpanded = clickedElement.classList.contains('is-expanded');
+
+        const allHeaders = document.querySelectorAll('.DivBar2');
+        const allContents = document.querySelectorAll('.DivExpand');
+
+        allHeaders.forEach(header => {
+            header.classList.remove('is-expanded');
+        });
+
+        allContents.forEach(content => {
+            content.classList.remove('show');
+        });
+
+        if (!isAlreadyExpanded) {
+            clickedElement.classList.add('is-expanded');
+
+            const expandDiv = clickedElement.nextElementSibling;
+            if (expandDiv && expandDiv.classList.contains('DivExpand')) {
+                expandDiv.classList.add('show');
+            }
+        }
+    }
+
+    function toggleSkill(idSuffix, btnElement) {
+        var targetId = 'Skill' + idSuffix;
+        var targetDiv = document.getElementById(targetId);
+
+        var isCurrentlyVisible = targetDiv.style.display === 'block';
+
+        var allGuides = document.querySelectorAll('.DivSkill');
+        allGuides.forEach(function (div) {
+            div.style.display = 'none';
+        });
+
+        var allBtns = document.querySelectorAll('#SkillGridGuide .DivItem3');
+        allBtns.forEach(function (btn) {
+            btn.classList.remove('active-btn');
+        });
+
+        if (!isCurrentlyVisible) {
+            targetDiv.style.display = 'block';
+            btnElement.classList.add('active-btn');
+        }
+    }
+
+    function changeSlide(event, direction) {
+        event.stopPropagation();
+
+        const carousel = event.currentTarget.closest('.CarouselContainer');
+        const slides = carousel.querySelectorAll('.CarouselSlide');
+        const indicator = carousel.querySelector('.CarouselIndicator');
+
+        let currentIndex = Array.from(slides).findIndex(slide => slide.classList.contains('active'));
+
+        slides[currentIndex].classList.remove('active');
+
+        currentIndex += direction;
+
+        if (currentIndex < 0) {
+            currentIndex = slides.length - 1;
+        }
+        if (currentIndex >= slides.length) {
+            currentIndex = 0;
+        }
+
+        slides[currentIndex].classList.add('active');
+
+        indicator.innerText = (currentIndex + 1) + ' / ' + slides.length;
+    }
+
+    window.addEventListener('resize', function() {
+        if (window.innerWidth <= 800) {
+            const iconDropdown = document.getElementById('NavDropdown1');
+            if (iconDropdown && iconDropdown.classList.contains('show')) {
+                iconDropdown.classList.remove('show');
+            }
+        }
+    });
+
+</script>
+</body>
+</html>
