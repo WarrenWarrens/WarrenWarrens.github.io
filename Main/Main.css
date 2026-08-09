@@ -320,6 +320,11 @@ body, html {
     cursor: pointer;
     width: 100%;
     transition: opacity 0.2s;
+
+    background-color: transparent;
+    background-repeat: no-repeat;
+    overflow: hidden;
+    outline: none;
 }
 
 .ButtonTab:hover {
