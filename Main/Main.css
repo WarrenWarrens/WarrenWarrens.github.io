@@ -3,7 +3,7 @@ html, body {
     margin: 0;
     padding: 0;
     font-family: sans-serif;
-    background-color: darkgrey;
+    background-color: black;
     scroll-behavior: smooth;
     overscroll-behavior: none;
 }

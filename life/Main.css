@@ -1,0 +1,102 @@
+/* Reset margins to take up the full screen */
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
+/* Base Desktop Layout (Left side of image_930055.png) */
+.Main {
+    display: flex;
+    height: 100vh;
+    position: relative;
+}
+
+.SectionLeft {
+    background-color: red;
+    width: 300px; /* Use a fixed pixel value instead of vw */
+    flex-shrink: 0; /* Forces Flexbox to never shrink this element */
+    height: 100%;
+    position: relative; /* Add this line */
+}
+
+
+
+.SectionRight {
+    background-color: #0044ff; /* Standard blue */
+    flex-grow: 1; /* Takes up the remaining space */
+    height: 100%;
+}
+
+.yellow-div {
+    background-color: #ffd700;
+    position: absolute;
+    top: 20px; /* Anchored to the top */
+    left: 20px;
+    right: 20px; /* Left/Right creates the red border look */
+    height: 80px;
+    z-index: 10; /* Keeps it above the pink div */
+}
+
+.pink-div {
+    background-color: #ff80ff;
+    position: absolute;
+    top: 120px; /* Anchored below the yellow div (20px top + 80px yellow + 20px gap) */
+    left: 20px;
+    right: 20px;
+    height: 80px;
+    z-index: 5; /* Lower z-index so it gets overlapped */
+}
+
+.cyan-div {
+    background-color: #00ffff;
+    position: absolute;
+    bottom: 20px; /* Anchored to the bottom */
+    left: 20px;
+    right: 20px;
+    height: 80px;
+    z-index: 10; /* Keeps it above the pink div */
+}
+
+/* Hide the green button on desktop */
+.green-div {
+    display: none;
+}
+
+/* Mobile Layout (Right side of image_930055.png) */
+@media (max-width: 768px) {
+    /* Hide the red panel by default on mobile */
+    .SectionLeft {
+        display: none;
+        position: fixed; /* Fixed so it can take over the screen */
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        z-index: 10; /* Keep it above the blue div */
+    }
+
+    /* Class added by JavaScript when the green button is clicked */
+    .SectionLeft.active {
+        display: block;
+    }
+
+    /* Blue div takes full width on mobile */
+    .SectionRight {
+        width: 100vw;
+    }
+
+    /* Style and position the green button */
+    .green-div {
+        display: block;
+        background-color: #00ff00;
+        position: fixed;
+        bottom: 30px; /* Placed at the bottom */
+        left: 50%;
+        transform: translateX(-50%); /* Centers the button */
+        width: 150px;
+        height: 40px;
+        z-index: 20; /* Keep above both red and blue divs so it's always clickable */
+        cursor: pointer;
+    }
+}
