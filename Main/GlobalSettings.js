@@ -1,15 +1,15 @@
-// GlobalSettings.js - Linked in the <head> of index.html, Settings.html, Work.html, etc.
-
-// 1. Check if the user has a saved theme
+// Check LocalStorage and apply settings to the root HTML element
 const savedTheme = localStorage.getItem('theme');
-
-// 2. If they do, apply it to the root HTML element
-if (savedTheme) {
-    document.documentElement.setAttribute('data-theme', savedTheme);
+if (savedTheme === 'light') {
+    document.documentElement.setAttribute('data-theme', 'light');
 }
 
-// You can repeat this logic for font sizes, reduced motion, etc.
-const savedFontSize = localStorage.getItem('font-size');
-if (savedFontSize) {
-    document.documentElement.style.setProperty('--font-size-base', savedFontSize);
+const savedMotion = localStorage.getItem('motion');
+if (savedMotion === 'reduced') {
+    document.documentElement.setAttribute('data-motion', 'reduced');
+}
+
+const savedText = localStorage.getItem('text');
+if (savedText === 'large') {
+    document.documentElement.setAttribute('data-text', 'large');
 }

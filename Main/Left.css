@@ -1,0 +1,162 @@
+.SectionLeft {
+    background-color: #191a1e;
+    width: 300px;
+    flex-shrink: 0;
+    height: 100%;
+    position: relative;
+    border-right: 2px solid white;
+}
+
+.DivIcon {
+    background-color: transparent;
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    right: 20px;
+    height: auto;
+    z-index: 10;
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+}
+
+.DivIconTop {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 15px;
+
+    background-color: #333;
+    padding: 15px;
+    border-radius: 8px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+
+.DivIconImage {
+    width: 50px;
+    height: 50px;
+    flex-shrink: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.ProfileImg {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+
+.DivIconText {
+    color: #ffffff;
+    font-weight: bold;
+    font-size: 1.2rem;
+    /*font-family: Oswald;*/
+}
+
+.DesktopSettings {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    background-color: #333;
+    padding: 10px 15px;
+    border-radius: 8px;
+
+    color: lightgray;
+    text-decoration: none;
+    font-family: sans-serif;
+    font-size: 0.95rem;
+    transition: color 0.2s, background-color 0.2s;
+}
+
+.DesktopSettings:hover {
+    color: white;
+    background-color: #444;
+}
+
+
+.DivGuide {
+    position: absolute;
+    top: 160px;
+    left: 20px;
+    right: 20px;
+    height: auto;
+    z-index: 5;
+    display: inline-grid;
+}
+
+.AGuide
+{
+    color: lightgray;
+    text-decoration:none;
+}
+
+.AGuide:hover
+{
+    color:whitesmoke;
+}
+
+
+.DivContact {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    right: 20px;
+    height: auto;
+    z-index: 10;
+    display: inline-grid;
+
+}
+
+.ALink
+{
+    text-decoration:none;
+    color:lightgray;
+}
+.ALink:hover
+{
+    color:whitesmoke;
+}
+
+@media (max-width: 800px)
+{
+    .SectionLeft {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        z-index: 10;
+    }
+
+    .SectionLeft.active {
+        display: block;
+    }
+
+    .DivIcon {
+        height: auto;
+        padding: 0;
+    }
+
+    .DesktopSettings {
+        display: none;
+    }
+
+    .DivGuide {
+        top: 110px;
+    }
+
+    .DivContact
+    {
+        bottom: 90px;
+    }
+}

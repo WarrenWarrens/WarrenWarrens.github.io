@@ -7,28 +7,40 @@
     <link rel="stylesheet" href="Main.css">
     <script src="GlobalSettings.js"></script>
 </head>
-<body style="background-color: #121215; display: flex; justify-content: center; align-items: center; height: 100vh; color: white; font-family: sans-serif; flex-direction: column; gap: 30px;">
+<body class="SettingsBody">
 
-<h1>Settings</h1>
-<p style="color: lightgray;">Settings configuration will go here.</p>
+<div class="SettingsContainer">
+    <h1 class="PTitle">Settings & Preferences</h1>
 
-<!-- Link paths back to the root directory -->
-<a href="../index.html" style="padding: 12px 24px; background-color: #191a1e; color: white; text-decoration: none; border: 2px solid lightgray; border-radius: 8px; font-weight: bold; transition: background-color 0.2s;">
-    Return
-</a>
+    <div class="SettingsGroup">
+        <div class="SettingItem">
+            <div class="SettingInfo">
+                <span class="SettingName">Light Mode</span>
+                <span class="SettingDesc">Switch to a brighter color theme.</span>
+            </div>
+            <button id="theme-btn" class="SettingBtn">Enable</button>
+        </div>
 
+        <div class="SettingItem">
+            <div class="SettingInfo">
+                <span class="SettingName">Reduce Motion</span>
+                <span class="SettingDesc">Disable UI transitions and animations.</span>
+            </div>
+            <button id="anim-btn" class="SettingBtn">Enable</button>
+        </div>
 
-<script>
-    // Example: Inside Settings.js
-const contrastBtn = document.getElementById('high-contrast-btn');
+        <div class="SettingItem">
+            <div class="SettingInfo">
+                <span class="SettingName">Large Text</span>
+                <span class="SettingDesc">Increase global font size for readability.</span>
+            </div>
+            <button id="text-btn" class="SettingBtn">Enable</button>
+        </div>
+    </div>
 
-contrastBtn.addEventListener('click', () => {
-    // 1. Save the choice to the browser
-    localStorage.setItem('theme', 'high-contrast');
+    <a href="../index.html" class="ReturnBtn">Return to Home</a>
+</div>
 
-    // 2. Immediately apply it to the current page
-    document.documentElement.setAttribute('data-theme', 'high-contrast');
-});
-</script>
+<script src="SettingsPage.js"></script>
 </body>
 </html>

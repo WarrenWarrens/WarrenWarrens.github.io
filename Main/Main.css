@@ -16,25 +16,63 @@ body {
     font-size: var(--font-size-base);
 }
 
-/* Load the Regular version */
 @font-face {
-    font-family: 'Ognico';
-    src: url('Media/FontOgnico/ognico-black_fontlot52ea.otf') format('opentype'); /* Update exact filename */
+    font-family: 'Oswald';
+    /*src: url('Media/FontOgnico/ognico-black_fontlot52ea.otf') format('opentype'); !* Update exact filename *!*/
     font-weight: normal;
     font-style: normal;
 }
 
-/* Load the Bold version */
 @font-face {
-    font-family: 'Ognico';
-    src: url('Media/FontOgnico/ognico-bold_fontlotd694.otf') format('opentype'); /* Update exact filename */
+    font-family: 'Oswald';
+    /*src: url('Media/FontOgnico/ognico-bold_fontlotd694.otf') format('opentype'); !* Update exact filename *!*/
     font-weight: bold;
     font-style: normal;
 }
 
-/* Apply it globally */
 body {
-    font-family: 'Ognico', sans-serif; /* sans-serif acts as a fallback */
+    font-family: 'Oswald', sans-serif; /* sans-serif acts as a fallback */
+}
+
+/* --- GLOBAL CSS VARIABLES --- */
+:root {
+    /* Default Dark Theme Colors */
+    --bg-color: #191a1e;
+    --panel-bg: #121215;
+    --box-bg: #333;
+    --text-main: whitesmoke;
+    --text-muted: lightgray;
+
+    /* Default Typography */
+    --base-font-size: 16px;
+}
+
+/* Light Theme Overrides */
+html[data-theme="light"] {
+    --bg-color: #f0f0f0;
+    --panel-bg: #ffffff;
+    --box-bg: #e4e4e4;
+    --text-main: #121215;
+    --text-muted: #444444;
+}
+
+/* Large Text Overrides */
+html[data-text="large"] {
+    --base-font-size: 20px;
+}
+
+/* Reduced Motion Overrides */
+html[data-motion="reduced"] * {
+    transition: none !important;
+    animation: none !important;
+    scroll-behavior: auto !important;
+}
+
+/* Base Body Styles utilizing the variables */
+body {
+    background-color: var(--bg-color);
+    color: var(--text-main);
+    font-size: var(--base-font-size);
 }
 
 /*#f7f7f8*/
@@ -42,6 +80,7 @@ body {
 /*#202127*/
 /*#191a1e*/
 /*#121215*/
+
 .Main {
     display: flex;
     height: 100vh;
@@ -49,21 +88,7 @@ body {
     overflow: hidden;
 }
 
-.SectionLeft {
-    background-color: #191a1e;
-    width: 300px;
-    flex-shrink: 0;
-    height: 100%;
-    position: relative;
-    border-right: 2px solid white;
-}
 
-.ProfileImg {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: 50%;
-}
 
 
 .SectionRight {
@@ -173,134 +198,15 @@ body {
     line-height: 1.5;
 }
 
-.DivIcon {
-    background-color: transparent;
-    position: absolute;
-    top: 20px;
-    left: 20px;
-    right: 20px;
-    height: auto;
-    z-index: 10;
-
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 10px;
-}
-
-.DivIconTop {
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    gap: 15px;
-
-    background-color: #333;
-    padding: 15px;
-    border-radius: 8px;
-    width: 100%;
-    box-sizing: border-box;
-}
-
-
-.DesktopSettings {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-
-    background-color: #333;
-    padding: 10px 15px;
-    border-radius: 8px;
-
-    color: lightgray;
-    text-decoration: none;
-    font-family: sans-serif;
-    font-size: 0.95rem;
-    transition: color 0.2s, background-color 0.2s;
-}
-
-.DesktopSettings:hover {
-    color: white;
-    background-color: #444;
-}
-.DivIconTop {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-}
-
-.DivIconImage {
-    width: 50px;
-    height: 50px;
-    flex-shrink: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.DivIconImage svg {
-    width: 100%;
-    height: 100%;
-}
-
-.DivIconText {
-    color: #ffffff;
-    font-weight: bold;
-    font-size: 1.2rem;
-    font-family: sans-serif;
-}
-
-
-
-.DivGuide {
-    position: absolute;
-    top: 160px;
-    left: 20px;
-    right: 20px;
-    height: auto;
-    z-index: 5;
-    display: inline-grid;
-}
-
 .DivMenuWrapper {
     display: none;
 }
 
-.DivContact {
-    position: absolute;
-    bottom: 20px;
-    left: 20px;
-    right: 20px;
-    height: auto;
-    z-index: 10;
-    display: inline-grid;
-
-}
 
 .DivMenu {
     display: none;
 }
 
-
-.AGuide
-{
-    color: lightgray;
-    text-decoration:none;
-}
-
-.AGuide:hover
-{
-    color:whitesmoke;
-}
-
-.ALink
-{
-    text-decoration:none;
-    color:lightgray;
-}
-.ALink:hover
-{
-    color:whitesmoke;
-}
 
 #GuideHome
 {
@@ -464,20 +370,6 @@ body {
 {
 
 
-    .DesktopSettings {
-        display: none;
-    }
-
-
-    .DivIcon {
-        height: auto;
-        padding: 0;
-    }
-
-    .DivGuide {
-        top: 110px;
-    }
-
     .DivMenuWrapper {
         display: flex;
         background-color: #191a1e;
@@ -514,19 +406,7 @@ body {
         align-items: flex-start;
     }
 
-    .SectionLeft {
-        display: none;
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100vw;
-        height: 100vh;
-        z-index: 10;
-    }
 
-    .SectionLeft.active {
-        display: block;
-    }
 
     .SectionRight {
         width: 100vw;
@@ -550,10 +430,7 @@ body {
         border-color: lightgray;
     }
 
-    .DivContact
-    {
-        bottom: 90px;
-    }
+
 
     .DivGrid
     {
@@ -597,4 +474,95 @@ body {
     .DivServiceTab.active .TabTriangle {
         display: none;
     }
+}
+
+
+/* --- SETTINGS PAGE UI --- */
+.SettingsBody {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    flex-direction: column;
+}
+
+.SettingsContainer {
+    width: 100%;
+    max-width: 600px;
+    padding: 20px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.SettingsGroup {
+    background-color: var(--panel-bg);
+    border-radius: 12px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    border: 1px solid var(--box-bg);
+}
+
+.SettingItem {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 20px;
+    border-bottom: 1px solid var(--box-bg);
+}
+
+/* Remove bottom border from the last item */
+.SettingItem:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+}
+
+.SettingInfo {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.SettingName {
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: var(--text-main);
+}
+
+.SettingDesc {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+}
+
+.SettingBtn {
+    padding: 10px 20px;
+    background-color: var(--box-bg);
+    color: var(--text-main);
+    border: none;
+    border-radius: 6px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: opacity 0.2s;
+}
+
+.SettingBtn:hover {
+    opacity: 0.8;
+}
+
+.ReturnBtn {
+    padding: 12px 24px;
+    background-color: var(--panel-bg);
+    color: var(--text-main);
+    text-decoration: none;
+    border: 2px solid var(--box-bg);
+    border-radius: 8px;
+    font-weight: bold;
+    text-align: center;
+    transition: background-color 0.2s;
+}
+.ReturnBtn:hover {
+    background-color: var(--box-bg);
 }
