@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Settings</title>
+    <!-- Links to your existing stylesheet -->
+    <link rel="stylesheet" href="Main.css">
+    <script src="GlobalSettings.js"></script>
+</head>
+<body style="background-color: #121215; display: flex; justify-content: center; align-items: center; height: 100vh; color: white; font-family: sans-serif; flex-direction: column; gap: 30px;">
+
+<h1>Settings</h1>
+<p style="color: lightgray;">Settings configuration will go here.</p>
+
+<!-- Link paths back to the root directory -->
+<a href="../index.html" style="padding: 12px 24px; background-color: #191a1e; color: white; text-decoration: none; border: 2px solid lightgray; border-radius: 8px; font-weight: bold; transition: background-color 0.2s;">
+    Return
+</a>
+
+
+<script>
+    // Example: Inside Settings.js
+const contrastBtn = document.getElementById('high-contrast-btn');
+
+contrastBtn.addEventListener('click', () => {
+    // 1. Save the choice to the browser
+    localStorage.setItem('theme', 'high-contrast');
+
+    // 2. Immediately apply it to the current page
+    document.documentElement.setAttribute('data-theme', 'high-contrast');
+});
+</script>
+</body>
+</html>
