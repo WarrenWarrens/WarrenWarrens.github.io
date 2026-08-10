@@ -16,6 +16,27 @@ body {
     font-size: var(--font-size-base);
 }
 
+/* Load the Regular version */
+@font-face {
+    font-family: 'Ognico';
+    src: url('Media/FontOgnico/ognico-black_fontlot52ea.otf') format('opentype'); /* Update exact filename */
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* Load the Bold version */
+@font-face {
+    font-family: 'Ognico';
+    src: url('Media/FontOgnico/ognico-bold_fontlotd694.otf') format('opentype'); /* Update exact filename */
+    font-weight: bold;
+    font-style: normal;
+}
+
+/* Apply it globally */
+body {
+    font-family: 'Ognico', sans-serif; /* sans-serif acts as a fallback */
+}
+
 /*#f7f7f8*/
 /*#272930*/
 /*#202127*/
@@ -37,6 +58,12 @@ body {
     border-right: 2px solid white;
 }
 
+.ProfileImg {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+}
 
 
 .SectionRight {
