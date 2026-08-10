@@ -195,7 +195,7 @@ body {
 .DivText p
 {
     margin: 0;
-    color: whitesmoke;
+    color: var(--text-main);
     line-height: 1.5;
 }
 
@@ -268,12 +268,12 @@ body {
     font-family: monospace;
     font-size: 1.2rem;
     font-weight: bold;
-    color: whitesmoke;
+    color: var(--text-main);
 }
 
 .PIntro
 {
-    color: white;
+    color: var(--text-main);
     font-size: 20px;
 }
 
@@ -328,7 +328,7 @@ body {
 
 .TabSubtitle {
     font-size: 0.85rem;
-    color: lightgray;
+    color: var(--text-main);
     margin-top: 4px;
     font-weight: normal;
     display: none;
@@ -389,7 +389,7 @@ body {
         align-items: center;
         background: transparent;
         border: none;
-        color: white;
+        color: var(--text-main);
         cursor: pointer;
         text-decoration: none;
     }
@@ -414,7 +414,7 @@ body {
 
     .DivMenu {
         display: block;
-        background-color: #191a1e;
+        background-color: var(--bg-color);
         position: fixed;
         bottom: 30px;
         left: 50%;

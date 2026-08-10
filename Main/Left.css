@@ -117,12 +117,13 @@
 
 .ALink
 {
+    color: var(--text-muted);
     text-decoration:none;
-    color:lightgray;
 }
 .ALink:hover
 {
-    color:whitesmoke;
+    color: var(--text-main);
+
 }
 
 .AGuide.active-page{
