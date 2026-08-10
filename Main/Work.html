@@ -7,6 +7,8 @@
     <link rel="stylesheet" href="Main.css">
     <link rel="stylesheet" href="Left.css">
     <script src="GlobalSettings.js"></script>
+    <script src="Portfolio.js"></script>
+
 
 </head>
 <body>
@@ -50,6 +52,56 @@
     </section>
 
     <section class="SectionRight">
+
+        <!-- Control Panel for Filtering and Sorting -->
+        <div class="FilterControls">
+            <div class="FilterGroup">
+                <button class="FilterBtn active" data-filter="all">All</button>
+                <button class="FilterBtn" data-filter="flutter">Flutter</button>
+                <button class="FilterBtn" data-filter="godot">Godot</button>
+                <button class="FilterBtn" data-filter="web">Web Extension</button>
+            </div>
+
+            <div class="SortGroup">
+                <button class="SortBtn" data-sort="desc">Newest First</button>
+                <button class="SortBtn" data-sort="asc">Oldest First</button>
+            </div>
+        </div>
+
+        <!-- The Portfolio Grid -->
+        <div class="DivGrid" id="portfolio-grid">
+
+            <!-- Item: LinguaLore -->
+            <a href="#" class="AProject portfolio-item" data-language="flutter" data-date="2026-05-01">
+                <div class="DivGridItem2">
+                    <div class="DivMedia"></div>
+                    <div class="DivText">
+                        <p>LinguaLore - Flutter powered mobile app for learning fictional languages</p>
+                    </div>
+                </div>
+            </a>
+
+            <!-- Item: VingtUn -->
+            <a href="#" class="AProject portfolio-item" data-language="godot" data-date="2026-08-01">
+                <div class="DivGridItem2">
+                    <div class="DivMedia"></div>
+                    <div class="DivText">
+                        <p>VingtUn - 2D roguelike card game using Godot 4</p>
+                    </div>
+                </div>
+            </a>
+
+            <!-- Item: FLIC -->
+            <a href="#" class="AProject portfolio-item" data-language="web" data-date="2026-04-01">
+                <div class="DivGridItem2">
+                    <div class="DivMedia"></div>
+                    <div class="DivText">
+                        <p>Honours Thesis: FLIC "Feedback for Live Interactive Coding" - Firefox extension</p>
+                    </div>
+                </div>
+            </a>
+
+        </div>
 
         <div class="DivBottom">
 

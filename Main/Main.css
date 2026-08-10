@@ -568,3 +568,48 @@ body {
 .ReturnBtn:hover {
     background-color: var(--box-bg);
 }
+
+
+/*WORK*/
+/* --- Filter & Sort Controls --- */
+.FilterControls {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 0 20px 20px 20px;
+}
+
+.FilterGroup, .SortGroup {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.FilterBtn, .SortBtn {
+    padding: 8px 16px;
+    background-color: var(--box-bg);
+    color: var(--text-muted);
+    border: 1px solid var(--panel-bg);
+    border-radius: 6px;
+    cursor: pointer;
+    font-family: inherit;
+    font-weight: bold;
+    transition: all 0.2s ease;
+}
+
+.FilterBtn:hover, .SortBtn:hover {
+    background-color: var(--panel-bg);
+    color: var(--text-main);
+}
+
+/* Highlight the currently active filter button */
+.FilterBtn.active {
+    background-color: var(--text-main);
+    color: var(--bg-color);
+}
+
+/* Utility class to hide items during filtering */
+.portfolio-item.hidden {
+    display: none;
+}
