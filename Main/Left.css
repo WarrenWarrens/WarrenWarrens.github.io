@@ -1,5 +1,5 @@
 .SectionLeft {
-    background-color: #191a1e;
+    background-color: var(--bg-color);
     width: 300px;
     flex-shrink: 0;
     height: 100%;
@@ -27,8 +27,7 @@
     align-items: center;
     justify-content: flex-start;
     gap: 15px;
-
-    background-color: #333;
+    background-color: var(--box-bg);
     padding: 15px;
     border-radius: 8px;
     width: 100%;
@@ -55,7 +54,7 @@
 
 
 .DivIconText {
-    color: #ffffff;
+    color: var(--text-main);
     font-weight: bold;
     font-size: 1.2rem;
     /*font-family: Oswald;*/
@@ -65,12 +64,11 @@
     display: flex;
     align-items: center;
     gap: 10px;
-
-    background-color: #333;
+    background-color: var(--box-bg);
+    color: var(--text-muted);
     padding: 10px 15px;
     border-radius: 8px;
 
-    color: lightgray;
     text-decoration: none;
     font-family: sans-serif;
     font-size: 0.95rem;
@@ -78,8 +76,9 @@
 }
 
 .DesktopSettings:hover {
-    color: white;
-    background-color: #444;
+    color: var(--text-main);
+    background-color: var(--panel-bg);
+
 }
 
 
@@ -95,13 +94,13 @@
 
 .AGuide
 {
-    color: lightgray;
+    color: var(--text-muted);
     text-decoration:none;
 }
 
 .AGuide:hover
 {
-    color:whitesmoke;
+    color: var(--text-main);
 }
 
 
@@ -124,6 +123,11 @@
 .ALink:hover
 {
     color:whitesmoke;
+}
+
+.AGuide.active-page{
+    color: var(--text-main);
+    font-weight: bold;
 }
 
 @media (max-width: 800px)

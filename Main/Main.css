@@ -91,8 +91,9 @@ body {
 
 
 
-.SectionRight {
-    background-color: #191a1e;
+.SectionRight
+{
+    background-color: var(--bg-color);
     flex-grow: 1;
     height: 100%;
     padding-top:80px;
@@ -123,7 +124,7 @@ body {
 {
     height:400px;
     width:100%;
-    background-color: #121215;
+    background-color: var(--panel-bg);
 }
 
 .DivGrid
@@ -174,7 +175,7 @@ body {
 
 .DivMedia
 {
-    background-color: #121215;
+    background-color: var(--panel-bg);
     aspect-ratio: 16/9;
     width: 100%;
     display: flex;
@@ -208,20 +209,16 @@ body {
 }
 
 
-#GuideHome
-{
-    color:white;
-}
 
 .PTitle
 {
-    color:white;
+    color: var(--text-main);
     font-size:30px;
 }
 
 .PText
 {
-    color:lightgrey;
+    color: var(--text-muted);
     font-size:18px;
 }
 
@@ -258,11 +255,11 @@ body {
     padding: 10px;
 }
 .DivDual {
-    background-color: #333;
-    color: white;
+    background-color: var(--box-bg);
+    color: var(--text-main);
+    border: 1px solid var(--panel-bg);
     padding: 5px;
     border-radius: 8px;
-    border: 1px solid #555;
 }
 
 
@@ -409,6 +406,7 @@ body {
 
 
     .SectionRight {
+        background-color: var(--bg-color);
         width: 100vw;
         padding-top: 40px;
     }
