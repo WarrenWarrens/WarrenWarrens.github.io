@@ -1,4 +1,3 @@
-/* Reset margins to take up the full screen */
 body, html {
     margin: 0;
     padding: 0;
@@ -142,37 +141,36 @@ body {
 
 .DivText p
 {
-    margin: 0; /* Removes default paragraph margin for a cleaner fit */
-    color: whitesmoke; /* Using your site's base dark color for contrast */
+    margin: 0;
+    color: whitesmoke;
     line-height: 1.5;
 }
 
 .DivIcon {
-    background-color: transparent; /* Removed the #333 background */
+    background-color: transparent;
     position: absolute;
     top: 20px;
     left: 20px;
     right: 20px;
-    height: auto; /* Let the inner boxes define the height naturally */
+    height: auto;
     z-index: 10;
 
     display: flex;
     flex-direction: column;
-    align-items: flex-start; /* Forces the settings box to align left */
-    gap: 10px; /* Space between the two grey boxes */
+    align-items: flex-start;
+    gap: 10px;
 }
 
-/* Style the top block as its own full-width grey rectangle */
 .DivIconTop {
     display: flex;
-    align-items: center; /* Vertically centers the image and text */
-    justify-content: flex-start; /* Ensures content aligns to the far left */
+    align-items: center;
+    justify-content: flex-start;
     gap: 15px;
 
-    background-color: #333; /* Give this its own grey background */
+    background-color: #333;
     padding: 15px;
-    border-radius: 8px; /* Rounded corners */
-    width: 100%; /* Spans the full width of the left panel */
+    border-radius: 8px;
+    width: 100%;
     box-sizing: border-box;
 }
 
@@ -182,48 +180,43 @@ body {
     align-items: center;
     gap: 10px;
 
-    background-color: #333; /* Give this its own grey background */
+    background-color: #333;
     padding: 10px 15px;
-    border-radius: 8px; /* Rounded corners */
+    border-radius: 8px;
 
     color: lightgray;
     text-decoration: none;
     font-family: sans-serif;
     font-size: 0.95rem;
     transition: color 0.2s, background-color 0.2s;
-    /* We don't set width: 100% here, so it stays shorter, hugging the text! */
 }
 
-/* Optional: Slight hover effect for the settings rectangle */
 .DesktopSettings:hover {
     color: white;
     background-color: #444;
 }
-/* NEW: Flex wrapper to keep the image and text side-by-side */
 .DivIconTop {
     display: flex;
-    align-items: center; /* Vertically centers the image and text */
-    gap: 15px; /* Adds space between the image and text */
+    align-items: center;
+    gap: 15px;
 }
 
 .DivIconImage {
     width: 50px;
     height: 50px;
-    flex-shrink: 0; /* Prevents the image container from squishing */
+    flex-shrink: 0;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-/* Ensures the SVG placeholder fills its container */
 .DivIconImage svg {
     width: 100%;
     height: 100%;
 }
 
-/* Styling for the right text container */
 .DivIconText {
-    color: #ffffff; /* Contrasting white text */
+    color: #ffffff;
     font-weight: bold;
     font-size: 1.2rem;
     font-family: sans-serif;
@@ -233,11 +226,11 @@ body {
 
 .DivGuide {
     position: absolute;
-    top: 160px; /* Anchored below the yellow div (20px top + 80px yellow + 20px gap) */
+    top: 160px;
     left: 20px;
     right: 20px;
     height: auto;
-    z-index: 5; /* Lower z-index so it gets overlapped */
+    z-index: 5;
     display: inline-grid;
 }
 
@@ -247,16 +240,15 @@ body {
 
 .DivContact {
     position: absolute;
-    bottom: 20px; /* Anchored to the bottom */
+    bottom: 20px;
     left: 20px;
     right: 20px;
     height: auto;
-    z-index: 10; /* Keeps it above the pink div */
+    z-index: 10;
     display: inline-grid;
 
 }
 
-/* Hide the green button on desktop */
 .DivMenu {
     display: none;
 }
@@ -312,19 +304,18 @@ body {
 {
     width:100%;
     display: flex;
-    align-items: center; /* Vertically centers the image and text */
-    gap: 15px; /* Adds space between the image and text */
-    padding: 0 15px; /* Adds breathing room on the left and right */
-    box-sizing: border-box; /* Keeps padding inside the set width */
-    border-radius: 8px; /* Optional: smooths the corners of the box */
+    align-items: center;
+    gap: 15px;
+    padding: 0 15px;
+    box-sizing: border-box;
+    border-radius: 8px;
 }
 
-/* The Parent Container */
 .DivDualWrapper {
     display: flex;
-    flex-direction: row; /* Aligns children side-by-side */
-    gap: 10px; /* Adds space between the two divs */
-    align-items: flex-start; /* Keeps items at the top rather than stretching their heights */
+    flex-direction: row;
+    gap: 10px;
+    align-items: flex-start;
 }
 
 .DivIntro
@@ -333,10 +324,8 @@ body {
     height:auto;
     padding: 10px;
 }
-/* The Child Divs */
 .DivDual {
-    width: auto; /* As requested, size is dictated by the content */
-    background-color: #333; /* Dark background to see the boxes */
+    background-color: #333;
     color: white;
     padding: 5px;
     border-radius: 8px;
@@ -345,9 +334,8 @@ body {
 
 
 
-/* Specific styling for the live time */
 .DivTime {
-    font-family: monospace; /* Gives a nice digital clock feel */
+    font-family: monospace;
     font-size: 1.2rem;
     font-weight: bold;
     color: whitesmoke;
@@ -359,17 +347,14 @@ body {
     font-size: 20px;
 }
 
-/* Base Container (Blue Background as seen in Figma) */
 .DivService {
     display: flex;
     flex-direction: column;
-    /*padding: 8px; !* Acts as the border seen in the image *!*/
     margin: 0 auto;
     font-family: sans-serif;
     box-sizing: border-box;
 }
 
-/* Mobile: Accordion Layout */
 .DivServiceTab
 {
     display: flex;
@@ -399,7 +384,7 @@ body {
 .TabLeftGroup {
     display: flex;
     align-items: center;
-    gap: 15px; /* Space between the star and the text block */
+    gap: 15px;
 }
 
 .TabTextGroup {
@@ -416,14 +401,13 @@ body {
     color: lightgray;
     margin-top: 4px;
     font-weight: normal;
-    display: none; /* Hidden on mobile by default */
+    display: none;
 }
 
 .TabTriangle {
-    display: none; /* Hidden by default */
+    display: none;
 }
 
-/* Show the triangle only when the parent tab is active */
 .DivServiceTab.active .TabTriangle {
     display: block;
 }
@@ -432,14 +416,12 @@ body {
     opacity: 0.9;
 }
 
-/* Hide content by default */
 .DivTabContent {
     display: none;
     padding: 24px;
     min-height: 250px;
 }
 
-/* Show content when parent has 'active' class */
 .DivServiceTab.active .DivTabContent {
     display: block;
 }
@@ -451,7 +433,6 @@ body {
 
 
 
-/* Mobile Layout (Right side of image_930055.png) */
 @media (max-width: 800px)
 {
 
@@ -467,7 +448,7 @@ body {
     }
 
     .DivGuide {
-        top: 110px; /* Pulls it right up under your name/icon */
+        top: 110px;
     }
 
     .DivMenuWrapper {
@@ -477,15 +458,14 @@ body {
         bottom: 30px;
         left: 50%;
         transform: translateX(-50%);
-        width: 200px; /* Slightly wider to fit two buttons comfortably */
+        width: 200px;
         height: 45px;
         z-index: 20;
         border-radius: 10px;
         border: 2px solid lightgray;
-        overflow: hidden; /* Clips the child buttons to keep the rounded corners */
+        overflow: hidden;
     }
 
-    /* Shared styling for both inner buttons */
     .DivMenuToggle, .DivMenuSettings {
         flex: 1;
         display: flex;
@@ -495,52 +475,48 @@ body {
         border: none;
         color: white;
         cursor: pointer;
-        text-decoration: none; /* Prevents underline on the <a> tag */
+        text-decoration: none;
     }
 
-    /* Add a divider between the two buttons */
     .DivMenuSettings {
         border-left: 2px solid lightgray;
     }
 
     .DivDualWrapper {
-        flex-direction: column; /* Swaps the layout from side-by-side to vertical */
-        align-items: flex-start; /* CRITICAL: This prevents the divs from stretching to 100% width when stacked, preserving 'width: auto' */
+        flex-direction: column;
+        align-items: flex-start;
     }
 
-    /* Hide the red panel by default on mobile */
     .SectionLeft {
         display: none;
-        position: fixed; /* Fixed so it can take over the screen */
+        position: fixed;
         top: 0;
         left: 0;
         width: 100vw;
         height: 100vh;
-        z-index: 10; /* Keep it above the blue div */
+        z-index: 10;
     }
 
-    /* Class added by JavaScript when the green button is clicked */
     .SectionLeft.active {
         display: block;
     }
 
-    /* Blue div takes full width on mobile */
     .SectionRight {
         width: 100vw;
         padding-top: 40px;
     }
 
-    /* Style and position the green button */
+
     .DivMenu {
         display: block;
         background-color: #191a1e;
         position: fixed;
-        bottom: 30px; /* Placed at the bottom */
+        bottom: 30px;
         left: 50%;
-        transform: translateX(-50%); /* Centers the button */
+        transform: translateX(-50%);
         width: 150px;
         height: 40px;
-        z-index: 20; /* Keep above both red and blue divs so it's always clickable */
+        z-index: 20;
         cursor: pointer;
         border-radius: 10px;
         border-style: solid;
@@ -567,25 +543,23 @@ body {
 
 }
 
-/* Desktop: Tab Layout */
 @media (min-width: 801px) {
     .DivService {
         display: grid;
-        grid-template-columns: 1fr 2fr; /* Ratio for Left Tabs / Right Content */
+        grid-template-columns: 1fr 2fr;
     }
 
     .DivServiceTab {
-        /* 'Flatten' the DOM structure so button and content become direct grid items */
         display: contents;
     }
 
     .ButtonTab {
-        grid-column: 1; /* Force all buttons into the left column */
+        grid-column: 1;
     }
 
     .DivTabContent {
-        grid-column: 2; /* Force all content into the right column */
-        /* Span the content across all 4 rows created by the buttons */
+        grid-column: 2;
+
         grid-row: 1 / 5;
     }
 
@@ -593,7 +567,6 @@ body {
         display: block;
     }
 
-    /* Force the triangle to stay hidden on desktop, even if active */
     .DivServiceTab.active .TabTriangle {
         display: none;
     }
