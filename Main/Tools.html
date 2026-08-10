@@ -5,33 +5,44 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Website</title>
     <link rel="stylesheet" href="Main.css">
+    <link rel="stylesheet" href="Left.css">
+    <script src="GlobalSettings.js"></script>
+
 </head>
 <body>
 
 <main class="Main">
     <section id="red-panel" class="SectionLeft">
         <div class="DivIcon">
-            <div class="DivIconImage">
-                <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-                    <circle cx="50" cy="50" r="50" fill="#ffffff" />
+            <div class="DivIconTop">
+                <div class="DivIconImage">
+                    <img src="Media/Agnes.png" alt="Profile Picture" class="ProfileImg">
+                </div>
+                <div class="DivIconText">
+                    <span>WarrenWarrens</span>
+                </div>
+            </div>
+
+            <a href="Settings.html" class="DesktopSettings">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M19.14 12.94c.04-.3.06-.61.06-.94 0-.32-.02-.64-.06-.94l2.03-1.58c.18-.14.23-.41.12-.61l-1.92-3.32c-.12-.22-.37-.29-.59-.22l-2.39.96c-.5-.38-1.03-.7-1.62-.94l-.36-2.54c-.04-.24-.24-.41-.48-.41h-3.84c-.24 0-.43.17-.47.41l-.36 2.54c-.59.24-1.13.56-1.62.94l-2.39-.96c-.22-.08-.47 0-.59.22l-1.92 3.32c-.12.21-.07.47.12.61l2.03 1.58c-.05.3-.09.63-.09.94s.02.64.06.94l-2.03 1.58c-.18.14-.23.41-.12.61l1.92 3.32c.12.22.37.29.59.22l2.39-.96c.5.38 1.03.7 1.62.94l.36 2.54c.05.24.24.41.48.41h3.84c.24 0 .43-.17.47-.41l.36-2.54c.59-.24 1.13-.56 1.62-.94l2.39.96c.22.08.47 0 .59-.22l1.92-3.32c.12-.22.07-.47-.12-.61l-2.03-1.58zM12 15.6c-1.98 0-3.6-1.62-3.6-3.6s1.62-3.6 3.6-3.6 3.6 1.62 3.6 3.6-1.62 3.6-3.6 3.6z"/>
                 </svg>
-            </div>
-            <div class="DivIconText">
-                <span>WarrenWarrens</span>
-            </div>
+                Settings
+            </a>
         </div>
 
         <div class="DivGuide">
             <a class="AGuide" href="../index.html">Home</a>
             <a class="AGuide" href="Work.html">Portfolio</a>
-            <a  class="AGuide" href="Personal.html">Personal</a>
-            <a  class="AGuide" href="Education.html">Education</a>
-            <a id ="GuideHome" class="AGuide" href="Tools.html">Tools</a>
-            <a  class="AGuide" href="About.html">About</a>
+            <a class="AGuide" href="Personal.html">Personal</a>
+            <a class="AGuide"  href="Education.html">Education</a>
+            <a class="AGuide active-page" href="Tools.html">Tools</a>
+            <a class="AGuide" href="About.html">About</a>
         </div>
 
         <div class="DivContact">
-            <p style="color: white">Contact</p>
+            <p class="PText">Contact</p>
+            <a class="ALink">Meeting</a>
             <a class="ALink" href="mailto:warrener.ryan@gmail.com">Email</a>
             <a class="ALink" href="https://www.linkedin.com/in/ryan-warrener/" target="_blank" >LinkedIn</a>
             <a class="ALink" href="https://x.com/WarrenWarrenCS" target="_blank">Twitter (X)</a>
@@ -39,168 +50,22 @@
     </section>
 
     <section class="SectionRight">
-        <div class="DivGrid">
-            <div class="DivGridItem">
-                <div class="DivIntro">
-                    <p class="PIntro">
-                        I'm Ryan, a programmer, computer engineer, lifelong learner and the
-                        type of curious to constantly explore rabbit holes, side projects and experiments.
-                    </p>
-                </div>
-                <div class="DivIntro">
-                    <p class="PIntro">
-                        Based in Toronto, Canada. Working on my Masters at Ontario Tech University, while working part-time
-                        as a day receiver at Princess Auto.
-                    </p>
-                </div>
-                <div class="DivIntro">
-                    <p class="PIntro">
-                        Professionally, i build myself on the core principles of making and improving software
-                        to be as easy to use, customizable, accessible and a product people actually want to use.
-                    </p>
-                </div>
-            </div>
-            <div class="DivGridItem">
-                <div class="DivIntro">
-                    <p class="PIntro">
-                        When i'm not studying but still feeling productive, you can find me working on personal experiments
-                        and side projects ranging from visual arts with ink and water colours, to crafting electronics with a
-                        soldering iron in one hand, and writing code in the other.
-                    </p>
 
-
-                </div>
-                <div class="DivIntro">
-                    <p class="PIntro">
-                        When i need a break from being productive, i love to simply unwind with
-                        playing video games, movies, reading, cooking and weight lifting.
-                    </p>
-
-                </div>
-                <div class="DivIntro">
-                    <p class="PIntro"> Here are some of my favourites: Donnie Darko, Oppenheimer, Death Grips, Persona 4 Golden, Metal Gear Solid 2:
-                        Sons of Liberty, Jojo's Bizarre Adventure & Slipknot.
-                    </p>
-                </div>
-            </div>
-        </div>
-
-
-        <div class="DivDivide">
-            <p class="PTitle">Status</p>
-            <div class="DivDualWrapper">
-                <div class="DivDual">
-                    <p class="PText">Partial</p>
-                </div>
-                <div class="DivDual">
-                    <p id="toronto-time" class="DivTime">Loading time...</p>
-                </div>
-            </div>
-            <p class="PText">
-                Currently, working full-time on my MSc Computer Science & working part-time as a TA & day
-                receiver at Princess Auto, as a result my availability is only partial.
-            </p>
-        </div>
-
-
-        <div class="DivDivide">
-            <p class="PTitle">Portfolio</p>
-            <p class="PText">Sample of my current/best projects</p>
-        </div>
-
-        <div class="DivGrid">
-            <a href="Main/Work.html" class="AProject">
-                <div class="DivGridItem2">
-                    <div class="DivMedia">
-                    </div>
-                    <div class="DivText">
-                        <p>Lingua Lore - Flutter powered mobile app for learning fictional languages</p>
-                    </div>
-                </div>
-            </a>
-
-
-
-            <a href="Main/Work.html" class="AProject">
-                <div class="DivGridItem2">
-                    <div class="DivMedia">
-                    </div>
-                    <div class="DivText">
-                        <p>Honours Thesis: FLIC "Feedback for Live Interactive Coding" - Firefox extension & website for communication between professors and students during CS lectures</p>
-                    </div>
-                </div>
-            </a>
-            <a href="Main/Work.html" class="AProject">
-                <div class="DivGridItem2">
-                    <div class="DivMedia">
-
-                    </div>
-                    <div class="DivText">
-                        <p>VingtUn - 2D rougelike card game using Godot 4 & modified Blackjack rules</p>
-                    </div>
-                </div>
-            </a>
-            <a href="Main/Work.html" class="AProject">
-                <div class="DivGridItem2">
-                    <div class="DivMedia">
-
-                    </div>
-                    <div class="DivText">
-                        <p>Gathering - User shared map & social media application powered by Flutter, Flutter_Maps and Firebase</p>
-                    </div>
-                </div>
-            </a>
-
-        </div>
-
-        <div class="DivDivide">
-            <p class="PTitle">Service</p>
-            <p class="PText">What i can do for you</p>
-        </div>
-
-        <div class="DivService">
-            <div class="DivServiceTab active">
-                <button class="ButtonTab" style=" color: white;">Front end design</button>
-                <div class="DivTabContent">
-                    <h2 class="PText">Software I use</h2>
-                    <p class="PText">This is the lime green div content.</p>
-                </div>
-            </div>
-
-
-            <div class="DivServiceTab">
-                <button class="ButtonTab" style="color: white;">Mobile development</button>
-                <div class="DivTabContent">
-                    <h2 class="PText">Hardware</h2>
-                    <p class="PText">Details about the hardware setup.</p>
-                </div>
-            </div>
-
-
-            <div class="DivServiceTab">
-                <button class="ButtonTab" style=" color: white;">Game Design/Programming</button>
-                <div class="DivTabContent">
-                    <h2 class="PText">Languages</h2>
-                    <p class="PText">Programming languages and tools.</p>
-                </div>
-            </div>
-
-
-            <div class="DivServiceTab">
-                <button class="ButtonTab" style=" color: white;">Accessibility & User customization</button>
-                <div class="DivTabContent">
-                    <h2 class="PText">Projects</h2>
-                    <p class="PText">Recent work and interactive elements.</p>
-                </div>
-            </div>
-        </div>
 
         <div class="DivBottom">
 
         </div>
     </section>
 
-    <div id="green-btn" class="DivMenu"></div>
+    <div class="DivMenuWrapper">
+        <button id="green-btn" class="DivMenuToggle">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M12 8L18 16H6L12 8Z"/></svg>
+        </button>
+
+        <a href="Settings.html" class="DivMenuSettings">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>
+        </a>
+    </div>
 </main>
 
 <script src="Main.js"></script>

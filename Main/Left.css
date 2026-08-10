@@ -70,8 +70,7 @@
     border-radius: 8px;
 
     text-decoration: none;
-    font-family: sans-serif;
-    font-size: 0.95rem;
+    font-size: 1.3rem;
     transition: color 0.2s, background-color 0.2s;
 }
 
@@ -84,7 +83,7 @@
 
 .DivGuide {
     position: absolute;
-    top: 160px;
+    top: 170px;
     left: 20px;
     right: 20px;
     height: auto;
@@ -94,6 +93,7 @@
 
 .AGuide
 {
+    font-size: 1.3rem;
     color: var(--text-muted);
     text-decoration:none;
 }
@@ -117,6 +117,8 @@
 
 .ALink
 {
+    font-size: 0.95rem;
+
     color: var(--text-muted);
     text-decoration:none;
 }
@@ -157,7 +159,7 @@
     }
 
     .DivGuide {
-        top: 110px;
+        top: 120px;
     }
 
     .DivContact
