@@ -71,6 +71,20 @@ body, html {
 {
     flex-grow: 1;
     height: auto;
+    margin-bottom: 20px;
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    gap: 10px;
+    padding:10px;
+    box-sizing:border-box;
+    align-content: start;
+
+}
+
+.DivGrid2
+{
+    flex-grow: 1;
+    height: auto;
     margin-bottom: 40px;
     display: grid;
     grid-template-columns: repeat(2,1fr);
@@ -266,7 +280,7 @@ body, html {
 {
     width:100%;
     height:auto;
-    padding: 15px;
+    padding: 10px;
 }
 /* The Child Divs */
 .DivDual {
@@ -325,6 +339,42 @@ body, html {
     background-repeat: no-repeat;
     overflow: hidden;
     outline: none;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.TabLeftGroup {
+    display: flex;
+    align-items: center;
+    gap: 15px; /* Space between the star and the text block */
+}
+
+.TabTextGroup {
+    display: flex;
+    flex-direction: column;
+}
+
+.TabTitle {
+    font-size: 1.1rem;
+}
+
+.TabSubtitle {
+    font-size: 0.85rem;
+    color: lightgray;
+    margin-top: 4px;
+    font-weight: normal;
+    display: none; /* Hidden on mobile by default */
+}
+
+.TabTriangle {
+    display: none; /* Hidden by default */
+}
+
+/* Show the triangle only when the parent tab is active */
+.DivServiceTab.active .TabTriangle {
+    display: block;
 }
 
 .ButtonTab:hover {
@@ -438,5 +488,14 @@ body, html {
         grid-column: 2; /* Force all content into the right column */
         /* Span the content across all 4 rows created by the buttons */
         grid-row: 1 / 5;
+    }
+
+    .TabSubtitle {
+        display: block;
+    }
+
+    /* Force the triangle to stay hidden on desktop, even if active */
+    .DivServiceTab.active .TabTriangle {
+        display: none;
     }
 }
