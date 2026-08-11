@@ -740,20 +740,14 @@ body {
 /* --- Filter & Sort Controls --- */
 .FilterControls {
     display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    gap: 20px;
+    gap: 15px;
     padding: 0 20px 20px 20px;
-}
-
-.FilterGroup, .SortGroup {
-    display: flex;
-    gap: 10px;
+    align-items: flex-start;
     flex-wrap: wrap;
 }
 
-.FilterBtn, .SortBtn {
-    padding: 8px 16px;
+.FilterBtn, .DropBtn, .FilterOption, .SortOption {
+    padding: 10px 20px;
     background-color: var(--box-bg);
     color: var(--text-muted);
     border: 1px solid var(--panel-bg);
@@ -762,12 +756,83 @@ body {
     font-family: inherit;
     font-weight: bold;
     transition: all 0.2s ease;
+    text-align: left;
 }
 
-.FilterBtn:hover, .SortBtn:hover {
+.FilterBtn:hover, .DropBtn:hover, .FilterOption:hover, .SortOption:hover {
     background-color: var(--panel-bg);
     color: var(--text-main);
 }
+
+.FilterGroup, .SortGroup {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.FilterBtn.is-clear {
+    background-color: #8b0000; /* Dark Red */
+    color: white;
+    border-color: #ff4444;
+}
+.FilterBtn.is-clear:hover {
+    background-color: #a00000;
+}
+
+.Dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.DropContent {
+    display: none; /* Hidden by default */
+    position: absolute;
+    top: 100%;
+    left: 0;
+    margin-top: 5px;
+    background-color: var(--box-bg);
+    min-width: 150px;
+    border-radius: 6px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.5);
+    z-index: 100;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.Dropdown.show .DropContent {
+    display: flex;
+}
+
+/* Remove borders between dropdown items */
+.DropContent button {
+    border: none;
+    border-radius: 0;
+    border-bottom: 1px solid var(--panel-bg);
+}
+.DropContent button:last-child {
+    border-bottom: none;
+}
+
+/* --- Active States --- */
+/* 1. Category button when a filter inside it is active */
+.DropBtn.has-selection {
+    background-color: var(--text-main);
+    color: var(--bg-color);
+}
+
+/* 2. Specific filter option when selected (Black bg, white text as per Figma) */
+.FilterOption.selected, .SortOption.selected {
+    background-color: var(--text-main); /* Changes to white in dark mode, black in light mode */
+    color: var(--bg-color);
+
+}
+
+/* Utility class to hide items during filtering */
+.portfolio-item.hidden {
+    display: none;
+}
+
+
 
 /* Highlight the currently active filter button */
 .FilterBtn.active {

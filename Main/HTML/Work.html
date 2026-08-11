@@ -56,23 +56,47 @@
             <div class="ProgressBar" id="scroll-progress"></div>
         </div>
 
+        <!-- Control Panel for Filtering and Sorting -->
         <div class="FilterControls">
-            <div class="FilterGroup">
-                <button class="FilterBtn active" data-filter="all">All</button>
-                <button class="FilterBtn" data-filter="flutter">Flutter</button>
-                <button class="FilterBtn" data-filter="godot">Godot</button>
-                <button class="FilterBtn" data-filter="web">Web Extension</button>
+            <!-- The All/Clear Button -->
+            <button id="reset-btn" class="FilterBtn">All</button>
+
+            <!-- Language Dropdown -->
+            <div class="Dropdown">
+                <button class="DropBtn" data-label="Language">Language</button>
+                <div class="DropContent">
+                    <button class="FilterOption" data-category="language" data-value="flutter">Flutter</button>
+                    <button class="FilterOption" data-category="language" data-value="javascript">JavaScript</button>
+                    <button class="FilterOption" data-category="language" data-value="gdscript">GDScript</button>
+                    <button class="FilterOption" data-category="language" data-value="rust">Rust</button>
+                </div>
             </div>
 
-            <div class="SortGroup">
-                <button class="SortBtn" data-sort="desc">Newest First</button>
-                <button class="SortBtn" data-sort="asc">Oldest First</button>
+            <!-- Type Dropdown -->
+            <div class="Dropdown">
+                <button class="DropBtn" data-label="Type">Type</button>
+                <div class="DropContent">
+                    <button class="FilterOption" data-category="type" data-value="mobile">Mobile App</button>
+                    <button class="FilterOption" data-category="type" data-value="extension">Web Extension</button>
+                    <button class="FilterOption" data-category="type" data-value="game">Game</button>
+                </div>
+            </div>
+
+            <!-- Date Sort Dropdown (Mutually Exclusive) -->
+            <div class="Dropdown">
+                <button class="DropBtn" data-label="Date">Date</button>
+                <div class="DropContent">
+                    <button class="SortOption selected" data-sort="desc">Newest First</button>
+                    <button class="SortOption" data-sort="asc">Oldest First</button>
+                </div>
             </div>
         </div>
 
+        <!-- The Portfolio Grid -->
         <div class="DivGrid" id="portfolio-grid">
 
-            <a href="Portfolio/LinguaLore.html" class="AProject portfolio-item" data-language="flutter" data-date="2026-04-01">
+            <!-- Item: LinguaLore -->
+            <a href="#" class="AProject portfolio-item" data-language="flutter" data-type="mobile" data-date="2026-05-01">
                 <div class="DivGridItem2">
                     <div class="DivMedia"></div>
                     <div class="DivText">
@@ -81,7 +105,8 @@
                 </div>
             </a>
 
-            <a href="Portfolio/VingtUn.html" class="AProject portfolio-item" data-language="godot" data-date="2026-08-01">
+            <!-- Item: VingtUn -->
+            <a href="#" class="AProject portfolio-item" data-language="gdscript" data-type="game" data-date="2026-08-01">
                 <div class="DivGridItem2">
                     <div class="DivMedia"></div>
                     <div class="DivText">
@@ -90,7 +115,8 @@
                 </div>
             </a>
 
-            <a href="Portfolio/FLIC.html" class="AProject portfolio-item" data-language="web" data-date="2026-04-01">
+            <!-- Item: FLIC -->
+            <a href="#" class="AProject portfolio-item" data-language="javascript" data-type="extension" data-date="2026-04-01">
                 <div class="DivGridItem2">
                     <div class="DivMedia"></div>
                     <div class="DivText">
@@ -99,29 +125,12 @@
                 </div>
             </a>
 
-            <a href="Portfolio/Gathering.html" class="AProject portfolio-item" data-language="flutter" data-date="2026-04-01">
+            <!-- Item: Gathering -->
+            <a href="#" class="AProject portfolio-item" data-language="flutter" data-type="mobile" data-date="2026-06-01">
                 <div class="DivGridItem2">
                     <div class="DivMedia"></div>
                     <div class="DivText">
-                        <p>Gathering - Shared map and user moderated social media phone app powered by Flutter</p>
-                    </div>
-                </div>
-            </a>
-
-            <a href="#" class="AProject portfolio-item" data-language="web" data-date="2024-04-01">
-                <div class="DivGridItem2">
-                    <div class="DivMedia"></div>
-                    <div class="DivText">
-                        <p>Battle Boats - Battleship clone over peer to peer connection on internet browsers</p>
-                    </div>
-                </div>
-            </a>
-
-            <a href="#" class="AProject portfolio-item" data-language="flutter" data-date="2024-04-01">
-                <div class="DivGridItem2">
-                    <div class="DivMedia"></div>
-                    <div class="DivText">
-                        <p>Muscle Forge - Personal workout phone application with ranking and exercise tracker, powered by Flutter</p>
+                        <p>Gathering - User shared map & social media application</p>
                     </div>
                 </div>
             </a>

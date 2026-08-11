@@ -1,53 +1,168 @@
 document.addEventListener('DOMContentLoaded', () => {
     const gridContainer = document.getElementById('portfolio-grid');
     const portfolioItems = Array.from(document.querySelectorAll('.portfolio-item'));
-    const filterBtns = document.querySelectorAll('.FilterBtn');
-    const sortBtns = document.querySelectorAll('.SortBtn');
 
-    // --- FILTERING LOGIC ---
-    filterBtns.forEach(btn => {
-        btn.addEventListener('click', () => {
-            // Update active button styling
-            filterBtns.forEach(b => b.classList.remove('active'));
-            btn.classList.add('active');
+    const dropdowns = document.querySelectorAll('.Dropdown');
+    const filterOptions = document.querySelectorAll('.FilterOption');
+    const sortOptions = document.querySelectorAll('.SortOption');
+    const resetBtn = document.getElementById('reset-btn');
 
-            const filterValue = btn.getAttribute('data-filter');
+    // State object to track selected filters
+    let activeFilters = {
+        language: [],
+        type: []
+    };
+    let currentSort = 'desc';
 
-            portfolioItems.forEach(item => {
-                const itemLanguage = item.getAttribute('data-language');
+    // --- 1. Dropdown Toggle Logic ---
+    dropdowns.forEach(dropdown => {
+        const btn = dropdown.querySelector('.DropBtn');
+        btn.addEventListener('click', (e) => {
+            e.stopPropagation(); // Prevents click from bubbling up
 
-                // Show item if it matches the filter, or if 'all' is selected
-                if (filterValue === 'all' || itemLanguage === filterValue) {
-                    item.classList.remove('hidden');
-                } else {
-                    item.classList.add('hidden');
-                }
-            });
+            // Close all other dropdowns first
+            dropdowns.forEach(d => { if (d !== dropdown) d.classList.remove('show'); });
+
+            // Toggle this one
+            dropdown.classList.toggle('show');
         });
     });
 
-    // --- SORTING LOGIC ---
-    sortBtns.forEach(btn => {
-        btn.addEventListener('click', () => {
-            const sortOrder = btn.getAttribute('data-sort'); // 'asc' or 'desc'
+    // Close dropdowns when clicking outside
+    document.addEventListener('click', () => {
+        dropdowns.forEach(d => d.classList.remove('show'));
+    });
 
-            // Sort the array of HTML elements based on their data-date attribute
-            portfolioItems.sort((a, b) => {
-                const dateA = new Date(a.getAttribute('data-date'));
-                const dateB = new Date(b.getAttribute('data-date'));
+    // --- 2. Filter Selection Logic ---
+    filterOptions.forEach(option => {
+        option.addEventListener('click', (e) => {
+            e.stopPropagation(); // Keep dropdown open while clicking options
 
-                if (sortOrder === 'desc') {
-                    return dateB - dateA; // Newest first
-                } else {
-                    return dateA - dateB; // Oldest first
-                }
-            });
+            const category = option.getAttribute('data-category');
+            const value = option.getAttribute('data-value');
 
-            // Re-append the sorted items back into the grid container
-            // (DOM automatically moves existing nodes rather than duplicating them)
-            portfolioItems.forEach(item => gridContainer.appendChild(item));
+            // Toggle selection state
+            if (activeFilters[category].includes(value)) {
+                // Remove if already selected
+                activeFilters[category] = activeFilters[category].filter(v => v !== value);
+                option.classList.remove('selected');
+            } else {
+                // Add if not selected
+                activeFilters[category].push(value);
+                option.classList.add('selected');
+            }
+
+            updateUI();
+            applyFiltersAndSort();
         });
     });
+
+    // --- 3. Sort Selection Logic ---
+    sortOptions.forEach(option => {
+        option.addEventListener('click', (e) => {
+            e.stopPropagation();
+
+            // Mutually exclusive: remove 'selected' from all sort options
+            sortOptions.forEach(opt => opt.classList.remove('selected'));
+
+            option.classList.add('selected');
+            currentSort = option.getAttribute('data-sort');
+
+            // Close dropdown and apply
+            option.closest('.Dropdown').classList.remove('show');
+            applyFiltersAndSort();
+        });
+    });
+
+    // --- 4. Reset Button Logic ---
+    resetBtn.addEventListener('click', () => {
+        // Clear state
+        activeFilters = { language: [], type: [] };
+        currentSort = 'desc'; // Reset sort to default (Newest First)
+
+        // Reset Filter UI buttons
+        filterOptions.forEach(opt => opt.classList.remove('selected'));
+
+        // Reset Sort UI buttons
+        sortOptions.forEach(opt => {
+            if (opt.getAttribute('data-sort') === 'desc') {
+                opt.classList.add('selected');
+            } else {
+                opt.classList.remove('selected');
+            }
+        });
+
+        updateUI();
+        applyFiltersAndSort();
+    });
+
+    // --- Helper: Update Buttons & Labels ---
+    function updateUI() {
+        let anyFiltersActive = false;
+
+        // 1. Check Language and Type categories
+        Object.keys(activeFilters).forEach(category => {
+            // Find the DropBtn for this category
+            const dropBtn = document.querySelector(`.FilterOption[data-category="${category}"]`).closest('.Dropdown').querySelector('.DropBtn');
+
+            if (activeFilters[category].length > 0) {
+                dropBtn.classList.add('has-selection');
+                anyFiltersActive = true;
+            } else {
+                dropBtn.classList.remove('has-selection');
+            }
+        });
+
+        // 2. NEW: Check Date category
+        // We only highlight it if they change it from the default ('desc' / Newest First)
+        const dateDropBtn = document.querySelector('.DropBtn[data-label="Date"]');
+        if (currentSort !== 'desc') {
+            dateDropBtn.classList.add('has-selection');
+            anyFiltersActive = true;
+        } else {
+            dateDropBtn.classList.remove('has-selection');
+        }
+
+        // 3. Toggle the Reset/All button state
+        if (anyFiltersActive) {
+            resetBtn.textContent = 'Clear';
+            resetBtn.classList.add('is-clear');
+        } else {
+            resetBtn.textContent = 'All';
+            resetBtn.classList.remove('is-clear');
+        }
+    }
+
+    // --- Helper: Execute Filtering and Sorting ---
+    function applyFiltersAndSort() {
+        // 1. Filter
+        portfolioItems.forEach(item => {
+            const itemLang = item.getAttribute('data-language');
+            const itemType = item.getAttribute('data-type');
+
+            // If category array is empty, it means "allow all" for that category
+            const matchLang = activeFilters.language.length === 0 || activeFilters.language.includes(itemLang);
+            const matchType = activeFilters.type.length === 0 || activeFilters.type.includes(itemType);
+
+            // Must match ALL active categories (AND logic between categories, OR logic within)
+            if (matchLang && matchType) {
+                item.classList.remove('hidden');
+            } else {
+                item.classList.add('hidden');
+            }
+        });
+
+        // 2. Sort
+        portfolioItems.sort((a, b) => {
+            const dateA = new Date(a.getAttribute('data-date'));
+            const dateB = new Date(b.getAttribute('data-date'));
+
+            return currentSort === 'desc' ? dateB - dateA : dateA - dateB;
+        });
+
+        // Re-append to grid
+        portfolioItems.forEach(item => gridContainer.appendChild(item));
+    }
 });
 
 document.addEventListener('DOMContentLoaded', () => {
