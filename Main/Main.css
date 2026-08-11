@@ -1,3 +1,5 @@
+
+
 body, html {
     margin: 0;
     padding: 0;
@@ -181,12 +183,13 @@ body {
     display: flex;
     align-content: center;
     justify-content: center;
+    position: relative;
 }
 
 .DivText
 {
     height: auto;
-    padding: 15px;
+    padding: 5px 15px 15px 15px;
     box-sizing: border-box;
     margin: 0;
     flex-grow: 1;
@@ -361,12 +364,17 @@ body {
     text-decoration:none;
 }
 
+/*.AProject:hover */
+/*{*/
+/*    background-color: red;*/
+/*}*/
+
 /* Container for the badges */
 .DivTechStack {
     display: flex;
     gap: 8px; /* Space between badges */
-    padding: 12px 15px 0 15px; /* Padding on top and sides, none on bottom */
-    background-color: var(--panel-bg); /* Inherits your dark theme box background */
+    padding: 10px 5px; /* Padding on all sides now that it's a standalone bar */
+    /*background-color: var(--panel-bg); !* Inherits your dark theme box background *!*/
     flex-wrap: wrap; /* Allows badges to wrap to a new line if there are many */
 }
 
@@ -374,15 +382,21 @@ body {
 .TechBadge {
     display: flex;
     align-items: center;
-    gap: 5px;
-    background-color: var(--box-bg); /* Slightly lighter background to pop */
-    color: var(--text-main);
-    padding: 4px 8px;
-    border-radius: 4px;
-    font-size: 0.75rem;
+    gap: 6px;
+
+    /* Semi-transparent dark background so it's readable over any image */
+    background-color: rgba(30, 30, 30, 0.85);
+    color: whitesmoke;
+
+    padding: 6px 10px;
+    border-radius: 6px;
+    font-size: 0.8rem;
     font-family: sans-serif;
     font-weight: bold;
-    border: 1px solid #444; /* Optional subtle border */
+    border: 1px solid rgba(255, 255, 255, 0.1); /* Very subtle border to define the edge */
+
+    /* Optional: Adds a nice blur effect to whatever part of the image is behind the badge */
+    backdrop-filter: blur(4px);
 }
 
 /* Wrapper spans the whole top of the screen */
@@ -521,7 +535,7 @@ body {
 
 
 /*////////////////////////////////////////////////////////////////////////////////////////*/
-                                        /*SETTINGS*/
+/*SETTINGS*/
 /*////////////////////////////////////////////////////////////////////////////////////////*/
 
 .SettingsBody {
