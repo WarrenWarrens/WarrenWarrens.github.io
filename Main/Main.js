@@ -128,3 +128,24 @@ window.addEventListener('resize', () => {
         document.body.classList.remove('no-scroll');
     }
 });
+
+// Grab the scrolling container and the progress bar
+const scrollArea = document.querySelector('.SectionRight');
+const progressBar = document.getElementById('scroll-progress');
+
+// NULL CHECK: Only run if both elements exist on the page
+if (scrollArea && progressBar) {
+    scrollArea.addEventListener('scroll', () => {
+        // Calculate how far down the user has scrolled
+        const scrollTop = scrollArea.scrollTop;
+
+        // Calculate the maximum possible scroll distance
+        const maxScroll = scrollArea.scrollHeight - scrollArea.clientHeight;
+
+        // Calculate the percentage
+        const scrollPercentage = (scrollTop / maxScroll) * 100;
+
+        // Apply the percentage to the width of the bar
+        progressBar.style.width = scrollPercentage + '%';
+    });
+}

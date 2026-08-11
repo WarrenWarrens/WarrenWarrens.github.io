@@ -361,6 +361,49 @@ body {
     text-decoration:none;
 }
 
+/* Container for the badges */
+.DivTechStack {
+    display: flex;
+    gap: 8px; /* Space between badges */
+    padding: 12px 15px 0 15px; /* Padding on top and sides, none on bottom */
+    background-color: var(--panel-bg); /* Inherits your dark theme box background */
+    flex-wrap: wrap; /* Allows badges to wrap to a new line if there are many */
+}
+
+/* Individual badge styling */
+.TechBadge {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    background-color: var(--box-bg); /* Slightly lighter background to pop */
+    color: var(--text-main);
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    font-family: sans-serif;
+    font-weight: bold;
+    border: 1px solid #444; /* Optional subtle border */
+}
+
+/* Wrapper spans the whole top of the screen */
+.ProgressContainer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px; /* Thickness of the bar */
+    z-index: 9999; /* Keeps it above absolutely everything */
+    background-color: transparent;
+}
+
+/* The expanding fill */
+.ProgressBar {
+    height: 100%;
+    width: 0%; /* Starts at 0 width */
+    background-color: var(--text-main); /* Uses your bright theme color */
+    transition: width 0.1s ease-out; /* Makes it fluid instead of jittery */
+}
+
 
 
 @media (max-width: 800px)
@@ -612,4 +655,31 @@ body {
 /* Utility class to hide items during filtering */
 .portfolio-item.hidden {
     display: none;
+}
+
+/* Base Desktop Styling */
+.CenteredStack {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    width: 70%; /* Forces the div to take up exactly 70% of SectionRight */
+    margin: 0 auto; /* Automatically calculates equal left/right margins to center it */
+}
+
+/* Individual items in the stack */
+.StackItem {
+    background-color: var(--panel-bg);
+    border-radius: 10px;
+    padding: 20px;
+    border: 1px solid var(--box-bg);
+}
+
+/* Mobile Styling */
+@media (max-width: 800px) {
+    .CenteredStack {
+        width: 100%; /* Expands to fill the entire screen width */
+        padding: 0 15px; /* Adds a tiny bit of breathing room on the edges so it doesn't touch the glass */
+        box-sizing: border-box; /* Keeps the padding from blowing out the 100% width */
+    }
 }
