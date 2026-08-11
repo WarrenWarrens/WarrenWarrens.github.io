@@ -20,36 +20,32 @@ body {
 
 @font-face {
     font-family: 'Oswald';
-    /*src: url('Media/FontOgnico/ognico-black_fontlot52ea.otf') format('opentype'); !* Update exact filename *!*/
+    /*src: url('Media/FontOgnico/ognico-black_fontlot52ea.otf') format('opentype'); *!*/
     font-weight: normal;
     font-style: normal;
 }
 
 @font-face {
     font-family: 'Oswald';
-    /*src: url('Media/FontOgnico/ognico-bold_fontlotd694.otf') format('opentype'); !* Update exact filename *!*/
+    /*src: url('Media/FontOgnico/ognico-bold_fontlotd694.otf') format('opentype'); *!*/
     font-weight: bold;
     font-style: normal;
 }
 
 body {
-    font-family: 'Oswald', sans-serif; /* sans-serif acts as a fallback */
+    font-family: 'Oswald', sans-serif;
 }
 
-/* --- GLOBAL CSS VARIABLES --- */
 :root {
-    /* Default Dark Theme Colors */
     --bg-color: #191a1e;
     --panel-bg: #121215;
     --box-bg: #333;
     --text-main: whitesmoke;
     --text-muted: lightgray;
 
-    /* Default Typography */
     --base-font-size: 16px;
 }
 
-/* Light Theme Overrides */
 html[data-theme="light"] {
     --bg-color: #f0f0f0;
     --panel-bg: #ffffff;
@@ -58,19 +54,16 @@ html[data-theme="light"] {
     --text-muted: #444444;
 }
 
-/* Large Text Overrides */
 html[data-text="large"] {
     --base-font-size: 20px;
 }
 
-/* Reduced Motion Overrides */
 html[data-motion="reduced"] * {
     transition: none !important;
     animation: none !important;
     scroll-behavior: auto !important;
 }
 
-/* Base Body Styles utilizing the variables */
 body {
     background-color: var(--bg-color);
     color: var(--text-main);
@@ -228,20 +221,20 @@ body {
 .DivDivide
 {
     display: flex;
-    justify-content: space-between; /* Pushes the two child elements to opposite ends */
-    align-items: center; /* Vertically aligns the text block and the badge */
+    justify-content: space-between;
+    align-items: center;
 
     gap: 20px;
     padding: 20px;
     width: 100%;
     height: auto;
-    box-sizing: border-box; /* Ensures padding doesn't cause overflow */
+    box-sizing: border-box;
 }
 
 .DivDivideText {
     display: flex;
     flex-direction: column;
-    gap: 5px; /* Adds a small breathing room between the title and subtitle */
+    gap: 5px;
 }
 
 .DivDivideText .PTitle,
@@ -250,11 +243,10 @@ body {
 }
 
 .ActionBadge {
-    text-decoration: none; /* Removes the default blue underline from links */
-    transition: background-color 0.2s, transform 0.1s; /* Smooth hover effects */
+    text-decoration: none;
+    transition: background-color 0.2s, transform 0.1s;
 }
 
-/* Optional: Make the badge pop slightly when hovered */
 .ActionBadge:hover {
     background-color: var(--panel-bg);
     transform: scale(1.05);
@@ -266,12 +258,7 @@ body {
     gap: 20px;
     padding: 20px;
     height: auto;
-    /*display: flex;*/
-    /*align-items: center;*/
-    /*gap: 15px;*/
-    /*padding: 0 15px;*/
-    /*box-sizing: border-box;*/
-    /*border-radius: 8px;*/
+
 }
 
 .DivDualWrapper {
@@ -402,32 +389,11 @@ body {
 /* Container for the badges */
 .DivTechStack {
     display: flex;
-    gap: 8px; /* Space between badges */
-    padding: 10px 5px; /* Padding on all sides now that it's a standalone bar */
-    /*background-color: var(--panel-bg); !* Inherits your dark theme box background *!*/
-    flex-wrap: wrap; /* Allows badges to wrap to a new line if there are many */
+    gap: 8px;
+    padding: 10px 5px;
+    flex-wrap: wrap;
 }
 
-/* Individual badge styling */
-/*.TechBadge {*/
-/*    display: flex;*/
-/*    align-items: center;*/
-/*    gap: 6px;*/
-
-/*    !* Semi-transparent dark background so it's readable over any image *!*/
-/*    background-color: rgba(30, 30, 30, 0.85);*/
-/*    color: whitesmoke;*/
-
-/*    padding: 6px 10px;*/
-/*    border-radius: 6px;*/
-/*    font-size: 0.8rem;*/
-/*    font-family: sans-serif;*/
-/*    font-weight: bold;*/
-/*    border: 1px solid rgba(255, 255, 255, 0.1); !* Very subtle border to define the edge *!*/
-
-/*    !* Optional: Adds a nice blur effect to whatever part of the image is behind the badge *!*/
-/*    backdrop-filter: blur(4px);*/
-/*}*/
 
 .TechBadge {
     display: flex;
@@ -441,27 +407,21 @@ body {
     backdrop-filter: blur(4px);
     color: whitesmoke;
 
-    /* NEW: Default fallback styling */
     border: 1px solid rgba(255, 255, 255, 0.1);
     background: linear-gradient(135deg, rgba(30,30,30,0.9) 0%, rgba(50,50,50,0.8) 100%);
 
-    /* NEW: Smooth transition for the pop and glow effect */
     transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.2s ease, border-color 0.2s ease;
 }
 
-/* NEW: Universal Hover Effect (Only applies on Desktop/Mouse devices) */
 @media (hover: hover) and (pointer: fine) {
     .TechBadge:hover {
-        /* Makes the badge slightly bigger and float up 2 pixels */
         transform: scale(1.08) translateY(-2px);
     }
 }
 
-/* --- TECH BADGE MODIFIERS --- */
 
-/* Godot (Blue) */
 .badge-godot {
-    border-color: rgba(71, 140, 191, 0.5); /* Godot Blue */
+    border-color: rgba(71, 140, 191, 0.5);
     background: linear-gradient(135deg, rgba(30,30,30,0.9) 30%, rgba(71, 140, 191, 0.25) 100%);
 }
 @media (hover: hover) {
@@ -471,9 +431,8 @@ body {
     }
 }
 
-/* JavaScript (Yellow) */
 .badge-js {
-    border-color: rgba(247, 223, 30, 0.4); /* JS Yellow */
+    border-color: rgba(247, 223, 30, 0.4);
     background: linear-gradient(135deg, rgba(30,30,30,0.9) 30%, rgba(247, 223, 30, 0.2) 100%);
 }
 @media (hover: hover) {
@@ -483,9 +442,8 @@ body {
     }
 }
 
-/* Flutter (Light Blue) */
 .badge-flutter {
-    border-color: rgba(69, 209, 253, 0.4); /* Flutter Cyan */
+    border-color: rgba(69, 209, 253, 0.4);
     background: linear-gradient(135deg, rgba(30,30,30,0.9) 30%, rgba(69, 209, 253, 0.2) 100%);
 }
 @media (hover: hover) {
@@ -495,9 +453,8 @@ body {
     }
 }
 
-/* Rust (Orange/Copper) */
 .badge-rust {
-    border-color: rgba(222, 165, 132, 0.4); /* Rust Copper */
+    border-color: rgba(222, 165, 132, 0.4);
     background: linear-gradient(135deg, rgba(30,30,30,0.9) 30%, rgba(222, 165, 132, 0.2) 100%);
 }
 @media (hover: hover) {
@@ -508,7 +465,7 @@ body {
 }
 
 .badge-html {
-    border-color: rgb(215 7 1 / 0.47); /* Rust Copper */
+    border-color: rgb(215 7 1 / 0.47);
     background: linear-gradient(135deg, rgba(30,30,30,0.9) 30%, rgb(117 1 0 / 0.47) 100%);
 }
 @media (hover: hover) {
@@ -519,7 +476,7 @@ body {
 }
 
 .badge-css {
-    border-color: rgb(0 41 191 / 0.47); /* Rust Copper */
+    border-color: rgb(0 41 191 / 0.47);
     background: linear-gradient(135deg, rgba(30,30,30,0.9) 30%, rgb(0 23 117 / 0.47) 100%);
 }
 @media (hover: hover) {
@@ -530,23 +487,21 @@ body {
 }
 
 
-/* Wrapper spans the whole top of the screen */
 .ProgressContainer {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
-    height: 4px; /* Thickness of the bar */
-    z-index: 9999; /* Keeps it above absolutely everything */
+    height: 4px;
+    z-index: 9999;
     background-color: transparent;
 }
 
-/* The expanding fill */
 .ProgressBar {
     height: 100%;
-    width: 0%; /* Starts at 0 width */
-    background-color: var(--text-main); /* Uses your bright theme color */
-    transition: width 0.1s ease-out; /* Makes it fluid instead of jittery */
+    width: 0%;
+    background-color: var(--text-main);
+    transition: width 0.1s ease-out;
 }
 
 
@@ -759,7 +714,6 @@ body {
 
 
 /*WORK*/
-/* --- Filter & Sort Controls --- */
 .FilterControls {
     display: flex;
     gap: 15px;
@@ -793,7 +747,7 @@ body {
 }
 
 .FilterBtn.is-clear {
-    background-color: #8b0000; /* Dark Red */
+    background-color: #8b0000;
     color: white;
     border-color: #ff4444;
 }
@@ -807,7 +761,7 @@ body {
 }
 
 .DropContent {
-    display: none; /* Hidden by default */
+    display: none;
     position: absolute;
     top: 100%;
     left: 0;
@@ -825,7 +779,6 @@ body {
     display: flex;
 }
 
-/* Remove borders between dropdown items */
 .DropContent button {
     border: none;
     border-radius: 0;
@@ -836,75 +789,64 @@ body {
 }
 
 /* --- Active States --- */
-/* 1. Category button when a filter inside it is active */
 .DropBtn.has-selection {
     background-color: var(--text-main);
     color: var(--bg-color);
 }
 
-/* 2. Specific filter option when selected (Black bg, white text as per Figma) */
 .FilterBtn.selected, .FilterOption.selected, .SortOption.selected {
-    background-color: var(--text-main); /* Changes to white in dark mode, black in light mode */
+    background-color: var(--text-main);
     color: var(--bg-color);
 
 }
 
-/* Utility class to hide items during filtering */
 .portfolio-item.hidden {
     display: none;
 }
 
 
 
-/* Highlight the currently active filter button */
 .FilterBtn.active {
     background-color: var(--text-main);
     color: var(--bg-color);
 }
 
-/* Utility class to hide items during filtering */
 .portfolio-item.hidden {
     display: none;
 }
 
-/* Base Desktop Styling */
 .CenteredStack {
     display: flex;
     flex-direction: column;
     gap: 20px;
 
-    width: 70%; /* Forces the div to take up exactly 70% of SectionRight */
-    margin: 0 auto; /* Automatically calculates equal left/right margins to center it */
+    width: 70%;
+    margin: 0 auto;
 }
 
-/* Individual items in the stack */
 .StackItem {
-    /*background-color: var(--panel-bg);*/
     border-radius: 10px;
     padding: 20px;
-    /*border: 1px solid var(--box-bg);*/
 }
 
-/* Mobile Styling */
 @media (max-width: 800px) {
     .CenteredStack {
-        width: 100%; /* Expands to fill the entire screen width */
-        padding: 0 15px; /* Adds a tiny bit of breathing room on the edges so it doesn't touch the glass */
-        box-sizing: border-box; /* Keeps the padding from blowing out the 100% width */
+        width: 100%;
+        padding: 0 15px;
+        box-sizing: border-box;
     }
 }
 
 .BackButton {
     width: fit-content;
-    margin-bottom: 20px; /* Adds breathing room between the button and the date */
+    margin-bottom: 20px;
 }
 
 /* --- TABLE OF CONTENTS --- */
 .TableOfContents {
     position: fixed;
-    /* 300px (Width of SectionLeft) + 40px margin */
     left: 340px;
-    top: 50%; /* Vertically centers the menu */
+    top: 50%;
     transform: translateY(-50%);
 
     display: flex;
@@ -923,7 +865,7 @@ body {
 }
 
 .TocLine {
-    width: 20px; /* Default length of the line */
+    width: 20px;
     height: 1px;
     background-color: var(--text-muted);
     transition: width 0.3s ease, background-color 0.3s ease;
@@ -931,31 +873,28 @@ body {
 
 .TocText {
     opacity: 0;
-    transform: translateX(-10px); /* Starts slightly shifted left */
+    transform: translateX(-10px);
     transition: opacity 0.3s ease, transform 0.3s ease;
-    white-space: nowrap; /* Prevents text from wrapping to a new line */
+    white-space: nowrap;
     font-size: 0.9rem;
 }
 
-/* Hover effects for the entire container */
 .TableOfContents:hover .TocText {
     opacity: 1;
-    transform: translateX(0); /* Slides into place */
+    transform: translateX(0);
 }
 
-/* Active and Hover states for the individual lines */
 .TocLink:hover .TocLine,
 .TocLink.active .TocLine {
-    width: 35px; /* Extends the line */
-    background-color: var(--text-main); /* Turns white */
+    width: 35px;
+    background-color: var(--text-main);
 }
 
 .TocLink:hover,
 .TocLink.active {
-    color: var(--text-main); /* Turns text white */
+    color: var(--text-main);
 }
 
-/* Hide entirely on mobile screens */
 @media (max-width: 800px) {
     .TableOfContents {
         display: none;
@@ -966,28 +905,23 @@ body {
 .TableOfContents::before {
     content: '';
     position: absolute;
-    /* Extend the area slightly above, below, and far to the right */
     top: -40px;
     bottom: -40px;
     left: -20px;
     right: -100px;
-    z-index: -1; /* Ensures it sits strictly behind your text and lines */
+    z-index: -1;
 
-    /* Apply the blur */
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
 
-    /* The Magic: Feather the edges using a radial gradient mask */
     mask-image: radial-gradient(ellipse at left center, black 30%, transparent 80%);
     -webkit-mask-image: radial-gradient(ellipse at left center, black 30%, transparent 80%);
 
-    /* Hide by default, fade in smoothly on hover */
     opacity: 0;
     transition: opacity 0.3s ease;
-    pointer-events: none; /* Prevents this invisible box from intercepting mouse clicks */
+    pointer-events: none;
 }
 
-/* Trigger the fade-in when the user hovers over the main container */
 .TableOfContents:hover::before {
     opacity: 1;
 }
