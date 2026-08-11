@@ -49,3 +49,40 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 });
+
+document.addEventListener('DOMContentLoaded', () => {
+    // 1. Grab all the links and the sections they point to
+    const tocLinks = document.querySelectorAll('.TocLink');
+    const sections = document.querySelectorAll('.StackItem[id]');
+    const scrollContainer = document.querySelector('.SectionRight');
+
+    // 2. Set up the observer configuration
+    const observerOptions = {
+        root: scrollContainer, // The container that does the scrolling
+        rootMargin: '-20% 0px -70% 0px', // Triggers when a section is near the top third of the screen
+        threshold: 0
+    };
+
+    // 3. Create the observer
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                // Remove 'active' class from all links
+                tocLinks.forEach(link => link.classList.remove('active'));
+
+                // Find the link that matches the currently viewed section's ID
+                const activeLink = document.querySelector(`.TocLink[href="#${entry.target.id}"]`);
+
+                // Add 'active' class to highlight it white
+                if (activeLink) {
+                    activeLink.classList.add('active');
+                }
+            }
+        });
+    }, observerOptions);
+
+    // 4. Tell the observer to watch every StackItem
+    sections.forEach(section => {
+        observer.observe(section);
+    });
+});

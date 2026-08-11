@@ -4,21 +4,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Website</title>
-    <link rel="stylesheet" href="../Main.css">
-    <link rel="stylesheet" href="../Left.css">
-    <script src="../GlobalSettings.js"></script>
-    <script src="../Portfolio.js"></script>
+    <link rel="stylesheet" href="../../CSS/Main.css">
+    <link rel="stylesheet" href="../../CSS/Left.css">
+    <script src="../../JS/GlobalSettings.js"></script>
+    <script src="../../JS/Portfolio.js"></script>
 
 
 </head>
 <body>
 
 <main class="Main">
+    <div class="ProgressContainer">
+        <div class="ProgressBar" id="scroll-progress"></div>
+    </div>
+
     <section id="red-panel" class="SectionLeft">
         <div class="DivIcon">
             <div class="DivIconTop">
                 <div class="DivIconImage">
-                    <img src="../Media/Agnes.png" alt="Profile Picture" class="ProfileImg">
+                    <img src="../../Media/Agnes.png" alt="Profile Picture" class="ProfileImg">
                 </div>
                 <div class="DivIconText">
                     <span>WarrenWarrens</span>
@@ -34,7 +38,7 @@
         </div>
 
         <div class="DivGuide">
-            <a class="AGuide" href="../../index.html">Home</a>
+            <a class="AGuide" href="../../../index.html">Home</a>
             <a class="AGuide active-page" href="../Work.html">Portfolio</a>
 <!--            <a class="AGuide" href="Personal.html">Personal</a>-->
             <a class="AGuide" href="../Education.html">Education</a>
@@ -54,8 +58,15 @@
     <section class="SectionRight">
 
         <div class="CenteredStack">
-            <div class="StackItem">
-                <h2 class="PTitle">Section Title</h2>
+            <div class="StackItem" style="width: auto;">
+                <a href="javascript:history.back()" class="TechBadge ActionBadge BackButton">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M5 12h14M12 5l7 7-7 7"/>
+                    </svg>
+                    <span>Go back</span>
+                </a>
+                <p class="PText">May 1st, 2026</p>
+                <h2 class="PTitle">Lingua Lore</h2>
                 <p class="PText">Your content here...</p>
             </div>
             <div class="StackItem">
@@ -82,6 +93,6 @@
     </div>
 </main>
 
-<script src="../Main.js"></script>
+<script src="../../JS/Main.js"></script>
 </body>
 </html>

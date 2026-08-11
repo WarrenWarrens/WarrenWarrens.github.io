@@ -792,10 +792,10 @@ body {
 
 /* Individual items in the stack */
 .StackItem {
-    background-color: var(--panel-bg);
+    /*background-color: var(--panel-bg);*/
     border-radius: 10px;
     padding: 20px;
-    border: 1px solid var(--box-bg);
+    /*border: 1px solid var(--box-bg);*/
 }
 
 /* Mobile Styling */
@@ -804,5 +804,73 @@ body {
         width: 100%; /* Expands to fill the entire screen width */
         padding: 0 15px; /* Adds a tiny bit of breathing room on the edges so it doesn't touch the glass */
         box-sizing: border-box; /* Keeps the padding from blowing out the 100% width */
+    }
+}
+
+.BackButton {
+    width: fit-content;
+    margin-bottom: 20px; /* Adds breathing room between the button and the date */
+}
+
+/* --- TABLE OF CONTENTS --- */
+.TableOfContents {
+    position: fixed;
+    /* 300px (Width of SectionLeft) + 40px margin */
+    left: 340px;
+    top: 50%; /* Vertically centers the menu */
+    transform: translateY(-50%);
+
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    z-index: 50;
+}
+
+.TocLink {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    text-decoration: none;
+    color: var(--text-muted);
+    transition: color 0.3s ease;
+}
+
+.TocLine {
+    width: 20px; /* Default length of the line */
+    height: 1px;
+    background-color: var(--text-muted);
+    transition: width 0.3s ease, background-color 0.3s ease;
+}
+
+.TocText {
+    opacity: 0;
+    transform: translateX(-10px); /* Starts slightly shifted left */
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    white-space: nowrap; /* Prevents text from wrapping to a new line */
+    font-size: 0.9rem;
+}
+
+/* Hover effects for the entire container */
+.TableOfContents:hover .TocText {
+    opacity: 1;
+    transform: translateX(0); /* Slides into place */
+}
+
+/* Active and Hover states for the individual lines */
+.TocLink:hover .TocLine,
+.TocLink.active .TocLine {
+    width: 35px; /* Extends the line */
+    background-color: var(--text-main); /* Turns white */
+}
+
+.TocLink:hover,
+.TocLink.active {
+    color: var(--text-main); /* Turns text white */
+}
+
+/* Hide entirely on mobile screens */
+@media (max-width: 800px) {
+    .TableOfContents {
+        display: none;
     }
 }
