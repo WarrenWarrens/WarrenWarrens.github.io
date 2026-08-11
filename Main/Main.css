@@ -227,21 +227,51 @@ body {
 
 .DivDivide
 {
+    display: flex;
+    justify-content: space-between; /* Pushes the two child elements to opposite ends */
+    align-items: center; /* Vertically aligns the text block and the badge */
+
     gap: 20px;
-    padding:20px;
-    width:100%;
-    height:auto;
+    padding: 20px;
+    width: 100%;
+    height: auto;
+    box-sizing: border-box; /* Ensures padding doesn't cause overflow */
+}
+
+.DivDivideText {
+    display: flex;
+    flex-direction: column;
+    gap: 5px; /* Adds a small breathing room between the title and subtitle */
+}
+
+.DivDivideText .PTitle,
+.DivDivideText .PText {
+    margin: 0;
+}
+
+.ActionBadge {
+    text-decoration: none; /* Removes the default blue underline from links */
+    transition: background-color 0.2s, transform 0.1s; /* Smooth hover effects */
+}
+
+/* Optional: Make the badge pop slightly when hovered */
+.ActionBadge:hover {
+    background-color: var(--panel-bg);
+    transform: scale(1.05);
 }
 
 .DivDivide2
 {
     width:100%;
-    display: flex;
-    align-items: center;
-    gap: 15px;
-    padding: 0 15px;
-    box-sizing: border-box;
-    border-radius: 8px;
+    gap: 20px;
+    padding: 20px;
+    height: auto;
+    /*display: flex;*/
+    /*align-items: center;*/
+    /*gap: 15px;*/
+    /*padding: 0 15px;*/
+    /*box-sizing: border-box;*/
+    /*border-radius: 8px;*/
 }
 
 .DivDualWrapper {
@@ -379,25 +409,104 @@ body {
 }
 
 /* Individual badge styling */
+/*.TechBadge {*/
+/*    display: flex;*/
+/*    align-items: center;*/
+/*    gap: 6px;*/
+
+/*    !* Semi-transparent dark background so it's readable over any image *!*/
+/*    background-color: rgba(30, 30, 30, 0.85);*/
+/*    color: whitesmoke;*/
+
+/*    padding: 6px 10px;*/
+/*    border-radius: 6px;*/
+/*    font-size: 0.8rem;*/
+/*    font-family: sans-serif;*/
+/*    font-weight: bold;*/
+/*    border: 1px solid rgba(255, 255, 255, 0.1); !* Very subtle border to define the edge *!*/
+
+/*    !* Optional: Adds a nice blur effect to whatever part of the image is behind the badge *!*/
+/*    backdrop-filter: blur(4px);*/
+/*}*/
+
 .TechBadge {
     display: flex;
     align-items: center;
     gap: 6px;
-
-    /* Semi-transparent dark background so it's readable over any image */
-    background-color: rgba(30, 30, 30, 0.85);
-    color: whitesmoke;
-
     padding: 6px 10px;
     border-radius: 6px;
     font-size: 0.8rem;
     font-family: sans-serif;
     font-weight: bold;
-    border: 1px solid rgba(255, 255, 255, 0.1); /* Very subtle border to define the edge */
-
-    /* Optional: Adds a nice blur effect to whatever part of the image is behind the badge */
     backdrop-filter: blur(4px);
+    color: whitesmoke;
+
+    /* NEW: Default fallback styling */
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: linear-gradient(135deg, rgba(30,30,30,0.9) 0%, rgba(50,50,50,0.8) 100%);
+
+    /* NEW: Smooth transition for the pop and glow effect */
+    transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.2s ease, border-color 0.2s ease;
 }
+
+/* NEW: Universal Hover Effect (Only applies on Desktop/Mouse devices) */
+@media (hover: hover) and (pointer: fine) {
+    .TechBadge:hover {
+        /* Makes the badge slightly bigger and float up 2 pixels */
+        transform: scale(1.5) translateY(-2px);
+    }
+}
+
+/* --- TECH BADGE MODIFIERS --- */
+
+/* Godot (Blue) */
+.badge-godot {
+    border-color: rgba(71, 140, 191, 0.5); /* Godot Blue */
+    background: linear-gradient(135deg, rgba(30,30,30,0.9) 30%, rgba(71, 140, 191, 0.25) 100%);
+}
+@media (hover: hover) {
+    .badge-godot:hover {
+        border-color: rgba(71, 140, 191, 1);
+        box-shadow: 0 4px 12px rgba(71, 140, 191, 0.4);
+    }
+}
+
+/* JavaScript (Yellow) */
+.badge-js {
+    border-color: rgba(247, 223, 30, 0.4); /* JS Yellow */
+    background: linear-gradient(135deg, rgba(30,30,30,0.9) 30%, rgba(247, 223, 30, 0.2) 100%);
+}
+@media (hover: hover) {
+    .badge-js:hover {
+        border-color: rgba(247, 223, 30, 1);
+        box-shadow: 0 4px 12px rgba(247, 223, 30, 0.3);
+    }
+}
+
+/* Flutter (Light Blue) */
+.badge-flutter {
+    border-color: rgba(69, 209, 253, 0.4); /* Flutter Cyan */
+    background: linear-gradient(135deg, rgba(30,30,30,0.9) 30%, rgba(69, 209, 253, 0.2) 100%);
+}
+@media (hover: hover) {
+    .badge-flutter:hover {
+        border-color: rgba(69, 209, 253, 1);
+        box-shadow: 0 4px 12px rgba(69, 209, 253, 0.4);
+    }
+}
+
+/* Rust (Orange/Copper) */
+.badge-rust {
+    border-color: rgba(222, 165, 132, 0.4); /* Rust Copper */
+    background: linear-gradient(135deg, rgba(30,30,30,0.9) 30%, rgba(222, 165, 132, 0.2) 100%);
+}
+@media (hover: hover) {
+    .badge-rust:hover {
+        border-color: rgba(222, 165, 132, 1);
+        box-shadow: 0 4px 12px rgba(222, 165, 132, 0.3);
+    }
+}
+
 
 /* Wrapper spans the whole top of the screen */
 .ProgressContainer {
