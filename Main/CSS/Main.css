@@ -874,3 +874,33 @@ body {
         display: none;
     }
 }
+
+/* --- FEATHERED BLUR BACKGROUND --- */
+.TableOfContents::before {
+    content: '';
+    position: absolute;
+    /* Extend the area slightly above, below, and far to the right */
+    top: -40px;
+    bottom: -40px;
+    left: -20px;
+    right: -100px;
+    z-index: -1; /* Ensures it sits strictly behind your text and lines */
+
+    /* Apply the blur */
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+
+    /* The Magic: Feather the edges using a radial gradient mask */
+    mask-image: radial-gradient(ellipse at left center, black 30%, transparent 80%);
+    -webkit-mask-image: radial-gradient(ellipse at left center, black 30%, transparent 80%);
+
+    /* Hide by default, fade in smoothly on hover */
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none; /* Prevents this invisible box from intercepting mouse clicks */
+}
+
+/* Trigger the fade-in when the user hovers over the main container */
+.TableOfContents:hover::before {
+    opacity: 1;
+}
