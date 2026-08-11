@@ -507,6 +507,28 @@ body {
     }
 }
 
+.badge-html {
+    border-color: rgb(215 7 1 / 0.47); /* Rust Copper */
+    background: linear-gradient(135deg, rgba(30,30,30,0.9) 30%, rgb(117 1 0 / 0.47) 100%);
+}
+@media (hover: hover) {
+    .badge-html:hover {
+        border-color: rgb(255 5 5);
+        box-shadow: 0 4px 12px rgb(215 7 1 / 0.47);
+    }
+}
+
+.badge-css {
+    border-color: rgb(0 41 191 / 0.47); /* Rust Copper */
+    background: linear-gradient(135deg, rgba(30,30,30,0.9) 30%, rgb(0 23 117 / 0.47) 100%);
+}
+@media (hover: hover) {
+    .badge-css:hover {
+        border-color: rgb(1 87 234);
+        box-shadow: 0 4px 12px rgb(0 41 191 / 0.47);
+    }
+}
+
 
 /* Wrapper spans the whole top of the screen */
 .ProgressContainer {
@@ -821,7 +843,7 @@ body {
 }
 
 /* 2. Specific filter option when selected (Black bg, white text as per Figma) */
-.FilterOption.selected, .SortOption.selected {
+.FilterBtn.selected, .FilterOption.selected, .SortOption.selected {
     background-color: var(--text-main); /* Changes to white in dark mode, black in light mode */
     color: var(--bg-color);
 

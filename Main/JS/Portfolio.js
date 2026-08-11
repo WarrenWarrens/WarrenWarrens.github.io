@@ -68,8 +68,11 @@ document.addEventListener('DOMContentLoaded', () => {
             option.classList.add('selected');
             currentSort = option.getAttribute('data-sort');
 
-            // Close dropdown and apply
+            // Close dropdown
             option.closest('.Dropdown').classList.remove('show');
+
+            // NEW: Added updateUI() here so the Date button highlights immediately!
+            updateUI();
             applyFiltersAndSort();
         });
     });
@@ -102,9 +105,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // 1. Check Language and Type categories
         Object.keys(activeFilters).forEach(category => {
-            // Find the DropBtn for this category
             const dropBtn = document.querySelector(`.FilterOption[data-category="${category}"]`).closest('.Dropdown').querySelector('.DropBtn');
-
             if (activeFilters[category].length > 0) {
                 dropBtn.classList.add('has-selection');
                 anyFiltersActive = true;
@@ -113,8 +114,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
 
-        // 2. NEW: Check Date category
-        // We only highlight it if they change it from the default ('desc' / Newest First)
+        // 2. Check Date category
         const dateDropBtn = document.querySelector('.DropBtn[data-label="Date"]');
         if (currentSort !== 'desc') {
             dateDropBtn.classList.add('has-selection');
@@ -127,11 +127,16 @@ document.addEventListener('DOMContentLoaded', () => {
         if (anyFiltersActive) {
             resetBtn.textContent = 'Clear';
             resetBtn.classList.add('is-clear');
+            resetBtn.classList.remove('selected'); // Remove the active highlight
         } else {
             resetBtn.textContent = 'All';
             resetBtn.classList.remove('is-clear');
+            resetBtn.classList.add('selected'); // Add the active highlight
         }
     }
+
+    // NEW: Run updateUI once on page load so the "All" button is highlighted immediately
+    updateUI();
 
     // --- Helper: Execute Filtering and Sorting ---
     function applyFiltersAndSort() {
