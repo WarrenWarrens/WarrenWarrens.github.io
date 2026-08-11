@@ -453,7 +453,7 @@ body {
 @media (hover: hover) and (pointer: fine) {
     .TechBadge:hover {
         /* Makes the badge slightly bigger and float up 2 pixels */
-        transform: scale(1.5) translateY(-2px);
+        transform: scale(1.08) translateY(-2px);
     }
 }
 
