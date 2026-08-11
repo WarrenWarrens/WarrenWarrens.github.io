@@ -80,6 +80,7 @@ body {
 .Main {
     display: flex;
     height: 100vh;
+    height: 100dvh;
     position: relative;
     overflow: hidden;
 }
@@ -260,6 +261,7 @@ body {
     gap: 20px;
     padding: 20px;
     height: auto;
+    box-sizing: border-box;
 
 }
 
@@ -322,6 +324,7 @@ body {
     cursor: pointer;
     width: 100%;
     transition: opacity 0.2s;
+    box-sizing: border-box;
 
     background-color: transparent;
     background-repeat: no-repeat;
