@@ -525,13 +525,13 @@ body {
 }
 
 .badge-solo {
-    border-color: rgb(0 41 191 / 0.47);
-    background: linear-gradient(135deg, rgba(30,30,30,0.9) 30%, rgb(0 23 117 / 0.47) 100%);
+    border-color: rgb(215 7 1 / 0.47);
+    background: linear-gradient(135deg, rgba(30,30,30,0.9) 30%, rgb(117 1 0 / 0.47) 100%);
 }
 @media (hover: hover) {
     .badge-solo:hover {
-        border-color: rgb(1 87 234);
-        box-shadow: 0 4px 12px rgb(0 41 191 / 0.47);
+        border-color: rgb(255 5 5);
+        box-shadow: 0 4px 12px rgb(215 7 1 / 0.47);
     }
 }
 
@@ -547,13 +547,13 @@ body {
 }
 
 .badge-thesis {
-    border-color: rgb(0 41 191 / 0.47);
-    background: linear-gradient(135deg, rgba(30,30,30,0.9) 30%, rgb(0 23 117 / 0.47) 100%);
+    border-color: rgb(255 222 54 / 0.95);
+    background: linear-gradient(135deg, rgba(30,30,30,0.9) 30%, rgb(255 218 2 / 0.47) 100%);
 }
 @media (hover: hover) {
     .badge-thesis:hover {
-        border-color: rgb(1 87 234);
-        box-shadow: 0 4px 12px rgb(0 41 191 / 0.47);
+        border-color: rgb(255 226 93);
+        box-shadow: 0 4px 12px rgb(255 222 54 / 0.95);
     }
 }
 
