@@ -1,3 +1,4 @@
+
 body, html {
     margin: 0;
     padding: 0;
@@ -427,7 +428,7 @@ body {
 }
 
 /* Badges hidden until the "..." badge is expanded */
-.TechBadge-hidden {
+.DivTechStack .TechBadge.TechBadge-hidden {
     display: none;
 }
 
@@ -518,6 +519,39 @@ body {
 }
 @media (hover: hover) {
     .badge-css:hover {
+        border-color: rgb(1 87 234);
+        box-shadow: 0 4px 12px rgb(0 41 191 / 0.47);
+    }
+}
+
+.badge-solo {
+    border-color: rgb(0 41 191 / 0.47);
+    background: linear-gradient(135deg, rgba(30,30,30,0.9) 30%, rgb(0 23 117 / 0.47) 100%);
+}
+@media (hover: hover) {
+    .badge-solo:hover {
+        border-color: rgb(1 87 234);
+        box-shadow: 0 4px 12px rgb(0 41 191 / 0.47);
+    }
+}
+
+.badge-group {
+    border-color: rgb(0 41 191 / 0.47);
+    background: linear-gradient(135deg, rgba(30,30,30,0.9) 30%, rgb(0 23 117 / 0.47) 100%);
+}
+@media (hover: hover) {
+    .badge-group:hover {
+        border-color: rgb(1 87 234);
+        box-shadow: 0 4px 12px rgb(0 41 191 / 0.47);
+    }
+}
+
+.badge-thesis {
+    border-color: rgb(0 41 191 / 0.47);
+    background: linear-gradient(135deg, rgba(30,30,30,0.9) 30%, rgb(0 23 117 / 0.47) 100%);
+}
+@media (hover: hover) {
+    .badge-thesis:hover {
         border-color: rgb(1 87 234);
         box-shadow: 0 4px 12px rgb(0 41 191 / 0.47);
     }

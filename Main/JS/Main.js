@@ -121,51 +121,65 @@ if (scrollArea && progressBar) {
 // If a .DivTechStack's badges would wrap to a new row, the last badge that
 // still fits on the first row is collapsed into a "..." toggle. Clicking it
 // restores that badge and reveals the rest of the wrapped row(s).
-
 function restoreTechStack(stack) {
-    const badges = Array.from(stack.children).filter(el => el.classList.contains('TechBadge'));
+    // 1. Find and completely remove any injected "..." badges
+    const moreBadges = stack.querySelectorAll('.is-more');
+    moreBadges.forEach(b => b.remove());
 
+    // 2. Unhide all original badges
+    const badges = stack.querySelectorAll('.TechBadge');
     badges.forEach(badge => {
-        if (badge.dataset.originalContent) {
-            badge.innerHTML = badge.dataset.originalContent;
-            delete badge.dataset.originalContent;
-        }
-        badge.classList.remove('is-more', 'TechBadge-hidden');
+        badge.classList.remove('TechBadge-hidden');
     });
 }
 
 function collapseTechStack(stack) {
-    const badges = Array.from(stack.children).filter(el => el.classList.contains('TechBadge'));
+    // Get all badges currently in the container (ignoring any '...' buttons)
+    const badges = Array.from(stack.children).filter(el => el.classList.contains('TechBadge') && !el.classList.contains('is-more'));
     if (badges.length < 2) return;
 
-    const firstRowTop = badges[0].offsetTop;
-    const rowOneBadges = badges.filter(badge => badge.offsetTop === firstRowTop);
+    // Establish the baseline Y coordinate for the very first row
+    // (getBoundingClientRect is rock-solid for sub-pixel flexbox measuring)
+    const baselineY = badges[0].getBoundingClientRect().top;
 
-    // Everything already fits on a single row - nothing to collapse
+    // Find everything on row 1 (Tolerance of 10px accounts for minor flex alignments)
+    let rowOneBadges = badges.filter(badge => Math.abs(badge.getBoundingClientRect().top - baselineY) < 10);
+
+    // Everything fits on a single row natively - no overflow needed!
     if (rowOneBadges.length === badges.length) return;
 
-    const lastVisible = rowOneBadges[rowOneBadges.length - 1];
+    // Hide badges that natively fell to row 2 or below
     const hiddenBadges = badges.slice(rowOneBadges.length);
-
-    lastVisible.dataset.originalContent = lastVisible.innerHTML;
-    lastVisible.innerHTML = '<span>...</span>';
-    lastVisible.classList.add('is-more');
-
     hiddenBadges.forEach(badge => badge.classList.add('TechBadge-hidden'));
 
-    lastVisible.addEventListener('click', function expandHandler() {
-        lastVisible.innerHTML = lastVisible.dataset.originalContent;
-        delete lastVisible.dataset.originalContent;
-        lastVisible.classList.remove('is-more');
+    // Create a brand NEW "..." badge from scratch.
+    // Because we make it here, it strictly gets your default grey styling!
+    const moreBadge = document.createElement('div');
+    moreBadge.className = 'TechBadge is-more';
+    moreBadge.innerHTML = '<span>...</span>';
+    stack.appendChild(moreBadge);
+
+    // SAFETY CHECK: Did injecting the "..." badge push IT to the second row?
+    // If so, we hide the last visible badge on row 1 to make room for it.
+    let visibleBadges = badges.filter(b => !b.classList.contains('TechBadge-hidden'));
+
+    while (Math.abs(moreBadge.getBoundingClientRect().top - baselineY) > 10 && visibleBadges.length > 0) {
+        const lastVisible = visibleBadges.pop();
+        lastVisible.classList.add('TechBadge-hidden');
+        hiddenBadges.unshift(lastVisible); // Add it to our hidden array so it can be revealed later
+    }
+
+    // When clicked, destroy the "..." badge and reveal all hidden items
+    moreBadge.addEventListener('click', () => {
+        moreBadge.remove();
         hiddenBadges.forEach(badge => badge.classList.remove('TechBadge-hidden'));
-        stack.dataset.expanded = 'true';
-        lastVisible.removeEventListener('click', expandHandler);
+        stack.dataset.expanded = 'true'; // Lock it open
     });
 }
 
 function initTechStackOverflow() {
     document.querySelectorAll('.DivTechStack').forEach(stack => {
-        // Leave stacks the user has already expanded alone
+        // Leave stacks the user has already clicked to expand alone
         if (stack.dataset.expanded === 'true') return;
 
         restoreTechStack(stack);
@@ -173,10 +187,17 @@ function initTechStackOverflow() {
     });
 }
 
-document.addEventListener('DOMContentLoaded', initTechStackOverflow);
+if (document.fonts) {
+    document.fonts.ready.then(initTechStackOverflow);
+} else {
+    window.addEventListener('load', initTechStackOverflow);
+}
 
 let techStackResizeTimeout;
 window.addEventListener('resize', () => {
     clearTimeout(techStackResizeTimeout);
     techStackResizeTimeout = setTimeout(initTechStackOverflow, 150);
 });
+
+document.addEventListener('DOMContentLoaded', initTechStackOverflow);
+
