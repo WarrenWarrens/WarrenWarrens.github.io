@@ -1,4 +1,3 @@
-
 body, html {
     margin: 0;
     padding: 0;
@@ -86,6 +85,7 @@ body {
     height: 100dvh;
     position: relative;
     overflow: hidden;
+    overscroll-behavior: none;
 }
 
 
@@ -98,7 +98,7 @@ body {
     height: 100%;
     padding-top:80px;
     display:block;
-    overscroll-behavior-y: none;
+    overscroll-behavior: none;
     overflow-y:auto;
     scrollbar-width: thin;
     scrollbar-color: rgba(255, 255, 255, 0.5) transparent;
@@ -400,6 +400,35 @@ body {
     gap: 8px;
     padding: 10px 5px;
     flex-wrap: wrap;
+}
+
+/* Small vertical divider (with breathing room) between the 1st and 2nd badge */
+.DivTechStack .TechBadge:nth-child(2) {
+    position: relative;
+    margin-left: 16px;
+}
+
+.DivTechStack .TechBadge:nth-child(2)::before {
+    content: '';
+    position: absolute;
+    left: -12px;
+    top: 15%;
+    bottom: 15%;
+    width: 1px;
+    background-color: var(--text-muted);
+    opacity: 0.4;
+}
+
+/* Overflow ("...") badge that expands to reveal the wrapped row */
+.TechBadge.is-more {
+    cursor: pointer;
+    justify-content: center;
+    min-width: 2.4em;
+}
+
+/* Badges hidden until the "..." badge is expanded */
+.TechBadge-hidden {
+    display: none;
 }
 
 

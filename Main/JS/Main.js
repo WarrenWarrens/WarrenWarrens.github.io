@@ -1,3 +1,4 @@
+
 const menuBtn = document.getElementById('green-btn');
 const leftPanel = document.getElementById('red-panel');
 
@@ -75,6 +76,30 @@ window.addEventListener('resize', () => {
 const scrollArea = document.querySelector('.SectionRight');
 const progressBar = document.getElementById('scroll-progress');
 
+// --- PREVENT OVERSCROLL / RUBBER-BAND BOUNCE ---
+// overscroll-behavior isn't fully honored on every mobile browser (older iOS
+// Safari in particular), so this backs it up by blocking the native bounce
+// right at the scroll boundaries only, leaving normal scrolling untouched.
+if (scrollArea) {
+    let touchStartY = 0;
+
+    scrollArea.addEventListener('touchstart', (e) => {
+        touchStartY = e.touches[0].clientY;
+    }, { passive: true });
+
+    scrollArea.addEventListener('touchmove', (e) => {
+        const touchY = e.touches[0].clientY;
+        const deltaY = touchY - touchStartY; // positive = finger moving down (pulling toward top)
+
+        const atTop = scrollArea.scrollTop <= 0;
+        const atBottom = scrollArea.scrollTop + scrollArea.clientHeight >= scrollArea.scrollHeight - 1;
+
+        if ((atTop && deltaY > 0) || (atBottom && deltaY < 0)) {
+            e.preventDefault();
+        }
+    }, { passive: false });
+}
+
 // NULL CHECK: Only run if both elements exist on the page
 if (scrollArea && progressBar) {
     scrollArea.addEventListener('scroll', () => {
@@ -91,3 +116,67 @@ if (scrollArea && progressBar) {
         progressBar.style.width = scrollPercentage + '%';
     });
 }
+
+// --- TECH STACK OVERFLOW ("...") LOGIC ---
+// If a .DivTechStack's badges would wrap to a new row, the last badge that
+// still fits on the first row is collapsed into a "..." toggle. Clicking it
+// restores that badge and reveals the rest of the wrapped row(s).
+
+function restoreTechStack(stack) {
+    const badges = Array.from(stack.children).filter(el => el.classList.contains('TechBadge'));
+
+    badges.forEach(badge => {
+        if (badge.dataset.originalContent) {
+            badge.innerHTML = badge.dataset.originalContent;
+            delete badge.dataset.originalContent;
+        }
+        badge.classList.remove('is-more', 'TechBadge-hidden');
+    });
+}
+
+function collapseTechStack(stack) {
+    const badges = Array.from(stack.children).filter(el => el.classList.contains('TechBadge'));
+    if (badges.length < 2) return;
+
+    const firstRowTop = badges[0].offsetTop;
+    const rowOneBadges = badges.filter(badge => badge.offsetTop === firstRowTop);
+
+    // Everything already fits on a single row - nothing to collapse
+    if (rowOneBadges.length === badges.length) return;
+
+    const lastVisible = rowOneBadges[rowOneBadges.length - 1];
+    const hiddenBadges = badges.slice(rowOneBadges.length);
+
+    lastVisible.dataset.originalContent = lastVisible.innerHTML;
+    lastVisible.innerHTML = '<span>...</span>';
+    lastVisible.classList.add('is-more');
+
+    hiddenBadges.forEach(badge => badge.classList.add('TechBadge-hidden'));
+
+    lastVisible.addEventListener('click', function expandHandler() {
+        lastVisible.innerHTML = lastVisible.dataset.originalContent;
+        delete lastVisible.dataset.originalContent;
+        lastVisible.classList.remove('is-more');
+        hiddenBadges.forEach(badge => badge.classList.remove('TechBadge-hidden'));
+        stack.dataset.expanded = 'true';
+        lastVisible.removeEventListener('click', expandHandler);
+    });
+}
+
+function initTechStackOverflow() {
+    document.querySelectorAll('.DivTechStack').forEach(stack => {
+        // Leave stacks the user has already expanded alone
+        if (stack.dataset.expanded === 'true') return;
+
+        restoreTechStack(stack);
+        collapseTechStack(stack);
+    });
+}
+
+document.addEventListener('DOMContentLoaded', initTechStackOverflow);
+
+let techStackResizeTimeout;
+window.addEventListener('resize', () => {
+    clearTimeout(techStackResizeTimeout);
+    techStackResizeTimeout = setTimeout(initTechStackOverflow, 150);
+});
