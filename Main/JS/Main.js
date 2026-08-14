@@ -201,3 +201,21 @@ window.addEventListener('resize', () => {
 
 document.addEventListener('DOMContentLoaded', initTechStackOverflow);
 
+// --- AUTO-PAUSE VIDEOS WHEN OUT OF VIEW ---
+document.addEventListener('DOMContentLoaded', () => {
+    const videos = document.querySelectorAll('.PortfolioVideo');
+
+    if (videos.length > 0) {
+        const videoObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.play(); // Play when visible
+                } else {
+                    entry.target.pause(); // Pause when off-screen
+                }
+            });
+        }, { threshold: 0.1 }); // Triggers when at least 10% of the video is visible
+
+        videos.forEach(video => videoObserver.observe(video));
+    }
+});

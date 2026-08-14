@@ -651,6 +651,13 @@
     display: none;
 }
 
+/* Ensures the video perfectly fills your 16/9 DivMedia container */
+.PortfolioVideo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Crops the video edges if it doesn't match the 16/9 ratio perfectly */
+    pointer-events: none; /* Stops users from accidentally clicking to pause the video */
+}
 
 .TechBadge {
     display: flex;

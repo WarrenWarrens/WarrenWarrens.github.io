@@ -57,15 +57,38 @@ html[data-theme="light"] {
     --text-muted: #444444;
 }
 
-html[data-text="large"] {
-    --base-font-size: 20px;
-}
+/* --- ACCESSIBILITY OVERRIDES --- */
 
-html[data-motion="reduced"] * {
+/* Kills all transitions and animations */
+html[data-animations="disabled"] * {
     transition: none !important;
     animation: none !important;
+}
+
+/* Kills the 3D hover scale on tech badges and project cards */
+html[data-hover="disabled"] * {
+    transform: none !important;
+    box-shadow: none !important;
+}
+
+/* Kills smooth scrolling in the scroll container */
+html[data-scroll="disabled"] .SectionRight {
     scroll-behavior: auto !important;
 }
+
+/* (Future hook for hiding/pausing your videos when disabled) */
+html[data-autoplay="disabled"] .PortfolioVideo {
+    /* You can use JS to check this attribute and pause them permanently */
+    display: none;
+}
+
+/* (Future hook for forcing standard cursor) */
+html[data-cursor="disabled"] * {
+    cursor: auto !important;
+}
+
+
+
 
 body {
     background-color: var(--bg-color);

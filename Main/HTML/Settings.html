@@ -15,6 +15,55 @@
     <h1 class="PTitle">Settings & Preferences</h1>
 
     <div class="SettingsGroup">
+        <h2 class="SettingName" style="margin: 0; padding-bottom: 10px; border-bottom: 1px solid var(--box-bg);">Accessibility & Performance</h2>
+
+        <!-- Animations -->
+        <div class="SettingItem">
+            <div class="SettingInfo">
+                <span class="SettingName">UI Animations</span>
+                <span class="SettingDesc">Disable page transitions and fading elements.</span>
+            </div>
+            <button id="anim-btn" class="SettingBtn">Disable</button>
+        </div>
+
+        <!-- Hover Effects -->
+        <div class="SettingItem">
+            <div class="SettingInfo">
+                <span class="SettingName">Hover Effects</span>
+                <span class="SettingDesc">Disable 3D pop-outs and glowing borders.</span>
+            </div>
+            <button id="hover-btn" class="SettingBtn">Disable</button>
+        </div>
+
+        <!-- Smooth Scrolling -->
+        <div class="SettingItem">
+            <div class="SettingInfo">
+                <span class="SettingName">Smooth Scrolling</span>
+                <span class="SettingDesc">Disable smooth anchor jumping.</span>
+            </div>
+            <button id="scroll-btn" class="SettingBtn">Disable</button>
+        </div>
+
+        <!-- HQ Images / Media -->
+        <div class="SettingItem">
+            <div class="SettingInfo">
+                <span class="SettingName">Autoplay Media</span>
+                <span class="SettingDesc">Prevent videos and GIFs from playing automatically.</span>
+            </div>
+            <button id="media-btn" class="SettingBtn">Disable</button>
+        </div>
+
+        <!-- Custom Cursor -->
+        <div class="SettingItem">
+            <div class="SettingInfo">
+                <span class="SettingName">Custom Cursor</span>
+                <span class="SettingDesc">Disable special cursor effects (revert to default).</span>
+            </div>
+            <button id="cursor-btn" class="SettingBtn">Disable</button>
+        </div>
+    </div>
+
+    <div class="SettingsGroup">
         <div class="SettingItem">
             <div class="SettingInfo">
                 <span class="SettingName">Light Mode</span>
@@ -23,21 +72,27 @@
             <button id="theme-btn" class="SettingBtn">Enable</button>
         </div>
 
+        <!-- Text Size Slider -->
         <div class="SettingItem">
             <div class="SettingInfo">
-                <span class="SettingName">Reduce Motion</span>
-                <span class="SettingDesc">Disable UI transitions and animations.</span>
+                <span class="SettingName">Text Size</span>
+                <span class="SettingDesc">Adjust the global font size for readability.</span>
             </div>
-            <button id="anim-btn" class="SettingBtn">Enable</button>
+
+            <!-- Range Slider -->
+            <div style="display: flex; align-items: center; gap: 15px; width: 200px;">
+                <input type="range" id="font-slider" min="14" max="24" step="1" value="16" style="flex-grow: 1; accent-color: var(--text-main);">
+                <span id="font-preview" style="color: var(--text-main); font-weight: bold; width: 40px;">16px</span>
+            </div>
         </div>
 
-        <div class="SettingItem">
-            <div class="SettingInfo">
-                <span class="SettingName">Large Text</span>
-                <span class="SettingDesc">Increase global font size for readability.</span>
-            </div>
-            <button id="text-btn" class="SettingBtn">Enable</button>
-        </div>
+<!--        <div class="SettingItem">-->
+<!--            <div class="SettingInfo">-->
+<!--                <span class="SettingName">Large Text</span>-->
+<!--                <span class="SettingDesc">Increase global font size for readability.</span>-->
+<!--            </div>-->
+<!--            <button id="text-btn" class="SettingBtn">Enable</button>-->
+<!--        </div>-->
     </div>
 
     <a href="javascript:history.back()" class="ReturnBtn">Return to Home</a>
