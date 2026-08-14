@@ -1,0 +1,797 @@
+
+.SectionRight
+{
+    background-color: var(--bg-color);
+    flex-grow: 1;
+    height: 100%;
+    padding-top:80px;
+    display:block;
+    overscroll-behavior: none;
+    overflow-y:auto;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(255, 255, 255, 0.5) transparent;
+    scroll-behavior: smooth;}
+
+.SectionRight::-webkit-scrollbar {
+    width: 8px;
+}
+
+.SectionRight::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.SectionRight::-webkit-scrollbar-thumb {
+    background-color: rgba(255, 255, 255, 0.5);
+    border-radius: 10px;
+}
+
+.SectionRight::-webkit-scrollbar-thumb:hover {
+    background-color: rgba(255, 255, 255, 0.8);
+}
+
+.DivBottom
+{
+    height:400px;
+    width:100%;
+    background-color: var(--panel-bg);
+}
+
+.DivGrid
+{
+    flex-grow: 1;
+    height: auto;
+    margin-bottom: 20px;
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    gap: 10px;
+    padding:10px;
+    box-sizing:border-box;
+    align-content: start;
+
+}
+
+.DivGrid2
+{
+    flex-grow: 1;
+    height: auto;
+    margin-bottom: 40px;
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    gap: 20px;
+    padding:20px;
+    box-sizing:border-box;
+    align-content: start;
+
+}
+
+
+
+.DivGridItem
+{
+    height:auto;
+    border-radius:10px;
+
+}
+
+.DivGridItem2
+{
+    border-radius: 10px;
+
+    height: auto;
+
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.DivMedia
+{
+    background-color: var(--panel-bg);
+    aspect-ratio: 16/9;
+    width: 100%;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    position: relative;
+}
+
+.DivText
+{
+    height: auto;
+    padding: 5px 15px 15px 15px;
+    box-sizing: border-box;
+    margin: 0;
+    flex-grow: 1;
+}
+
+.DivText p
+{
+    margin: 0;
+    color: var(--text-main);
+    line-height: 1.5;
+}
+
+.DivMenuWrapper {
+    display: none;
+}
+
+
+.DivMenu {
+    display: none;
+}
+
+.PTitle
+{
+    color: var(--text-main);
+    font-size:30px;
+}
+
+.PText
+{
+    color: var(--text-muted);
+    font-size:18px;
+}
+
+.DivDivide
+{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    gap: 20px;
+    padding: 20px;
+    width: 100%;
+    height: auto;
+    box-sizing: border-box;
+}
+
+.DivDivideText {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.DivDivideText .PTitle,
+.DivDivideText .PText {
+    margin: 0;
+}
+
+
+.DivDivide2
+{
+    width:100%;
+    gap: 20px;
+    padding: 20px;
+    height: auto;
+    box-sizing: border-box;
+
+}
+
+.DivDualWrapper {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    align-items: flex-start;
+}
+
+.DivIntro
+{
+    width:100%;
+    height:auto;
+    padding: 10px;
+}
+.DivDual {
+    background-color: var(--box-bg);
+    color: var(--text-main);
+    border: 1px solid var(--panel-bg);
+    padding: 5px;
+    border-radius: 8px;
+}
+
+
+
+.DivTime {
+    font-family: monospace;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: var(--text-main);
+}
+
+.PIntro
+{
+    color: var(--text-main);
+    font-size: 20px;
+}
+
+.DivService {
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    font-family: sans-serif;
+    box-sizing: border-box;
+}
+
+.DivServiceTab
+{
+    display: flex;
+    flex-direction: column;
+}
+
+.ButtonTab {
+    padding: 24px;
+    border: none;
+    text-align: left;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    width: 100%;
+    transition: opacity 0.2s;
+    box-sizing: border-box;
+
+    background-color: transparent;
+    background-repeat: no-repeat;
+    overflow: hidden;
+    outline: none;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.TabLeftGroup {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.TabTextGroup {
+    display: flex;
+    flex-direction: column;
+}
+
+.TabTitle {
+    font-size: 1.1rem;
+}
+
+.TabSubtitle {
+    font-size: 0.85rem;
+    color: var(--text-main);
+    margin-top: 4px;
+    font-weight: normal;
+    display: none;
+}
+
+.TabTriangle {
+    display: none;
+}
+
+.DivServiceTab.active .TabTriangle {
+    display: block;
+}
+
+.ButtonTab:hover {
+    opacity: 0.9;
+}
+
+.DivTabContent {
+    display: none;
+    padding: 24px;
+    min-height: 250px;
+}
+
+.DivServiceTab.active .DivTabContent {
+    display: block;
+}
+
+.AProject
+{
+    text-decoration:none;
+}
+
+
+.ProgressContainer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    z-index: 9999;
+    background-color: transparent;
+}
+
+.ProgressBar {
+    height: 100%;
+    width: 0%;
+    background-color: var(--text-main);
+    transition: width 0.1s ease-out;
+}
+
+
+/*WORK*/
+.FilterControls {
+    display: flex;
+    gap: 15px;
+    padding: 0 20px 20px 20px;
+    align-items: flex-start;
+    flex-wrap: wrap;
+}
+
+.FilterBtn, .DropBtn, .FilterOption, .SortOption {
+    padding: 10px 20px;
+    background-color: var(--box-bg);
+    color: var(--text-muted);
+    border: 1px solid var(--panel-bg);
+    border-radius: 6px;
+    cursor: pointer;
+    font-family: inherit;
+    font-weight: bold;
+    transition: all 0.2s ease;
+    text-align: left;
+}
+
+.FilterBtn:hover, .DropBtn:hover, .FilterOption:hover, .SortOption:hover {
+    background-color: var(--panel-bg);
+    color: var(--text-main);
+}
+
+.FilterGroup, .SortGroup {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.FilterBtn.is-clear {
+    background-color: #8b0000;
+    color: white;
+    border-color: #ff4444;
+}
+.FilterBtn.is-clear:hover {
+    background-color: #a00000;
+}
+
+.Dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.DropContent {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    margin-top: 5px;
+    background-color: var(--box-bg);
+    min-width: 150px;
+    border-radius: 6px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.5);
+    z-index: 100;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.Dropdown.show .DropContent {
+    display: flex;
+}
+
+.DropContent button {
+    border: none;
+    border-radius: 0;
+    border-bottom: 1px solid var(--panel-bg);
+}
+.DropContent button:last-child {
+    border-bottom: none;
+}
+
+/* --- Active States --- */
+.DropBtn.has-selection {
+    background-color: var(--text-main);
+    color: var(--bg-color);
+}
+
+.FilterBtn.selected, .FilterOption.selected, .SortOption.selected {
+    background-color: var(--text-main);
+    color: var(--bg-color);
+
+}
+
+.portfolio-item.hidden {
+    display: none;
+}
+
+
+
+.FilterBtn.active {
+    background-color: var(--text-main);
+    color: var(--bg-color);
+}
+
+.portfolio-item.hidden {
+    display: none;
+}
+
+.CenteredStack {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    width: 70%;
+    margin: 0 auto;
+}
+
+.StackItem {
+    border-radius: 10px;
+    padding: 20px;
+}
+
+
+/* --- FEATHERED BLUR BACKGROUND --- */
+.TableOfContents::before {
+    content: '';
+    position: absolute;
+    top: -40px;
+    bottom: -40px;
+    left: -20px;
+    right: -100px;
+    z-index: -1;
+
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+
+    mask-image: radial-gradient(ellipse at left center, black 30%, transparent 80%);
+    -webkit-mask-image: radial-gradient(ellipse at left center, black 30%, transparent 80%);
+
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+}
+
+.TableOfContents:hover::before {
+    opacity: 1;
+}
+
+.SettingsBody {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    flex-direction: column;
+}
+
+.SettingsContainer {
+    width: 100%;
+    max-width: 600px;
+    padding: 20px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.SettingsGroup {
+    background-color: var(--panel-bg);
+    border-radius: 12px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    border: 1px solid var(--box-bg);
+}
+
+.SettingItem {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 20px;
+    border-bottom: 1px solid var(--box-bg);
+}
+
+.SettingItem:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+}
+
+.SettingInfo {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.SettingName {
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: var(--text-main);
+}
+
+.SettingDesc {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+}
+
+.SettingBtn {
+    padding: 10px 20px;
+    background-color: var(--box-bg);
+    color: var(--text-main);
+    border: none;
+    border-radius: 6px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: opacity 0.2s;
+}
+
+.SettingBtn:hover {
+    opacity: 0.8;
+}
+
+.ReturnBtn {
+    padding: 12px 24px;
+    background-color: var(--panel-bg);
+    color: var(--text-main);
+    text-decoration: none;
+    border: 2px solid var(--box-bg);
+    border-radius: 8px;
+    font-weight: bold;
+    text-align: center;
+    transition: background-color 0.2s;
+}
+.ReturnBtn:hover {
+    background-color: var(--box-bg);
+}
+
+
+
+.BackButton {
+    width: fit-content;
+    margin-bottom: 20px;
+}
+
+/* --- TABLE OF CONTENTS --- */
+.TableOfContents {
+    position: fixed;
+    left: 340px;
+    top: 50%;
+    transform: translateY(-50%);
+
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    z-index: 50;
+}
+
+.TocLink {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    text-decoration: none;
+    color: var(--text-muted);
+    transition: color 0.3s ease;
+}
+
+.TocLine {
+    width: 20px;
+    height: 1px;
+    background-color: var(--text-muted);
+    transition: width 0.3s ease, background-color 0.3s ease;
+}
+
+.TocText {
+    opacity: 0;
+    transform: translateX(-10px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    white-space: nowrap;
+    font-size: 0.9rem;
+}
+
+.TableOfContents:hover .TocText {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.TocLink:hover .TocLine,
+.TocLink.active .TocLine {
+    width: 35px;
+    background-color: var(--text-main);
+}
+
+.TocLink:hover,
+.TocLink.active {
+    color: var(--text-main);
+}
+
+
+.ActionBadge {
+    text-decoration: none;
+    transition: background-color 0.2s, transform 0.1s;
+}
+
+.ActionBadge:hover {
+    background-color: var(--panel-bg);
+    transform: scale(1.05);
+}
+
+
+/*.AProject:hover */
+/*{*/
+/*    background-color: red;*/
+/*}*/
+
+/* Container for the badges */
+.DivTechStack {
+    display: flex;
+    gap: 8px;
+    padding: 10px 5px;
+    flex-wrap: wrap;
+}
+
+/* Small vertical divider (with breathing room) between the 1st and 2nd badge */
+.DivTechStack .TechBadge:nth-child(2) {
+    position: relative;
+    margin-left: 16px;
+}
+
+.DivTechStack .TechBadge:nth-child(2)::before {
+    content: '';
+    position: absolute;
+    left: -12px;
+    top: 15%;
+    bottom: 15%;
+    width: 1px;
+    background-color: var(--text-muted);
+    opacity: 0.4;
+}
+
+/* Overflow ("...") badge that expands to reveal the wrapped row */
+.TechBadge.is-more {
+    cursor: pointer;
+    justify-content: center;
+    min-width: 2.4em;
+}
+
+/* Badges hidden until the "..." badge is expanded */
+.DivTechStack .TechBadge.TechBadge-hidden {
+    display: none;
+}
+
+
+.TechBadge {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 10px;
+    border-radius: 6px;
+    font-size: 0.8rem;
+    font-family: sans-serif;
+    font-weight: bold;
+    backdrop-filter: blur(4px);
+    color: whitesmoke;
+
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: linear-gradient(135deg, rgba(30,30,30,0.9) 0%, rgba(50,50,50,0.8) 100%);
+
+    transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+
+@media (hover: hover) and (pointer: fine) {
+    .TechBadge:hover {
+        transform: scale(1.08) translateY(-2px);
+    }
+}
+
+@media (max-width: 800px)
+{
+
+
+    .DivMenuWrapper {
+        display: flex;
+        background-color: #191a1e;
+        position: fixed;
+        bottom: 30px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 200px;
+        height: 45px;
+        z-index: 20;
+        border-radius: 10px;
+        border: 2px solid lightgray;
+        overflow: hidden;
+    }
+
+    .DivMenuToggle, .DivMenuSettings {
+        flex: 1;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: transparent;
+        border: none;
+        color: var(--text-main);
+        cursor: pointer;
+        text-decoration: none;
+    }
+
+    .DivMenuSettings {
+        border-left: 2px solid lightgray;
+    }
+
+    .DivDualWrapper {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+
+
+    .SectionRight {
+        background-color: var(--bg-color);
+        width: 100vw;
+        padding-top: 40px;
+    }
+
+
+    .DivMenu {
+        display: block;
+        background-color: var(--bg-color);
+        position: fixed;
+        bottom: 30px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 150px;
+        height: 40px;
+        z-index: 20;
+        cursor: pointer;
+        border-radius: 10px;
+        border-style: solid;
+        border-color: lightgray;
+    }
+
+
+
+    .DivGrid
+    {
+        grid-template-columns: 1fr;
+    }
+
+    body.no-scroll
+    {
+        overflow: hidden;
+    }
+
+    .CenteredStack {
+        width: 100%;
+        padding: 0 15px;
+        box-sizing: border-box;
+    }
+    .TableOfContents {
+        display: none;
+    }
+
+}
+
+@media (min-width: 801px) {
+    .DivService {
+        display: grid;
+        grid-template-columns: 1fr 2fr;
+    }
+
+    .DivServiceTab {
+        display: contents;
+    }
+
+    .ButtonTab {
+        grid-column: 1;
+    }
+
+    .DivTabContent {
+        grid-column: 2;
+
+        grid-row: 1 / 5;
+    }
+
+    .TabSubtitle {
+        display: block;
+    }
+
+    .DivServiceTab.active .TabTriangle {
+        display: none;
+    }
+}
+
+
