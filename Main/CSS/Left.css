@@ -133,6 +133,14 @@
     font-weight: bold;
 }
 
+.LineDivider {
+    border: none; /* Removes the default 3D browser border */
+    height: 1px; /* The thickness of the line */
+    background-color: var(--box-bg); /* Matches your dark borders */
+    width: 100%;
+    margin: 5px 0; /* Creates 30px of empty breathing room above and below the line */
+}
+
 @media (max-width: 800px)
 {
     .SectionLeft {
