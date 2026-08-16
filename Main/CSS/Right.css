@@ -601,15 +601,15 @@
 }
 
 
-.ActionBadge {
-    text-decoration: none;
-    transition: background-color 0.2s, transform 0.1s;
-}
+/*.ActionBadge {*/
+/*    text-decoration: none;*/
+/*    transition: background-color 0.2s, transform 0.1s;*/
+/*}*/
 
-.ActionBadge:hover {
-    background-color: var(--panel-bg);
-    transform: scale(1.05);
-}
+/*.ActionBadge:hover {*/
+/*    background-color: var(--panel-bg);*/
+/*    transform: scale(1.05);*/
+/*}*/
 
 
 /*.AProject:hover */
