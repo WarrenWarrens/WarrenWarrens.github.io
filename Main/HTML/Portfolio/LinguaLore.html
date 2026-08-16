@@ -77,14 +77,16 @@
         </nav>
 
         <div class="CenteredStack">
+
+            <a href="javascript:history.back()" class="TechBadge ActionBadge BackButton">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M5 12h14M12 5l7 7-7 7"/>
+                </svg>
+                <span>Go back</span>
+            </a>
             <!-- Add matching IDs to your StackItems -->
             <div class="StackItem" id="section-lingua">
-                <a href="javascript:history.back()" class="TechBadge ActionBadge BackButton">
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M5 12h14M12 5l7 7-7 7"/>
-                    </svg>
-                    <span>Go back</span>
-                </a>
+
                 <h2 class="PTitle">Lingua Lore</h2>
                 <p class="PText">Your content here...
                     When i'm not studying but still feeling productive, you can find me working on personal experiments
@@ -150,7 +152,7 @@
                     soldering iron in one hand, and writing code in the other.
                 </p>
                 <div class="DivTechStack">
-                    <div class="TechBadge badge-flutter">
+                    <div class="TechBadge badge-highlight">
                         <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M12 2L2 22h20L12 2z"/></svg>
                         <span>Github</span>
                     </div>
@@ -164,6 +166,35 @@
                     </div>
                 </div>
             </div>
+
+            <div class="StackItem" id="section-links">
+                <h2 class="PTitle" style="margin-bottom: 15px;">Links</h2>
+
+                <div class="LinkStack">
+                    <!-- Example 1: GitHub Link -->
+                    <a href="#" class="LinkBadge badge-solo" target="_blank">
+                        <div class="LinkBadgeLeft">
+                            <i class="fa-brands fa-github" style="font-size: 1.1rem;"></i>
+                            <span>Source Code</span>
+                        </div>
+                        <span class="LinkBadgeMiddle">github.com/WarrenWarrens/project</span>
+                    </a>
+
+                    <!-- Example 2: Live Demo Link -->
+                    <a href="#" class="LinkBadge badge-flutter" target="_blank">
+                        <div class="LinkBadgeLeft">
+                            <i class="fa-solid fa-globe" style="font-size: 1.1rem;"></i>
+                            <span>Live Demo</span>
+                        </div>
+                        <span class="LinkBadgeMiddle">mywebsite.com/project</span>
+                    </a>
+                </div>
+            </div>
+
+
+
+
+
         </div>
 
 

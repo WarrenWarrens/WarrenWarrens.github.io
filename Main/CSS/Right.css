@@ -542,6 +542,9 @@
 .BackButton {
     width: fit-content;
     margin-bottom: 20px;
+    position: sticky;
+    top: 5px;
+    z-index: 90;
 }
 
 /* --- TABLE OF CONTENTS --- */
@@ -675,6 +678,84 @@
     background: linear-gradient(135deg, rgba(30,30,30,0.9) 0%, rgba(50,50,50,0.8) 100%);
 
     transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+/* --- LINK STACK UI --- */
+
+/* Wrapper for the vertical list of links */
+.LinkStack {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+/* Base styling for the new Link Badge */
+.LinkBadge {
+    display: flex;
+    align-items: center;
+    width: 100%; /* Expands to fill the StackItem */
+    box-sizing: border-box; /* Keeps padding safely inside the width */
+    padding: 12px 16px;
+    border-radius: 8px;
+    text-decoration: none;
+    color: whitesmoke;
+    font-family: sans-serif;
+    font-weight: bold;
+    font-size: 0.95rem;
+
+    /* Inherited aesthetic from TechBadge */
+    backdrop-filter: blur(4px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: linear-gradient(135deg, rgba(30,30,30,0.9) 0%, rgba(50,50,50,0.8) 100%);
+
+    /* Pop-out hover transition */
+    transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+/* --- HIGH CONTRAST BADGE --- */
+.badge-highlight {
+    /* Invert the background and text colors */
+    background: var(--text-main);
+    color: var(--bg-color);
+    border-color: var(--text-main);
+}
+
+@media (hover: hover) and (pointer: fine) {
+    .badge-highlight:hover {
+        /* Uses your muted text color to create a subtle glow that adapts to the theme */
+        box-shadow: 0 4px 12px var(--text-muted);
+    }
+}
+
+/* Keep the hover effect active ONLY on desktop/mouse devices */
+@media (hover: hover) and (pointer: fine) {
+    .LinkBadge:hover {
+        /* Slightly smaller scale (1.02) than the small badges so it doesn't break layout */
+        transform: scale(1.02) translateY(-2px);
+    }
+}
+
+/* Groups the Icon and Left Text tightly together */
+.LinkBadgeLeft {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-shrink: 0; /* Prevents this section from squishing when on tiny mobile screens */
+}
+
+/* The centered URL/Text in the remaining space */
+.LinkBadgeMiddle {
+    flex-grow: 1; /* Absorbs all remaining space between the left group and right edge */
+    text-align: center; /* Centers the text inside that newly absorbed space */
+    color: var(--text-muted);
+    font-weight: normal;
+    font-size: 0.85rem;
+    padding-left: 15px; /* Breathing room so it never touches the left group */
+
+    /* Cleanly handles URLs that are too long to fit by adding "..." */
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 
