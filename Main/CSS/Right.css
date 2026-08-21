@@ -776,27 +776,36 @@
     display: flex;
     flex-direction: column;
     gap: 10px;
-    position: relative; /* Allows us to anchor the icon */
-    padding-right: 30px; /* Prevents text from overlapping the icon */
+    /* Removed the relative positioning and 30px padding! */
 }
 
-.ToolText .PTitle,
 .ToolText .PText {
     margin: 0;
 }
+
+.ToolText .PTitle {
+    margin: 0;
+    display: flex;
+    align-items: center; /* Vertically centers the text and the icon */
+    gap: 12px; /* Adds breathing room between the word and the ^ */
+}
+
 
 /* --- ACCORDION LOGIC --- */
 
 /* The Expand Icon (^) */
 .ExpandIcon {
-    position: absolute;
-    top: 5px;
-    right: 0;
     color: var(--text-muted);
-    font-size: 1.2rem;
+    font-size: 1.1rem; /* Slightly smaller to match the text nicely */
     opacity: 0; /* Hidden by default */
     transition: transform 0.3s ease, opacity 0.2s ease;
+
+    /* Optional: Prevents the icon from stretching the height of the container */
+    display: flex;
+    align-items: center;
 }
+
+
 
 /* --- INLINE BOLD LABEL --- */
 .BoldLabel {
