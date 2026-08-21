@@ -219,3 +219,33 @@ document.addEventListener('DOMContentLoaded', () => {
         videos.forEach(video => videoObserver.observe(video));
     }
 });
+
+// --- TOOLS ACCORDION LOGIC ---
+document.addEventListener('DOMContentLoaded', () => {
+    const toolRows = document.querySelectorAll('.ToolRow');
+
+    toolRows.forEach(row => {
+        const topSection = row.querySelector('.ToolTop');
+
+        if (topSection) {
+            topSection.addEventListener('click', () => {
+                const isCurrentlyExpanded = row.classList.contains('expanded');
+
+                // 1. Find the parent StackItem so we only close rows in this specific group
+                const parentStack = row.closest('.StackItem');
+
+                if (parentStack) {
+                    // 2. Remove 'expanded' from all rows in this group
+                    const siblingRows = parentStack.querySelectorAll('.ToolRow');
+                    siblingRows.forEach(sibling => sibling.classList.remove('expanded'));
+                }
+
+                // 3. If the row we clicked wasn't already open, open it now!
+                // (If it WAS open, step 2 just closed it, effectively acting as a toggle)
+                if (!isCurrentlyExpanded) {
+                    row.classList.add('expanded');
+                }
+            });
+        }
+    });
+});

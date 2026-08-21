@@ -720,6 +720,109 @@
     border-color: var(--text-main);
 }
 
+/* --- ALTERNATING TOOLS LAYOUT --- */
+
+/* --- ALTERNATING EXPANDABLE TOOLS LAYOUT --- */
+
+/* Main wrapper */
+.ToolRow {
+    background-color: var(--panel-bg);
+    padding: 20px;
+    border-radius: 12px;
+    border: 1px solid var(--box-bg);
+    margin-bottom: 20px;
+    transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+/* Subtle hover effect for the entire row */
+@media (hover: hover) and (pointer: fine) {
+    .ToolRow:hover {
+        background-color: var(--box-bg);
+        border-color: rgba(255, 255, 255, 0.1);
+    }
+}
+
+/* The clickable preview section */
+.ToolTop {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+    cursor: pointer; /* Changes the mouse to a hand */
+}
+
+/* Flips the layout when the reverse class is present */
+.ToolRow.reverse .ToolTop {
+    flex-direction: row-reverse;
+}
+
+/* Image container */
+.ToolImage {
+    width: 35%;
+    aspect-ratio: 16/9;
+    background-color: var(--bg-color); /* Darker background so it stands out */
+    border-radius: 8px;
+    flex-shrink: 0;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 3rem;
+    color: var(--text-muted);
+}
+
+/* Text container */
+.ToolText {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    position: relative; /* Allows us to anchor the icon */
+    padding-right: 30px; /* Prevents text from overlapping the icon */
+}
+
+.ToolText .PTitle,
+.ToolText .PText {
+    margin: 0;
+}
+
+/* --- ACCORDION LOGIC --- */
+
+/* The Expand Icon (^) */
+.ExpandIcon {
+    position: absolute;
+    top: 5px;
+    right: 0;
+    color: var(--text-muted);
+    font-size: 1.2rem;
+    opacity: 0; /* Hidden by default */
+    transition: transform 0.3s ease, opacity 0.2s ease;
+}
+
+/* Show the icon when hovering the row OR when the row is expanded */
+.ToolRow:hover .ExpandIcon,
+.ToolRow.expanded .ExpandIcon {
+    opacity: 1;
+}
+
+/* Flip the icon (V) when expanded */
+.ToolRow.expanded .ExpandIcon {
+    transform: rotate(180deg);
+}
+
+/* The hidden details section */
+.ToolDetails {
+    display: none;
+    width: 100%;
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 1px solid var(--box-bg); /* Clean line separating preview from details */
+}
+
+/* Reveal the details when the expanded class is added */
+.ToolRow.expanded .ToolDetails {
+    display: block;
+}
+
 @media (hover: hover) and (pointer: fine) {
     .badge-highlight:hover {
         /* Uses your muted text color to create a subtle glow that adapts to the theme */
