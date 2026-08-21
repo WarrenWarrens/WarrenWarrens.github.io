@@ -14,6 +14,9 @@
 <body>
 
 <main class="Main">
+    <div class="ProgressContainer">
+        <div class="ProgressBar" id="scroll-progress"></div>
+    </div>
     <section id="red-panel" class="SectionLeft">
         <div class="DivIcon">
             <div class="DivIconTop">
@@ -36,10 +39,10 @@
         <div class="DivGuide">
             <a class="AGuide" href="../../index.html">Home</a>
             <a class="AGuide" href="Work.html">Portfolio</a>
-<!--            <a class="AGuide" href="Personal.html">Personal</a>-->
             <a class="AGuide"  href="Education.html">Education</a>
             <a class="AGuide active-page" href="Tools.html">Tools</a>
-<!--            <a class="AGuide" href="About.html">About</a>-->
+            <a class="AGuide" href="Personal.html">Personal</a>
+
         </div>
 
         <div class="DivContact">
@@ -54,9 +57,7 @@
 
     <section class="SectionRight">
 
-        <!-- Table of Contents (Desktop Only) -->
         <nav class="TableOfContents">
-            <!-- Href must match the ID of the StackItem -->
             <a href="#section-overview" class="TocLink active">
                 <span class="TocLine"></span>
                 <span class="TocText">Overview</span>
@@ -78,7 +79,6 @@
                 </svg>
                 <span>Go back</span>
             </a>
-            <!-- Add matching IDs to your StackItems -->
             <div class="StackItem" id="section-overview">
 
                 <h2 class="PTitle">Overview</h2>
@@ -126,29 +126,25 @@
 
             <div class="StackItem" id="section-software">
                 <h2 class="PTitle">Software</h2>
-                <p class="PText">More content...
-                    When i'm not studying but still feeling productive, you can find me working on personal experiments
-                    and side projects ranging from visual arts with ink and water colours, to crafting electronics with a
-                    soldering iron in one hand, and writing code in the other.
-                    When i'm not studying but still feeling productive, you can find me working on personal experiments
+                <p class="PText">
+                    I use a mixture of free open source and subscription/paid software, ideally i'd prefer to
+                    use only software that is free & open source, but i find enough value in the ones i
+                    do pay for. Almost none of the following is default, as i have extensively customized & modded
+                    each software to me and my preferences.
                     </p>
 
-                <!-- Row 1: Image Left, Text Right -->
                 <div class="ToolRow">
 
-                    <!-- The clickable preview area -->
                     <div class="ToolTop">
                         <div class="ToolImage">
                             <i class="fa-brands fa-linux"></i>
                         </div>
                         <div class="ToolText">
-                            <!-- The FontAwesome Chevron Icon -->
                             <h3 class="PTitle" style="font-size: 1.5rem;">RustRover <i class="fa-solid fa-chevron-up ExpandIcon"></i></h3>
                             <p class="PText">My primary operating system for backend development and tinkering.</p>
                         </div>
                     </div>
 
-                    <!-- The hidden expanded area -->
                     <div class="ToolDetails">
                         <p class="PText">Here I can go into extensive detail about my dotfiles, my window manager setup, and why I love having absolute control over my packages and system architecture. This text spans the entire width of the container.</p>
                     </div>
@@ -157,19 +153,16 @@
 
                 <div class="ToolRow reverse">
 
-                    <!-- The clickable preview area -->
                     <div class="ToolTop">
                         <div class="ToolImage">
                             <i class="fa-brands fa-linux"></i>
                         </div>
                         <div class="ToolText">
-                            <!-- The FontAwesome Chevron Icon -->
                             <h3 class="PTitle" style="font-size: 1.5rem;">Godot 4 <i class="fa-solid fa-chevron-up ExpandIcon"></i></h3>
                             <p class="PText">My primary operating system for backend development and tinkering.</p>
                         </div>
                     </div>
 
-                    <!-- The hidden expanded area -->
                     <div class="ToolDetails">
                         <p class="PText">Here I can go into extensive detail about my dotfiles, my window manager setup, and why I love having absolute control over my packages and system architecture. This text spans the entire width of the container.</p>
                     </div>
@@ -178,19 +171,16 @@
 
                 <div class="ToolRow">
 
-                    <!-- The clickable preview area -->
                     <div class="ToolTop">
                         <div class="ToolImage">
                             <i class="fa-brands fa-linux"></i>
                         </div>
                         <div class="ToolText">
-                            <!-- The FontAwesome Chevron Icon -->
                             <h3 class="PTitle" style="font-size: 1.5rem;">WebStorm <i class="fa-solid fa-chevron-up ExpandIcon"></i></h3>
                             <p class="PText">My primary operating system for backend development and tinkering.</p>
                         </div>
                     </div>
 
-                    <!-- The hidden expanded area -->
                     <div class="ToolDetails">
                         <p class="PText">Here I can go into extensive detail about my dotfiles, my window manager setup, and why I love having absolute control over my packages and system architecture. This text spans the entire width of the container.</p>
                     </div>
@@ -199,19 +189,16 @@
 
                 <div class="ToolRow reverse">
 
-                    <!-- The clickable preview area -->
                     <div class="ToolTop">
                         <div class="ToolImage">
                             <i class="fa-brands fa-linux"></i>
                         </div>
                         <div class="ToolText">
-                            <!-- The FontAwesome Chevron Icon -->
                             <h3 class="PTitle" style="font-size: 1.5rem;">PyCharm <i class="fa-solid fa-chevron-up ExpandIcon"></i></h3>
                             <p class="PText">My primary operating system for backend development and tinkering.</p>
                         </div>
                     </div>
 
-                    <!-- The hidden expanded area -->
                     <div class="ToolDetails">
                         <p class="PText">Here I can go into extensive detail about my dotfiles, my window manager setup, and why I love having absolute control over my packages and system architecture. This text spans the entire width of the container.</p>
                     </div>
@@ -220,19 +207,16 @@
 
                 <div class="ToolRow">
 
-                    <!-- The clickable preview area -->
                     <div class="ToolTop">
                         <div class="ToolImage">
                             <i class="fa-brands fa-linux"></i>
                         </div>
                         <div class="ToolText">
-                            <!-- The FontAwesome Chevron Icon -->
                             <h3 class="PTitle" style="font-size: 1.5rem;">Figma <i class="fa-solid fa-chevron-up ExpandIcon"></i></h3>
                             <p class="PText">My primary operating system for backend development and tinkering.</p>
                         </div>
                     </div>
 
-                    <!-- The hidden expanded area -->
                     <div class="ToolDetails">
                         <p class="PText">Here I can go into extensive detail about my dotfiles, my window manager setup, and why I love having absolute control over my packages and system architecture. This text spans the entire width of the container.</p>
                     </div>
@@ -259,19 +243,16 @@
 
                 <div class="ToolRow">
 
-                    <!-- The clickable preview area -->
                     <div class="ToolTop">
                         <div class="ToolImage">
                             <i class="fa-brands fa-linux"></i>
                         </div>
                         <div class="ToolText">
-                            <!-- The FontAwesome Chevron Icon -->
                             <h3 class="PTitle" style="font-size: 1.5rem;">TrenchBroom <i class="fa-solid fa-chevron-up ExpandIcon"></i></h3>
                             <p class="PText">My primary operating system for backend development and tinkering.</p>
                         </div>
                     </div>
 
-                    <!-- The hidden expanded area -->
                     <div class="ToolDetails">
                         <p class="PText">Here I can go into extensive detail about my dotfiles, my window manager setup, and why I love having absolute control over my packages and system architecture. This text spans the entire width of the container.</p>
                     </div>
@@ -280,19 +261,16 @@
 
                 <div class="ToolRow reverse">
 
-                    <!-- The clickable preview area -->
                     <div class="ToolTop">
                         <div class="ToolImage">
                             <i class="fa-brands fa-linux"></i>
                         </div>
                         <div class="ToolText">
-                            <!-- The FontAwesome Chevron Icon -->
                             <h3 class="PTitle" style="font-size: 1.5rem;">Aseprite <i class="fa-solid fa-chevron-up ExpandIcon"></i></h3>
                             <p class="PText">My primary operating system for backend development and tinkering.</p>
                         </div>
                     </div>
 
-                    <!-- The hidden expanded area -->
                     <div class="ToolDetails">
                         <p class="PText">Here I can go into extensive detail about my dotfiles, my window manager setup, and why I love having absolute control over my packages and system architecture. This text spans the entire width of the container.</p>
                     </div>
@@ -301,19 +279,16 @@
 
                 <div class="ToolRow">
 
-                    <!-- The clickable preview area -->
                     <div class="ToolTop">
                         <div class="ToolImage">
                             <i class="fa-brands fa-linux"></i>
                         </div>
                         <div class="ToolText">
-                            <!-- The FontAwesome Chevron Icon -->
                             <h3 class="PTitle" style="font-size: 1.5rem;">SLADE <i class="fa-solid fa-chevron-up ExpandIcon"></i></h3>
                             <p class="PText">My primary operating system for backend development and tinkering.</p>
                         </div>
                     </div>
 
-                    <!-- The hidden expanded area -->
                     <div class="ToolDetails">
                         <p class="PText">Here I can go into extensive detail about my dotfiles, my window manager setup, and why I love having absolute control over my packages and system architecture. This text spans the entire width of the container.</p>
                     </div>
@@ -322,26 +297,22 @@
 
                 <div class="ToolRow reverse">
 
-                    <!-- The clickable preview area -->
                     <div class="ToolTop reverse">
                         <div class="ToolImage">
                             <i class="fa-brands fa-linux"></i>
                         </div>
                         <div class="ToolText">
-                            <!-- The FontAwesome Chevron Icon -->
                             <h3 class="PTitle" style="font-size: 1.5rem;">Github/Github Desktop <i class="fa-solid fa-chevron-up ExpandIcon"></i></h3>
                             <p class="PText">My primary operating system for backend development and tinkering.</p>
                         </div>
                     </div>
 
-                    <!-- The hidden expanded area -->
                     <div class="ToolDetails">
                         <p class="PText">Here I can go into extensive detail about my dotfiles, my window manager setup, and why I love having absolute control over my packages and system architecture. This text spans the entire width of the container.</p>
                     </div>
 
                 </div>
 
-                <!-- Row 2: Text Left, Image Right (Using the .reverse class) -->
 
 
                 <div class="ToolRow">
@@ -368,13 +339,8 @@
 
             <div class="StackItem" id="section-hardware">
                 <h2 class="PTitle">Hardware</h2>
-                <p class="PText">Even more content...
-                    When i'm not studying but still feeling productive, you can find me working on personal experiments
-                    and side projects ranging from visual arts with ink and water colours, to crafting electronics with a
-                    soldering iron in one hand, and writing code in the other.
-                    When i'm not studying but still feeling productive, you can find me working on personal experiments
-                    and side projects ranging from visual arts with ink and water colours, to crafting electronics with a
-                    soldering iron in one hand, and writing code in the other.
+                <p class="PText">
+                    My hardware is evenly split between being powered by an Apple OS or a version of Arch Linux.
                 </p>
 
                 <div class="ToolRow reverse">
@@ -402,7 +368,7 @@
                             <i class="fa-brands fa-linux"></i>
                         </div>
                         <div class="ToolText">
-                            <h3 class="PTitle" style="font-size: 1.5rem;">"Tachyon" <i class="fa-solid fa-chevron-up ExpandIcon"></i></h3>
+                            <h3 class="PTitle" style="font-size: 1.5rem;">"Tachyon" (Desktop PC) <i class="fa-solid fa-chevron-up ExpandIcon"></i></h3>
                             <p class="PText">My engine of choice for 2D and 3D game development.</p>
                         </div>
                     </div>
@@ -451,29 +417,6 @@
 
             </div>
 
-<!--            <div class="StackItem" id="section-links">-->
-<!--                <h2 class="PTitle" style="margin-bottom: 15px;">Links</h2>-->
-
-<!--                <div class="LinkStack">-->
-<!--                    &lt;!&ndash; Example 1: GitHub Link &ndash;&gt;-->
-<!--                    <a href="#" class="LinkBadge badge-solo badge-highlight" target="_blank">-->
-<!--                        <div class="LinkBadgeLeft">-->
-<!--                            <i class="fa-brands fa-github" style="font-size: 1.1rem;"></i>-->
-<!--                            <span>Source Code</span>-->
-<!--                        </div>-->
-<!--                        <span class="LinkBadgeMiddle">github.com/WarrenWarrens/project</span>-->
-<!--                    </a>-->
-
-<!--                    &lt;!&ndash; Example 2: Live Demo Link &ndash;&gt;-->
-<!--                    <a href="#" class="LinkBadge badge-flutter badge-highlight" target="_blank">-->
-<!--                        <div class="LinkBadgeLeft">-->
-<!--                            <i class="fa-solid fa-globe" style="font-size: 1.1rem;"></i>-->
-<!--                            <span>Live Demo</span>-->
-<!--                        </div>-->
-<!--                        <span class="LinkBadgeMiddle">mywebsite.com/project</span>-->
-<!--                    </a>-->
-<!--                </div>-->
-<!--            </div>-->
 
         </div>
 
