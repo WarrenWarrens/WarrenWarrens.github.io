@@ -141,6 +141,91 @@
     margin: 5px 0; /* Creates 30px of empty breathing room above and below the line */
 }
 
+/* --- SUB-NAVIGATION (FILE TREE) --- */
+.SubGuide {
+    position: relative;
+    padding-left: 24px; /* Creates the indentation */
+    font-size: 1.15rem;
+    /* Removed the negative margin so it no longer hits Portfolio! */
+}
+
+/* Draws the |- shape */
+/*.SubGuide::before {*/
+/*    content: '';*/
+/*    position: absolute;*/
+/*    left: 8px;*/
+/*    top: -8px; !* Reaches up just enough to look connected *!*/
+/*    height: 22px; !* Fixed height so it strictly stops at the middle of the text *!*/
+/*    width: 10px;*/
+
+/*    border-left: 2px solid var(--text-muted);*/
+/*    border-bottom: 2px solid var(--text-muted);*/
+/*    border-bottom-left-radius: 4px;*/
+/*}*/
+
+/*!* Make the branch turn white when active *!*/
+/*.SubGuide.active-page::before {*/
+/*    border-color: var(--text-main);*/
+/*}*/
+
+.SubGuide::before {
+    content: '•';
+    position: absolute;
+    left: 10px;
+    color: var(--text-muted);
+}
+.SubGuide.active-page::before {
+    color: var(--text-main);
+}
+
+/*.SubGuide::before {*/
+/*    content: '\f005';*/
+/*    font-family: 'Font Awesome 6 Free';*/
+/*    font-weight: 900; !* Required for FontAwesome solid icons *!*/
+/*    position: absolute;*/
+/*    left: 8px;*/
+/*    font-size: 0.7rem; !* Make it a bit smaller than the text *!*/
+/*    color: var(--text-muted);*/
+
+/*    !* Vertically center the icon *!*/
+/*    top: 50%;*/
+/*    transform: translateY(-50%);*/
+/*}*/
+/*.SubGuide.active-page::before {*/
+/*    color: var(--text-main);*/
+/*}*/
+
+/* --- CHAOTIC PERSONAL LINK --- */
+
+.PersonalLink:hover {
+    /* Plays the 2.5 second animation exactly once per hover */
+    animation: glitch-chaos 2.5s 1 forwards;
+}
+
+@keyframes glitch-chaos {
+    /* 10 rapid style swaps every 0.25 seconds */
+    0%  { font-family: monospace; color: #ff3366; font-style: italic; letter-spacing: 1px; }
+    10% { font-family: serif; color: #33ccff; font-weight: 900; letter-spacing: -1px; }
+    20% { font-family: 'Comic Sans MS', cursive; color: #ffcc00; font-style: normal; }
+    30% { font-family: impact, sans-serif; color: #cc33ff; text-transform: uppercase; }
+    40% { font-family: system-ui; color: #33ff33; font-weight: 100; letter-spacing: 2px; }
+    50% { font-family: Georgia, serif; color: #ff6633; font-style: italic; }
+    60% { font-family: 'Courier New', monospace; color: #00ffff; font-weight: bold; }
+    70% { font-family: fantasy; color: #ff00ff; text-transform: lowercase; }
+    80% { font-family: 'Trebuchet MS', sans-serif; color: #ffff00; font-style: oblique; }
+    90% { font-family: 'Times New Roman', serif; color: #ff0055; font-weight: 900; }
+
+    /* Returns to your exact normal styling at the end */
+    100% {
+        font-family: inherit;
+        color: var(--text-main);
+        font-style: normal;
+        font-weight: normal;
+        letter-spacing: normal;
+        text-transform: none;
+    }
+}
+
 @media (max-width: 800px)
 {
     .SectionLeft {
