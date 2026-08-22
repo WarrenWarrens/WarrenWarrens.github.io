@@ -60,6 +60,20 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     });
+
+    // --- PREVENT TOC FROM BREAKING THE "GO BACK" BUTTON ---
+    document.querySelectorAll('.TocLink').forEach(link => {
+        link.addEventListener('click', (e) => {
+            e.preventDefault(); // Stops the URL from changing and adding to browser history
+
+            const targetId = link.getAttribute('href'); // Gets "#section-overview"
+            const targetSection = document.querySelector(targetId);
+
+            if (targetSection) {
+                targetSection.scrollIntoView({ behavior: 'smooth' });
+            }
+        });
+    });
 });
 
 window.addEventListener('resize', () => {

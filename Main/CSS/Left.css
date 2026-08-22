@@ -203,19 +203,18 @@
 }
 
 @keyframes glitch-chaos {
-    /* 10 rapid style swaps every 0.25 seconds */
+    /* Swapped out Comic Sans, Impact, and Fantasy for fonts with stable baselines */
     0%  { font-family: monospace; color: #ff3366; font-style: italic; letter-spacing: 1px; }
     10% { font-family: serif; color: #33ccff; font-weight: 900; letter-spacing: -1px; }
-    20% { font-family: 'Comic Sans MS', cursive; color: #ffcc00; font-style: normal; }
-    30% { font-family: impact, sans-serif; color: #cc33ff; text-transform: uppercase; }
+    20% { font-family: Arial, sans-serif; color: #ffcc00; font-style: normal; }
+    30% { font-family: 'Arial Black', sans-serif; color: #cc33ff; text-transform: uppercase; }
     40% { font-family: system-ui; color: #33ff33; font-weight: 100; letter-spacing: 2px; }
     50% { font-family: Georgia, serif; color: #ff6633; font-style: italic; }
     60% { font-family: 'Courier New', monospace; color: #00ffff; font-weight: bold; }
-    70% { font-family: fantasy; color: #ff00ff; text-transform: lowercase; }
+    70% { font-family: Tahoma, sans-serif; color: #ff00ff; text-transform: lowercase; }
     80% { font-family: 'Trebuchet MS', sans-serif; color: #ffff00; font-style: oblique; }
     90% { font-family: 'Times New Roman', serif; color: #ff0055; font-weight: 900; }
 
-    /* Returns to your exact normal styling at the end */
     100% {
         font-family: inherit;
         color: var(--text-main);
