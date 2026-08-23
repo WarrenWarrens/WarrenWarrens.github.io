@@ -276,7 +276,6 @@
 .DivTabContent {
     display: none;
     padding: 24px;
-    min-height: 250px;
 }
 
 .DivServiceTab.active .DivTabContent {
@@ -1014,9 +1013,10 @@
 
     .DivTabContent {
         grid-column: 2;
-
-        grid-row: 1 / 5;
+        grid-row: 1 / 99;
     }
+
+
 
     .TabSubtitle {
         display: block;
