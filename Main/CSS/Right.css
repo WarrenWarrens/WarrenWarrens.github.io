@@ -1027,4 +1027,36 @@
     }
 }
 
+/* --- EXPERIENCE IMAGE BLOCK --- */
+.ExpImage {
+    width: 64px;
+    height: 64px;
+    flex-shrink: 0; /* Prevents the box from squishing when text is long */
+    background-color: var(--box-bg); /* Dark placeholder background */
+    border-radius: 8px;
+
+    /* Centers the FontAwesome icon */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 3rem;
+    color: var(--text-muted);
+
+    overflow: hidden; /* Ensures future images don't break outside the rounded corners */
+}
+
+/* Prepares the container for when you swap the icon for a real image */
+.ExpImage img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* --- MOBILE RESPONSIVENESS --- */
+/* Completely hides the image block on screens smaller than 800px */
+@media (max-width: 800px) {
+    .ExpImage {
+        display: none;
+    }
+}
 
