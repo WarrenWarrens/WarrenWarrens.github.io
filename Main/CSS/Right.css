@@ -600,6 +600,106 @@
     color: var(--text-main);
 }
 
+/* --- AUTO-RESPONSIVE SOFTWARE GRID --- */
+.SoftwareGrid {
+    display: grid;
+    /* Automatically fits as many ~170px squares as possible per row */
+    grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
+    gap: 16px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* Base Card Style */
+.SoftwareCard {
+    aspect-ratio: 1 / 1; /* Forces the box to remain a perfect square */
+    background-color: var(--panel-bg, #121215);
+    border: 1px solid var(--box-bg, #333333);
+    border-radius: 10px;
+    padding: 16px;
+    box-sizing: border-box;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Pushes content to top and footer to bottom */
+    position: relative;
+    overflow: hidden;
+
+    /* Reuses your standard pop-out transition */
+    transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275),
+    box-shadow 0.2s ease,
+    border-color 0.2s ease,
+    background-color 0.2s ease;
+}
+
+/* Card Hover Animation */
+@media (hover: hover) and (pointer: fine) {
+    .SoftwareCard:hover {
+        transform: translateY(-4px) scale(1.02);
+        box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);
+        border-color: rgba(255, 255, 255, 0.2);
+        background-color: var(--box-bg, #202127);
+    }
+}
+
+/* Top Area (Title & Description) */
+.SoftwareContent {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.SoftwareName {
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: var(--text-main, whitesmoke);
+    margin: 0;
+}
+
+.SoftwareDesc {
+    font-size: 0.8rem;
+    color: var(--text-muted, lightgray);
+    line-height: 1.35;
+    margin: 0;
+}
+
+/* Bottom Area (Experience Label & Icon) */
+.SoftwareFooter {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    width: 100%;
+}
+
+.SoftwareExp {
+    font-size: 0.95rem;
+    font-weight: bold;
+    color: var(--text-main, whitesmoke);
+    white-space: nowrap;
+}
+
+/* Icon Container (Red square placeholder / real icon container) */
+.SoftwareIcon {
+    width: 48px;
+    height: 48px;
+    flex-shrink: 0;
+    border-radius: 6px;
+    background-color: #ff0000; /* Matches your mockup; swap to var(--box-bg) later */
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.4rem;
+    color: #ffffff;
+}
+
+.SoftwareIcon img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 6px;
+}
+
 
 /*.ActionBadge {*/
 /*    text-decoration: none;*/
