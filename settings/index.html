@@ -17,86 +17,108 @@
 
     <h1 class="PTitle">Settings & Preferences</h1>
 
-    <div class="SettingsGroup">
-        <h2 class="SettingName" style="margin: 0; padding-bottom: 10px; border-bottom: 1px solid var(--box-bg);">Accessibility & Performance</h2>
+    <div class="SettingsGroup" style="padding: 0; border: none; background: transparent;">
 
-        <!-- Animations -->
-        <div class="SettingItem">
-            <div class="SettingInfo">
-                <span class="SettingName">UI Animations</span>
-                <span class="SettingDesc">Disable page transitions and fading elements.</span>
-            </div>
-            <button id="anim-btn" class="SettingBtn">Disable</button>
-        </div>
+        <div class="ToolRow">
+            <!-- The Clickable Tab -->
+            <div class="ToolTop">
+                <div class="ExpImage">
+                    <i class="fa-solid fa-universal-access"></i>
+                </div>
 
-        <!-- Hover Effects -->
-        <div class="SettingItem">
-            <div class="SettingInfo">
-                <span class="SettingName">Hover Effects</span>
-                <span class="SettingDesc">Disable 3D pop-outs and glowing borders.</span>
+                <div class="ToolText">
+                    <h3 class="PTitle" style="font-size: 1.5rem;">Accessibility & Performance <i class="fa-solid fa-chevron-up ExpandIcon"></i></h3>
+                    <p class="PText">Manage animations, scrolling, and cursor effects.</p>
+                </div>
             </div>
-            <button id="hover-btn" class="SettingBtn">Disable</button>
-        </div>
 
-        <!-- Smooth Scrolling -->
-        <div class="SettingItem">
-            <div class="SettingInfo">
-                <span class="SettingName">Smooth Scrolling</span>
-                <span class="SettingDesc">Disable smooth anchor jumping.</span>
-            </div>
-            <button id="scroll-btn" class="SettingBtn">Disable</button>
-        </div>
+            <!-- The Hidden Dropdown Content -->
+            <div class="ToolDetails" style="border-top: none; padding-top: 0;">
 
-        <!-- HQ Images / Media -->
-        <div class="SettingItem">
-            <div class="SettingInfo">
-                <span class="SettingName">Autoplay Media</span>
-                <span class="SettingDesc">Prevent videos and GIFs from playing automatically.</span>
-            </div>
-            <button id="media-btn" class="SettingBtn">Disable</button>
-        </div>
+                <!-- Animations -->
+                <div class="SettingItem">
+                    <div class="SettingInfo">
+                        <span class="SettingName">UI Animations</span>
+                        <span class="SettingDesc">Disable page transitions and fading elements.</span>
+                    </div>
+                    <button id="anim-btn" class="SettingBtn">Disable</button>
+                </div>
 
-        <!-- Custom Cursor -->
-        <div class="SettingItem">
-            <div class="SettingInfo">
-                <span class="SettingName">Custom Cursor</span>
-                <span class="SettingDesc">Disable special cursor effects (revert to default).</span>
+                <!-- Hover Effects -->
+                <div class="SettingItem">
+                    <div class="SettingInfo">
+                        <span class="SettingName">Hover Effects</span>
+                        <span class="SettingDesc">Disable 3D pop-outs and glowing borders.</span>
+                    </div>
+                    <button id="hover-btn" class="SettingBtn">Disable</button>
+                </div>
+
+                <!-- Custom Cursor -->
+                <div class="SettingItem">
+                    <div class="SettingInfo">
+                        <span class="SettingName">Custom Cursor</span>
+                        <span class="SettingDesc">Disable special cursor effects (revert to default).</span>
+                    </div>
+                    <button id="cursor-btn" class="SettingBtn">Disable</button>
+                </div>
+
+
+
+                <!-- Add the rest of your settings (Scroll, Media) here... -->
+
             </div>
-            <button id="cursor-btn" class="SettingBtn">Disable</button>
         </div>
     </div>
 
-    <div class="SettingsGroup">
-        <div class="SettingItem">
-            <div class="SettingInfo">
-                <span class="SettingName">Light Mode</span>
-                <span class="SettingDesc">Switch to a brighter color theme.</span>
+    <h1 class="PTitle">Settings & Preferences</h1>
+    <div class="SettingsGroup" style="padding: 0; border: none; background: transparent;">
+        <div class="ToolRow">
+            <div class="ToolTop">
+                <div class="ExpImage">
+                    <i class="fa-solid fa-universal-access"></i>
+                </div>
+
+                <div class="ToolText">
+                    <h3 class="PTitle" style="font-size: 1.5rem;">Accessibility & Performance <i class="fa-solid fa-chevron-up ExpandIcon"></i></h3>
+                    <p class="PText">Manage animations, scrolling, and cursor effects.</p>
+                </div>
             </div>
-            <button id="theme-btn" class="SettingBtn">Enable</button>
+            <div class="ToolDetails">
+                <div class="SettingItem">
+                    <div class="SettingInfo">
+                        <span class="SettingName">Autoplay Media</span>
+                        <span class="SettingDesc">Prevent videos and GIFs from playing automatically.</span>
+                    </div>
+                    <button id="media-btn" class="SettingBtn">Disable</button>
+                </div>
+
+                <div class="SettingItem">
+                    <div class="SettingInfo">
+                        <span class="SettingName">Light Mode</span>
+                        <span class="SettingDesc">Switch to a brighter color theme.</span>
+                    </div>
+                    <button id="theme-btn" class="SettingBtn">Enable</button>
+                </div>
+
+                <!-- Text Size Slider -->
+                <div class="SettingItem">
+                    <div class="SettingInfo">
+                        <span class="SettingName">Text Size</span>
+                        <span class="SettingDesc">Adjust the global font size for readability.</span>
+                    </div>
+
+                    <!-- Range Slider -->
+                    <div style="display: flex; align-items: center; gap: 15px; width: 200px;">
+                        <input type="range" id="font-slider" min="14" max="24" step="1" value="16" style="flex-grow: 1; accent-color: var(--text-main);">
+                        <span id="font-preview" style="color: var(--text-main); font-weight: bold; width: 40px;">16px</span>
+                    </div>
+                </div>
+            </div>
+
         </div>
-
-        <!-- Text Size Slider -->
-        <div class="SettingItem">
-            <div class="SettingInfo">
-                <span class="SettingName">Text Size</span>
-                <span class="SettingDesc">Adjust the global font size for readability.</span>
-            </div>
-
-            <!-- Range Slider -->
-            <div style="display: flex; align-items: center; gap: 15px; width: 200px;">
-                <input type="range" id="font-slider" min="14" max="24" step="1" value="16" style="flex-grow: 1; accent-color: var(--text-main);">
-                <span id="font-preview" style="color: var(--text-main); font-weight: bold; width: 40px;">16px</span>
-            </div>
-        </div>
-
-<!--        <div class="SettingItem">-->
-<!--            <div class="SettingInfo">-->
-<!--                <span class="SettingName">Large Text</span>-->
-<!--                <span class="SettingDesc">Increase global font size for readability.</span>-->
-<!--            </div>-->
-<!--            <button id="text-btn" class="SettingBtn">Enable</button>-->
-<!--        </div>-->
     </div>
+
+
 
 </div>
 
