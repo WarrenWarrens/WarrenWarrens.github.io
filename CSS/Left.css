@@ -53,11 +53,12 @@
 }
 
 
-.DivIconText {
+.DivIconText
+{
     color: var(--text-main);
-    font-weight: bold;
-    font-size: 1.2rem;
-    /*font-family: Oswald;*/
+    font-size: 1.0rem;
+    line-height: 1.6;
+    margin: 0;
 }
 
 .DesktopSettings {
@@ -65,13 +66,15 @@
     align-items: center;
     gap: 10px;
     background-color: var(--box-bg);
-    color: var(--text-muted);
     padding: 10px 15px;
     border-radius: 8px;
-
     text-decoration: none;
-    font-size: 1.3rem;
     transition: color 0.2s, background-color 0.2s;
+
+    color: var(--text-muted);
+    font-size: 0.85rem;
+    line-height:1.5;
+    margin: 0;
 }
 
 .DesktopSettings:hover {
@@ -93,8 +96,10 @@
 
 .AGuide
 {
-    font-size: 1.3rem;
     color: var(--text-muted);
+    font-size: 0.85rem;
+    line-height:1.5;
+    margin: 0;
     text-decoration:none;
 }
 
@@ -117,9 +122,10 @@
 
 .ALink
 {
-    font-size: 0.95rem;
-
     color: var(--text-muted);
+    font-size: 0.85rem;
+    line-height:1.5;
+    margin: 0;
     text-decoration:none;
 }
 .ALink:hover
