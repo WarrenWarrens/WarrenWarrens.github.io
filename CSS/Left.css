@@ -151,7 +151,11 @@
 .SubGuide {
     position: relative;
     padding-left: 24px; /* Creates the indentation */
-    font-size: 1.15rem;
+    color: var(--text-muted);
+    font-size: 0.85rem;
+    line-height:1.5;
+    margin: 0;
+    text-decoration:none;
     /* Removed the negative margin so it no longer hits Portfolio! */
 }
 

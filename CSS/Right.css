@@ -239,18 +239,25 @@
 .TabTextGroup {
     display: flex;
     flex-direction: column;
+
+    color: var(--text-main);
+    font-size: 1.0rem;
+    line-height: 1.6;
+    margin: 0;
 }
 
 .TabTitle {
-    font-size: 1.1rem;
+    font-size: 1.6rem;
 }
 
 .TabSubtitle {
-    font-size: 0.85rem;
-    color: var(--text-main);
-    margin-top: 4px;
     font-weight: normal;
     display: none;
+    color: var(--text-muted);
+    font-size: 0.85rem;
+    line-height:1.5;
+    margin: 0;
+
 }
 
 .TabTriangle {
@@ -759,11 +766,13 @@
     gap: 6px;
     padding: 6px 10px;
     border-radius: 6px;
-    font-size: 0.8rem;
     font-family: sans-serif;
     font-weight: bold;
     backdrop-filter: blur(4px);
-    color: whitesmoke;
+    color: var(--text-muted);
+    font-size: 0.85rem;
+    line-height:1.5;
+    margin: 0;
 
     border: 1px solid rgba(255, 255, 255, 0.1);
     background: linear-gradient(135deg, rgba(30,30,30,0.9) 0%, rgba(50,50,50,0.8) 100%);
