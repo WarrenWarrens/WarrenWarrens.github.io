@@ -50,7 +50,7 @@ body {
 :root {
     --bg-color: #191a1e;
     --panel-bg: #121215;
-    --box-bg: #1c1c1c;
+    --box-bg: #000000;
     --text-main: whitesmoke;
     --text-muted: lightgray;
 
@@ -138,6 +138,7 @@ body {
     font-weight: bold;
     margin:0;
     color: var(--text-main);
+    padding-bottom: 10px;
 }
 
 

@@ -573,6 +573,10 @@
     text-decoration: none;
     color: var(--text-muted);
     transition: color 0.3s ease;
+
+    font-size: 0.85rem;
+    line-height:1.5;
+    margin: 0;
 }
 
 .TocLine {
@@ -587,7 +591,11 @@
     transform: translateX(-10px);
     transition: opacity 0.3s ease, transform 0.3s ease;
     white-space: nowrap;
-    font-size: 0.9rem;
+
+    color: var(--text-muted);
+    font-size: 0.85rem;
+    line-height:1.5;
+    margin: 0;
 }
 
 .TableOfContents:hover .TocText {
