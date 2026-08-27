@@ -369,6 +369,10 @@
     z-index: 100;
     flex-direction: column;
     overflow: hidden;
+
+    color: var(--text-main);
+    font-size: 1.0rem;
+    line-height: 1.6;
 }
 
 .Dropdown.show .DropContent {
@@ -802,10 +806,12 @@
     padding: 12px 16px;
     border-radius: 8px;
     text-decoration: none;
-    color: whitesmoke;
     font-family: sans-serif;
     font-weight: bold;
-    font-size: 0.95rem;
+    color: var(--text-muted);
+    font-size: 0.85rem;
+    line-height:1.5;
+    margin: 0;
 
     /* Inherited aesthetic from TechBadge */
     backdrop-filter: blur(4px);
