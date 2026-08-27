@@ -120,17 +120,8 @@
     display: none;
 }
 
-.PTitle
-{
-    color: var(--text-main);
-    font-size:30px;
-}
 
-.PText
-{
-    color: var(--text-muted);
-    font-size:18px;
-}
+
 
 .DivDivide
 {
