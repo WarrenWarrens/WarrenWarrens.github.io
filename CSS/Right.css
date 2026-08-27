@@ -325,6 +325,10 @@
     font-weight: bold;
     transition: all 0.2s ease;
     text-align: left;
+
+    font-size: 1.0rem;
+    line-height: 1.6;
+    margin: 0;
 }
 
 .FilterBtn:hover, .DropBtn:hover, .FilterOption:hover, .SortOption:hover {
