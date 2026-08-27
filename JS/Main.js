@@ -245,8 +245,8 @@ document.addEventListener('DOMContentLoaded', () => {
             topSection.addEventListener('click', () => {
                 const isCurrentlyExpanded = row.classList.contains('expanded');
 
-                // 1. Find the parent StackItem so we only close rows in this specific group
-                const parentStack = row.closest('.StackItem');
+                // 1. Find the parent container (Now supports both Portfolio and Settings pages!)
+                const parentStack = row.closest('.StackItem, .SettingsGroup');
 
                 if (parentStack) {
                     // 2. Remove 'expanded' from all rows in this group
@@ -254,8 +254,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     siblingRows.forEach(sibling => sibling.classList.remove('expanded'));
                 }
 
-                // 3. If the row we clicked wasn't already open, open it now!
-                // (If it WAS open, step 2 just closed it, effectively acting as a toggle)
+                // 3. If it wasn't open, open it now
                 if (!isCurrentlyExpanded) {
                     row.classList.add('expanded');
                 }

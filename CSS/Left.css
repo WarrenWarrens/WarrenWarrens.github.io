@@ -149,25 +149,6 @@
     /* Removed the negative margin so it no longer hits Portfolio! */
 }
 
-/* Draws the |- shape */
-/*.SubGuide::before {*/
-/*    content: '';*/
-/*    position: absolute;*/
-/*    left: 8px;*/
-/*    top: -8px; !* Reaches up just enough to look connected *!*/
-/*    height: 22px; !* Fixed height so it strictly stops at the middle of the text *!*/
-/*    width: 10px;*/
-
-/*    border-left: 2px solid var(--text-muted);*/
-/*    border-bottom: 2px solid var(--text-muted);*/
-/*    border-bottom-left-radius: 4px;*/
-/*}*/
-
-/*!* Make the branch turn white when active *!*/
-/*.SubGuide.active-page::before {*/
-/*    border-color: var(--text-main);*/
-/*}*/
-
 .SubGuide::before {
     content: '•';
     position: absolute;
@@ -178,22 +159,6 @@
     color: var(--text-main);
 }
 
-/*.SubGuide::before {*/
-/*    content: '\f005';*/
-/*    font-family: 'Font Awesome 6 Free';*/
-/*    font-weight: 900; !* Required for FontAwesome solid icons *!*/
-/*    position: absolute;*/
-/*    left: 8px;*/
-/*    font-size: 0.7rem; !* Make it a bit smaller than the text *!*/
-/*    color: var(--text-muted);*/
-
-/*    !* Vertically center the icon *!*/
-/*    top: 50%;*/
-/*    transform: translateY(-50%);*/
-/*}*/
-/*.SubGuide.active-page::before {*/
-/*    color: var(--text-main);*/
-/*}*/
 
 /* --- CHAOTIC PERSONAL LINK --- */
 
