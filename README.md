@@ -1,6 +1,6 @@
-## Ryan Warrener Portfolio
+## WarrenWarrens Portfolio
 
-> Currently no eta on when it will be done, ended up restarting at the end of august 
+> Completion date estimated ~October 31st
 
 #### https://warrenwarrens.ca/
 
