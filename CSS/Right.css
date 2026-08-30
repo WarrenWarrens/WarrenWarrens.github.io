@@ -592,6 +592,7 @@
     transition: opacity 0.3s ease, transform 0.3s ease;
     white-space: nowrap;
 
+
     color: var(--text-muted);
     font-size: 0.85rem;
     line-height:1.5;
@@ -1010,7 +1011,7 @@
 .LinkBadgeMiddle {
     flex-grow: 1; /* Absorbs all remaining space between the left group and right edge */
     text-align: center; /* Centers the text inside that newly absorbed space */
-    color: var(--text-muted);
+    color: var(--bg-color);
     font-weight: normal;
     font-size: 0.85rem;
     padding-left: 15px; /* Breathing room so it never touches the left group */
