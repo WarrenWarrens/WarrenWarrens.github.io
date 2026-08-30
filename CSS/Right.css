@@ -786,7 +786,7 @@
     font-family: sans-serif;
     font-weight: bold;
     backdrop-filter: blur(4px);
-    color: var(--text-muted);
+    color: var(--bg-color);
     font-size: 0.85rem;
     line-height:1.5;
     margin: 0;
@@ -1055,7 +1055,7 @@
         align-items: center;
         background: transparent;
         border: none;
-        color: var(--text-main);
+        color: var(--bg-color);
         cursor: pointer;
         text-decoration: none;
     }
