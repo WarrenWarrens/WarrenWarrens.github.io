@@ -262,3 +262,41 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 });
+
+// --- QUICK THEME TOGGLE ---
+document.addEventListener('DOMContentLoaded', () => {
+    const desktopBtn = document.getElementById('desktop-theme-btn');
+    const mobileBtn = document.getElementById('mobile-theme-btn');
+
+    // Function to update the icons based on current theme
+    function updateThemeIcons() {
+        const isLight = document.documentElement.getAttribute('data-theme') === 'light';
+        const iconClass = isLight ? 'fa-sun' : 'fa-moon';
+
+        if (desktopBtn) desktopBtn.querySelector('i').className = `fa-solid ${iconClass}`;
+        if (mobileBtn) mobileBtn.querySelector('i').className = `fa-solid ${iconClass}`;
+    }
+
+    // Function to handle the theme swap
+    function toggleTheme() {
+        const html = document.documentElement;
+        const isLight = html.getAttribute('data-theme') === 'light';
+
+        if (isLight) {
+            html.removeAttribute('data-theme');
+            localStorage.removeItem('theme');
+        } else {
+            html.setAttribute('data-theme', 'light');
+            localStorage.setItem('theme', 'light');
+        }
+
+        updateThemeIcons();
+    }
+
+    // Attach click listeners
+    if (desktopBtn) desktopBtn.addEventListener('click', toggleTheme);
+    if (mobileBtn) mobileBtn.addEventListener('click', toggleTheme);
+
+    // Sync icons immediately on page load
+    updateThemeIcons();
+});
