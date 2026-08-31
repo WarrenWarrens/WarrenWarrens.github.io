@@ -53,6 +53,8 @@ body {
     --box-bg: #000000;
     --text-main: whitesmoke;
     --text-muted: lightgray;
+    --badge-color: #ffffff;
+
 
     /* The slider directly modifies this variable */
     --base-font-size: 16px;
@@ -64,6 +66,7 @@ html[data-theme="light"] {
     --box-bg: #e4e4e4;
     --text-main: #121215;
     --text-muted: #444444;
+    --badge-color: #000000;
 }
 
 /* --- ACCESSIBILITY OVERRIDES --- */
@@ -155,7 +158,7 @@ body {
 
 .badge-godot {
     border-color: rgba(71, 140, 191, 0.5);
-    background: linear-gradient(135deg, rgba(30,30,30,0.9) 30%, rgba(71, 140, 191, 0.25) 100%);
+    /*background: linear-gradient(135deg, rgba(30,30,30,0.9) 30%, rgba(71, 140, 191, 0.25) 100%);*/
 }
 @media (hover: hover) {
     .badge-godot:hover {
@@ -166,7 +169,7 @@ body {
 
 .badge-js {
     border-color: rgba(247, 223, 30, 0.4);
-    background: linear-gradient(135deg, rgba(30,30,30,0.9) 30%, rgba(247, 223, 30, 0.2) 100%);
+    /*background: linear-gradient(135deg, rgba(30,30,30,0.9) 30%, rgba(247, 223, 30, 0.2) 100%);*/
 }
 @media (hover: hover) {
     .badge-js:hover {
@@ -177,7 +180,7 @@ body {
 
 .badge-flutter {
     border-color: rgba(69, 209, 253, 0.4);
-    background: linear-gradient(135deg, rgba(30,30,30,0.9) 30%, rgba(69, 209, 253, 0.2) 100%);
+    /*background: linear-gradient(135deg, rgba(30,30,30,0.9) 30%, rgba(69, 209, 253, 0.2) 100%);*/
 }
 @media (hover: hover) {
     .badge-flutter:hover {
@@ -188,7 +191,7 @@ body {
 
 .badge-rust {
     border-color: rgba(222, 165, 132, 0.4);
-    background: linear-gradient(135deg, rgba(30,30,30,0.9) 30%, rgba(222, 165, 132, 0.2) 100%);
+    /*background: linear-gradient(135deg, rgba(30,30,30,0.9) 30%, rgba(222, 165, 132, 0.2) 100%);*/
 }
 @media (hover: hover) {
     .badge-rust:hover {
@@ -199,7 +202,7 @@ body {
 
 .badge-html {
     border-color: rgb(215 7 1 / 0.47);
-    background: linear-gradient(135deg, rgba(30,30,30,0.9) 30%, rgb(117 1 0 / 0.47) 100%);
+    /*background: linear-gradient(135deg, rgba(30,30,30,0.9) 30%, rgb(117 1 0 / 0.47) 100%);*/
 }
 @media (hover: hover) {
     .badge-html:hover {
@@ -210,7 +213,7 @@ body {
 
 .badge-css {
     border-color: rgb(0 41 191 / 0.47);
-    background: linear-gradient(135deg, rgba(30,30,30,0.9) 30%, rgb(0 23 117 / 0.47) 100%);
+    /*background: linear-gradient(135deg, rgba(30,30,30,0.9) 30%, rgb(0 23 117 / 0.47) 100%);*/
 }
 @media (hover: hover) {
     .badge-css:hover {
@@ -221,7 +224,7 @@ body {
 
 .badge-solo {
     border-color: rgb(215 7 1 / 0.47);
-    background: linear-gradient(135deg, rgba(30,30,30,0.9) 30%, rgb(117 1 0 / 0.47) 100%);
+    /*background: linear-gradient(135deg, rgba(30,30,30,0.9) 30%, rgb(117 1 0 / 0.47) 100%);*/
 }
 @media (hover: hover) {
     .badge-solo:hover {
@@ -232,7 +235,7 @@ body {
 
 .badge-group {
     border-color: rgb(0 41 191 / 0.47);
-    background: linear-gradient(135deg, rgba(30,30,30,0.9) 30%, rgb(0 23 117 / 0.47) 100%);
+    /*background: linear-gradient(135deg, rgba(30,30,30,0.9) 30%, rgb(0 23 117 / 0.47) 100%);*/
 }
 @media (hover: hover) {
     .badge-group:hover {
@@ -243,7 +246,7 @@ body {
 
 .badge-thesis {
     border-color: rgb(255 222 54 / 0.95);
-    background: linear-gradient(135deg, rgba(30,30,30,0.9) 30%, rgb(255 218 2 / 0.47) 100%);
+    /*background: linear-gradient(135deg, rgba(30,30,30,0.9) 30%, rgb(255 218 2 / 0.47) 100%);*/
 }
 @media (hover: hover) {
     .badge-thesis:hover {
