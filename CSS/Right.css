@@ -619,11 +619,14 @@
 .SoftwareGrid {
     display: grid;
     /* Automatically fits as many ~170px squares as possible per row */
-    grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
-    gap: 16px;
+    grid-template-columns: repeat(auto-fill, minmax(11rem, 1fr));
+    gap: 1rem;
+
     width: 100%;
     box-sizing: border-box;
 }
+
+
 
 /* Base Card Style */
 .SoftwareCard {
@@ -672,10 +675,13 @@
 }
 
 .SoftwareDesc {
-    font-size: 0.8rem;
-    color: var(--text-muted, lightgray);
-    line-height: 1.35;
+
+    color: var(--text-muted);
+    font-size: 0.85rem;
+    line-height:1.5;
     margin: 0;
+
+
 }
 
 /* Bottom Area (Experience Label & Icon) */
@@ -684,6 +690,11 @@
     justify-content: space-between;
     align-items: flex-end;
     width: 100%;
+
+    color: var(--text-muted);
+    font-size: 0.85rem;
+    line-height:1.5;
+    margin: 0;
 }
 
 .SoftwareExp {
