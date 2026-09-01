@@ -1060,14 +1060,15 @@
         overflow: hidden;
     }
 
-    .DivMenuToggle, .DivMenuSettings .DivMenuTheme {
+    .DivMenuToggle, .DivMenuSettings, .DivMenuTheme {
         flex: 1;
         display: flex;
         justify-content: center;
         align-items: center;
         background: transparent;
+        background: var(--bg-color);
         border: none;
-        color: var(--bg-color);
+        color: var(--text-main);
         cursor: pointer;
         text-decoration: none;
 
