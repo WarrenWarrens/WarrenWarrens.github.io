@@ -151,9 +151,7 @@
 .DivDivide2
 {
     width:100%;
-    /*gap: 20px;*/
     padding-left: 20px;
-    /*padding: 20px;*/
     height: auto;
     box-sizing: border-box;
 
@@ -305,7 +303,6 @@
 }
 
 
-/*WORK*/
 .FilterControls {
     display: flex;
     gap: 15px;
@@ -388,7 +385,6 @@
     border-bottom: none;
 }
 
-/* --- Active States --- */
 .DropBtn.has-selection {
     background-color: var(--text-main);
     color: var(--bg-color);
@@ -430,7 +426,6 @@
 }
 
 
-/* --- FEATHERED BLUR BACKGROUND --- */
 .TableOfContents::before {
     content: '';
     position: absolute;
@@ -553,7 +548,6 @@
     z-index: 90;
 }
 
-/* --- TABLE OF CONTENTS --- */
 .TableOfContents {
     position: fixed;
     left: 340px;
@@ -615,10 +609,8 @@
     color: var(--text-main);
 }
 
-/* --- AUTO-RESPONSIVE SOFTWARE GRID --- */
 .SoftwareGrid {
     display: grid;
-    /* Automatically fits as many ~170px squares as possible per row */
     grid-template-columns: repeat(auto-fill, minmax(11rem, 1fr));
     gap: 1rem;
 
@@ -628,9 +620,8 @@
 
 
 
-/* Base Card Style */
 .SoftwareCard {
-    aspect-ratio: 1 / 1; /* Forces the box to remain a perfect square */
+    aspect-ratio: 1 / 1;
     background-color: var(--panel-bg, #121215);
     border: 1px solid var(--box-bg, #333333);
     border-radius: 10px;
@@ -639,18 +630,16 @@
 
     display: flex;
     flex-direction: column;
-    justify-content: space-between; /* Pushes content to top and footer to bottom */
+    justify-content: space-between;
     position: relative;
     overflow: hidden;
 
-    /* Reuses your standard pop-out transition */
     transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275),
     box-shadow 0.2s ease,
     border-color 0.2s ease,
     background-color 0.2s ease;
 }
 
-/* Card Hover Animation */
 @media (hover: hover) and (pointer: fine) {
     .SoftwareCard:hover {
         transform: translateY(-4px) scale(1.02);
@@ -660,7 +649,6 @@
     }
 }
 
-/* Top Area (Title & Description) */
 .SoftwareContent {
     display: flex;
     flex-direction: column;
@@ -684,7 +672,6 @@
 
 }
 
-/* Bottom Area (Experience Label & Icon) */
 .SoftwareFooter {
     display: flex;
     justify-content: space-between;
@@ -704,13 +691,13 @@
     white-space: nowrap;
 }
 
-/* Icon Container (Red square placeholder / real icon container) */
+
 .SoftwareIcon {
     width: 48px;
     height: 48px;
     flex-shrink: 0;
     border-radius: 6px;
-    background-color: #ff0000; /* Matches your mockup; swap to var(--box-bg) later */
+    background-color: #ff0000;
 
     display: flex;
     justify-content: center;
@@ -727,23 +714,6 @@
 }
 
 
-/*.ActionBadge {*/
-/*    text-decoration: none;*/
-/*    transition: background-color 0.2s, transform 0.1s;*/
-/*}*/
-
-/*.ActionBadge:hover {*/
-/*    background-color: var(--panel-bg);*/
-/*    transform: scale(1.05);*/
-/*}*/
-
-
-/*.AProject:hover */
-/*{*/
-/*    background-color: red;*/
-/*}*/
-
-/* Container for the badges */
 .DivTechStack {
     display: flex;
     gap: 8px;
@@ -751,7 +721,6 @@
     flex-wrap: wrap;
 }
 
-/* Small vertical divider (with breathing room) between the 1st and 2nd badge */
 .DivTechStack .TechBadge:nth-child(2) {
     position: relative;
     margin-left: 16px;
@@ -768,32 +737,27 @@
     opacity: 0.4;
 }
 
-/* --- FREEZE DIVIDER ON HOVER --- */
 @media (hover: hover) and (pointer: fine) {
-    /* When the 2nd badge is hovered, reverse the scale (1 / 1.08 = 0.925) and push it back down 2px */
     .DivTechStack .TechBadge:nth-child(2):hover::before {
         transform: scale(0.925) translateY(2px);
     }
 }
 
-/* Overflow ("...") badge that expands to reveal the wrapped row */
 .TechBadge.is-more {
     cursor: pointer;
     justify-content: center;
     min-width: 2.4em;
 }
 
-/* Badges hidden until the "..." badge is expanded */
 .DivTechStack .TechBadge.TechBadge-hidden {
     display: none;
 }
 
-/* Ensures the video perfectly fills your 16/9 DivMedia container */
 .PortfolioVideo {
     width: 100%;
     height: 100%;
-    object-fit: cover; /* Crops the video edges if it doesn't match the 16/9 ratio perfectly */
-    pointer-events: none; /* Stops users from accidentally clicking to pause the video */
+    object-fit: cover;
+    pointer-events: none;
 }
 
 .TechBadge {
@@ -812,27 +776,22 @@
     margin: 0;
     border: 1px solid rgba(255, 255, 255, 0.1);
     transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.2s ease, border-color 0.2s ease;
-
-    /*background: linear-gradient(135deg, rgba(30,30,30,0.9) 0%, rgba(50,50,50,0.8) 100%);*/
     backface-visibility: hidden;
     transform: translateZ(0);
 }
 
-/* --- LINK STACK UI --- */
 
-/* Wrapper for the vertical list of links */
 .LinkStack {
     display: flex;
     flex-direction: column;
     gap: 12px;
 }
 
-/* Base styling for the new Link Badge */
 .LinkBadge {
     display: flex;
     align-items: center;
-    width: 100%; /* Expands to fill the StackItem */
-    box-sizing: border-box; /* Keeps padding safely inside the width */
+    width: 100%;
+    box-sizing: border-box;
     padding: 12px 16px;
     border-radius: 8px;
     text-decoration: none;
@@ -843,28 +802,20 @@
     line-height:1.5;
     margin: 0;
 
-    /* Inherited aesthetic from TechBadge */
     backdrop-filter: blur(4px);
     border: 1px solid rgba(255, 255, 255, 0.1);
     background: linear-gradient(135deg, rgba(30,30,30,0.9) 0%, rgba(50,50,50,0.8) 100%);
 
-    /* Pop-out hover transition */
     transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.2s ease, border-color 0.2s ease;
 }
 
-/* --- HIGH CONTRAST BADGE --- */
 .badge-highlight {
-    /* Invert the background and text colors */
     background: var(--text-main);
     color: var(--bg-color);
     border-color: var(--text-main);
 }
 
-/* --- ALTERNATING TOOLS LAYOUT --- */
 
-/* --- ALTERNATING EXPANDABLE TOOLS LAYOUT --- */
-
-/* Main wrapper */
 .ToolRow {
     background-color: var(--panel-bg);
     padding: 20px;
@@ -874,7 +825,6 @@
     transition: background-color 0.2s ease, border-color 0.2s ease;
 }
 
-/* Subtle hover effect for the entire row */
 @media (hover: hover) and (pointer: fine) {
     .ToolRow:hover {
         background-color: var(--box-bg);
@@ -882,24 +832,21 @@
     }
 }
 
-/* The clickable preview section */
 .ToolTop {
     display: flex;
     align-items: center;
     gap: 25px;
-    cursor: pointer; /* Changes the mouse to a hand */
+    cursor: pointer;
 }
 
-/* Flips the layout when the reverse class is present */
 .ToolRow.reverse .ToolTop {
     flex-direction: row-reverse;
 }
 
-/* Image container */
 .ToolImage {
     width: 35%;
     aspect-ratio: 16/9;
-    background-color: var(--bg-color); /* Darker background so it stands out */
+    background-color: var(--bg-color);
     border-radius: 8px;
     flex-shrink: 0;
 
@@ -910,13 +857,12 @@
     color: var(--text-muted);
 }
 
-/* Text container */
 .ToolText {
     flex-grow: 1;
     display: flex;
     flex-direction: column;
     gap: 10px;
-    /* Removed the relative positioning and 30px padding! */
+
 }
 
 .ToolText .PText {
@@ -926,118 +872,94 @@
 .ToolText .PTitle {
     margin: 0;
     display: flex;
-    align-items: center; /* Vertically centers the text and the icon */
-    gap: 12px; /* Adds breathing room between the word and the ^ */
+    align-items: center;
+    gap: 12px;
 }
 
 
-/* --- ACCORDION LOGIC --- */
 
-/* The Expand Icon (^) */
 .ExpandIcon {
     color: var(--text-muted);
-    font-size: 1.1rem; /* Slightly smaller to match the text nicely */
-    opacity: 0; /* Hidden by default */
+    font-size: 1.1rem;
+    opacity: 0;
     transition: transform 0.3s ease, opacity 0.2s ease;
-
-    /* Optional: Prevents the icon from stretching the height of the container */
     display: flex;
     align-items: center;
 }
 
 
 
-/* --- INLINE BOLD LABEL --- */
 .BoldLabel {
     font-weight: bold;
-    color: var(--text-main); /* Uses your bright white to make it pop */
-    font-size: 1.1rem; /* Makes it slightly larger than the PText */
-    margin-right: 6px; /* Adds just a touch of breathing room before the paragraph starts */
+    color: var(--text-main);
+    font-size: 1.1rem;
+    margin-right: 6px;
 }
 
-/* Show the icon when hovering the row OR when the row is expanded */
 .ToolRow:hover .ExpandIcon,
 .ToolRow.expanded .ExpandIcon {
     opacity: 1;
 }
 
-/* Flip the icon (V) when expanded */
 .ToolRow.expanded .ExpandIcon {
     transform: rotate(180deg);
 }
 
-/* The hidden details section */
 .ToolDetails {
     display: none;
     width: 100%;
     margin-top: 20px;
     padding-top: 20px;
-    border-top: 1px solid var(--box-bg); /* Clean line separating preview from details */
+    border-top: 1px solid var(--box-bg);
 }
 
-/* Reveal the details when the expanded class is added */
 .ToolRow.expanded .ToolDetails {
     display: block;
 }
 
-/* --- COMPACT NOTE ROW MODIFIER --- */
 
 .CompactRow {
-    /* Reduces the padding from the default 20px */
     padding: 12px 16px;
-
-    /* Prepares the row for the transform animation */
     transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.2s ease, background-color 0.2s ease, border-color 0.2s ease;
 }
 
-/* Removes invisible spacing above and below the paragraph */
 .CompactRow .PText {
     margin: 0;
 }
 
-/* Adds a subtle lift and shadow on hover */
 @media (hover: hover) and (pointer: fine) {
     .CompactRow:hover {
-        /* Floats the box up by 2 pixels */
         transform: translateY(-2px);
-        /* Adds a soft shadow underneath */
         box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
     }
 }
 
 @media (hover: hover) and (pointer: fine) {
     .badge-highlight:hover {
-        /* Uses your muted text color to create a subtle glow that adapts to the theme */
         box-shadow: 0 4px 12px var(--text-muted);
     }
 }
 
-/* Keep the hover effect active ONLY on desktop/mouse devices */
 @media (hover: hover) and (pointer: fine) {
     .LinkBadge:hover {
-        /* Slightly smaller scale (1.02) than the small badges so it doesn't break layout */
         transform: scale(1.02) translateY(-2px);
     }
 }
 
-/* Groups the Icon and Left Text tightly together */
 .LinkBadgeLeft {
     display: flex;
     align-items: center;
     gap: 10px;
-    flex-shrink: 0; /* Prevents this section from squishing when on tiny mobile screens */
+    flex-shrink: 0;
 }
 
-/* The centered URL/Text in the remaining space */
 .LinkBadgeMiddle {
-    flex-grow: 1; /* Absorbs all remaining space between the left group and right edge */
-    text-align: center; /* Centers the text inside that newly absorbed space */
+    flex-grow: 1;
+    text-align: center;
     color: var(--bg-color);
     font-weight: normal;
     font-size: 0.85rem;
-    padding-left: 15px; /* Breathing room so it never touches the left group */
-
-    /* Cleanly handles URLs that are too long to fit by adding "..." */
+    padding-left: 15px;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -1178,33 +1100,29 @@
     }
 }
 
-/* --- EXPERIENCE IMAGE BLOCK --- */
 .ExpImage {
     width: 64px;
     height: 64px;
-    flex-shrink: 0; /* Prevents the box from squishing when text is long */
-    background-color: var(--box-bg); /* Dark placeholder background */
+    flex-shrink: 0;
+    background-color: var(--box-bg);
     border-radius: 8px;
 
-    /* Centers the FontAwesome icon */
+
     display: flex;
     justify-content: center;
     align-items: center;
     font-size: 3rem;
     color: var(--text-muted);
 
-    overflow: hidden; /* Ensures future images don't break outside the rounded corners */
+    overflow: hidden;
 }
 
-/* Prepares the container for when you swap the icon for a real image */
 .ExpImage img {
     width: 100%;
     height: 100%;
     object-fit: cover;
 }
 
-/* --- MOBILE RESPONSIVENESS --- */
-/* Completely hides the image block on screens smaller than 800px */
 @media (max-width: 800px) {
     .ExpImage {
         display: none;

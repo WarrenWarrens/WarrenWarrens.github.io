@@ -140,23 +140,21 @@
 }
 
 .LineDivider {
-    border: none; /* Removes the default 3D browser border */
-    height: 1px; /* The thickness of the line */
-    background-color: var(--box-bg); /* Matches your dark borders */
+    border: none;
+    height: 1px;
+    background-color: var(--box-bg);
     width: 100%;
-    margin: 5px 0; /* Creates 30px of empty breathing room above and below the line */
+    margin: 5px 0;
 }
 
-/* --- SUB-NAVIGATION (FILE TREE) --- */
 .SubGuide {
     position: relative;
-    padding-left: 24px; /* Creates the indentation */
+    padding-left: 24px;
     color: var(--text-muted);
     font-size: 0.85rem;
     line-height:1.5;
     margin: 0;
     text-decoration:none;
-    /* Removed the negative margin so it no longer hits Portfolio! */
 }
 
 .SubGuide::before {
@@ -170,15 +168,12 @@
 }
 
 
-/* --- CHAOTIC PERSONAL LINK --- */
 
 .PersonalLink:hover {
-    /* Plays the 2.5 second animation exactly once per hover */
     animation: glitch-chaos 2.5s 1 forwards;
 }
 
 @keyframes glitch-chaos {
-    /* Swapped out Comic Sans, Impact, and Fantasy for fonts with stable baselines */
     0%  { font-family: monospace; color: #ff3366; font-style: italic; letter-spacing: 1px; }
     10% { font-family: serif; color: #33ccff; font-weight: 900; letter-spacing: -1px; }
     20% { font-family: Arial, sans-serif; color: #ffcc00; font-style: normal; }

@@ -1,20 +1,9 @@
-/*body, html {*/
-/*    margin: 0;*/
-/*    padding: 0;*/
-/*    width: 100%;*/
-/*    height: 100%;*/
-/*    overflow: hidden;*/
-/*    overscroll-behavior: none;*/
-/*    position: fixed;*/
-/*    inset: 0;*/
-/*}*/
-
 body, html {
     margin: 0;
     padding: 0;
     width: 100%;
     height: 100%;
-    overflow: hidden; /* Only used if you are handling scroll elsewhere */
+    overflow: hidden;
     overscroll-behavior: none;
 }
 
@@ -23,11 +12,7 @@ body {
     color: var(--text-main);
     font-family: 'Oswald', sans-serif;
 }
-/*body {*/
-/*    background-color: var(--bg-color);*/
-/*    color: var(--text-color);*/
-/*    font-size: var(--font-size-base);*/
-/*}*/
+
 
 @font-face {
     font-family: 'Oswald';
@@ -54,9 +39,6 @@ body {
     --text-main: whitesmoke;
     --text-muted: lightgray;
     --badge-color: #ffffff;
-
-
-    /* The slider directly modifies this variable */
     --base-font-size: 16px;
 }
 
@@ -69,38 +51,30 @@ html[data-theme="light"] {
     --badge-color: #000000;
 }
 
-/* --- ACCESSIBILITY OVERRIDES --- */
 
-/* Kills all transitions and animations */
 html[data-animations="disabled"] * {
     transition: none !important;
     animation: none !important;
 }
 
-/* Kills the 3D hover scale on tech badges and project cards */
 html[data-hover="disabled"] * {
     transform: none !important;
     box-shadow: none !important;
 }
 
-/* Kills smooth scrolling in the scroll container */
 html[data-scroll="disabled"] .SectionRight {
     scroll-behavior: auto !important;
 }
 
-/* (Future hook for hiding/pausing your videos when disabled) */
 html[data-autoplay="disabled"] .PortfolioVideo {
-    /* You can use JS to check this attribute and pause them permanently */
     display: none;
 }
 
-/* (Future hook for forcing standard cursor) */
 html[data-cursor="disabled"] * {
     cursor: auto !important;
 }
 
 html {
-    /* This anchors the rem system to your slider variable */
     font-size: var(--base-font-size);
 }
 
@@ -148,7 +122,7 @@ body {
 
 .Main {
     display: flex;
-    height: 100vh;
+    /*height: 100vh;*/
     height: 100dvh;
     position: relative;
     overflow: hidden;
