@@ -1,6 +1,5 @@
 
 function applyGlobalSettings() {
-    // 1. Check Theme
     const savedTheme = localStorage.getItem('theme');
     if (savedTheme === 'light') {
         document.documentElement.setAttribute('data-theme', 'light');
@@ -24,7 +23,6 @@ function applyGlobalSettings() {
         }
     });
 
-    // 2. Check Motion
     const savedMotion = localStorage.getItem('motion');
     if (savedMotion === 'reduced') {
         document.documentElement.setAttribute('data-motion', 'reduced');
@@ -32,19 +30,11 @@ function applyGlobalSettings() {
         document.documentElement.removeAttribute('data-motion');
     }
 
-    // Check Text Size
     const savedTextSize = localStorage.getItem('fontSize');
     if (savedTextSize) {
         document.documentElement.style.setProperty('--base-font-size', savedTextSize + 'px');
     }
 
-    // 3. Check Text Size
-    // const savedText = localStorage.getItem('text');
-    // if (savedText === 'large') {
-    //     document.documentElement.setAttribute('data-text', 'large');
-    // } else {
-    //     document.documentElement.removeAttribute('data-text');
-    // }
 }
 
 applyGlobalSettings();
