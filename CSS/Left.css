@@ -106,6 +106,7 @@
 .AGuide:hover
 {
     color: var(--text-main);
+    cursor: none;
 }
 
 
