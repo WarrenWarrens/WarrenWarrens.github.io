@@ -17,7 +17,9 @@
 <main class="Main">
 
     <div class="curzr" hidden>
-        <div class="circle"></div>
+        <div class="circle">
+            <span class="cursor-text" style="display: none; color: white; font-size: 14px; font-weight: bold; white-space: nowrap;"></span>
+        </div>
         <div class="dot"></div>
     </div>
 
@@ -66,8 +68,8 @@
         <div class="DivContact">
             <p class="PText" style="margin-bottom: 0">Contact</p>
             <hr class="LineDivider">
-            <a class="ALink">Meeting</a>
-            <a class="ALink" href="mailto:warrener.ryan@gmail.com">Email</a>
+            <a class="ALink" data-cursor-text="Schedule Call" data-cursor-icon="fa-calendar">Meeting</a>
+            <a class="ALink" href="mailto:warrener.ryan@gmail.com" data-cursor-text="Send Email" data-cursor-icon="fa-envelope">Email</a>
             <a class="ALink" href="https://www.linkedin.com/in/ryan-warrener/" target="_blank" >LinkedIn</a>
             <a class="ALink" href="https://x.com/WarrenWarrenCS" target="_blank">Twitter (X)</a>
         </div>
@@ -286,12 +288,12 @@
         <div class="DivService">
             <div class="DivServiceTab active">
                 <button class="ButtonTab" style="color: var(--text-main);">
-                    <div class="TabLeftGroup">
-                        <div class="TabTextGroup">
+                    <span class="TabLeftGroup" style="display: flex;">
+                        <span class="TabTextGroup" style="display: flex; flex-direction: column;">
                             <span class="TabTitle">Front end design</span>
                             <span class="TabSubtitle">Code, Art, Animations, UI, Customization and more</span>
-                        </div>
-                    </div>
+                        </span>
+                    </span>
 
                     <svg class="TabTriangle" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                         <path d="M7 10L12 15L17 10H7Z"/>
@@ -307,12 +309,12 @@
 
             <div class="DivServiceTab">
                 <button class="ButtonTab" style="color: var(--text-main);">
-                    <div class="TabLeftGroup">
-                        <div class="TabTextGroup">
+                    <span class="TabLeftGroup" style="display: flex;">
+                        <span class="TabTextGroup" style="display: flex; flex-direction: column;">
                             <span class="TabTitle">Teaching, Tutoring & Educational Advising</span>
                             <span class="TabSubtitle">Trained and proficient with teaching youth & university students STEM concepts</span>
-                        </div>
-                    </div>
+                        </span>
+                    </span>
 
                     <svg class="TabTriangle" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                         <path d="M7 10L12 15L17 10H7Z"/>
@@ -333,12 +335,12 @@
         <div class="DivService">
             <div class="DivServiceTab active">
                 <button class="ButtonTab" style="color: var(--text-main);">
-                    <div class="TabLeftGroup">
-                        <div class="TabTextGroup">
+                    <span class="TabLeftGroup" style="display: flex;">
+                        <span class="TabTextGroup" style="display: flex; flex-direction: column;">
                             <span class="TabTitle">Front end design</span>
                             <span class="TabSubtitle">Code, Art, Animations, UI, Customization and more</span>
-                        </div>
-                    </div>
+                        </span>
+                    </span>
 
                     <svg class="TabTriangle" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                         <path d="M7 10L12 15L17 10H7Z"/>

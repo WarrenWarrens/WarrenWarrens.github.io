@@ -319,6 +319,9 @@ class BigCircle {
 
         this.init(this.circle, this.circleStyle)
         this.init(this.dot, this.dotStyle)
+
+        this.cursorText = document.querySelector(".curzr .circle .cursor-text");
+        this.isHoveringLink = false;
     }
 
     init(el, style) {
@@ -342,9 +345,9 @@ class BigCircle {
         }
     }
 
-    hover() {
-        this.circle.style.transform += ` scale(1.5)`
-    }
+    // hover() {
+    //     this.circle.style.transform += ` scale(1.5)`
+    // }
 
     click() {
         this.circle.style.transform += ` scale(0.75)`
@@ -356,6 +359,55 @@ class BigCircle {
     remove() {
         this.circle.remove()
         this.dot.remove()
+    }
+
+    hover(event) {
+        // 1. Check if the hovered element has our special data attributes
+        const targetText = event.target.getAttribute('data-cursor-text');
+        const targetIcon = event.target.getAttribute('data-cursor-icon');
+
+        if (targetText && !this.isHoveringLink) {
+            this.isHoveringLink = true;
+
+            // 2. Expand the circle into a rounded rectangle
+            Object.assign(this.circle.style, {
+                width: '140px',
+                height: '40px',
+                borderRadius: '20px', // Pill shape
+                backgroundColor: 'var(--text-main)', // High contrast background
+                display: 'flex',
+                justifyContent: 'center',
+                alignItems: 'center',
+                gap: '8px'
+            });
+
+            // 3. Inject the text and FontAwesome icon, and make it visible
+            this.cursorText.innerHTML = `<i class="fa-solid ${targetIcon}"></i> ${targetText}`;
+            this.cursorText.style.display = 'block';
+            this.cursorText.style.color = 'var(--bg-color)'; // Invert text color
+
+            // Hide the center dot while expanded
+            this.dot.style.opacity = '0';
+        }
+    }
+
+// Add a new method to reset the cursor when the mouse leaves the link
+    resetHover() {
+        if (this.isHoveringLink) {
+            this.isHoveringLink = false;
+
+            // Revert back to the default circle
+            Object.assign(this.circle.style, {
+                width: `${this.cursorSize}px`,
+                height: `${this.cursorSize}px`,
+                borderRadius: '50%',
+                backgroundColor: '#fff0',
+                display: 'block'
+            });
+
+            this.cursorText.style.display = 'none';
+            this.dot.style.opacity = '0.75';
+        }
     }
 }
 
