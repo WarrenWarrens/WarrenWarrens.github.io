@@ -1,4 +1,3 @@
-
 const menuBtn = document.getElementById('green-btn');
 const leftPanel = document.getElementById('red-panel');
 
@@ -322,6 +321,7 @@ class BigCircle {
 
         this.cursorText = document.querySelector(".curzr .circle .cursor-text");
         this.isHoveringLink = false;
+        this.currentHoverTarget = null;
     }
 
     init(el, style) {
@@ -337,11 +337,14 @@ class BigCircle {
         this.circle.style.transform = `translate3d(${this.pointerX}px, ${this.pointerY}px, 0)`
         this.dot.style.transform = `translate3d(calc(-50% + ${this.pointerX}px), calc(-50% + ${this.pointerY}px), 0)`
 
-        if (event.target.localName === 'button' ||
-            event.target.localName === 'a' ||
-            event.target.onclick !== null ||
-            event.target.className.includes('curzr-hover')) {
-            this.hover()
+        const cursorTarget = event.target.closest ? event.target.closest('[data-cursor-text]') : null;
+
+        if (cursorTarget) {
+            if (cursorTarget !== this.currentHoverTarget) {
+                this.hover(cursorTarget)
+            }
+        } else if (this.isHoveringLink) {
+            this.resetHover()
         }
     }
 
@@ -361,42 +364,40 @@ class BigCircle {
         this.dot.remove()
     }
 
-    hover(event) {
-        // 1. Check if the hovered element has our special data attributes
-        const targetText = event.target.getAttribute('data-cursor-text');
-        const targetIcon = event.target.getAttribute('data-cursor-icon');
+    hover(target) {
+        const targetText = target.getAttribute('data-cursor-text');
+        const targetIcon = target.getAttribute('data-cursor-icon');
 
-        if (targetText && !this.isHoveringLink) {
-            this.isHoveringLink = true;
+        if (!targetText) return;
 
-            // 2. Expand the circle into a rounded rectangle
-            Object.assign(this.circle.style, {
-                width: '140px',
-                height: '40px',
-                borderRadius: '20px', // Pill shape
-                backgroundColor: 'var(--text-main)', // High contrast background
-                display: 'flex',
-                justifyContent: 'center',
-                alignItems: 'center',
-                gap: '8px'
-            });
+        this.isHoveringLink = true;
+        this.currentHoverTarget = target;
 
-            // 3. Inject the text and FontAwesome icon, and make it visible
-            this.cursorText.innerHTML = `<i class="fa-solid ${targetIcon}"></i> ${targetText}`;
-            this.cursorText.style.display = 'block';
-            this.cursorText.style.color = 'var(--bg-color)'; // Invert text color
+        Object.assign(this.circle.style, {
+            width: '140px',
+            height: '40px',
+            borderRadius: '20px',
+            backgroundColor: 'var(--text-main)',
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+            gap: '8px'
+        });
 
-            // Hide the center dot while expanded
-            this.dot.style.opacity = '0';
-        }
+        this.cursorText.innerHTML = targetIcon
+            ? `<i class="fa-solid ${targetIcon}"></i> ${targetText}`
+            : targetText;
+        this.cursorText.style.display = 'block';
+        this.cursorText.style.color = 'var(--bg-color)';
+
+        this.dot.style.opacity = '0';
     }
 
-// Add a new method to reset the cursor when the mouse leaves the link
     resetHover() {
         if (this.isHoveringLink) {
             this.isHoveringLink = false;
+            this.currentHoverTarget = null;
 
-            // Revert back to the default circle
             Object.assign(this.circle.style, {
                 width: `${this.cursorSize}px`,
                 height: `${this.cursorSize}px`,
