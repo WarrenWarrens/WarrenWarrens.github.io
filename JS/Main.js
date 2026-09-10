@@ -260,6 +260,7 @@ document.addEventListener('DOMContentLoaded', () => {
     updateThemeIcons();
 });
 
+// --- ADVANCED CUSTOM CURSOR LOGIC ---
 class BigCircle {
     constructor() {
         this.root = document.body;
@@ -272,11 +273,7 @@ class BigCircle {
         this.cursorSize = 30;
         this.firstMove = true;
 
-        this.hasFilter = CSS.supports("backdrop-filter", "invert(1) grayscale(1)");
-        this.baseBackdrop = this.hasFilter ? 'invert(1) grayscale(1)' : 'none';
-        this.baseColor = this.hasFilter ? '#fff0' : 'rgba(0,0,0,0.75)';
-
-        this.baseTransition = 'width 0.2s, height 0.2s, top 0.2s, left 0.2s, border-radius 0.2s, background-color 0.2s, backdrop-filter 0.2s, transform 0.1s';
+        this.baseTransition = 'width 0.2s, height 0.2s, top 0.2s, left 0.2s, border-radius 0.2s, background-color 0.2s, border 0.2s, transform 0.1s';
 
         this.circleStyle = {
             boxSizing: 'border-box',
@@ -286,8 +283,8 @@ class BigCircle {
             zIndex: '2147483647',
             width: `${this.cursorSize}px`,
             height: `${this.cursorSize}px`,
-            backgroundColor: this.baseColor,
-            backdropFilter: this.baseBackdrop,
+            backgroundColor: 'transparent',
+            border: '2px solid var(--text-muted)',
             borderRadius: '50%',
             transition: this.baseTransition,
             userSelect: 'none',
@@ -303,8 +300,7 @@ class BigCircle {
             zIndex: '2147483647',
             width: '6px',
             height: '6px',
-            backgroundColor: this.hasFilter ? '#fff0' : '#fff',
-            backdropFilter: this.baseBackdrop,
+            backgroundColor: 'var(--text-main)',
             borderRadius: '50%',
             userSelect: 'none',
             pointerEvents: 'none',
@@ -325,6 +321,10 @@ class BigCircle {
     }
 
     move(event) {
+        if (this.cursor.hasAttribute("hidden")) {
+            this.cursor.removeAttribute("hidden");
+        }
+
         this.pointerX = event.pageX;
         this.pointerY = event.pageY + this.root.getBoundingClientRect().y;
 
@@ -341,7 +341,7 @@ class BigCircle {
             this.dot.style.transition = 'opacity 0.2s, transform 0.075s';
 
             this.circle.style.opacity = '1';
-            this.dot.style.opacity = '0.75';
+            this.dot.style.opacity = '1';
             this.firstMove = false;
         } else {
             this.circle.style.transform = `translate3d(${this.pointerX}px, ${this.pointerY}px, 0)`;
@@ -349,19 +349,9 @@ class BigCircle {
         }
 
         let pillTarget = event.target.closest ? event.target.closest('[data-cursor-text]') : null;
-
-        if (pillTarget) {
-            if (pillTarget.closest('.DivServiceTab.active')) {
-                pillTarget = null;
-            }
-            else if (pillTarget.closest('.ToolRow.expanded')) {
-                pillTarget = null;
-            }
+        if (pillTarget && (pillTarget.closest('.DivServiceTab.active') || pillTarget.closest('.ToolRow.expanded'))) {
+            pillTarget = null;
         }
-
-        // if (pillTarget && pillTarget.closest('.DivServiceTab.active')) {
-        //     pillTarget = null;
-        // }
 
         const hoverTarget = event.target.closest ? event.target.closest('a, button, input, .TechBadge, .ToolTop') : null;
 
@@ -374,12 +364,10 @@ class BigCircle {
         }
     }
 
-    hoverExpand(target) {
+    hoverExpand() {
         if (this.currentState !== 'expanded') {
             this.currentState = 'expanded';
             const expandedSize = this.cursorSize * 1.5;
-
-            const badgeColor = target.getAttribute('data-cursor-color');
 
             Object.assign(this.circle.style, {
                 width: `${expandedSize}px`,
@@ -387,13 +375,13 @@ class BigCircle {
                 top: `${expandedSize / -2}px`,
                 left: `${expandedSize / -2}px`,
                 borderRadius: '50%',
-                backgroundColor: this.baseColor,
-                backdropFilter: this.baseBackdrop,
+                backgroundColor: 'rgba(128, 128, 128, 0.1)',
+                border: '2px solid var(--text-main)',
                 display: 'block'
             });
 
             this.cursorText.style.display = 'none';
-            this.dot.style.opacity = '0.75';
+            this.dot.style.opacity = '0';
         }
     }
 
@@ -402,6 +390,7 @@ class BigCircle {
         const targetIcon = target.getAttribute('data-cursor-icon');
 
         if (!targetText) return;
+
         this.cursorText.innerHTML = targetIcon ? `<i class="fa-solid ${targetIcon}"></i> ${targetText}` : targetText;
         this.cursorText.style.display = 'block';
         this.cursorText.style.color = 'var(--bg-color)';
@@ -417,7 +406,7 @@ class BigCircle {
             left: '-70px',
             borderRadius: '20px',
             backgroundColor: 'var(--text-main)',
-            backdropFilter: 'none',
+            border: 'none',
             display: 'flex',
             justifyContent: 'center',
             alignItems: 'center',
@@ -435,13 +424,13 @@ class BigCircle {
                 top: `${this.cursorSize / -2}px`,
                 left: `${this.cursorSize / -2}px`,
                 borderRadius: '50%',
-                backgroundColor: this.baseColor,
-                backdropFilter: this.baseBackdrop,
+                backgroundColor: 'transparent',
+                border: '2px solid var(--text-muted)',
                 display: 'block'
             });
 
             this.cursorText.style.display = 'none';
-            this.dot.style.opacity = '0.75';
+            this.dot.style.opacity = '1';
         }
     }
 
