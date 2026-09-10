@@ -739,7 +739,7 @@
 
 @media (hover: hover) and (pointer: fine) {
     .DivTechStack .TechBadge:nth-child(2):hover::before {
-        transform: scale(0.925) translateY(2px);
+        transform: scale(0.9259) translateY(1.85px);
     }
 }
 

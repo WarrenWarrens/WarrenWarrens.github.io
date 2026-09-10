@@ -238,8 +238,8 @@ document.addEventListener('DOMContentLoaded', () => {
         const desktopIcon = document.querySelector('#desktop-theme-btn i');
         const mobileIcon = document.querySelector('#mobile-theme-btn i');
 
-        if (desktopIcon) desktopIcon.className = `fa-solid ${iconClass}`;
-        if (mobileIcon) mobileIcon.className = `fa-solid ${iconClass}`;
+        if (desktopBtn) desktopBtn.innerHTML = `<i class="fa-solid ${iconClass}"></i>`;
+        if (mobileBtn) mobileBtn.innerHTML = `<i class="fa-solid ${iconClass}"></i>`;
     }
 
     function toggleTheme() {
@@ -322,6 +322,7 @@ class BigCircle {
         this.cursorText = document.querySelector(".curzr .circle .cursor-text");
         this.isHoveringLink = false;
         this.currentHoverTarget = null;
+        this.currentState = 'default';
     }
 
     init(el, style) {
@@ -330,52 +331,65 @@ class BigCircle {
 
     }
 
+    // ... (Keep your constructor and init functions exactly the same)
+
     move(event) {
-        this.pointerX = event.pageX
-        this.pointerY = event.pageY + this.root.getBoundingClientRect().y
+        this.pointerX = event.pageX;
+        this.pointerY = event.pageY + this.root.getBoundingClientRect().y;
 
-        this.circle.style.transform = `translate3d(${this.pointerX}px, ${this.pointerY}px, 0)`
-        this.dot.style.transform = `translate3d(calc(-50% + ${this.pointerX}px), calc(-50% + ${this.pointerY}px), 0)`
+        this.circle.style.transform = `translate3d(${this.pointerX}px, ${this.pointerY}px, 0)`;
+        this.dot.style.transform = `translate3d(calc(-50% + ${this.pointerX}px), calc(-50% + ${this.pointerY}px), 0)`;
 
-        const cursorTarget = event.target.closest ? event.target.closest('[data-cursor-text]') : null;
+        // Detect what type of element we are hovering over
+        const pillTarget = event.target.closest ? event.target.closest('[data-cursor-text]') : null;
+        // This targets all standard interactive elements
+        const hoverTarget = event.target.closest ? event.target.closest('a, button, input, .TechBadge, .ToolTop') : null;
 
-        if (cursorTarget) {
-            if (cursorTarget !== this.currentHoverTarget) {
-                this.hover(cursorTarget)
-            }
-        } else if (this.isHoveringLink) {
-            this.resetHover()
+        // Route the animation state
+        if (pillTarget) {
+            this.hoverPill(pillTarget);
+        } else if (hoverTarget) {
+            this.hoverExpand();
+        } else {
+            this.resetHover();
         }
     }
 
-    // hover() {
-    //     this.circle.style.transform += ` scale(1.5)`
-    // }
+    hoverExpand() {
+        if (this.currentState !== 'expanded') {
+            this.currentState = 'expanded';
 
-    click() {
-        this.circle.style.transform += ` scale(0.75)`
-        setTimeout(() => {
-            this.circle.style.transform = this.circle.style.transform.replace(` scale(0.75)`, '')
-        }, 35)
+            // Multiply standard size by 1.5 and adjust coordinates to keep it perfectly centered
+            const expandedSize = this.cursorSize * 1.5;
+
+            Object.assign(this.circle.style, {
+                width: `${expandedSize}px`,
+                height: `${expandedSize}px`,
+                top: `${expandedSize / -2}px`,
+                left: `${expandedSize / -2}px`,
+                borderRadius: '50%',
+                backgroundColor: '#fff0',
+                display: 'block'
+            });
+
+            this.cursorText.style.display = 'none';
+            this.dot.style.opacity = '0.75';
+        }
     }
 
-    remove() {
-        this.circle.remove()
-        this.dot.remove()
-    }
-
-    hover(target) {
+    hoverPill(target) {
         const targetText = target.getAttribute('data-cursor-text');
         const targetIcon = target.getAttribute('data-cursor-icon');
 
-        if (!targetText) return;
+        if (!targetText || this.currentState === 'pill') return;
 
-        this.isHoveringLink = true;
-        this.currentHoverTarget = target;
+        this.currentState = 'pill';
 
         Object.assign(this.circle.style, {
             width: '140px',
             height: '40px',
+            top: '-20px',
+            left: '-70px',
             borderRadius: '20px',
             backgroundColor: 'var(--text-main)',
             display: 'flex',
@@ -389,18 +403,18 @@ class BigCircle {
             : targetText;
         this.cursorText.style.display = 'block';
         this.cursorText.style.color = 'var(--bg-color)';
-
         this.dot.style.opacity = '0';
     }
 
     resetHover() {
-        if (this.isHoveringLink) {
-            this.isHoveringLink = false;
-            this.currentHoverTarget = null;
+        if (this.currentState !== 'default') {
+            this.currentState = 'default';
 
             Object.assign(this.circle.style, {
                 width: `${this.cursorSize}px`,
                 height: `${this.cursorSize}px`,
+                top: `${this.cursorSize / -2}px`,
+                left: `${this.cursorSize / -2}px`,
                 borderRadius: '50%',
                 backgroundColor: '#fff0',
                 display: 'block'
@@ -410,6 +424,20 @@ class BigCircle {
             this.dot.style.opacity = '0.75';
         }
     }
+
+    click() {
+        this.circle.style.transform += ` scale(0.75)`;
+        setTimeout(() => {
+            this.circle.style.transform = this.circle.style.transform.replace(` scale(0.75)`, '');
+        }, 35);
+    }
+
+    remove() {
+        this.circle.remove();
+        this.dot.remove();
+    }
+
+
 }
 
 (() => {
