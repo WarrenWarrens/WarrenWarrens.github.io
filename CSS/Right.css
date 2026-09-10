@@ -761,6 +761,11 @@
 }
 
 .TechBadge {
+    /* Define defaults to silence IDE warnings! */
+    --mouse-x: 50%;
+    --mouse-y: 50%;
+    --cursor-color: rgba(255, 255, 255, 0.15);
+
     display: flex;
     align-items: center;
     gap: 6px;
@@ -772,7 +777,7 @@
     background-color: var(--box-bg);
     color: var(--text-main);
     font-size: 0.85rem;
-    line-height:1.5;
+    line-height: 1.5;
     margin: 0;
     border: 1px solid rgba(255, 255, 255, 0.1);
     transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.2s ease, border-color 0.2s ease;
@@ -786,7 +791,8 @@
     content: '';
     position: absolute;
     inset: 0;
-    background: radial-gradient(circle 45px at var(--mouse-x, 50%) var(--mouse-y, 50%), var(--cursor-color, rgba(255,255,255,0.15)), transparent);
+    /* Uses the variables declared above (which JS will overwrite on hover) */
+    background: radial-gradient(circle 45px at var(--mouse-x) var(--mouse-y), var(--cursor-color), transparent);
     opacity: 0;
     transition: opacity 0.3s ease;
     z-index: 0;

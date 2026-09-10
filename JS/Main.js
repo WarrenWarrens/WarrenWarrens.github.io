@@ -349,9 +349,19 @@ class BigCircle {
         }
 
         let pillTarget = event.target.closest ? event.target.closest('[data-cursor-text]') : null;
-        if (pillTarget && pillTarget.closest('.DivServiceTab.active')) {
-            pillTarget = null;
+
+        if (pillTarget) {
+            if (pillTarget.closest('.DivServiceTab.active')) {
+                pillTarget = null;
+            }
+            else if (pillTarget.closest('.ToolRow.expanded')) {
+                pillTarget = null;
+            }
         }
+
+        // if (pillTarget && pillTarget.closest('.DivServiceTab.active')) {
+        //     pillTarget = null;
+        // }
 
         const hoverTarget = event.target.closest ? event.target.closest('a, button, input, .TechBadge, .ToolTop') : null;
 
