@@ -276,6 +276,10 @@ class BigCircle {
         this.pointerY = 0
         this.cursorSize = 30
 
+        this.hasFilter = CSS.supports("backdrop-filter", "invert(1) grayscale(1)");
+        this.baseBackdrop = this.hasFilter ? 'invert(1) grayscale(1)' : 'none';
+        this.baseColor = this.hasFilter ? '#fff0' : 'rgba(0,0,0,0.75)';
+
         this.circleStyle = {
             boxSizing: 'border-box',
             position: 'fixed',
@@ -294,6 +298,8 @@ class BigCircle {
         this.dotStyle = {
             boxSizing: 'border-box',
             position: 'fixed',
+            top: '0px',
+            left: '0px',
             zIndex: '2147483647',
             width: '6px',
             height: '6px',
@@ -327,13 +333,17 @@ class BigCircle {
 
     init(el, style) {
         Object.assign(el.style, style)
-        this.cursor.removeAttribute("hidden")
+        // this.cursor.removeAttribute("hidden")
 
     }
 
     // ... (Keep your constructor and init functions exactly the same)
 
     move(event) {
+        if (this.cursor.hasAttribute("hidden")) {
+            this.cursor.removeAttribute("hidden");
+        }
+
         this.pointerX = event.pageX;
         this.pointerY = event.pageY + this.root.getBoundingClientRect().y;
 
@@ -359,8 +369,9 @@ class BigCircle {
         if (this.currentState !== 'expanded') {
             this.currentState = 'expanded';
 
-            // Multiply standard size by 1.5 and adjust coordinates to keep it perfectly centered
             const expandedSize = this.cursorSize * 1.5;
+
+            const badgeColor = target.getAttribute('data-cursor-color');
 
             Object.assign(this.circle.style, {
                 width: `${expandedSize}px`,
