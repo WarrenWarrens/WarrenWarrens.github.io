@@ -291,7 +291,8 @@ class BigCircle {
             borderRadius: '50%',
             transition: this.baseTransition,
             userSelect: 'none',
-            pointerEvents: 'none'
+            pointerEvents: 'none',
+            opacity: '0'
         };
 
         this.dotStyle = {
@@ -307,7 +308,8 @@ class BigCircle {
             borderRadius: '50%',
             userSelect: 'none',
             pointerEvents: 'none',
-            transition: 'opacity 0.2s, transform 0.075s'
+            transition: 'opacity 0.2s, transform 0.075s',
+            opacity: '0'
         };
 
         this.init(this.circle, this.circleStyle);
@@ -338,20 +340,25 @@ class BigCircle {
             this.circle.style.transition = this.baseTransition;
             this.dot.style.transition = 'opacity 0.2s, transform 0.075s';
 
-            this.cursor.removeAttribute("hidden");
+            this.circle.style.opacity = '1';
+            this.dot.style.opacity = '0.75';
             this.firstMove = false;
         } else {
             this.circle.style.transform = `translate3d(${this.pointerX}px, ${this.pointerY}px, 0)`;
             this.dot.style.transform = `translate3d(calc(-50% + ${this.pointerX}px), calc(-50% + ${this.pointerY}px), 0)`;
         }
 
-        const pillTarget = event.target.closest ? event.target.closest('[data-cursor-text]') : null;
+        let pillTarget = event.target.closest ? event.target.closest('[data-cursor-text]') : null;
+        if (pillTarget && pillTarget.closest('.DivServiceTab.active')) {
+            pillTarget = null;
+        }
+
         const hoverTarget = event.target.closest ? event.target.closest('a, button, input, .TechBadge, .ToolTop') : null;
 
         if (pillTarget) {
             this.hoverPill(pillTarget);
         } else if (hoverTarget) {
-            this.hoverExpand(hoverTarget);
+            this.hoverExpand();
         } else {
             this.resetHover();
         }
@@ -370,8 +377,8 @@ class BigCircle {
                 top: `${expandedSize / -2}px`,
                 left: `${expandedSize / -2}px`,
                 borderRadius: '50%',
-                backgroundColor: badgeColor ? badgeColor : this.baseColor,
-                backdropFilter: badgeColor ? 'none' : this.baseBackdrop,
+                backgroundColor: this.baseColor,
+                backdropFilter: this.baseBackdrop,
                 display: 'block'
             });
 
@@ -449,4 +456,14 @@ class BigCircle {
     } else {
         cursor.remove();
     }
+
 })();
+
+document.addEventListener('mousemove', (e) => {
+    const hoveredBadge = e.target.closest('.TechBadge');
+    if (hoveredBadge) {
+        const rect = hoveredBadge.getBoundingClientRect();
+        hoveredBadge.style.setProperty('--mouse-x', `${e.clientX - rect.left}px`);
+        hoveredBadge.style.setProperty('--mouse-y', `${e.clientY - rect.top}px`);
+    }
+});

@@ -778,6 +778,34 @@
     transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.2s ease, border-color 0.2s ease;
     backface-visibility: hidden;
     transform: translateZ(0);
+    position: relative;
+    overflow: hidden;
+}
+
+.TechBadge::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle 45px at var(--mouse-x, 50%) var(--mouse-y, 50%), var(--cursor-color, rgba(255,255,255,0.15)), transparent);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: 0;
+    pointer-events: none;
+}
+
+.TechBadge:hover::after {
+    opacity: 1;
+}
+
+.TechBadge > * {
+    position: relative;
+    z-index: 1;
+    transition: color 0.2s ease, text-shadow 0.2s ease;
+}
+
+.TechBadge:hover > * {
+    color: #ffffff !important;
+    text-shadow: 0 1px 3px rgba(0,0,0,0.5);
 }
 
 
