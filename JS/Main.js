@@ -233,27 +233,24 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function updateThemeIcons() {
         const isLight = document.documentElement.getAttribute('data-theme') === 'light';
-        const iconClass = isLight ? 'fa-sun' : 'fa-moon';
+        const iconClass = isLight ? 'fa-regular fa-sun' : 'fa-solid fa-moon';
 
         const desktopIcon = document.querySelector('#desktop-theme-btn i');
         const mobileIcon = document.querySelector('#mobile-theme-btn i');
 
-        if (desktopBtn) desktopBtn.innerHTML = `<i class="fa-solid ${iconClass}"></i>`;
-        if (mobileBtn) mobileBtn.innerHTML = `<i class="fa-solid ${iconClass}"></i>`;
+        if (desktopIcon) desktopIcon.className = iconClass;
+        if (mobileIcon) mobileIcon.className = iconClass;
     }
 
     function toggleTheme() {
         const html = document.documentElement;
-        const isLight = html.getAttribute('data-theme') === 'light';
-
-        if (isLight) {
+        if (html.getAttribute('data-theme') === 'light') {
             html.removeAttribute('data-theme');
             localStorage.removeItem('theme');
         } else {
             html.setAttribute('data-theme', 'light');
             localStorage.setItem('theme', 'light');
         }
-
         updateThemeIcons();
     }
 
@@ -263,37 +260,39 @@ document.addEventListener('DOMContentLoaded', () => {
     updateThemeIcons();
 });
 
-
-
 class BigCircle {
     constructor() {
-        this.root = document.body
-        this.cursor = document.querySelector(".curzr")
-        this.circle = document.querySelector(".curzr .circle")
-        this.dot = document.querySelector(".curzr .dot")
+        this.root = document.body;
+        this.cursor = document.querySelector(".curzr");
+        this.circle = document.querySelector(".curzr .circle");
+        this.dot = document.querySelector(".curzr .dot");
 
-        this.pointerX = 0
-        this.pointerY = 0
-        this.cursorSize = 30
+        this.pointerX = 0;
+        this.pointerY = 0;
+        this.cursorSize = 30;
+        this.firstMove = true;
 
         this.hasFilter = CSS.supports("backdrop-filter", "invert(1) grayscale(1)");
         this.baseBackdrop = this.hasFilter ? 'invert(1) grayscale(1)' : 'none';
         this.baseColor = this.hasFilter ? '#fff0' : 'rgba(0,0,0,0.75)';
 
+        this.baseTransition = 'width 0.2s, height 0.2s, top 0.2s, left 0.2s, border-radius 0.2s, background-color 0.2s, backdrop-filter 0.2s, transform 0.1s';
+
         this.circleStyle = {
             boxSizing: 'border-box',
             position: 'fixed',
-            top: `${ this.cursorSize / -2 }px`,
-            left: `${ this.cursorSize / -2 }px`,
+            top: `${this.cursorSize / -2}px`,
+            left: `${this.cursorSize / -2}px`,
             zIndex: '2147483647',
-            width: `${ this.cursorSize }px`,
-            height: `${ this.cursorSize }px`,
-            backgroundColor: '#fff0',
+            width: `${this.cursorSize}px`,
+            height: `${this.cursorSize}px`,
+            backgroundColor: this.baseColor,
+            backdropFilter: this.baseBackdrop,
             borderRadius: '50%',
-            transition: '500ms, transform 100ms',
+            transition: this.baseTransition,
             userSelect: 'none',
             pointerEvents: 'none'
-        }
+        };
 
         this.dotStyle = {
             boxSizing: 'border-box',
@@ -303,72 +302,64 @@ class BigCircle {
             zIndex: '2147483647',
             width: '6px',
             height: '6px',
-            backgroundColor: '#fffd',
+            backgroundColor: this.hasFilter ? '#fff0' : '#fff',
+            backdropFilter: this.baseBackdrop,
             borderRadius: '50%',
             userSelect: 'none',
             pointerEvents: 'none',
-            transition: '250ms, transform 75ms'
-        }
+            transition: 'opacity 0.2s, transform 0.075s'
+        };
 
-        if (CSS.supports("backdrop-filter", "invert(1) grayscale(1)")) {
-            this.circleStyle.backdropFilter = 'invert(1) grayscale(1)'
-            this.circleStyle.backgroundColor = '#fff0'
-            this.dotStyle.backdropFilter = 'invert(1) grayscale(1)'
-            this.dotStyle.backgroundColor = '#fff0'
-        } else {
-            this.circleStyle.backgroundColor = '#000'
-            this.circleStyle.opacity = '0.75'
-            this.dotStyle.backgroundColor = '#fff'
-            this.dotStyle.opacity = '0.75'
-        }
-
-        this.init(this.circle, this.circleStyle)
-        this.init(this.dot, this.dotStyle)
+        this.init(this.circle, this.circleStyle);
+        this.init(this.dot, this.dotStyle);
 
         this.cursorText = document.querySelector(".curzr .circle .cursor-text");
         this.isHoveringLink = false;
-        this.currentHoverTarget = null;
         this.currentState = 'default';
     }
 
     init(el, style) {
-        Object.assign(el.style, style)
-        // this.cursor.removeAttribute("hidden")
-
+        Object.assign(el.style, style);
     }
 
-    // ... (Keep your constructor and init functions exactly the same)
-
     move(event) {
-        if (this.cursor.hasAttribute("hidden")) {
-            this.cursor.removeAttribute("hidden");
-        }
-
         this.pointerX = event.pageX;
         this.pointerY = event.pageY + this.root.getBoundingClientRect().y;
 
-        this.circle.style.transform = `translate3d(${this.pointerX}px, ${this.pointerY}px, 0)`;
-        this.dot.style.transform = `translate3d(calc(-50% + ${this.pointerX}px), calc(-50% + ${this.pointerY}px), 0)`;
+        if (this.firstMove) {
+            this.circle.style.transition = 'none';
+            this.dot.style.transition = 'none';
 
-        // Detect what type of element we are hovering over
+            this.circle.style.transform = `translate3d(${this.pointerX}px, ${this.pointerY}px, 0)`;
+            this.dot.style.transform = `translate3d(calc(-50% + ${this.pointerX}px), calc(-50% + ${this.pointerY}px), 0)`;
+
+            void this.circle.offsetWidth;
+
+            this.circle.style.transition = this.baseTransition;
+            this.dot.style.transition = 'opacity 0.2s, transform 0.075s';
+
+            this.cursor.removeAttribute("hidden");
+            this.firstMove = false;
+        } else {
+            this.circle.style.transform = `translate3d(${this.pointerX}px, ${this.pointerY}px, 0)`;
+            this.dot.style.transform = `translate3d(calc(-50% + ${this.pointerX}px), calc(-50% + ${this.pointerY}px), 0)`;
+        }
+
         const pillTarget = event.target.closest ? event.target.closest('[data-cursor-text]') : null;
-        // This targets all standard interactive elements
         const hoverTarget = event.target.closest ? event.target.closest('a, button, input, .TechBadge, .ToolTop') : null;
 
-        // Route the animation state
         if (pillTarget) {
             this.hoverPill(pillTarget);
         } else if (hoverTarget) {
-            this.hoverExpand();
+            this.hoverExpand(hoverTarget);
         } else {
             this.resetHover();
         }
     }
 
-    hoverExpand() {
+    hoverExpand(target) {
         if (this.currentState !== 'expanded') {
             this.currentState = 'expanded';
-
             const expandedSize = this.cursorSize * 1.5;
 
             const badgeColor = target.getAttribute('data-cursor-color');
@@ -379,7 +370,8 @@ class BigCircle {
                 top: `${expandedSize / -2}px`,
                 left: `${expandedSize / -2}px`,
                 borderRadius: '50%',
-                backgroundColor: '#fff0',
+                backgroundColor: badgeColor ? badgeColor : this.baseColor,
+                backdropFilter: badgeColor ? 'none' : this.baseBackdrop,
                 display: 'block'
             });
 
@@ -392,8 +384,13 @@ class BigCircle {
         const targetText = target.getAttribute('data-cursor-text');
         const targetIcon = target.getAttribute('data-cursor-icon');
 
-        if (!targetText || this.currentState === 'pill') return;
+        if (!targetText) return;
+        this.cursorText.innerHTML = targetIcon ? `<i class="fa-solid ${targetIcon}"></i> ${targetText}` : targetText;
+        this.cursorText.style.display = 'block';
+        this.cursorText.style.color = 'var(--bg-color)';
+        this.dot.style.opacity = '0';
 
+        if (this.currentState === 'pill') return;
         this.currentState = 'pill';
 
         Object.assign(this.circle.style, {
@@ -403,18 +400,12 @@ class BigCircle {
             left: '-70px',
             borderRadius: '20px',
             backgroundColor: 'var(--text-main)',
+            backdropFilter: 'none',
             display: 'flex',
             justifyContent: 'center',
             alignItems: 'center',
             gap: '8px'
         });
-
-        this.cursorText.innerHTML = targetIcon
-            ? `<i class="fa-solid ${targetIcon}"></i> ${targetText}`
-            : targetText;
-        this.cursorText.style.display = 'block';
-        this.cursorText.style.color = 'var(--bg-color)';
-        this.dot.style.opacity = '0';
     }
 
     resetHover() {
@@ -427,7 +418,8 @@ class BigCircle {
                 top: `${this.cursorSize / -2}px`,
                 left: `${this.cursorSize / -2}px`,
                 borderRadius: '50%',
-                backgroundColor: '#fff0',
+                backgroundColor: this.baseColor,
+                backdropFilter: this.baseBackdrop,
                 display: 'block'
             });
 
@@ -447,21 +439,14 @@ class BigCircle {
         this.circle.remove();
         this.dot.remove();
     }
-
-
 }
 
 (() => {
-    const cursor = new BigCircle()
+    const cursor = new BigCircle();
     if(!/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
-        document.onmousemove = function (event) {
-            cursor.move(event)
-        }
-        document.onclick = function () {
-            cursor.click()
-        }
+        document.onmousemove = function (event) { cursor.move(event); };
+        document.onclick = function () { cursor.click(); };
     } else {
-        cursor.remove()
+        cursor.remove();
     }
-
-})()
+})();
