@@ -791,8 +791,7 @@
     content: '';
     position: absolute;
     inset: 0;
-    /* Uses the variables declared above (which JS will overwrite on hover) */
-    background: radial-gradient(circle 45px at var(--mouse-x) var(--mouse-y), var(--cursor-color), transparent);
+    background: radial-gradient(circle 22.5px at var(--mouse-x) var(--mouse-y), var(--cursor-color), transparent);
     opacity: 0;
     transition: opacity 0.3s ease;
     z-index: 0;

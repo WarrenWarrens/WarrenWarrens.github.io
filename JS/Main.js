@@ -458,11 +458,16 @@ class BigCircle {
 
 })();
 
+
 document.addEventListener('mousemove', (e) => {
     const hoveredBadge = e.target.closest('.TechBadge');
     if (hoveredBadge) {
         const rect = hoveredBadge.getBoundingClientRect();
-        hoveredBadge.style.setProperty('--mouse-x', `${e.clientX - rect.left}px`);
-        hoveredBadge.style.setProperty('--mouse-y', `${e.clientY - rect.top}px`);
+
+        const x = ((e.clientX - rect.left) / rect.width) * 100;
+        const y = ((e.clientY - rect.top) / rect.height) * 100;
+
+        hoveredBadge.style.setProperty('--mouse-x', `${x}%`);
+        hoveredBadge.style.setProperty('--mouse-y', `${y}%`);
     }
 });
