@@ -195,36 +195,26 @@ body {
     }
 }
 
-.badge-solo {
+
+
+
+
+.badge-gen {
     border-color: rgb(0 0 0);
+    --cursor-color: rgba(255 255 255);
 }
 
 @media (hover: hover) {
-    .badge-solo:hover {
+    .badge-gen:hover {
         border-color: rgb(00 0 0);
         box-shadow: 0 4px 12px rgb(00 0 0);
     }
 }
 
-.badge-group {
-    border-color: rgb(0 41 191 / 0.47);
-}
-@media (hover: hover) {
-    .badge-group:hover {
-        border-color: rgb(1 87 234);
-        box-shadow: 0 4px 12px rgb(0 41 191 / 0.47);
-    }
+html[data-theme="light"] .badge-gen {
+    --cursor-color: rgba(0 0 0);
 }
 
-.badge-thesis {
-    border-color: rgb(255 222 54 / 0.95);
-}
-@media (hover: hover) {
-    .badge-thesis:hover {
-        border-color: rgb(255 226 93);
-        box-shadow: 0 4px 12px rgb(255 222 54 / 0.95);
-    }
-}
 
 
 
