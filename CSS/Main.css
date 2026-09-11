@@ -203,13 +203,14 @@ body {
 }
 
 .badge-solo {
-    border-color: rgb(215 7 1 / 0.47);
+    border-color: rgb(0 0 0);
     /*background: linear-gradient(135deg, rgba(30,30,30,0.9) 30%, rgb(117 1 0 / 0.47) 100%);*/
 }
+
 @media (hover: hover) {
     .badge-solo:hover {
-        border-color: rgb(255 5 5);
-        box-shadow: 0 4px 12px rgb(215 7 1 / 0.47);
+        border-color: rgb(00 0 0);
+        box-shadow: 0 4px 12px rgb(00 0 0);
     }
 }
 
