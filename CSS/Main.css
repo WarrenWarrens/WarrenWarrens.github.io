@@ -201,7 +201,7 @@ body {
 
 .badge-gen {
     border-color: rgb(0 0 0);
-    --cursor-color: rgba(255 255 255);
+    --cursor-color: #191a1e;
 }
 
 @media (hover: hover) {
