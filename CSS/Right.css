@@ -918,6 +918,7 @@
     transition: transform 0.3s ease, opacity 0.2s ease;
     display: flex;
     align-items: center;
+    padding-left: 5px;
 }
 
 
