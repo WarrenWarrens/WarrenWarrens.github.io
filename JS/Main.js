@@ -471,3 +471,23 @@ document.addEventListener('mousemove', (e) => {
         hoveredBadge.style.setProperty('--mouse-y', `${y}%`);
     }
 });
+
+document.addEventListener('DOMContentLoaded', () => {
+    const expElements = document.querySelectorAll('.SoftwareExp[data-start-date]');
+    const now = new Date();
+
+    expElements.forEach(el => {
+        const startDateString = el.getAttribute('data-start-date');
+        const startDate = new Date(startDateString);
+
+        if (isNaN(startDate)) return;
+
+        let months = (now.getFullYear() - startDate.getFullYear()) * 12;
+        months -= startDate.getMonth();
+        months += now.getMonth();
+
+        let years = Math.round((months / 12) * 2) / 2;
+        if (years < 0.5) years = 0.5;
+        el.textContent = `${years} Year${years === 1 ? '' : 's'}`;
+    });
+});
