@@ -9,8 +9,10 @@
     overscroll-behavior: none;
     overflow-y:auto;
     scrollbar-width: thin;
-    scrollbar-color: rgba(255, 255, 255, 0.5) transparent;
-    scroll-behavior: smooth;}
+    scroll-behavior: smooth;
+    scrollbar-color: var(--text-muted) transparent;
+
+}
 
 .SectionRight::-webkit-scrollbar {
     width: 8px;
@@ -297,7 +299,7 @@
 
 .ProgressBar {
     height: 100%;
-    width: 0%;
+    width: 0;
     background-color: var(--text-main);
     transition: width 0.1s ease-out;
 }
@@ -362,7 +364,7 @@
     background-color: var(--box-bg);
     min-width: 150px;
     border-radius: 6px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.5);
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.5);
     z-index: 100;
     flex-direction: column;
     overflow: hidden;
@@ -1205,4 +1207,14 @@
     flex-direction: column;
     justify-content: center;
     padding-bottom: 0;
+}
+
+
+.SectionRight::-webkit-scrollbar-thumb {
+    background-color: var(--text-muted);
+    border-radius: 10px;
+}
+
+.SectionRight::-webkit-scrollbar-thumb:hover {
+    background-color: var(--text-main);
 }
