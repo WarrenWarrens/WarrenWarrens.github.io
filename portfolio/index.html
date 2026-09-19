@@ -55,8 +55,6 @@
         <div class="DivGuide">
             <a class="AGuide" href="/">Home</a>
             <a class="AGuide active-page" href="/portfolio/">Portfolio</a>
-            <a class="AGuide" href="/experience/">Experience</a>
-            <a class="AGuide" href="/education/">Education</a>
             <a class="AGuide" href="/tools/">Tools</a>
             <a class="AGuide" href="/blog/">Blog</a>
             <a class="AGuide PersonalLink" href="/personal/">Personal</a>
@@ -77,287 +75,396 @@
             <div class="ProgressBar" id="scroll-progress"></div>
         </div>
 
-        <div class="FilterControls">
-            <button id="reset-btn" class="FilterBtn">All</button>
+        <nav class="TableOfContents">
+            <a href="#section-portfolio" class="TocLink active">
+                <span class="TocLine"></span><span class="TocText">Portfolio</span>
+            </a>
+            <a href="#section-experience" class="TocLink">
+                <span class="TocLine"></span><span class="TocText">Experience</span>
+            </a>
+            <a href="#section-education" class="TocLink">
+                <span class="TocLine"></span><span class="TocText">Education</span>
+            </a>
+            <a href="#section-certification" class="TocLink">
+                <span class="TocLine"></span><span class="TocText">Certification</span>
+            </a>
+        </nav>
 
-            <div class="Dropdown">
-                <button class="DropBtn" data-label="Language">Language</button>
-                <div class="DropContent">
-                    <button class="FilterOption" data-category="language" data-value="flutter">Flutter</button>
-                    <button class="FilterOption" data-category="language" data-value="javascript">JavaScript</button>
-                    <button class="FilterOption" data-category="language" data-value="gdscript">GDScript</button>
-                    <button class="FilterOption" data-category="language" data-value="rust">Rust</button>
+        <div class="WorkStack">
+
+            <div class="StackItem LandingSection" id="section-landing">
+                <p class="PTitle" style="font-size: 3rem; margin-bottom: 10px;">Track Record</p>
+                <p class="PText" style="max-width: 80%; font-size: 1.15rem; margin-bottom: 30px;">
+                    A comprehensive overview of my shipped projects, professional engineering roles, and academic foundation.
+                    I build software focusing on accessibility, customizability, and intuitive user experiences.
+                </p>
+
+                <div class="HotLinkRow">
+                    <a href="#section-portfolio" class="TechBadge badge-highlight" style="text-decoration: none;">Jump to Portfolio</a>
+                    <a href="#section-experience" class="TechBadge badge-highlight" style="text-decoration: none;">Jump to Experience</a>
+                    <a href="#section-education" class="TechBadge badge-highlight" style="text-decoration: none;">Jump to Education</a>
+                    <a href="#section-certification" class="TechBadge badge-highlight" style="text-decoration: none;">Jump to Certifications</a>
+
                 </div>
             </div>
 
-            <div class="Dropdown">
-                <button class="DropBtn" data-label="Type">Type</button>
-                <div class="DropContent">
-                    <button class="FilterOption" data-category="type" data-value="mobile">Mobile App</button>
-                    <button class="FilterOption" data-category="type" data-value="extension">Web Extension</button>
-                    <button class="FilterOption" data-category="type" data-value="game">Game</button>
-                    <button class="FilterOption" data-category="type" data-value="software">Software</button>
+            <div class="StackItem" id="section-portfolio">
+                <p class="PTitle2" style="padding-bottom: 15px;">Selected Works</p>
 
+                <div class="FilterControls">
+                    <button id="reset-btn" class="FilterBtn">All</button>
+
+                    <div class="Dropdown">
+                        <button class="DropBtn" data-label="Language">Language</button>
+                        <div class="DropContent">
+                            <button class="FilterOption" data-category="language" data-value="flutter">Flutter</button>
+                            <button class="FilterOption" data-category="language" data-value="javascript">JavaScript</button>
+                            <button class="FilterOption" data-category="language" data-value="gdscript">GDScript</button>
+                            <button class="FilterOption" data-category="language" data-value="rust">Rust</button>
+                        </div>
+                    </div>
+
+                    <div class="Dropdown">
+                        <button class="DropBtn" data-label="Type">Type</button>
+                        <div class="DropContent">
+                            <button class="FilterOption" data-category="type" data-value="mobile">Mobile App</button>
+                            <button class="FilterOption" data-category="type" data-value="extension">Web Extension</button>
+                            <button class="FilterOption" data-category="type" data-value="game">Game</button>
+                            <button class="FilterOption" data-category="type" data-value="software">Software</button>
+
+                        </div>
+                    </div>
+
+                    <div class="Dropdown">
+                        <button class="DropBtn" data-label="Date">Date</button>
+                        <div class="DropContent">
+                            <button class="SortOption selected" data-sort="desc">Newest First</button>
+                            <button class="SortOption" data-sort="asc">Oldest First</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="DivGrid" id="portfolio-grid">
+                    <div class="AProject portfolio-item" data-language="flutter" data-type="mobile" data-date="2026-05-01">
+                        <div class="DivGridItem2">
+                            <a href="/portfolio/lingualore/" data-cursor-text="View Project" data-cursor-icon="fa-solid fa-code" class="AProject">
+                                <div class="DivMedia"></div>
+                            </a>
+
+                            <div class="DivTechStack">
+                                <div class="TechBadge badge-group">
+                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M12 2L2 22h20L12 2z"/></svg>
+                                    <span>Group</span>
+                                </div>
+                                <div class="TechBadge badge-flutter">
+                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M12 2L2 22h20L12 2z"/></svg>
+                                    <span>Flutter</span>
+                                </div>
+                                <div class="TechBadge">
+                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zM11 19.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.51c-.32-.73-1.05-1.42-2.9-1.42h-1v-2c0-.55-.45-1-1-1h-2v-2h2c.55 0 1-.45 1-1V8h2c1.1 0 2-.9 2-2v-.41c1.7 1.92 2.75 4.5 2.75 7.41 0 3.12-1.28 5.95-3.35 7.93z"/></svg>
+                                    <span>LLM</span>
+                                </div>
+                            </div>
+                            <div class="DivText">
+                                <p class="PText2">LinguaLore - Flutter powered mobile app for learning fictional languages</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="AProject portfolio-item" data-language="gdscript" data-type="game" data-date="2026-08-01">
+                        <div class="DivGridItem2">
+                            <a href="/portfolio/vingtun/" data-cursor-text="View Project" data-cursor-icon="fa-solid fa-code" class="AProject">
+                                <div class="DivMedia"></div>
+                            </a>
+
+                            <div class="DivTechStack">
+                                <div class="TechBadge badge-solo">
+                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M12 2L2 22h20L12 2z"/></svg>
+                                    <span>Solo</span>
+                                </div>
+                                <div class="TechBadge badge-godot">
+                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M12 2L2 22h20L12 2z"/></svg>
+                                    <span>Godot 4</span>
+                                </div>
+                                <div class="TechBadge badge-godot">
+                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zM11 19.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.51c-.32-.73-1.05-1.42-2.9-1.42h-1v-2c0-.55-.45-1-1-1h-2v-2h2c.55 0 1-.45 1-1V8h2c1.1 0 2-.9 2-2v-.41c1.7 1.92 2.75 4.5 2.75 7.41 0 3.12-1.28 5.95-3.35 7.93z"/></svg>
+                                    <span>GDScript</span>
+                                </div>
+                            </div>
+                            <div class="DivText">
+                                <p class="PText2">VingtUn - 2D roguelike card game using Godot 4</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="AProject portfolio-item" data-language="gdscript" data-type="game" data-date="2026-09-01">
+                        <div class="DivGridItem2">
+                            <a href="/portfolio/hor/" data-cursor-text="View Project" data-cursor-icon="fa-solid fa-code" class="AProject">
+                                <div class="DivMedia"></div>
+                            </a>
+
+                            <div class="DivTechStack">
+                                <div class="TechBadge badge-solo">
+                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M12 2L2 22h20L12 2z"/></svg>
+                                    <span>Solo</span>
+                                </div>
+                                <div class="TechBadge badge-godot">
+                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M12 2L2 22h20L12 2z"/></svg>
+                                    <span>Godot 4</span>
+                                </div>
+                                <div class="TechBadge badge-godot">
+                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zM11 19.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.51c-.32-.73-1.05-1.42-2.9-1.42h-1v-2c0-.55-.45-1-1-1h-2v-2h2c.55 0 1-.45 1-1V8h2c1.1 0 2-.9 2-2v-.41c1.7 1.92 2.75 4.5 2.75 7.41 0 3.12-1.28 5.95-3.35 7.93z"/></svg>
+                                    <span>GDScript</span>
+                                </div>
+                            </div>
+                            <div class="DivText">
+                                <p class="PText2">Hor - PS1 themed fixed camera angle horror prototype</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="AProject portfolio-item" data-language="javascript" data-type="extension" data-date="2026-04-01">
+                        <div class="DivGridItem2">
+                            <a href="/portfolio/flic/" data-cursor-text="View Project" data-cursor-icon="fa-solid fa-code" class="AProject">
+                                <div class="DivMedia"></div>
+                            </a>
+
+                            <div class="DivTechStack">
+                                <div class="TechBadge badge-thesis">
+                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M12 2L2 22h20L12 2z"/></svg>
+                                    <span>Thesis</span>
+                                </div>
+                                <div class="TechBadge badge-js">
+                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M12 2L2 22h20L12 2z"/></svg>
+                                    <span>JavaScript</span>
+                                </div>
+                                <div class="TechBadge badge-html">
+                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M12 2L2 22h20L12 2z"/></svg>
+                                    <span>HTML5</span>
+                                </div>
+                                <div class="TechBadge badge-css">
+                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M12 2L2 22h20L12 2z"/></svg>
+                                    <span>CSS</span>
+                                </div>
+                                <div class="TechBadge">
+                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zM11 19.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.51c-.32-.73-1.05-1.42-2.9-1.42h-1v-2c0-.55-.45-1-1-1h-2v-2h2c.55 0 1-.45 1-1V8h2c1.1 0 2-.9 2-2v-.41c1.7 1.92 2.75 4.5 2.75 7.41 0 3.12-1.28 5.95-3.35 7.93z"/></svg>
+                                    <span>Render</span>
+                                </div>
+                                <div class="TechBadge">
+                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zM11 19.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.51c-.32-.73-1.05-1.42-2.9-1.42h-1v-2c0-.55-.45-1-1-1h-2v-2h2c.55 0 1-.45 1-1V8h2c1.1 0 2-.9 2-2v-.41c1.7 1.92 2.75 4.5 2.75 7.41 0 3.12-1.28 5.95-3.35 7.93z"/></svg>
+                                    <span>Vercel</span>
+                                </div>
+                                <div class="TechBadge">
+                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zM11 19.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.51c-.32-.73-1.05-1.42-2.9-1.42h-1v-2c0-.55-.45-1-1-1h-2v-2h2c.55 0 1-.45 1-1V8h2c1.1 0 2-.9 2-2v-.41c1.7 1.92 2.75 4.5 2.75 7.41 0 3.12-1.28 5.95-3.35 7.93z"/></svg>
+                                    <span>FireFox</span>
+                                </div>
+                            </div>
+                            <div class="DivText">
+                                <p class="PText2">Honours Thesis: FLIC "Feedback for Live Interactive Coding" - Firefox extension</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="AProject portfolio-item" data-language="gdscript" data-type="game" data-date="2026-08-01">
+                        <div class="DivGridItem2">
+                            <a href="/portfolio/flic/" data-cursor-text="View Project" data-cursor-icon="fa-solid fa-code" class="AProject">
+                                <div class="DivMedia"></div>
+                            </a>
+                            <div class="DivTechStack">
+                                <div class="TechBadge badge-solo">
+                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M12 2L2 22h20L12 2z"/></svg>
+                                    <span>Solo</span>
+                                </div>
+                                <div class="TechBadge badge-godot">
+                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M12 2L2 22h20L12 2z"/></svg>
+                                    <span>Godot 4</span>
+                                </div>
+                                <div class="TechBadge badge-godot">
+                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zM11 19.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.51c-.32-.73-1.05-1.42-2.9-1.42h-1v-2c0-.55-.45-1-1-1h-2v-2h2c.55 0 1-.45 1-1V8h2c1.1 0 2-.9 2-2v-.41c1.7 1.92 2.75 4.5 2.75 7.41 0 3.12-1.28 5.95-3.35 7.93z"/></svg>
+                                    <span>GDScript</span>
+                                </div>
+                            </div>
+                            <div class="DivText">
+                                <p class="PText2">FPS Prototype - Doom inspired 2.5 FPS Godot game</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="AProject portfolio-item" data-language="flutter" data-type="mobile" data-date="2026-06-01">
+                        <div class="DivGridItem2">
+                            <a href="/portfolio/gathering/" data-cursor-text="View Project" data-cursor-icon="fa-solid fa-code" class="AProject">
+                                <div class="DivMedia"></div>
+                            </a>
+
+                            <div class="DivTechStack">
+                                <div class="TechBadge badge-group">
+                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M12 2L2 22h20L12 2z"/></svg>
+                                    <span>Group</span>
+                                </div>
+                                <div class="TechBadge badge-flutter">
+                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M12 2L2 22h20L12 2z"/></svg>
+                                    <span>Flutter</span>
+                                </div>
+                                <div class="TechBadge">
+                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zM11 19.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.51c-.32-.73-1.05-1.42-2.9-1.42h-1v-2c0-.55-.45-1-1-1h-2v-2h2c.55 0 1-.45 1-1V8h2c1.1 0 2-.9 2-2v-.41c1.7 1.92 2.75 4.5 2.75 7.41 0 3.12-1.28 5.95-3.35 7.93z"/></svg>
+                                    <span>Social Media</span>
+                                </div>
+                            </div>
+                            <div class="DivText">
+                                <p class="PText2">Gathering - User shared map & social media application</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="AProject portfolio-item" data-language="flutter" data-type="mobile" data-date="2024-05-01">
+                        <div class="DivGridItem2">
+                            <a href="/portfolio/muscleforge/" data-cursor-text="View Project" data-cursor-icon="fa-solid fa-code" class="AProject">
+                                <div class="DivMedia"></div>
+                            </a>
+
+                            <div class="DivTechStack">
+                                <div class="TechBadge badge-group">
+                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M12 2L2 22h20L12 2z"/></svg>
+                                    <span>Group</span>
+                                </div>
+                                <div class="TechBadge badge-flutter">
+                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M12 2L2 22h20L12 2z"/></svg>
+                                    <span>Flutter</span>
+                                </div>
+                            </div>
+                            <div class="DivText">
+                                <p class="PText2">Muscle Forge - Body building & fitness tracking mobile app</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="AProject portfolio-item" data-language="javascript" data-type="extension" data-date="2024-05-01">
+                        <div class="DivGridItem2">
+                            <a href="/portfolio/battleboats/" data-cursor-text="View Project" data-cursor-icon="fa-solid fa-code" class="AProject">
+                                <div class="DivMedia"></div>
+                            </a>
+
+                            <div class="DivTechStack">
+                                <div class="TechBadge badge-group">
+                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M12 2L2 22h20L12 2z"/></svg>
+                                    <span>Group</span>
+                                </div>
+                                <div class="TechBadge badge-js">
+                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M12 2L2 22h20L12 2z"/></svg>
+                                    <span>JavaScript</span>
+                                </div>
+                                <div class="TechBadge badge-html">
+                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M12 2L2 22h20L12 2z"/></svg>
+                                    <span>HTML5</span>
+                                </div>
+                                <div class="TechBadge badge-css">
+                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M12 2L2 22h20L12 2z"/></svg>
+                                    <span>CSS</span>
+                                </div>
+                            </div>
+                            <div class="DivText">
+                                <p class="PText2">Battle Boats - Battleship inspired peer to peer web game</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="AProject portfolio-item" data-language="rust" data-type="software" data-date="2026-08-20">
+                        <div class="DivGridItem2">
+                            <a href="/portfolio/todo/" data-cursor-text="View Project" data-cursor-icon="fa-solid fa-code" class="AProject">
+                                <div class="DivMedia"></div>
+                            </a>
+
+                            <div class="DivTechStack">
+                                <div class="TechBadge badge-group">
+                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M12 2L2 22h20L12 2z"/></svg>
+                                    <span>Solo</span>
+                                </div>
+                                <div class="TechBadge badge-rust" data-cursor-color="rgba(222, 165, 132, 0.5)">
+                                    <i class="fa-brands fa-rust"></i>
+                                    <span>Rust</span>
+                                </div>
+
+                            </div>
+                            <div class="DivText">
+                                <p class="PText2">ToDo_List - Simple application to write, view and delete tasks, fully built using only Rust</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
 
-            <div class="Dropdown">
-                <button class="DropBtn" data-label="Date">Date</button>
-                <div class="DropContent">
-                    <button class="SortOption selected" data-sort="desc">Newest First</button>
-                    <button class="SortOption" data-sort="asc">Oldest First</button>
+            <div class="StackItem" id="section-experience">
+                <p class="PTitle2" style="padding-bottom: 15px;">Experience</p>
+
+                <div class="ToolRow">
+                    <div class="ToolTop" data-cursor-text="Expand" data-cursor-icon="fa-expand">
+                        <div class="ExpImage"><i class="fa-solid fa-server"></i></div>
+                        <div class="ToolText">
+                            <p class="PTitle">Backend Software Engineer <i class="fa-solid fa-chevron-up ExpandIcon"></i></p>
+                            <p class="PText">Afillia | Remote Contract | 2025 - 2026</p>
+                        </div>
+                    </div>
+                    <div class="ToolDetails">
+                        <p class="PText">Details regarding backend architecture and contract deliverables go here.</p>
+                    </div>
+                </div>
+
+                <div class="ToolRow CompactRow">
+                    <p class="PText" style="line-height: 1.6; padding: 5px">
+                        <span class="BoldLabel">General Employment</span>
+                        7 years of part-time work experience maintained alongside academic studies.
+                    </p>
                 </div>
             </div>
+
+            <div class="StackItem" id="section-education">
+                <p class="PTitle2" style="padding-bottom: 15px;">Education</p>
+
+                <div class="ToolRow">
+                    <div class="ToolTop" data-cursor-text="Expand" data-cursor-icon="fa-expand">
+                        <div class="ExpImage"><i class="fa-solid fa-graduation-cap"></i></div>
+                        <div class="ToolText">
+                            <p class="PTitle">M.Sc. Computer Science <i class="fa-solid fa-chevron-up ExpandIcon"></i></p>
+                            <p class="PText">Ontario Tech | Expected Winter 2027</p>
+                        </div>
+                    </div>
+                    <div class="ToolDetails">
+                        <p class="PText">Focus areas: Educational software, serious games, HCI, mobile accessibility, and hardware-software integration.</p>
+                    </div>
+                </div>
+
+                <div class="ToolRow">
+                    <div class="ToolTop" data-cursor-text="Expand" data-cursor-icon="fa-expand">
+                        <div class="ExpImage"><i class="fa-solid fa-graduation-cap"></i></div>
+                        <div class="ToolText">
+                            <p class="PTitle">B.Sc. Computer Science <i class="fa-solid fa-chevron-up ExpandIcon"></i></p>
+                            <p class="PText">Ontario Tech | 2022 - 2026</p>
+                        </div>
+                    </div>
+                    <div class="ToolDetails">
+                        <p class="PText">Specialization in Data Science. Dual minors in Mathematics and Physics.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="StackItem" id="section-certification">
+
+                <p class="PTitle2">Certifications</p>
+                <p class="PText" style="padding-bottom: 20px;">Your content here...
+                    When i'm not studying
+                </p>
+
+                <div class="ToolRow CompactRow" >
+                    <p class="PText" style="line-height: 1.6; padding: 5px">
+                        <span class="BoldLabel">Anthropic Course</span>
+                        My daily driver for most of my work.
+                    </p>
+                </div>
+            </div>
+
         </div>
 
-        <div class="DivGrid" id="portfolio-grid">
-            <div class="AProject portfolio-item" data-language="flutter" data-type="mobile" data-date="2026-05-01">
-                <div class="DivGridItem2">
-                    <a href="/portfolio/lingualore/" data-cursor-text="View Project" data-cursor-icon="fa-solid fa-code" class="AProject">
-                        <div class="DivMedia"></div>
-                    </a>
 
-                    <div class="DivTechStack">
-                        <div class="TechBadge badge-group">
-                            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M12 2L2 22h20L12 2z"/></svg>
-                            <span>Group</span>
-                        </div>
-                        <div class="TechBadge badge-flutter">
-                            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M12 2L2 22h20L12 2z"/></svg>
-                            <span>Flutter</span>
-                        </div>
-                        <div class="TechBadge">
-                            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zM11 19.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.51c-.32-.73-1.05-1.42-2.9-1.42h-1v-2c0-.55-.45-1-1-1h-2v-2h2c.55 0 1-.45 1-1V8h2c1.1 0 2-.9 2-2v-.41c1.7 1.92 2.75 4.5 2.75 7.41 0 3.12-1.28 5.95-3.35 7.93z"/></svg>
-                            <span>LLM</span>
-                        </div>
-                    </div>
-                    <div class="DivText">
-                        <p class="PText2">LinguaLore - Flutter powered mobile app for learning fictional languages</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="AProject portfolio-item" data-language="gdscript" data-type="game" data-date="2026-08-01">
-                <div class="DivGridItem2">
-                    <a href="/portfolio/vingtun/" data-cursor-text="View Project" data-cursor-icon="fa-solid fa-code" class="AProject">
-                        <div class="DivMedia"></div>
-                    </a>
-
-                    <div class="DivTechStack">
-                        <div class="TechBadge badge-solo">
-                            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M12 2L2 22h20L12 2z"/></svg>
-                            <span>Solo</span>
-                        </div>
-                        <div class="TechBadge badge-godot">
-                            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M12 2L2 22h20L12 2z"/></svg>
-                            <span>Godot 4</span>
-                        </div>
-                        <div class="TechBadge badge-godot">
-                            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zM11 19.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.51c-.32-.73-1.05-1.42-2.9-1.42h-1v-2c0-.55-.45-1-1-1h-2v-2h2c.55 0 1-.45 1-1V8h2c1.1 0 2-.9 2-2v-.41c1.7 1.92 2.75 4.5 2.75 7.41 0 3.12-1.28 5.95-3.35 7.93z"/></svg>
-                            <span>GDScript</span>
-                        </div>
-                    </div>
-                    <div class="DivText">
-                        <p class="PText2">VingtUn - 2D roguelike card game using Godot 4</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="AProject portfolio-item" data-language="gdscript" data-type="game" data-date="2026-09-01">
-                <div class="DivGridItem2">
-                    <a href="/portfolio/hor/" data-cursor-text="View Project" data-cursor-icon="fa-solid fa-code" class="AProject">
-                        <div class="DivMedia"></div>
-                    </a>
-
-                    <div class="DivTechStack">
-                        <div class="TechBadge badge-solo">
-                            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M12 2L2 22h20L12 2z"/></svg>
-                            <span>Solo</span>
-                        </div>
-                        <div class="TechBadge badge-godot">
-                            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M12 2L2 22h20L12 2z"/></svg>
-                            <span>Godot 4</span>
-                        </div>
-                        <div class="TechBadge badge-godot">
-                            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zM11 19.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.51c-.32-.73-1.05-1.42-2.9-1.42h-1v-2c0-.55-.45-1-1-1h-2v-2h2c.55 0 1-.45 1-1V8h2c1.1 0 2-.9 2-2v-.41c1.7 1.92 2.75 4.5 2.75 7.41 0 3.12-1.28 5.95-3.35 7.93z"/></svg>
-                            <span>GDScript</span>
-                        </div>
-                    </div>
-                    <div class="DivText">
-                        <p class="PText2">Hor - PS1 themed fixed camera angle horror prototype</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="AProject portfolio-item" data-language="javascript" data-type="extension" data-date="2026-04-01">
-                <div class="DivGridItem2">
-                    <a href="/portfolio/flic/" data-cursor-text="View Project" data-cursor-icon="fa-solid fa-code" class="AProject">
-                        <div class="DivMedia"></div>
-                    </a>
-
-                    <div class="DivTechStack">
-                        <div class="TechBadge badge-thesis">
-                            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M12 2L2 22h20L12 2z"/></svg>
-                            <span>Thesis</span>
-                        </div>
-                        <div class="TechBadge badge-js">
-                            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M12 2L2 22h20L12 2z"/></svg>
-                            <span>JavaScript</span>
-                        </div>
-                        <div class="TechBadge badge-html">
-                            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M12 2L2 22h20L12 2z"/></svg>
-                            <span>HTML5</span>
-                        </div>
-                        <div class="TechBadge badge-css">
-                            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M12 2L2 22h20L12 2z"/></svg>
-                            <span>CSS</span>
-                        </div>
-                        <div class="TechBadge">
-                            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zM11 19.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.51c-.32-.73-1.05-1.42-2.9-1.42h-1v-2c0-.55-.45-1-1-1h-2v-2h2c.55 0 1-.45 1-1V8h2c1.1 0 2-.9 2-2v-.41c1.7 1.92 2.75 4.5 2.75 7.41 0 3.12-1.28 5.95-3.35 7.93z"/></svg>
-                            <span>Render</span>
-                        </div>
-                        <div class="TechBadge">
-                            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zM11 19.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.51c-.32-.73-1.05-1.42-2.9-1.42h-1v-2c0-.55-.45-1-1-1h-2v-2h2c.55 0 1-.45 1-1V8h2c1.1 0 2-.9 2-2v-.41c1.7 1.92 2.75 4.5 2.75 7.41 0 3.12-1.28 5.95-3.35 7.93z"/></svg>
-                            <span>Vercel</span>
-                        </div>
-                        <div class="TechBadge">
-                            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zM11 19.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.51c-.32-.73-1.05-1.42-2.9-1.42h-1v-2c0-.55-.45-1-1-1h-2v-2h2c.55 0 1-.45 1-1V8h2c1.1 0 2-.9 2-2v-.41c1.7 1.92 2.75 4.5 2.75 7.41 0 3.12-1.28 5.95-3.35 7.93z"/></svg>
-                            <span>FireFox</span>
-                        </div>
-                    </div>
-                    <div class="DivText">
-                        <p class="PText2">Honours Thesis: FLIC "Feedback for Live Interactive Coding" - Firefox extension</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="AProject portfolio-item" data-language="gdscript" data-type="game" data-date="2026-08-01">
-                <div class="DivGridItem2">
-                    <a href="/portfolio/flic/" data-cursor-text="View Project" data-cursor-icon="fa-solid fa-code" class="AProject">
-                        <div class="DivMedia"></div>
-                    </a>
-                    <div class="DivTechStack">
-                        <div class="TechBadge badge-solo">
-                            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M12 2L2 22h20L12 2z"/></svg>
-                            <span>Solo</span>
-                        </div>
-                        <div class="TechBadge badge-godot">
-                            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M12 2L2 22h20L12 2z"/></svg>
-                            <span>Godot 4</span>
-                        </div>
-                        <div class="TechBadge badge-godot">
-                            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zM11 19.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.51c-.32-.73-1.05-1.42-2.9-1.42h-1v-2c0-.55-.45-1-1-1h-2v-2h2c.55 0 1-.45 1-1V8h2c1.1 0 2-.9 2-2v-.41c1.7 1.92 2.75 4.5 2.75 7.41 0 3.12-1.28 5.95-3.35 7.93z"/></svg>
-                            <span>GDScript</span>
-                        </div>
-                    </div>
-                    <div class="DivText">
-                        <p class="PText2">FPS Prototype - Doom inspired 2.5 FPS Godot game</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="AProject portfolio-item" data-language="flutter" data-type="mobile" data-date="2026-06-01">
-                <div class="DivGridItem2">
-                    <a href="/portfolio/gathering/" data-cursor-text="View Project" data-cursor-icon="fa-solid fa-code" class="AProject">
-                        <div class="DivMedia"></div>
-                    </a>
-
-                    <div class="DivTechStack">
-                        <div class="TechBadge badge-group">
-                            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M12 2L2 22h20L12 2z"/></svg>
-                            <span>Group</span>
-                        </div>
-                        <div class="TechBadge badge-flutter">
-                            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M12 2L2 22h20L12 2z"/></svg>
-                            <span>Flutter</span>
-                        </div>
-                        <div class="TechBadge">
-                            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zM11 19.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.51c-.32-.73-1.05-1.42-2.9-1.42h-1v-2c0-.55-.45-1-1-1h-2v-2h2c.55 0 1-.45 1-1V8h2c1.1 0 2-.9 2-2v-.41c1.7 1.92 2.75 4.5 2.75 7.41 0 3.12-1.28 5.95-3.35 7.93z"/></svg>
-                            <span>Social Media</span>
-                        </div>
-                    </div>
-                    <div class="DivText">
-                        <p class="PText2">Gathering - User shared map & social media application</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="AProject portfolio-item" data-language="flutter" data-type="mobile" data-date="2024-05-01">
-                <div class="DivGridItem2">
-                    <a href="/portfolio/muscleforge/" data-cursor-text="View Project" data-cursor-icon="fa-solid fa-code" class="AProject">
-                        <div class="DivMedia"></div>
-                    </a>
-
-                    <div class="DivTechStack">
-                        <div class="TechBadge badge-group">
-                            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M12 2L2 22h20L12 2z"/></svg>
-                            <span>Group</span>
-                        </div>
-                        <div class="TechBadge badge-flutter">
-                            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M12 2L2 22h20L12 2z"/></svg>
-                            <span>Flutter</span>
-                        </div>
-                    </div>
-                    <div class="DivText">
-                        <p class="PText2">Muscle Forge - Body building & fitness tracking mobile app</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="AProject portfolio-item" data-language="javascript" data-type="extension" data-date="2024-05-01">
-                <div class="DivGridItem2">
-                    <a href="/portfolio/battleboats/" data-cursor-text="View Project" data-cursor-icon="fa-solid fa-code" class="AProject">
-                        <div class="DivMedia"></div>
-                    </a>
-
-                    <div class="DivTechStack">
-                        <div class="TechBadge badge-group">
-                            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M12 2L2 22h20L12 2z"/></svg>
-                            <span>Group</span>
-                        </div>
-                        <div class="TechBadge badge-js">
-                            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M12 2L2 22h20L12 2z"/></svg>
-                            <span>JavaScript</span>
-                        </div>
-                        <div class="TechBadge badge-html">
-                            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M12 2L2 22h20L12 2z"/></svg>
-                            <span>HTML5</span>
-                        </div>
-                        <div class="TechBadge badge-css">
-                            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M12 2L2 22h20L12 2z"/></svg>
-                            <span>CSS</span>
-                        </div>
-                    </div>
-                    <div class="DivText">
-                        <p class="PText2">Battle Boats - Battleship inspired peer to peer web game</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="AProject portfolio-item" data-language="rust" data-type="software" data-date="2026-08-20">
-                <div class="DivGridItem2">
-                    <a href="/portfolio/todo/" data-cursor-text="View Project" data-cursor-icon="fa-solid fa-code" class="AProject">
-                        <div class="DivMedia"></div>
-                    </a>
-
-                    <div class="DivTechStack">
-                        <div class="TechBadge badge-group">
-                            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M12 2L2 22h20L12 2z"/></svg>
-                            <span>Solo</span>
-                        </div>
-                        <div class="TechBadge badge-rust" data-cursor-color="rgba(222, 165, 132, 0.5)">
-                            <i class="fa-brands fa-rust"></i>
-                            <span>Rust</span>
-                        </div>
-
-                    </div>
-                    <div class="DivText">
-                        <p class="PText2">ToDo_List - Simple application to write, view and delete tasks, fully built using only Rust</p>
-                    </div>
-                </div>
-            </div>
-
-        </div>
 
         <div class="DivBottom">
 

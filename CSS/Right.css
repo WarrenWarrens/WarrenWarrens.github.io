@@ -553,11 +553,19 @@
     left: 340px;
     top: 50%;
     transform: translateY(-50%);
-
     display: flex;
     flex-direction: column;
     gap: 15px;
     z-index: 50;
+
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.4s ease;
+}
+
+.TableOfContents.visible {
+    opacity: 1;
+    pointer-events: auto;
 }
 
 .TocLink {
@@ -1174,3 +1182,27 @@
     align-content: start;
 }
 
+.WorkStack {
+    display: flex;
+    flex-direction: column;
+    gap: 60px;
+    width: 85%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding-bottom: 80px;
+}
+
+.HotLinkRow {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+    padding-top: 15px;
+}
+
+.LandingSection {
+    min-height: 75vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-bottom: 0;
+}

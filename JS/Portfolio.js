@@ -171,3 +171,30 @@ document.addEventListener('DOMContentLoaded', () => {
         observer.observe(section);
     });
 });
+
+// --- DYNAMIC TABLE OF CONTENTS FADE-IN ---
+document.addEventListener('DOMContentLoaded', () => {
+    const toc = document.querySelector('.TableOfContents');
+    const landingSection = document.getElementById('section-landing');
+    const scrollContainer = document.querySelector('.SectionRight');
+
+    if (toc && landingSection && scrollContainer) {
+        const landingObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                // If the landing section is intersecting (visible on screen), hide the ToC.
+                // If it is NOT intersecting (scrolled past), show the ToC.
+                if (entry.isIntersecting) {
+                    toc.classList.remove('visible');
+                } else {
+                    toc.classList.add('visible');
+                }
+            });
+        }, {
+            root: scrollContainer,
+            // threshold: 0.2 means the ToC appears when less than 20% of the landing section is visible
+            threshold: 0.2
+        });
+
+        landingObserver.observe(landingSection);
+    }
+});
