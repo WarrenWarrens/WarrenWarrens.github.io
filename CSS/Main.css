@@ -216,6 +216,40 @@ html[data-theme="light"] .badge-gen {
 }
 
 
+.DividerSolid {
+    border: none;
+    height: 1px;
+    background-color: var(--box-bg);
+    width: 100%;
+    margin: 15px 0;
+}
+
+.DividerThick {
+    border: none;
+    height: 3px;
+    background-color: var(--box-bg);
+    border-radius: 2px;
+    width: 100%;
+    margin: 15px 0;
+}
+
+.DividerDashed {
+    border: none;
+    border-top: 2px dashed var(--box-bg);
+    width: 100%;
+    margin: 15px 0;
+    background-color: transparent;
+}
+
+.DividerGradient {
+    border: none;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--text-muted), transparent);
+    width: 100%;
+    margin: 20px 0;
+    opacity: 0.3;
+}
+
 
 
 

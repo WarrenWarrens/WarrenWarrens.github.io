@@ -76,299 +76,149 @@
     </section>
 
     <section class="SectionRight">
-        <div class="DivGrid">
-            <div class="DivGridItem">
-                <div class="DivIntro">
-                    <p class="PText">
-                        I'm Ryan, a programmer, computer engineer, lifelong learner and the
-                        type of curious to constantly explore rabbit holes, side projects and experiments.
-                    </p>
-                </div>
-                <div class="DivIntro">
-                    <p class="PText">
-                        Based in Toronto, Canada. Working on my Masters at Ontario Tech University.
-                    </p>
-                </div>
-                <div class="DivIntro">
-                    <p class="PText">
-                        Professionally, I build myself on the core principles of making and improving software
-                        to be as easy to use, customizable, accessible and a product people actually want to use.
-                    </p>
-                </div>
-            </div>
-            <div class="DivGridItem">
-                <div class="DivIntro">
-                    <p class="PText">
-                        When I'm not studying but still feeling productive, you can find me working on personal experiments
-                        and side projects ranging from visual arts with ink and water colours, to crafting electronics with a
-                        soldering iron in one hand, and writing code in the other.
-                    </p>
-                </div>
-                <div class="DivIntro">
-                    <p class="PText">
-                        When I need a break from being productive, I love to simply unwind with
-                        playing video games, movies, reading, cooking, bouldering and weight lifting.
-                    </p>
-                </div>
-                <div class="DivIntro">
-                    <p class="PText"> Here are some of my favourites: Donnie Darko, Oppenheimer, Death Grips, Persona 4 Golden, Metal Gear Solid 2:
-                        Sons of Liberty, Jojo's Bizarre Adventure & Slipknot.
-                    </p>
-                </div>
-            </div>
-        </div>
-
-
-        <div class="DivDivide2">
-            <p class="PTitle">Status</p>
-            <div class="DivDualWrapper">
-                <div class="DivDual">
-                    <p class="PText">Partial</p>
-                </div>
-                <div class="DivDual">
-                    <p id="toronto-time" class="PText">Loading time...</p>
-                </div>
-            </div>
-            <p class="PText">
-                Currently, working full-time on my M.Sc. Computer Science & being a TA, as a result my availability is only partial.
-            </p>
-        </div>
-
-
-        <div class="DivDivide">
-            <div class="DivDivideText">
-                <p class="PTitle">Portfolio</p>
-                <p class="PText">Sample of my current/ best projects</p>
+        <div class="BentoGrid">
+            <div class="BentoTile BentoWide">
+                <p class="PTitle">Hi, I'm Ryan.</p>
+                <p class="PText" style="font-size: 1.15rem;">
+                    A computer engineer and programmer based in Toronto. I build software focused on customizability, accessibility, and intuitive design, heavily rooted in Data Science, Mathematics, and Physics.
+                </p>
             </div>
 
-            <a href="portfolio/index.html" class="TechBadge badge-highlight">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="--cursor-color: rgba(0 0 0);">
-                    <path d="M5 12h14M12 5l7 7-7 7"/>
-                </svg>
-                <span>View All</span>
-            </a>
-        </div>
+            <div class="BentoTile">
+                <p class="PTitle2">Status</p>
+                <p id="toronto-time" class="DivTime" style="margin: 0; color: var(--text-main);">Loading time...</p>
+                <div class="TechBadge badge-highlight" style="width: fit-content; margin-top: 10px;">
+                    <span>Partial Availability</span>
+                </div>
+                <p class="PText2" style="margin-top: auto;">M.Sc. Computer Science & TA</p>
+            </div>
 
+            <div class="BentoTile BentoTall">
+                <p class="PTitle2">Core Stack</p>
 
-        <div class="DivGrid">
-                <div class="DivGridItem2">
-<!--                    <a href="Main/HTML/Portfolio/index.html" class="AProject">-->
-<!--                        <video src="../Media/VingtUn_Gameplay.mp4"-->
-<!--                               autoplay loop muted playsinline-->
-<!--                               class="PortfolioVideo">-->
-<!--                        </video>-->
-<!--                    </a>-->
-                    <a href="portfolio/lingualore/" data-cursor-text="View Project" data-cursor-icon="fa-solid fa-code" class="AProject">
-                        <div class="DivMedia"></div>
+                <p class="PText2" style="font-weight: bold; margin-bottom: 5px;">Languages</p>
+                <div class="CoreStackList">
+                    <div class="TechBadge badge-rust" style="--cursor-color: rgba(222, 165, 132, 0.7);">
+                        <i class="fa-brands fa-rust"></i><span>Rust</span>
+                    </div>
+                    <div class="TechBadge badge-js" style="--cursor-color: rgba(247, 223, 30, 0.7);">
+                        <i class="fa-brands fa-js"></i><span>JavaScript</span>
+                    </div>
+                    <div class="TechBadge badge-godot">
+                        <i class="fa-solid fa-code"></i><span>GDScript</span>
+                    </div>
+                </div>
+
+                <hr class="DividerDashed">
+
+                <p class="PText2" style="font-weight: bold; margin-bottom: 5px;">Software</p>
+                <div class="CoreStackList">
+                    <div class="TechBadge badge-godot" style="--cursor-color: rgba(71, 140, 191, 0.7);">
+                        <i class="fa-solid fa-gamepad"></i><span>Godot 4</span>
+                    </div>
+                    <div class="TechBadge badge-flutter" style="--cursor-color: rgba(69, 209, 253, 0.7);">
+                        <i class="fa-brands fa-flutter"></i><span>Flutter</span>
+                    </div>
+                    <div class="TechBadge badge-css">
+                        <i class="fa-brands fa-css3"></i><span>Tailwind/CSS</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="BentoTile BentoWide" style="padding: 0;">
+                <div class="CarouselWrapper" id="home-carousel">
+
+                    <div class="CarouselTrack">
+                        <div class="CarouselSlide">
+                            <a href="/portfolio/flic/" data-cursor-text="View Project" data-cursor-icon="fa-solid fa-code" style="display: flex; width: 100%; text-decoration: none;">
+                                <div style="width: 50%; background-color: var(--box-bg);"></div>
+                                <div style="width: 50%; padding: 24px 40px; display: flex; flex-direction: column; justify-content: center;">
+                                    <p class="PTitle2">FLIC (Honours Thesis)</p>
+                                    <p class="PText2" style="margin-bottom: 15px;">Firefox extension & website for live interactive coding communication during CS lectures.</p>
+                                    <div class="DivTechStack">
+                                        <div class="TechBadge badge-js"><span>JavaScript</span></div>
+                                        <div class="TechBadge badge-html"><span>HTML5</span></div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+
+                        <div class="CarouselSlide">
+                            <a href="/portfolio/vingtun/" data-cursor-text="View Game" data-cursor-icon="fa-solid fa-gamepad" style="display: flex; width: 100%; text-decoration: none;">
+                                <div style="width: 50%; background-color: var(--box-bg);"></div>
+                                <div style="width: 50%; padding: 24px 40px; display: flex; flex-direction: column; justify-content: center;">
+                                    <p class="PTitle2">VingtUn</p>
+                                    <p class="PText2" style="margin-bottom: 15px;">2D roguelike card game built using Godot 4 & modified Blackjack rules.</p>
+                                    <div class="DivTechStack">
+                                        <div class="TechBadge badge-godot"><span>Godot 4</span></div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+
+                        <div class="CarouselSlide">
+                            <a href="/portfolio/lingualore/" data-cursor-text="View App" data-cursor-icon="fa-solid fa-mobile" style="display: flex; width: 100%; text-decoration: none;">
+                                <div style="width: 50%; background-color: var(--box-bg);"></div>
+                                <div style="width: 50%; padding: 24px 40px; display: flex; flex-direction: column; justify-content: center;">
+                                    <p class="PTitle2">Lingua Lore</p>
+                                    <p class="PText2" style="margin-bottom: 15px;">Flutter powered mobile app for learning fictional languages with integrated LLM support.</p>
+                                    <div class="DivTechStack">
+                                        <div class="TechBadge badge-flutter"><span>Flutter</span></div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+
+                    <button class="CarouselBtn prev" data-cursor-text="Previous" data-cursor-icon="fa-arrow-left"><i class="fa-solid fa-chevron-left"></i></button>
+                    <button class="CarouselBtn next" data-cursor-text="Next" data-cursor-icon="fa-arrow-right"><i class="fa-solid fa-chevron-right"></i></button>
+
+                    <div class="CarouselDots">
+                        <span class="Dot active" data-index="0"></span>
+                        <span class="Dot" data-index="1"></span>
+                        <span class="Dot" data-index="2"></span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="BentoTile">
+                <p class="PTitle2">Elsewhere</p>
+                <div class="LinkStack" style="margin-top: auto;">
+                    <a href="https://github.com/yourusername" target="_blank" class="LinkBadge" data-cursor-text="Visit GitHub" data-cursor-icon="fa-brands fa-github">
+                        <div class="LinkBadgeLeft"><i class="fa-brands fa-github" style="font-size: 1.2rem;"></i> GitHub</div>
                     </a>
-
-                    <div class="DivTechStack">
-                        <div class="TechBadge badge-gen">
-                            <i class="fa-solid fa-users"></i>
-                            <span>Group</span>
-                        </div>
-                        <div class="TechBadge badge-gen">
-                            <i class="fa-brands fa-flutter" ></i>
-                            <span>Flutter</span>
-                        </div>
-                        <div class="TechBadge badge-gen">
-                            <i class="fa-solid fa-robot" ></i>
-                            <span>LLM</span>
-                        </div>
-                    </div>
-
-                    <div class="DivText">
-                        <p class="PText">Lingua Lore - Flutter powered mobile app for learning fictional languages</p>
-                    </div>
-                </div>
-
-
-
-                <div class="DivGridItem2">
-                    <a href="portfolio/flic/" data-cursor-text="View Project" data-cursor-icon="fa-solid fa-code" class="AProject">
-                        <div class="DivMedia"></div>
+                    <a href="https://yourusername.itch.io" target="_blank" class="LinkBadge" data-cursor-text="Visit Itch.io" data-cursor-icon="fa-brands fa-itch-io">
+                        <div class="LinkBadgeLeft"><i class="fa-brands fa-itch-io" style="font-size: 1.2rem;"></i> Itch.io</div>
                     </a>
-
-                    <div class="DivTechStack">
-                        <div class="TechBadge badge-thesis">
-                            <i class="fa-solid fa-graduation-cap"></i>
-                            <span>Thesis</span>
-                        </div>
-                        <div class="TechBadge badge-js" style="--cursor-color: rgba(247, 223, 30, 1);">
-                            <i class="fa-brands fa-js"></i>
-                            <span>JavaScript</span>
-                        </div>
-                        <div class="TechBadge badge-html">
-                            <i class="fa-brands fa-html5"></i>
-                            <span>HTML5</span>
-                        </div>
-                        <div class="TechBadge badge-css">
-                            <i class="fa-brands fa-css"></i>
-                            <span>CSS</span>
-                        </div>
-                        <div class="TechBadge">
-                            <i class="fa-solid fa-code"></i>
-                            <span>Render</span>
-                        </div>
-                        <div class="TechBadge">
-                            <i class="fa-solid fa-code"></i>
-                            <span>Vercel</span>
-                        </div>
-                        <div class="TechBadge">
-                            <i class="fa-brands fa-firefox-browser"></i>
-                            <span>FireFox</span>
-                        </div>
-                    </div>
-
-                    <div class="DivText">
-                        <p class="PText">Honours Thesis: FLIC "Feedback for Live Interactive Coding" - Firefox extension & website for communication between professors and students during CS lectures</p>
-                    </div>
-                </div>
-
-                <div class="DivGridItem2">
-                    <a href="portfolio/vingtun/" data-cursor-text="View Project" data-cursor-icon="fa-solid fa-code" class="AProject">
-                        <div class="DivMedia"></div>
+                    <a href="https://leetcode.com/yourusername" target="_blank" class="LinkBadge" data-cursor-text="Visit LeetCode" data-cursor-icon="fa-solid fa-code">
+                        <div class="LinkBadgeLeft"><i class="fa-solid fa-code" style="font-size: 1.2rem;"></i> LeetCode</div>
                     </a>
-
-                    <div class="DivTechStack">
-                        <div class="TechBadge badge-solo">
-                            <i class="fa-solid fa-user"></i>
-                            <span>Solo</span>
-                        </div>
-                        <div class="TechBadge badge-godot" style="--cursor-color: rgba(71, 140, 191, 0.7);">
-                            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M12 2L2 22h20L12 2z"/></svg>
-                            <span>Godot 4</span>
-                        </div>
-                        <div class="TechBadge badge-rust" style="--cursor-color: rgba(222, 165, 132, 0.7);">
-                            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zM11 19.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.51c-.32-.73-1.05-1.42-2.9-1.42h-1v-2c0-.55-.45-1-1-1h-2v-2h2c.55 0 1-.45 1-1V8h2c1.1 0 2-.9 2-2v-.41c1.7 1.92 2.75 4.5 2.75 7.41 0 3.12-1.28 5.95-3.35 7.93z"/></svg>
-                            <span>GDScript</span>
-                        </div>
-                    </div>
-
-                    <div class="DivText">
-                        <p class="PText">VingtUn - 2D rougelike card game using Godot 4 & modified Blackjack rules</p>
-                    </div>
-
-                </div>
-
-                <div class="DivGridItem2">
-                    <a href="portfolio/gathering/" data-cursor-text="View Project" data-cursor-icon="fa-solid fa-code" class="AProject">
-                        <div class="DivMedia"></div>
-                    </a>
-
-                    <div class="DivTechStack">
-                        <div class="TechBadge badge-group">
-                            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M12 2L2 22h20L12 2z"/></svg>
-                            <span>Group</span>
-                        </div>
-                        <div class="TechBadge badge-flutter">
-                            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M12 2L2 22h20L12 2z"/></svg>
-                            <span>Flutter</span>
-                        </div>
-                        <div class="TechBadge">
-                            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zM11 19.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.51c-.32-.73-1.05-1.42-2.9-1.42h-1v-2c0-.55-.45-1-1-1h-2v-2h2c.55 0 1-.45 1-1V8h2c1.1 0 2-.9 2-2v-.41c1.7 1.92 2.75 4.5 2.75 7.41 0 3.12-1.28 5.95-3.35 7.93z"/></svg>
-                            <span>Social Media</span>
-                        </div>
-                    </div>
-
-                    <div class="DivText">
-                        <p class="PText">Gathering - User shared map & social media application powered by Flutter, Flutter_Maps and Firebase</p>
-                    </div>
-                </div>
-
-        </div>
-
-        <div class="DivDivide2">
-            <p class="PTitle">Research Interests</p>
-        </div>
-
-        <div class="DivService">
-            <div class="DivServiceTab active">
-                <button class="ButtonTab" style="color: var(--text-main);" data-cursor-text="Expand" data-cursor-icon="fa-expand">
-                    <span class="TabLeftGroup" style="display: flex;">
-                        <span class="TabTextGroup" style="display: flex; flex-direction: column;">
-                            <span class="TabTitle">Front end design</span>
-                            <span class="TabSubtitle">Code, Art, Animations, UI, Customization and more</span>
-                        </span>
-                    </span>
-
-                    <svg class="TabTriangle" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M7 10L12 15L17 10H7Z"/>
-                    </svg>
-                </button>
-
-                <div class="DivTabContent">
-                    <p class="PText">WHat</p>
-                    <p class="PText2">Whoa</p>
                 </div>
             </div>
 
-
-            <div class="DivServiceTab">
-                <button class="ButtonTab" style="color: var(--text-main);" data-cursor-text="Expand" data-cursor-icon="fa-expand">
-                    <span class="TabLeftGroup" style="display: flex;">
-                        <span class="TabTextGroup" style="display: flex; flex-direction: column;">
-                            <span class="TabTitle">Teaching, Tutoring & Educational Advising</span>
-                            <span class="TabSubtitle">Trained and proficient with teaching youth & university students STEM concepts</span>
-                        </span>
-                    </span>
-
-                    <svg class="TabTriangle" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M7 10L12 15L17 10H7Z"/>
-                    </svg>
-                </button>
-
-                <div class="DivTabContent">
-                    <p class="PText">:(</p>
-                    <p class="PText2">Armpits</p>
-                </div>
-            </div>
-        </div>
-
-        <div class="DivDivide2">
-            <p class="PTitle">Technical Focus</p>
-        </div>
-
-        <div class="DivService">
-            <div class="DivServiceTab active">
-                <button class="ButtonTab" style="color: var(--text-main);" data-cursor-text="Expand" data-cursor-icon="fa-expand">
-                    <span class="TabLeftGroup" style="display: flex;">
-                        <span class="TabTextGroup" style="display: flex; flex-direction: column;">
-                            <span class="TabTitle">Front end design</span>
-                            <span class="TabSubtitle">Code, Art, Animations, UI, Customization and more</span>
-                        </span>
-                    </span>
-
-                    <svg class="TabTriangle" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M7 10L12 15L17 10H7Z"/>
-                    </svg>
-                </button>
-
-                <div class="DivTabContent">
-                    <p class="PText">WHat</p>
-                    <p class="PText2">Whoa</p>
-                </div>
+            <div class="BentoTile" style="background-color: var(--text-main);">
+                <a href="/work/" data-cursor-text="View All" data-cursor-icon="fa-briefcase" style="text-decoration: none; color: var(--bg-color); height: 100%; display: flex; flex-direction: column; justify-content: space-between;">
+                    <p class="PTitle2" style="color: var(--bg-color);">View Full Track Record</p>
+                    <i class="fa-solid fa-arrow-right" style="font-size: 1.5rem; align-self: flex-end;"></i>
+                </a>
             </div>
 
+            <div class="BentoSplit">
 
-            <div class="DivServiceTab">
-                <button class="ButtonTab" style="color: var(--text-main);" data-cursor-text="Expand" data-cursor-icon="fa-expand">
-                    <span class="TabLeftGroup" style="display: flex;">
-                        <span class="TabTextGroup" style="display: flex; flex-direction: column;">
-                            <span class="TabTitle">Game Development</span>
-                            <span class="TabSubtitle">Programming, Designing and Shipping games using Godot</span>
-                        </span>
-                    </span>
-
-                    <svg class="TabTriangle" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M7 10L12 15L17 10H7Z"/>
-                    </svg>
-                </button>
-
-                <div class="DivTabContent">
-                    <p class="PText">bruh</p>
-                    <p class="PText2">...</p>
+                <div class="BentoTile">
+                    <p class="PTitle">Philosophy</p>
+                    <p class="PText" style="font-size: 1.15rem;">
+                        I strongly favor free, open-source software and take pride in extensively customizing my Linux Wayland environments to optimize my development workflows.
+                    </p>
                 </div>
+
+                <div class="BentoTile">
+                    <p class="PTitle">Currently Exploring</p>
+                    <p class="PText" style="font-size: 1.15rem;">
+                        Lately, I've been diving deep into embedded Rust and experimenting with microcontrollers like the Arduino Uno R4 WiFi to explore the intersection of hardware and software.
+                    </p>
+                </div>
+
             </div>
         </div>
 
