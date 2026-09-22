@@ -251,5 +251,13 @@ html[data-theme="light"] .badge-gen {
 }
 
 
+html[data-theme="light"] .LinkBadge {
+    color: whitesmoke;
+}
+
+html[data-theme="light"] .TechBadge:hover > * {
+    color: var(--text-main) !important;
+    text-shadow: none;
+}
 
 
