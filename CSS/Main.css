@@ -145,6 +145,16 @@ body {
     }
 }
 
+.badge-python {
+    border-color: rgb(55, 118, 171);
+}
+@media (hover: hover) {
+    .badge-python:hover {
+        border-color: rgba(65, 155, 171, 1);
+        box-shadow: 0 4px 12px rgb(55, 118, 171);
+    }
+}
+
 .badge-js {
     border-color: rgba(247, 223, 30, 0.4);
 }
