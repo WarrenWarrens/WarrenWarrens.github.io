@@ -205,6 +205,16 @@ body {
     }
 }
 
+.badge-firefox {
+    border-color: rgb(185, 51, 225);
+}
+@media (hover: hover) {
+    .badge-firefox:hover {
+        border-color: rgb(215, 51, 235);
+        box-shadow: 0 4px 12px rgb(185, 51, 225);
+    }
+}
+
 
 
 
