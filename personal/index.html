@@ -442,7 +442,136 @@
             </div>
 
             <div class="DivStack" id="section-blog">
-                <p class="PTitle2">Blog</p>
+                <p class="PTitle2" style="padding-left: 20px; padding-bottom: 20px">Blog</p>
+
+                <div class="FilterControls">
+                    <button id="reset-btn" class="FilterBtn">All</button>
+
+                    <div class="Dropdown">
+                        <button class="DropBtn" data-label="Language">Topic</button>
+                        <div class="DropContent">
+                            <button class="FilterOption" data-category="language" data-value="coding">Coding</button>
+                            <button class="FilterOption" data-category="language" data-value="personal">Personal</button>
+                            <button class="FilterOption" data-category="language" data-value="hobbies">Hobbies</button>
+                            <!--                    <button class="FilterOption" data-category="language" data-value="rust">World News</button>-->
+                        </div>
+                    </div>
+
+                    <div class="Dropdown">
+                        <button class="DropBtn" data-label="Type">Type</button>
+                        <div class="DropContent">
+                            <button class="FilterOption" data-category="type" data-value="diary">Diary</button>
+                            <!--                    <button class="FilterOption" data-category="type" data-value="extension">Thoughts</button>-->
+                            <button class="FilterOption" data-category="type" data-value="analysis">Analysis</button>
+                            <!--                    <button class="FilterOption" data-category="type" data-value="software">Documentation</button>-->
+
+                        </div>
+                    </div>
+
+                    <div class="Dropdown">
+                        <button class="DropBtn" data-label="Date">Date</button>
+                        <div class="DropContent">
+                            <button class="SortOption selected" data-sort="desc">Newest First</button>
+                            <button class="SortOption" data-sort="asc">Oldest First</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="DivGrid" id="portfolio-grid">
+                    <div class="AProject portfolio-item" data-language="coding" data-type="diary" data-date="2026-09-17">
+                        <div class="DivGridItem2">
+                            <a href="/personal/indiedev" data-cursor-text="Read Blog" data-cursor-icon="fa-solid fa-code" class="AProject">
+                                <div class="DivMedia"></div>
+                            </a>
+
+                            <div class="DivTechStack">
+                                <div class="TechBadge badge-group">
+                                    <span>2026-09-17</span>
+                                </div>
+                                <div class="TechBadge badge-flutter">
+                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M12 2L2 22h20L12 2z"/></svg>
+                                    <span>Games</span>
+                                </div>
+                                <div class="TechBadge">
+                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zM11 19.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.51c-.32-.73-1.05-1.42-2.9-1.42h-1v-2c0-.55-.45-1-1-1h-2v-2h2c.55 0 1-.45 1-1V8h2c1.1 0 2-.9 2-2v-.41c1.7 1.92 2.75 4.5 2.75 7.41 0 3.12-1.28 5.95-3.35 7.93z"/></svg>
+                                    <span>Journal</span>
+                                </div>
+                            </div>
+                            <div class="DivText">
+                                <p class="PText2">Indie Dev - My Experience being an indie dev in 2026</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="AProject portfolio-item" data-language="personal" data-type="diary" data-date="2026-08-01">
+                        <div class="DivGridItem2">
+                            <a href="/unused/bloged/blog/indiedev" data-cursor-text="Read Blog" data-cursor-icon="fa-solid fa-code" class="AProject">
+                                <div class="DivMedia"></div>
+                            </a>
+
+                            <div class="DivTechStack">
+                                <div class="TechBadge badge-solo">
+                                    <span>Solo</span>
+                                </div>
+                                <div class="TechBadge badge-godot">
+                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M12 2L2 22h20L12 2z"/></svg>
+                                    <span>Godot 4</span>
+                                </div>
+                                <div class="TechBadge badge-godot">
+                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zM11 19.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.51c-.32-.73-1.05-1.42-2.9-1.42h-1v-2c0-.55-.45-1-1-1h-2v-2h2c.55 0 1-.45 1-1V8h2c1.1 0 2-.9 2-2v-.41c1.7 1.92 2.75 4.5 2.75 7.41 0 3.12-1.28 5.95-3.35 7.93z"/></svg>
+                                    <span>GDScript</span>
+                                </div>
+                            </div>
+                            <div class="DivText">
+                                <p class="PText2">VingtUn - 2D roguelike card game using Godot 4</p>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="AProject portfolio-item" data-language="coding" data-type="analysis" data-date="2026-04-01">
+                        <div class="DivGridItem2">
+                            <a href="/unused/bloged/blog/indiedev" data-cursor-text="Read Blog" data-cursor-icon="fa-solid fa-code" class="AProject">
+                                <div class="DivMedia"></div>
+                            </a>
+
+                            <div class="DivTechStack">
+                                <div class="TechBadge badge-thesis">
+                                    <span>Thesis</span>
+                                </div>
+                                <div class="TechBadge badge-js">
+                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M12 2L2 22h20L12 2z"/></svg>
+                                    <span>JavaScript</span>
+                                </div>
+                                <div class="TechBadge badge-html">
+                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M12 2L2 22h20L12 2z"/></svg>
+                                    <span>HTML5</span>
+                                </div>
+                                <div class="TechBadge badge-css">
+                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M12 2L2 22h20L12 2z"/></svg>
+                                    <span>CSS</span>
+                                </div>
+                                <div class="TechBadge">
+                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zM11 19.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.51c-.32-.73-1.05-1.42-2.9-1.42h-1v-2c0-.55-.45-1-1-1h-2v-2h2c.55 0 1-.45 1-1V8h2c1.1 0 2-.9 2-2v-.41c1.7 1.92 2.75 4.5 2.75 7.41 0 3.12-1.28 5.95-3.35 7.93z"/></svg>
+                                    <span>Render</span>
+                                </div>
+                                <div class="TechBadge">
+                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zM11 19.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.51c-.32-.73-1.05-1.42-2.9-1.42h-1v-2c0-.55-.45-1-1-1h-2v-2h2c.55 0 1-.45 1-1V8h2c1.1 0 2-.9 2-2v-.41c1.7 1.92 2.75 4.5 2.75 7.41 0 3.12-1.28 5.95-3.35 7.93z"/></svg>
+                                    <span>Vercel</span>
+                                </div>
+                                <div class="TechBadge">
+                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zM11 19.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.51c-.32-.73-1.05-1.42-2.9-1.42h-1v-2c0-.55-.45-1-1-1h-2v-2h2c.55 0 1-.45 1-1V8h2c1.1 0 2-.9 2-2v-.41c1.7 1.92 2.75 4.5 2.75 7.41 0 3.12-1.28 5.95-3.35 7.93z"/></svg>
+                                    <span>FireFox</span>
+                                </div>
+                            </div>
+                            <div class="DivText">
+                                <p class="PText2">Honours Thesis: FLIC "Feedback for Live Interactive Coding" - Firefox extension</p>
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
             </div>
         </div>
 
