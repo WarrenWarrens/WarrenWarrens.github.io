@@ -15,6 +15,10 @@ function applyGlobalSettings() {
         { key: 'lefty', attr: 'data-lefty' }
     ];
 
+    const savedSpacing = localStorage.getItem('textSpacing');
+    if (savedSpacing) {
+        document.documentElement.style.setProperty('--text-spacing', savedSpacing);
+    }
 
 
     settingsToCheck.forEach(setting => {
@@ -44,11 +48,7 @@ function applyGlobalSettings() {
         document.documentElement.removeAttribute('data-font');
     }
 
-    if (localStorage.getItem('textSpacing') === 'true') {
-        document.documentElement.setAttribute('data-spacing', 'true');
-    } else {
-        document.documentElement.removeAttribute('data-spacing');
-    }
+
 }
 
 applyGlobalSettings();

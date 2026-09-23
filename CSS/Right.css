@@ -456,22 +456,22 @@
 
 .SettingsBody {
     display: flex;
-    justify-content: center;
-    align-items: flex-start;
+    align-items: center;
     min-height: 100vh;
     flex-direction: column;
     overflow-y: auto !important;
-    padding: 40px 0;
+    padding: 60px 0;
 }
 
 .SettingsContainer {
     width: 85%;
-    max-width: 800px; /* Increased from 600px */
+    max-width: 800px;
     padding: 20px;
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
     gap: 30px;
+    margin: auto;
 }
 
 

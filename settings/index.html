@@ -65,13 +65,17 @@
                 <span class="SettingName">Colour Blind Mode</span>
                 <span class="SettingDesc">Adjust the interface for color vision deficiencies.</span>
             </div>
-            <select id="color-blind-select" class="SettingBtn SettingControl">
-                <option value="none">None</option>
-                <option value="protanopia">Protanopia</option>
-                <option value="protanomaly">Protanomaly</option>
-                <option value="deuteranopia">Deuteranopia</option>
-                <option value="deuteranomaly">Deuteranomaly</option>
-            </select>
+
+            <div class="Dropdown SettingControl" id="color-blind-dropdown">
+                <button class="DropBtn" style="width: 100%; text-align: center;">None</button>
+                <div class="DropContent" style="width: 100%; text-align: center;">
+                    <button class="FilterOption" data-value="none">None</button>
+                    <button class="FilterOption" data-value="protanopia">Protanopia</button>
+                    <button class="FilterOption" data-value="protanomaly">Protanomaly</button>
+                    <button class="FilterOption" data-value="deuteranopia">Deuteranopia</button>
+                    <button class="FilterOption" data-value="deuteranomaly">Deuteranomaly</button>
+                </div>
+            </div>
         </div>
     </div>
 
@@ -93,12 +97,16 @@
                 <span class="SettingName">Font Style</span>
                 <span class="SettingDesc">Change the global font family for better readability.</span>
             </div>
-            <select id="font-select" class="SettingBtn SettingControl">
-                <option value="oswald">Oswald (Default)</option>
-                <option value="sans-serif">System Sans-Serif</option>
-                <option value="serif">System Serif</option>
-                <option value="dyslexic">Dyslexia-Friendly</option>
-            </select>
+
+            <div class="Dropdown SettingControl" id="font-dropdown">
+                <button class="DropBtn" style="width: 100%; text-align: center;">Oswald (Default)</button>
+                <div class="DropContent" style="width: 100%; text-align: center;">
+                    <button class="FilterOption" data-value="oswald">Oswald (Default)</button>
+                    <button class="FilterOption" data-value="sans-serif">System Sans-Serif</button>
+                    <button class="FilterOption" data-value="serif">System Serif</button>
+                    <button class="FilterOption" data-value="dyslexic">Dyslexia-Friendly</button>
+                </div>
+            </div>
         </div>
 
         <div class="SettingItem">
@@ -106,7 +114,11 @@
                 <span class="SettingName">Text Spacing</span>
                 <span class="SettingDesc">Increase letter, word, and line spacing.</span>
             </div>
-            <button id="spacing-btn" class="SettingBtn SettingControl">Enable</button>
+
+            <div class="SettingControl SliderControl">
+                <span id="spacing-preview" style="color: var(--text-main); font-weight: bold;">Normal</span>
+                <input type="range" id="spacing-slider" min="1" max="2.5" step="0.25" value="1" style="width: 100%; accent-color: var(--text-main);">
+            </div>
         </div>
 
         <div class="SettingItem">

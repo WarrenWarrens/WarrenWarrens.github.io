@@ -80,3 +80,59 @@ if (fontSelect) {
 }
 
 setupToggle('spacing-btn', 'textSpacing', 'data-spacing', 'true');
+
+
+function setupCustomDropdown(dropdownId, storageKey, htmlAttr, defaultLabel) {
+    const dropdown = document.getElementById(dropdownId);
+    if (!dropdown) return;
+
+    const btn = dropdown.querySelector('.DropBtn');
+    const options = dropdown.querySelectorAll('.FilterOption');
+
+    const savedVal = localStorage.getItem(storageKey) || 'default';
+    const activeOpt = Array.from(options).find(opt => opt.getAttribute('data-value') === savedVal);
+    if (activeOpt) btn.textContent = activeOpt.textContent;
+
+    btn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        dropdown.classList.toggle('show');
+    });
+
+    options.forEach(opt => {
+        opt.addEventListener('click', (e) => {
+            e.stopPropagation();
+            const val = opt.getAttribute('data-value');
+
+            localStorage.setItem(storageKey, val);
+            btn.textContent = opt.textContent;
+            dropdown.classList.remove('show');
+
+            if (val === 'none' || val === 'oswald' || val === 'default') {
+                document.documentElement.removeAttribute(htmlAttr);
+            } else {
+                document.documentElement.setAttribute(htmlAttr, val);
+            }
+        });
+    });
+
+    document.addEventListener('click', () => dropdown.classList.remove('show'));
+}
+
+setupCustomDropdown('color-blind-dropdown', 'colorblind', 'data-colorblind', 'None');
+setupCustomDropdown('font-dropdown', 'fontStyle', 'data-font', 'Oswald (Default)');
+
+const spacingSlider = document.getElementById('spacing-slider');
+const spacingPreview = document.getElementById('spacing-preview');
+
+if (spacingSlider && spacingPreview) {
+    let currentSpacing = localStorage.getItem('textSpacing') || '1';
+    spacingSlider.value = currentSpacing;
+    spacingPreview.textContent = currentSpacing === '1' ? 'Normal' : currentSpacing + 'x';
+
+    spacingSlider.addEventListener('input', (e) => {
+        const val = e.target.value;
+        spacingPreview.textContent = val === '1' ? 'Normal' : val + 'x';
+        document.documentElement.style.setProperty('--text-spacing', val);
+        localStorage.setItem('textSpacing', val);
+    });
+}

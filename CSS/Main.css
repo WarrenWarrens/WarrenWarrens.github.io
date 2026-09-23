@@ -413,3 +413,30 @@ html[data-spacing="true"] a {
     letter-spacing: 0.1em !important;
     word-spacing: 0.2em !important;
 }
+
+/* --- THE TOTAL HOVER KILL-SWITCH (BUG FIX) --- */
+/* Targets specific interactive elements so the custom cursor's JS transforms are untouched! */
+html[data-hover="disabled"] .TechBadge,
+html[data-hover="disabled"] .LinkBadge,
+html[data-hover="disabled"] .BentoTile,
+html[data-hover="disabled"] .SoftwareCard,
+html[data-hover="disabled"] .CompactRow,
+html[data-hover="disabled"] .CarouselBtn,
+html[data-hover="disabled"] .DropBtn,
+html[data-hover="disabled"] .SettingBtn {
+    transform: none !important;
+    box-shadow: none !important;
+    transition: none !important;
+}
+html[data-hover="disabled"] .TechBadge::after { display: none !important; }
+
+/* --- DYNAMIC TEXT SPACING OVERRIDES --- */
+html {
+    --text-spacing: 1; /* Baseline variable */
+}
+/* Dynamically stretches spacing based on the slider multiplier */
+body, p, span, a, h1, h2, h3, div {
+    line-height: calc(1.6 * var(--text-spacing)) !important;
+    letter-spacing: calc((var(--text-spacing) - 1) * 0.05em) !important;
+    word-spacing: calc((var(--text-spacing) - 1) * 0.1em) !important;
+}
