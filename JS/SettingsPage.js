@@ -67,3 +67,16 @@ if (restoreBtn) {
         location.reload();
     });
 }
+
+const fontSelect = document.getElementById('font-select');
+if (fontSelect) {
+    fontSelect.value = localStorage.getItem('fontStyle') || 'oswald';
+    fontSelect.addEventListener('change', (e) => {
+        const val = e.target.value;
+        localStorage.setItem('fontStyle', val);
+        if (val === 'oswald') document.documentElement.removeAttribute('data-font');
+        else document.documentElement.setAttribute('data-font', val);
+    });
+}
+
+setupToggle('spacing-btn', 'textSpacing', 'data-spacing', 'true');

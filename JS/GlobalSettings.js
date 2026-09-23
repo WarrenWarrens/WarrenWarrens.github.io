@@ -15,6 +15,8 @@ function applyGlobalSettings() {
         { key: 'lefty', attr: 'data-lefty' }
     ];
 
+
+
     settingsToCheck.forEach(setting => {
         if (localStorage.getItem(setting.key) === 'disabled' || localStorage.getItem(setting.key) === 'true') {
             document.documentElement.setAttribute(setting.attr, localStorage.getItem(setting.key));
@@ -33,6 +35,19 @@ function applyGlobalSettings() {
         document.documentElement.setAttribute('data-colorblind', savedCB);
     } else {
         document.documentElement.removeAttribute('data-colorblind');
+    }
+
+    const savedFont = localStorage.getItem('fontStyle');
+    if (savedFont && savedFont !== 'oswald') {
+        document.documentElement.setAttribute('data-font', savedFont);
+    } else {
+        document.documentElement.removeAttribute('data-font');
+    }
+
+    if (localStorage.getItem('textSpacing') === 'true') {
+        document.documentElement.setAttribute('data-spacing', 'true');
+    } else {
+        document.documentElement.removeAttribute('data-spacing');
     }
 }
 

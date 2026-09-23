@@ -336,27 +336,80 @@ html[data-lefty="true"] .TocText {
     text-shadow: none !important;
 }
 
+
+
 /* =========================================================
-   COLOR BLINDNESS ACCESSIBILITY MAP
+   ACCESSIBILITY OVERRIDES & FIXES
    ========================================================= */
 
-/* Protanopia & Deuteranopia (Red/Green Deficiencies) */
-html[data-colorblind="protanopia"] .badge-rust,
-html[data-colorblind="deuteranopia"] .badge-rust,
-html[data-colorblind="protanomaly"] .badge-rust,
-html[data-colorblind="deuteranomaly"] .badge-rust {
-    /* Shifts the orange/red Rust color to a highly visible, safe Gold */
-    border-color: rgba(212, 175, 55, 0.8) !important;
+/* --- 1. THE BRUTE-FORCE CURSOR RESTORE --- */
+html[data-cursor="disabled"] * { cursor: default !important; }
+html[data-cursor="disabled"] a,
+html[data-cursor="disabled"] a *,
+html[data-cursor="disabled"] button,
+html[data-cursor="disabled"] button *,
+html[data-cursor="disabled"] select,
+html[data-cursor="disabled"] .TechBadge,
+html[data-cursor="disabled"] .ToolTop {
+    cursor: pointer !important;
+}
+
+/* --- 2. THE TOTAL HOVER KILL-SWITCH (BUG FIX) --- */
+/* Excludes the custom cursor elements so it can still move! */
+html[data-hover="disabled"] *:not(.curzr):not(.circle):not(.dot) {
+    transform: none !important;
+    box-shadow: none !important;
+    transition: none !important;
+}
+html[data-hover="disabled"] .TechBadge::after { display: none !important; }
+
+/* --- 3. GO BACK BUTTON CONTRAST (BUG FIX) --- */
+/* Forces the text to stay light on the dark badge background in Light Mode */
+html[data-theme="light"] .TechBadge.badge-highlight:hover > * {
+    color: var(--bg-color) !important;
+    text-shadow: none !important;
+}
+
+/* --- 4. COLOR BLIND RE-MAPPING (BUG FIX) --- */
+/* Restores the 0.4 idle border opacity so they only glow fully on hover */
+html[data-colorblind="protanopia"] .badge-rust, html[data-colorblind="deuteranopia"] .badge-rust,
+html[data-colorblind="protanomaly"] .badge-rust, html[data-colorblind="deuteranomaly"] .badge-rust {
+    border-color: rgba(212, 175, 55, 0.4) !important;
     --cursor-color: rgba(212, 175, 55, 0.7) !important;
 }
-
-html[data-colorblind="protanopia"] .badge-html,
-html[data-colorblind="deuteranopia"] .badge-html,
-html[data-colorblind="protanomaly"] .badge-html,
-html[data-colorblind="deuteranomaly"] .badge-html {
-    /* Shifts the red HTML color to a safe, high-contrast Blue */
-    border-color: rgba(0, 85, 255, 0.8) !important;
+html[data-colorblind="protanopia"] .badge-html, html[data-colorblind="deuteranopia"] .badge-html,
+html[data-colorblind="protanomaly"] .badge-html, html[data-colorblind="deuteranomaly"] .badge-html {
+    border-color: rgba(0, 85, 255, 0.4) !important;
     --cursor-color: rgba(0, 85, 255, 0.7) !important;
 }
+html[data-colorblind="protanopia"] .TechBadge:hover, html[data-colorblind="deuteranopia"] .TechBadge:hover,
+html[data-colorblind="protanomaly"] .TechBadge:hover, html[data-colorblind="deuteranomaly"] .TechBadge:hover {
+    border-color: var(--cursor-color) !important; /* Glows fully on hover */
+}
 
-/* Add additional .badge-[name] remappings here if you introduce green/red badges in the future */
+/* --- 5. THE LEFTY FLIP --- */
+html[data-lefty="true"] .Main { flex-direction: row-reverse; }
+html[data-lefty="true"] .SectionLeft { border-right: none; border-left: 2px solid white; }
+html[data-lefty="true"] .TableOfContents { left: auto; right: 340px; }
+html[data-lefty="true"] .TocLink { flex-direction: row-reverse; }
+html[data-lefty="true"] .TocText { transform: translateX(10px); }
+/* Instantly flips the Settings layout! */
+html[data-lefty="true"] .SettingItem { flex-direction: row-reverse; text-align: right; }
+html[data-lefty="true"] .SettingInfo { align-items: flex-end; }
+
+/* --- 6. TYPOGRAPHY ACCESSIBILITY --- */
+/* Font Family Overrides */
+html[data-font="sans-serif"] body { font-family: system-ui, -apple-system, sans-serif !important; }
+html[data-font="serif"] body { font-family: Georgia, "Times New Roman", serif !important; }
+/* Comic Sans and Trebuchet are scientifically recommended for dyslexia due to asymmetric characters */
+html[data-font="dyslexic"] body { font-family: "Comic Sans MS", "Trebuchet MS", sans-serif !important; }
+
+/* Expanded Text Spacing */
+html[data-spacing="true"] body,
+html[data-spacing="true"] p,
+html[data-spacing="true"] span,
+html[data-spacing="true"] a {
+    line-height: 2 !important;
+    letter-spacing: 0.1em !important;
+    word-spacing: 0.2em !important;
+}
