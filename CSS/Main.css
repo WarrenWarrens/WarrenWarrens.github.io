@@ -285,3 +285,49 @@ html[data-theme="light"] .TechBadge:hover > * {
 }
 
 
+
+html[data-cursor="disabled"] * {
+    cursor: default !important;
+}
+html[data-cursor="disabled"] a,
+html[data-cursor="disabled"] a *,
+html[data-cursor="disabled"] button,
+html[data-cursor="disabled"] button *,
+html[data-cursor="disabled"] select,
+html[data-cursor="disabled"] .TechBadge,
+html[data-cursor="disabled"] .ToolTop {
+    cursor: pointer !important;
+}
+
+html[data-hover="disabled"] * {
+    transform: none !important;
+    box-shadow: none !important;
+    transition: none !important;
+}
+html[data-hover="disabled"] .TechBadge::after {
+    display: none !important;
+}
+
+html[data-colorblind="protanopia"] { filter: url('#protanopia'); }
+html[data-colorblind="protanomaly"] { filter: url('#protanomaly'); }
+html[data-colorblind="deuteranopia"] { filter: url('#deuteranopia'); }
+html[data-colorblind="deuteranomaly"] { filter: url('#deuteranomaly'); }
+
+html[data-lefty="true"] .Main {
+    flex-direction: row-reverse;
+}
+html[data-lefty="true"] .SectionLeft {
+    border-right: none;
+    border-left: 2px solid white;
+}
+html[data-lefty="true"] .TableOfContents {
+    left: auto;
+    right: 340px;
+}
+html[data-lefty="true"] .TocLink {
+    flex-direction: row-reverse;
+}
+html[data-lefty="true"] .TocText {
+    transform: translateX(10px);
+}
+

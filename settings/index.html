@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="icon" type="image/png" href="/Media/favicon.png">
 </head>
-<body class="SettingsBody">
+<body class="SettingsBody" style="align-items: center;">
 
 <div class="curzr" hidden>
     <div class="circle">
@@ -20,7 +20,7 @@
     <div class="dot"></div>
 </div>
 
-<div class="SettingsContainer">
+<div class="SettingsContainer" >
     <a href="javascript:history.back()" class="ReturnBtn" style="align-self: center; margin-bottom: 20px;">Return</a>
 
     <div class="SettingsGroup">
@@ -50,6 +50,14 @@
                 <span class="SettingDesc">Disable special cursor effects.</span>
             </div>
             <button id="cursor-btn" class="SettingBtn SettingControl">Disable</button>
+        </div>
+
+        <div class="SettingItem">
+            <div class="SettingInfo">
+                <span class="SettingName">Lefty Mode</span>
+                <span class="SettingDesc">Mirror the interface for left-handed mouse use.</span>
+            </div>
+            <button id="lefty-btn" class="SettingBtn SettingControl">Enable</button>
         </div>
 
         <div class="SettingItem">

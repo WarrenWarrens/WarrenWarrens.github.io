@@ -46,6 +46,24 @@ if (restoreBtn) {
     });
 }
 
+setupToggle('lefty-btn', 'lefty', 'data-lefty', 'true');
+
+const cbSelect = document.getElementById('color-blind-select');
+if (cbSelect) {
+    cbSelect.value = localStorage.getItem('colorblind') || 'none';
+
+    cbSelect.addEventListener('change', (e) => {
+        const val = e.target.value;
+        localStorage.setItem('colorblind', val);
+
+        if (val === 'none') {
+            document.documentElement.removeAttribute('data-colorblind');
+        } else {
+            document.documentElement.setAttribute('data-colorblind', val);
+        }
+    });
+}
+
 setupToggle('theme-btn', 'theme', 'data-theme', 'light');
 setupToggle('text-btn', 'text', 'data-text', 'large');
 
