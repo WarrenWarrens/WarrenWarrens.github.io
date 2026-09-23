@@ -331,3 +331,32 @@ html[data-lefty="true"] .TocText {
     transform: translateX(10px);
 }
 
+.TechBadge.badge-highlight:hover > * {
+    color: var(--bg-color) !important;
+    text-shadow: none !important;
+}
+
+/* =========================================================
+   COLOR BLINDNESS ACCESSIBILITY MAP
+   ========================================================= */
+
+/* Protanopia & Deuteranopia (Red/Green Deficiencies) */
+html[data-colorblind="protanopia"] .badge-rust,
+html[data-colorblind="deuteranopia"] .badge-rust,
+html[data-colorblind="protanomaly"] .badge-rust,
+html[data-colorblind="deuteranomaly"] .badge-rust {
+    /* Shifts the orange/red Rust color to a highly visible, safe Gold */
+    border-color: rgba(212, 175, 55, 0.8) !important;
+    --cursor-color: rgba(212, 175, 55, 0.7) !important;
+}
+
+html[data-colorblind="protanopia"] .badge-html,
+html[data-colorblind="deuteranopia"] .badge-html,
+html[data-colorblind="protanomaly"] .badge-html,
+html[data-colorblind="deuteranomaly"] .badge-html {
+    /* Shifts the red HTML color to a safe, high-contrast Blue */
+    border-color: rgba(0, 85, 255, 0.8) !important;
+    --cursor-color: rgba(0, 85, 255, 0.7) !important;
+}
+
+/* Add additional .badge-[name] remappings here if you introduce green/red badges in the future */

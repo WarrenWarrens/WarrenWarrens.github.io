@@ -1,20 +1,21 @@
 function setupToggle(btnId, storageKey, htmlAttr, activeValue) {
     const btn = document.getElementById(btnId);
+    if (!btn) return;
 
-    let isActive = localStorage.getItem(storageKey) === activeValue;
-    btn.textContent = isActive ? 'Disable' : 'Enable';
+    let isSet = localStorage.getItem(storageKey) === activeValue;
+    btn.textContent = isSet ? 'Enable' : 'Disable';
 
     btn.addEventListener('click', () => {
-        isActive = !isActive;
+        isSet = !isSet;
 
-        if (isActive) {
+        if (isSet) {
             localStorage.setItem(storageKey, activeValue);
             document.documentElement.setAttribute(htmlAttr, activeValue);
-            btn.textContent = 'Disable';
+            btn.textContent = 'Enable';
         } else {
             localStorage.removeItem(storageKey);
             document.documentElement.removeAttribute(htmlAttr);
-            btn.textContent = 'Enable';
+            btn.textContent = 'Disable';
         }
     });
 }
@@ -22,30 +23,25 @@ function setupToggle(btnId, storageKey, htmlAttr, activeValue) {
 const fontSlider = document.getElementById('font-slider');
 const fontPreview = document.getElementById('font-preview');
 
-let currentSize = localStorage.getItem('fontSize') || '16';
-fontSlider.value = currentSize;
-fontPreview.textContent = currentSize + 'px';
+if (fontSlider && fontPreview) {
+    let currentSize = localStorage.getItem('fontSize') || '16';
+    fontSlider.value = currentSize;
+    fontPreview.textContent = currentSize + 'px';
 
-fontSlider.addEventListener('input', (e) => {
-    const newSize = e.target.value;
-
-    fontPreview.textContent = newSize + 'px';
-
-    document.documentElement.style.setProperty('--base-font-size', newSize + 'px');
-
-    localStorage.setItem('fontSize', newSize);
-});
-
-const restoreBtn = document.getElementById('restore-btn');
-
-if (restoreBtn) {
-    restoreBtn.addEventListener('click', () => {
-        localStorage.clear();
-
-        location.reload();
+    fontSlider.addEventListener('input', (e) => {
+        const newSize = e.target.value;
+        fontPreview.textContent = newSize + 'px';
+        document.documentElement.style.setProperty('--base-font-size', newSize + 'px');
+        localStorage.setItem('fontSize', newSize);
     });
 }
 
+setupToggle('theme-btn', 'theme', 'data-theme', 'light');
+setupToggle('anim-btn', 'animations', 'data-animations', 'disabled');
+setupToggle('hover-btn', 'hover', 'data-hover', 'disabled');
+setupToggle('scroll-btn', 'scroll', 'data-scroll', 'disabled');
+setupToggle('media-btn', 'autoplay', 'data-autoplay', 'disabled');
+setupToggle('cursor-btn', 'cursor', 'data-cursor', 'disabled');
 setupToggle('lefty-btn', 'lefty', 'data-lefty', 'true');
 
 const cbSelect = document.getElementById('color-blind-select');
@@ -64,13 +60,10 @@ if (cbSelect) {
     });
 }
 
-setupToggle('theme-btn', 'theme', 'data-theme', 'light');
-setupToggle('text-btn', 'text', 'data-text', 'large');
-
-
-
-setupToggle('anim-btn', 'animations', 'data-animations', 'disabled');
-setupToggle('hover-btn', 'hover', 'data-hover', 'disabled');
-setupToggle('scroll-btn', 'scroll', 'data-scroll', 'disabled');
-setupToggle('media-btn', 'autoplay', 'data-autoplay', 'disabled');
-setupToggle('cursor-btn', 'cursor', 'data-cursor', 'disabled');
+const restoreBtn = document.getElementById('restore-btn');
+if (restoreBtn) {
+    restoreBtn.addEventListener('click', () => {
+        localStorage.clear();
+        location.reload();
+    });
+}

@@ -465,14 +465,16 @@
 }
 
 .SettingsContainer {
-    width: 100%;
-    max-width: 600px;
+    width: 85%;
+    max-width: 800px; /* Increased from 600px */
     padding: 20px;
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
     gap: 30px;
 }
+
+
 
 .SettingsGroup {
     background-color: var(--panel-bg);
@@ -1367,7 +1369,7 @@
 }
 
 .SettingControl {
-    width: 160px;
+    width: 220px;
     flex-shrink: 0;
     box-sizing: border-box;
 }
