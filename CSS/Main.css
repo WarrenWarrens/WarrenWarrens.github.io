@@ -80,6 +80,10 @@ html[data-cursor="disabled"] * {
     cursor: auto !important;
 }
 
+html[data-cursor="disabled"] .curzr {
+    display: none !important;
+}
+
 html {
     font-size: var(--base-font-size);
 }

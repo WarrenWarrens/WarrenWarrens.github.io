@@ -457,9 +457,11 @@
 .SettingsBody {
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
     min-height: 100vh;
     flex-direction: column;
+    overflow-y: auto !important;
+    padding: 40px 0;
 }
 
 .SettingsContainer {
@@ -519,8 +521,9 @@
     border: none;
     border-radius: 6px;
     font-weight: bold;
-    cursor: pointer;
+    cursor: none;
     transition: opacity 0.2s;
+    font-size: 1rem;
 }
 
 .SettingBtn:hover {
