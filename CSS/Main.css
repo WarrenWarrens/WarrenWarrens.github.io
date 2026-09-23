@@ -14,7 +14,7 @@ body {
     font-family: 'Oswald', sans-serif;
 }
 
-* {
+html:not([data-cursor="disabled"]) * {
     cursor: none !important;
 }
 

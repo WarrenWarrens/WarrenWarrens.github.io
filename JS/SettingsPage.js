@@ -36,6 +36,16 @@ fontSlider.addEventListener('input', (e) => {
     localStorage.setItem('fontSize', newSize);
 });
 
+const restoreBtn = document.getElementById('restore-btn');
+
+if (restoreBtn) {
+    restoreBtn.addEventListener('click', () => {
+        localStorage.clear();
+
+        location.reload();
+    });
+}
+
 setupToggle('theme-btn', 'theme', 'data-theme', 'light');
 setupToggle('text-btn', 'text', 'data-text', 'large');
 
