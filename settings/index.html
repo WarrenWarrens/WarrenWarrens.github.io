@@ -20,7 +20,7 @@
     <div class="dot"></div>
 </div>
 
-<div class="SettingsContainer" >
+<div class="SettingsContainer" style="padding-bottom: 200px" >
     <a href="javascript:history.back()" class="ReturnBtn" style="align-self: center; margin-bottom: 20px;">Return</a>
 
     <div class="SettingsGroup">
@@ -117,7 +117,7 @@
 
             <div class="SettingControl SliderControl">
                 <span id="spacing-preview" style="color: var(--text-main); font-weight: bold;">Normal</span>
-                <input type="range" id="spacing-slider" min="1" max="2.5" step="0.25" value="1" style="width: 100%; accent-color: var(--text-main);">
+                <input type="range" id="spacing-slider" min="1" max="2.5" step="0.1" value="1" style="width: 100%; accent-color: var(--text-main);">
             </div>
         </div>
 
@@ -136,6 +136,8 @@
 
     <button id="restore-btn" class="SettingBtn RestoreBtn">Restore to default</button>
 </div>
+
+
 <script src="/JS/Main.js"></script>
 <script src="/JS/SettingsPage.js"></script>
 </body>

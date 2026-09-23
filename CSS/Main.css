@@ -274,6 +274,22 @@ html[data-theme="light"] .badge-gen {
     opacity: 0.3;
 }
 
+.CustomIcon {
+    width: 1.2em;
+    height: 1.2em;
+    background-color: currentColor;
+    -webkit-mask-image: var(--icon-url);
+    -webkit-mask-size: contain;
+    -webkit-mask-repeat: no-repeat;
+    -webkit-mask-position: center;
+    mask-image: var(--icon-url);
+    mask-size: contain;
+    mask-repeat: no-repeat;
+    mask-position: center;
+
+    display: inline-block;
+}
+
 
 html[data-theme="light"] .LinkBadge {
     color: whitesmoke;
