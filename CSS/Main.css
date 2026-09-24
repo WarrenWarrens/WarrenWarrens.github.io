@@ -277,7 +277,7 @@ html[data-theme="light"] .badge-gen {
 .CustomIcon {
     width: 1.2em;
     height: 1.2em;
-    background-color: currentColor;
+    background-color: white;
     -webkit-mask-image: var(--icon-url);
     -webkit-mask-size: contain;
     -webkit-mask-repeat: no-repeat;

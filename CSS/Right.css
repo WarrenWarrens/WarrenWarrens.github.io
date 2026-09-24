@@ -778,7 +778,6 @@
 }
 
 .TechBadge {
-    /* Define defaults to silence IDE warnings! */
     --mouse-x: 50%;
     --mouse-y: 50%;
     --cursor-color: rgba(255, 255, 255, 0.15);
