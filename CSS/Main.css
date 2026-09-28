@@ -63,10 +63,10 @@ html[data-animations="disabled"] * {
     animation: none !important;
 }
 
-html[data-hover="disabled"] * {
-    transform: none !important;
-    box-shadow: none !important;
-}
+/*html[data-hover="disabled"] * {*/
+/*    transform: none !important;*/
+/*    box-shadow: none !important;*/
+/*}*/
 
 html[data-scroll="disabled"] .SectionRight {
     scroll-behavior: auto !important;
