@@ -1436,3 +1436,34 @@ html[data-theme="light"] select.SettingBtn {
         align-items: flex-end;
     }
 }
+
+@media (max-width: 800px) {
+    .SettingsContainer {
+        width: 95%;
+        padding: 15px;
+    }
+
+
+    .SettingItem,
+    html[data-lefty="true"] .SettingItem {
+        flex-direction: column !important;
+        align-items: stretch !important;
+    }
+
+
+    .CarouselSlide a {
+        flex-direction: column !important;
+    }
+
+    .CarouselSlide a > div {
+        width: 100% !important;
+    }
+
+    .CarouselSlide a > div:first-child {
+        min-height: 200px;
+    }
+
+    .CarouselSlide a > div:last-child {
+        padding: 24px 20px !important;
+    }
+}
