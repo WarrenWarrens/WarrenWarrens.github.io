@@ -637,12 +637,37 @@
 
 
 
+/*.SoftwareCard {*/
+/*    min-height: 11rem;*/
+/*    height: auto;*/
+
+/*    background-color: var(--panel-bg);*/
+/*    border: 1px solid var(--box-bg);*/
+/*    border-radius: 10px;*/
+/*    padding: 16px;*/
+/*    box-sizing: border-box;*/
+
+/*    display: flex;*/
+/*    flex-direction: column;*/
+/*    justify-content: space-between;*/
+/*    position: relative;*/
+/*    overflow: hidden;*/
+
+/*    transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275),*/
+/*    box-shadow 0.2s ease,*/
+/*    border-color 0.2s ease,*/
+/*    background-color 0.2s ease;*/
+/*}*/
+
 .SoftwareCard {
     min-height: 11rem;
     height: auto;
 
-    background-color: var(--panel-bg);
-    border: 1px solid var(--box-bg);
+    /* --- GRADIENT BORDER TRICK --- */
+    border: 2px solid transparent;
+    background: linear-gradient(var(--panel-bg), var(--panel-bg)) padding-box,
+    var(--icon-gradient, var(--box-bg)) border-box;
+
     border-radius: 10px;
     padding: 16px;
     box-sizing: border-box;
@@ -654,17 +679,23 @@
     overflow: hidden;
 
     transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275),
-    box-shadow 0.2s ease,
-    border-color 0.2s ease,
-    background-color 0.2s ease;
+    box-shadow 0.2s ease;
 }
 
 @media (hover: hover) and (pointer: fine) {
+    /*.SoftwareCard:hover {*/
+    /*    transform: translateY(-4px) scale(1.02);*/
+    /*    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);*/
+    /*    border-color: rgba(255, 255, 255, 0.2);*/
+    /*    background-color: var(--box-bg, #202127);*/
+    /*}*/
+
     .SoftwareCard:hover {
         transform: translateY(-4px) scale(1.02);
         box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);
-        border-color: rgba(255, 255, 255, 0.2);
-        background-color: var(--box-bg, #202127);
+        /* Darkens the inner background on hover while keeping the gradient border intact */
+        background: linear-gradient(var(--box-bg), var(--box-bg)) padding-box,
+        var(--icon-gradient, rgba(255, 255, 255, 0.2)) border-box;
     }
 }
 
