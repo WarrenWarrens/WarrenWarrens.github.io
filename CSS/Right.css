@@ -711,18 +711,39 @@
 }
 
 
+/*.SoftwareIcon {*/
+/*    width: 48px;*/
+/*    height: 48px;*/
+/*    flex-shrink: 0;*/
+/*    border-radius: 6px;*/
+/*    background-color: #ff0000;*/
+
+/*    display: flex;*/
+/*    justify-content: center;*/
+/*    align-items: center;*/
+/*    font-size: 1.4rem;*/
+/*    color: #ffffff;*/
+/*}*/
+
 .SoftwareIcon {
     width: 48px;
     height: 48px;
     flex-shrink: 0;
-    border-radius: 6px;
-    background-color: #ff0000;
-
+    border-radius: 8px; /* Slightly rounder edges look much better with gradient borders */
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 1.4rem;
-    color: #ffffff;
+    font-size: 1.5rem;
+
+    /* Syncs the icon inside with your Light/Dark mode text color */
+    color: var(--text-main);
+
+    /* --- GRADIENT BORDER TRICK --- */
+    border: 2px solid transparent;
+
+    /* The first background fills the inside. The second acts as the glowing border. */
+    background: linear-gradient(var(--box-bg), var(--box-bg)) padding-box,
+    var(--icon-gradient, linear-gradient(135deg, var(--text-muted), transparent)) border-box;
 }
 
 .SoftwareIcon img {
@@ -1465,4 +1486,67 @@ html[data-theme="light"] select.SettingBtn {
     .CarouselSlide a > div:last-child {
         padding: 24px 20px !important;
     }
+}
+
+/* --- NARRATIVE JUMP LINKS --- */
+.JumpCard {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: var(--panel-bg);
+    padding: 20px 25px;
+    border-radius: 12px;
+    border: 1px solid var(--box-bg);
+    /* Provides breathing room above and below the card */
+    margin: 15px 0 35px 0;
+    text-decoration: none;
+    transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275), background-color 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+    cursor: none;
+}
+
+@media (hover: hover) and (pointer: fine) {
+    .JumpCard:hover {
+        transform: translateY(-4px);
+        background-color: var(--box-bg);
+        border-color: rgba(255, 255, 255, 0.15);
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+    }
+}
+
+.JumpCardLeft {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.JumpCardIcon {
+    width: 48px;
+    height: 48px;
+    flex-shrink: 0;
+    background-color: var(--bg-color);
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+    color: var(--text-main);
+}
+
+.JumpCardText {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.JumpCardText .PTitle2 { font-size: 1.3rem; }
+
+.JumpCardRight {
+    color: var(--text-muted);
+    font-size: 1.2rem;
+    transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.JumpCard:hover .JumpCardRight {
+    transform: translateY(4px); /* Bounces the down-arrow on hover */
+    color: var(--text-main);
 }

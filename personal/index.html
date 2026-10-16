@@ -89,35 +89,68 @@
         </nav>
 
         <div class="WorkStack">
+<!--            <div class="StackItem LandingSection" id="section-landing">-->
+<!--                <p class="PTitle" style="font-size: 3rem; margin-bottom: 10px;">Personal</p>-->
+<!--                <p class="PText" style="max-width: 80%; font-size: 1.15rem; margin-bottom: 30px;">-->
+<!--                    A comprehensive overview of my shipped projects, professional engineering roles, and academic foundation.-->
+<!--                    I build software focusing on accessibility, customizability, and intuitive user experiences.-->
+<!--                </p>-->
+
+<!--                <a href="#section-hardware" class="TechBadge badge-highlight" style="text-decoration: none;">Jump to Software</a>-->
+
+<!--                <a href="#section-software" class="TechBadge badge-highlight" style="text-decoration: none;">Jump to Hardware</a>-->
+
+<!--                <a href="#section-blog" class="TechBadge badge-highlight" style="text-decoration: none;">Jump to Blog</a>-->
+
+
+<!--                <div class="ToolRow CompactRow">-->
+<!--                    <a href="#section-hardware" class="TechBadge badge-highlight" style="text-decoration: none;">Jump to Software</a>-->
+<!--                </div>-->
+
+<!--                <div class="ToolRow CompactRow">-->
+<!--                    <a href="#section-software" class="TechBadge badge-highlight" style="text-decoration: none;">Jump to Hardware</a>-->
+
+<!--                </div>-->
+
+<!--                <div class="ToolRow CompactRow">-->
+<!--                    <a href="#section-blog" class="TechBadge badge-highlight" style="text-decoration: none;">Jump to Blog</a>-->
+<!--                </div>-->
+
+
+<!--            </div>-->
             <div class="StackItem LandingSection" id="section-landing">
-                <p class="PTitle" style="font-size: 3rem; margin-bottom: 10px;">Personal</p>
-                <p class="PText" style="max-width: 80%; font-size: 1.15rem; margin-bottom: 30px;">
-                    A comprehensive overview of my shipped projects, professional engineering roles, and academic foundation.
-                    I build software focusing on accessibility, customizability, and intuitive user experiences.
+                <p class="PTitle" style="font-size: 3rem; margin-bottom: 10px;">Personal Setup</p>
+
+                <p class="PText" style="max-width: 80%; font-size: 1.15rem;">
+                    I use a wide variety of software tools to build my projects, favoring open-source solutions where possible but utilizing highly optimized IDEs for complex architecture.
                 </p>
 
-                <a href="#section-hardware" class="TechBadge badge-highlight" style="text-decoration: none;">Jump to Software</a>
+                <!-- Jump Card 1 -->
+                <a href="#section-software" class="JumpCard" data-cursor-text="Jump" data-cursor-icon="fa-arrow-down">
+                    <div class="JumpCardLeft">
+                        <div class="JumpCardText">
+                            <span class="PText2">IDE setups, game engines, and design tools.</span>
+                        </div>
+                    </div>
+                    <i class="fa-solid fa-arrow-down JumpCardRight"></i>
+                </a>
 
-                <a href="#section-software" class="TechBadge badge-highlight" style="text-decoration: none;">Jump to Hardware</a>
+                <p class="PText" style="max-width: 80%; font-size: 1.15rem;">
+                    My hardware is split evenly between Apple Silicon for mobile/web work, and custom Linux environments specifically tuned for game development.
+                </p>
 
-                <a href="#section-blog" class="TechBadge badge-highlight" style="text-decoration: none;">Jump to Blog</a>
-
-
-                <div class="ToolRow CompactRow">
-                    <a href="#section-hardware" class="TechBadge badge-highlight" style="text-decoration: none;">Jump to Software</a>
-                </div>
-
-                <div class="ToolRow CompactRow">
-                    <a href="#section-software" class="TechBadge badge-highlight" style="text-decoration: none;">Jump to Hardware</a>
-
-                </div>
-
-                <div class="ToolRow CompactRow">
-                    <a href="#section-blog" class="TechBadge badge-highlight" style="text-decoration: none;">Jump to Blog</a>
-                </div>
-
-
+                <!-- Jump Card 2 -->
+                <a href="#section-hardware" class="JumpCard" data-cursor-text="Jump" data-cursor-icon="fa-arrow-down">
+                    <div class="JumpCardLeft">
+                        <div class="JumpCardText">
+                            <span class="PTitle2">Explore Hardware</span>
+                        </div>
+                    </div>
+                    <i class="fa-solid fa-arrow-down JumpCardRight"></i>
+                </a>
             </div>
+
+            
 
 
             <div class="StackItem" id="section-overview">
@@ -175,6 +208,35 @@
                 </p>
 
                 <div class="SoftwareGrid">
+
+                    <!-- Example 1: Godot (Using a Custom SVG/PNG mask) -->
+                    <div class="SoftwareCard">
+                        <div class="SoftwareContent">
+                            <h4 class="SoftwareName">Godot 4</h4>
+                            <p class="SoftwareDesc">Primary game engine for 2D roguelikes and 3D retro mechanics.</p>
+                        </div>
+                        <div class="SoftwareFooter">
+                            <span class="SoftwareExp" data-start-date="2026-01"></span>
+                            <!-- Injecting a Blue-to-White Godot Gradient! -->
+                            <div class="SoftwareIcon" style="--icon-gradient: linear-gradient(135deg, #478CBF, #ffffff);">
+                                <span class="CustomIcon" style="--icon-url: url('/Media/godot.png');"></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="SoftwareCard">
+                        <div class="SoftwareContent">
+                            <h4 class="SoftwareName">RustRover</h4>
+                            <p class="SoftwareDesc">My go-to IDE for Rust development and low-level debugging.</p>
+                        </div>
+                        <div class="SoftwareFooter">
+                            <span class="SoftwareExp" data-start-date="2025-09"></span>
+                            <!-- Injecting an Orange-to-Red Rust Gradient! -->
+                            <div class="SoftwareIcon" style="--icon-gradient: linear-gradient(135deg, #dea584, #b7410e);">
+                                <i class="fa-brands fa-rust"></i>
+                            </div>
+                        </div>
+                    </div>
 
                     <div class="SoftwareCard">
                         <div class="SoftwareContent">
