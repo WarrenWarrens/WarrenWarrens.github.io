@@ -715,37 +715,21 @@
 }
 
 
-/*.SoftwareIcon {*/
-/*    width: 48px;*/
-/*    height: 48px;*/
-/*    flex-shrink: 0;*/
-/*    border-radius: 6px;*/
-/*    background-color: #ff0000;*/
-
-/*    display: flex;*/
-/*    justify-content: center;*/
-/*    align-items: center;*/
-/*    font-size: 1.4rem;*/
-/*    color: #ffffff;*/
-/*}*/
 
 .SoftwareIcon {
     width: 48px;
     height: 48px;
     flex-shrink: 0;
-    border-radius: 8px; /* Slightly rounder edges look much better with gradient borders */
+    border-radius: 8px;
     display: flex;
     justify-content: center;
     align-items: center;
     font-size: 1.5rem;
 
-    /* Syncs the icon inside with your Light/Dark mode text color */
     color: var(--text-main);
 
-    /* --- GRADIENT BORDER TRICK --- */
     border: 2px solid transparent;
 
-    /* The first background fills the inside. The second acts as the glowing border. */
     background: linear-gradient(var(--box-bg), var(--box-bg)) padding-box,
     var(--icon-gradient, linear-gradient(135deg, var(--text-muted), transparent)) border-box;
 }
