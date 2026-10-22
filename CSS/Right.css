@@ -637,33 +637,12 @@
 
 
 
-/*.SoftwareCard {*/
-/*    min-height: 11rem;*/
-/*    height: auto;*/
 
-/*    background-color: var(--panel-bg);*/
-/*    border: 1px solid var(--box-bg);*/
-/*    border-radius: 10px;*/
-/*    padding: 16px;*/
-/*    box-sizing: border-box;*/
-
-/*    display: flex;*/
-/*    flex-direction: column;*/
-/*    justify-content: space-between;*/
-/*    position: relative;*/
-/*    overflow: hidden;*/
-
-/*    transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275),*/
-/*    box-shadow 0.2s ease,*/
-/*    border-color 0.2s ease,*/
-/*    background-color 0.2s ease;*/
-/*}*/
 
 .SoftwareCard {
     min-height: 11rem;
     height: auto;
 
-    /* --- GRADIENT BORDER TRICK --- */
     border: 2px solid transparent;
     background: linear-gradient(var(--panel-bg), var(--panel-bg)) padding-box,
     var(--icon-gradient, var(--box-bg)) border-box;
@@ -683,17 +662,11 @@
 }
 
 @media (hover: hover) and (pointer: fine) {
-    /*.SoftwareCard:hover {*/
-    /*    transform: translateY(-4px) scale(1.02);*/
-    /*    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);*/
-    /*    border-color: rgba(255, 255, 255, 0.2);*/
-    /*    background-color: var(--box-bg, #202127);*/
-    /*}*/
+
 
     .SoftwareCard:hover {
         transform: translateY(-4px) scale(1.02);
         box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);
-        /* Darkens the inner background on hover while keeping the gradient border intact */
         background: linear-gradient(var(--box-bg), var(--box-bg)) padding-box,
         var(--icon-gradient, rgba(255, 255, 255, 0.2)) border-box;
     }
@@ -1075,103 +1048,7 @@
     }
 }
 
-@media (max-width: 800px)
-{
 
-
-    .DivMenuWrapper {
-        display: flex;
-        background-color: #191a1e;
-        position: fixed;
-        bottom: 30px;
-        left: 50%;
-        transform: translateX(-50%);
-        width: 200px;
-        height: 45px;
-        z-index: 20;
-        border-radius: 10px;
-        border: 2px solid lightgray;
-        overflow: hidden;
-    }
-
-    .DivMenuToggle, .DivMenuSettings, .DivMenuTheme {
-        flex: 1;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        background: transparent;
-        background: var(--bg-color);
-        border: none;
-        color: var(--text-main);
-        cursor: pointer;
-        text-decoration: none;
-
-    }
-
-    .DivMenuTheme {
-        border-left: 2px solid lightgray;
-    }
-
-    .DivMenuSettings {
-        border-left: 2px solid lightgray;
-    }
-
-    .DivMenuSettings {
-        border-left: 2px solid lightgray;
-    }
-
-    .DivDualWrapper {
-        flex-direction: column;
-        align-items: flex-start;
-    }
-
-
-
-    .SectionRight {
-        background-color: var(--bg-color);
-        width: 100vw;
-        padding-top: 40px;
-    }
-
-
-    .DivMenu {
-        display: block;
-        background-color: var(--bg-color);
-        position: fixed;
-        bottom: 30px;
-        left: 50%;
-        transform: translateX(-50%);
-        width: 150px;
-        height: 40px;
-        z-index: 20;
-        cursor: pointer;
-        border-radius: 10px;
-        border-style: solid;
-        border-color: lightgray;
-    }
-
-
-
-    .DivGrid
-    {
-        grid-template-columns: 1fr;
-    }
-
-    body.no-scroll
-    {
-        overflow: hidden;
-    }
-
-    .CenteredStack {
-        width: 100%;
-        padding: 0 15px;
-        box-sizing: border-box;
-    }
-    .TableOfContents {
-        display: none;
-    }
-
-}
 
 @media (min-width: 801px) {
     .DivService {
@@ -1226,11 +1103,7 @@
     object-fit: cover;
 }
 
-@media (max-width: 800px) {
-    .ExpImage {
-        display: none;
-    }
-}
+
 
 .BlogGrid {
     flex-grow: 1;
@@ -1465,6 +1338,102 @@ html[data-theme="light"] select.SettingBtn {
 }
 
 @media (max-width: 800px) {
+
+    .DivMenuWrapper {
+        display: flex;
+        background-color: #191a1e;
+        position: fixed;
+        bottom: 30px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 200px;
+        height: 45px;
+        z-index: 20;
+        border-radius: 10px;
+        border: 2px solid lightgray;
+        overflow: hidden;
+    }
+
+    .DivMenuToggle, .DivMenuSettings, .DivMenuTheme {
+        flex: 1;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: transparent;
+        background: var(--bg-color);
+        border: none;
+        color: var(--text-main);
+        cursor: pointer;
+        text-decoration: none;
+
+    }
+
+    .DivMenuTheme {
+        border-left: 2px solid lightgray;
+    }
+
+    .DivMenuSettings {
+        border-left: 2px solid lightgray;
+    }
+
+    .DivMenuSettings {
+        border-left: 2px solid lightgray;
+    }
+
+    .DivDualWrapper {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+
+
+    .SectionRight {
+        background-color: var(--bg-color);
+        width: 100vw;
+        padding-top: 40px;
+    }
+
+
+    .DivMenu {
+        display: block;
+        background-color: var(--bg-color);
+        position: fixed;
+        bottom: 30px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 150px;
+        height: 40px;
+        z-index: 20;
+        cursor: pointer;
+        border-radius: 10px;
+        border-style: solid;
+        border-color: lightgray;
+    }
+
+
+    .DivGrid
+    {
+        grid-template-columns: 1fr;
+    }
+
+    body.no-scroll
+    {
+        overflow: hidden;
+    }
+
+    .CenteredStack {
+        width: 100%;
+        padding: 0 15px;
+        box-sizing: border-box;
+    }
+    .TableOfContents {
+        display: none;
+    }
+
+    .ExpImage {
+        display: none;
+    }
+
     .SettingItem {
         flex-direction: column;
         align-items: stretch;
@@ -1486,9 +1455,7 @@ html[data-theme="light"] select.SettingBtn {
     html[data-lefty="true"] .SettingInfo {
         align-items: flex-end;
     }
-}
 
-@media (max-width: 800px) {
     .SettingsContainer {
         width: 95%;
         padding: 15px;
@@ -1519,7 +1486,8 @@ html[data-theme="light"] select.SettingBtn {
     }
 }
 
-/* --- NARRATIVE JUMP LINKS --- */
+
+
 .JumpCard {
     display: flex;
     align-items: center;
@@ -1528,7 +1496,6 @@ html[data-theme="light"] select.SettingBtn {
     padding: 20px 25px;
     border-radius: 12px;
     border: 1px solid var(--box-bg);
-    /* Provides breathing room above and below the card */
     margin: 15px 0 35px 0;
     text-decoration: none;
     transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275), background-color 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
@@ -1578,6 +1545,6 @@ html[data-theme="light"] select.SettingBtn {
 }
 
 .JumpCard:hover .JumpCardRight {
-    transform: translateY(4px); /* Bounces the down-arrow on hover */
+    transform: translateY(4px);
     color: var(--text-main);
 }
