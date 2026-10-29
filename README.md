@@ -1,6 +1,6 @@
 ## WarrenWarrens Portfolio
 
-> Completion date estimated ~October 31st
+> Completion date estimated ~December 31st
 
 #### https://warrenwarrens.ca/
 
