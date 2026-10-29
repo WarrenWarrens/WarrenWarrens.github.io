@@ -1,7 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
     const gridContainer = document.getElementById('portfolio-grid');
     const portfolioItems = Array.from(document.querySelectorAll('.portfolio-item'));
-
     const dropdowns = document.querySelectorAll('.Dropdown');
     const filterOptions = document.querySelectorAll('.FilterOption');
     const sortOptions = document.querySelectorAll('.SortOption');
@@ -18,9 +17,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const btn = dropdown.querySelector('.DropBtn');
         btn.addEventListener('click', (e) => {
             e.stopPropagation();
-
             dropdowns.forEach(d => { if (d !== dropdown) d.classList.remove('show'); });
-
             dropdown.classList.toggle('show');
         });
     });
@@ -54,7 +51,6 @@ document.addEventListener('DOMContentLoaded', () => {
             e.stopPropagation();
 
             sortOptions.forEach(opt => opt.classList.remove('selected'));
-
             option.classList.add('selected');
             currentSort = option.getAttribute('data-sort');
 
@@ -66,7 +62,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     resetBtn.addEventListener('click', () => {
-        activeFilters = { language: [], type: [] };
+        activeFilters = { language: [], type: [], status: [] };
         currentSort = 'desc';
 
         filterOptions.forEach(opt => opt.classList.remove('selected'));
@@ -87,12 +83,16 @@ document.addEventListener('DOMContentLoaded', () => {
         let anyFiltersActive = false;
 
         Object.keys(activeFilters).forEach(category => {
-            const dropBtn = document.querySelector(`.FilterOption[data-category="${category}"]`).closest('.Dropdown').querySelector('.DropBtn');
-            if (activeFilters[category].length > 0) {
-                dropBtn.classList.add('has-selection');
-                anyFiltersActive = true;
-            } else {
-                dropBtn.classList.remove('has-selection');
+            const filterOpt = document.querySelector(`.FilterOption[data-category="${category}"]`);
+            if (filterOpt) {
+                const dropBtn = filterOpt.closest('.Dropdown').querySelector('.DropBtn');
+
+                if (activeFilters[category].length > 0) {
+                    dropBtn.classList.add('has-selection');
+                    anyFiltersActive = true;
+                } else {
+                    dropBtn.classList.remove('has-selection');
+                }
             }
         });
 
@@ -121,11 +121,13 @@ document.addEventListener('DOMContentLoaded', () => {
         portfolioItems.forEach(item => {
             const itemLang = item.getAttribute('data-language');
             const itemType = item.getAttribute('data-type');
+            const itemStatus = item.getAttribute('data-status'); // New status attribute
 
             const matchLang = activeFilters.language.length === 0 || activeFilters.language.includes(itemLang);
             const matchType = activeFilters.type.length === 0 || activeFilters.type.includes(itemType);
+            const matchStatus = activeFilters.status.length === 0 || activeFilters.status.includes(itemStatus); // New matching logic
 
-            if (matchLang && matchType) {
+            if (matchLang && matchType && matchStatus) {
                 item.classList.remove('hidden');
             } else {
                 item.classList.add('hidden');
@@ -158,19 +160,13 @@ document.addEventListener('DOMContentLoaded', () => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 tocLinks.forEach(link => link.classList.remove('active'));
-
                 const activeLink = document.querySelector(`.TocLink[href="#${entry.target.id}"]`);
-
-                if (activeLink) {
-                    activeLink.classList.add('active');
-                }
+                if (activeLink) activeLink.classList.add('active');
             }
         });
     }, observerOptions);
 
-    sections.forEach(section => {
-        observer.observe(section);
-    });
+    sections.forEach(section => observer.observe(section));
 });
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -181,7 +177,6 @@ document.addEventListener('DOMContentLoaded', () => {
     if (toc && landingSection && scrollContainer) {
         const landingObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
-
                 if (entry.isIntersecting) {
                     toc.classList.remove('visible');
                 } else {
@@ -192,7 +187,6 @@ document.addEventListener('DOMContentLoaded', () => {
             root: scrollContainer,
             threshold: 0.2
         });
-
         landingObserver.observe(landingSection);
     }
 });
