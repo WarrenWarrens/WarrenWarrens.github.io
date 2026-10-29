@@ -9,7 +9,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     let activeFilters = {
         language: [],
-        type: []
+        type: [],
+        status: []
     };
     let currentSort = 'desc';
 
@@ -172,7 +173,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
-// --- DYNAMIC TABLE OF CONTENTS FADE-IN ---
 document.addEventListener('DOMContentLoaded', () => {
     const toc = document.querySelector('.TableOfContents');
     const landingSection = document.getElementById('section-landing');
@@ -181,8 +181,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (toc && landingSection && scrollContainer) {
         const landingObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
-                // If the landing section is intersecting (visible on screen), hide the ToC.
-                // If it is NOT intersecting (scrolled past), show the ToC.
+
                 if (entry.isIntersecting) {
                     toc.classList.remove('visible');
                 } else {
@@ -191,7 +190,6 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         }, {
             root: scrollContainer,
-            // threshold: 0.2 means the ToC appears when less than 20% of the landing section is visible
             threshold: 0.2
         });
 

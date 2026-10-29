@@ -170,7 +170,15 @@
                             <button class="FilterOption" data-category="type" data-value="extension">Web Extension</button>
                             <button class="FilterOption" data-category="type" data-value="game">Game</button>
                             <button class="FilterOption" data-category="type" data-value="software">Software</button>
+                        </div>
+                    </div>
 
+                    <div class="Dropdown">
+                        <button class="DropBtn" data-label="Status">Status</button>
+                        <div class="DropContent">
+                            <button class="FilterOption" data-category="status" data-value="complete">Complete</button>
+                            <button class="FilterOption" data-category="status" data-value="prototype">Prototype</button>
+                            <button class="FilterOption" data-category="status" data-value="shelved">Shelved</button>
                         </div>
                     </div>
 
@@ -184,7 +192,7 @@
                 </div>
 
                 <div class="DivGrid" id="portfolio-grid">
-                    <div class="AProject portfolio-item" data-language="flutter" data-type="mobile" data-date="2026-05-01">
+                    <div class="AProject portfolio-item" data-language="flutter" data-type="mobile" data-date="2026-05-01" data-status="prototype">
                         <div class="DivGridItem2">
                             <a href="/portfolio/lingualore/" data-cursor-text="View Project" data-cursor-icon="fa-solid fa-code" class="AProject">
                                 <div class="DivMedia"></div>
@@ -214,7 +222,7 @@
                         </div>
                     </div>
 
-                    <div class="AProject portfolio-item" data-language="gdscript" data-type="game" data-date="2026-08-01">
+                    <div class="AProject portfolio-item" data-language="gdscript" data-type="game" data-date="2026-08-01" data-status="shelved">
                         <div class="DivGridItem2">
                             <a href="/portfolio/vingtun/" data-cursor-text="View Project" data-cursor-icon="fa-solid fa-code" class="AProject">
                                 <div class="DivMedia"></div>
@@ -245,7 +253,7 @@
                         </div>
                     </div>
 
-                    <div class="AProject portfolio-item" data-language="gdscript" data-type="game" data-date="2026-09-01">
+                    <div class="AProject portfolio-item" data-language="gdscript" data-type="game" data-date="2026-09-01" data-status="prototype">
                         <div class="DivGridItem2">
                             <a href="/portfolio/hor/" data-cursor-text="View Project" data-cursor-icon="fa-solid fa-code" class="AProject">
                                 <div class="DivMedia"></div>
@@ -275,7 +283,7 @@
                         </div>
                     </div>
 
-                    <div class="AProject portfolio-item" data-language="javascript" data-type="extension" data-date="2026-04-01">
+                    <div class="AProject portfolio-item" data-language="javascript" data-type="extension" data-date="2026-04-01" data-status="complete">
                         <div class="DivGridItem2">
                             <a href="/portfolio/flic/" data-cursor-text="View Project" data-cursor-icon="fa-solid fa-code" class="AProject">
                                 <div class="DivMedia"></div>
@@ -316,7 +324,7 @@
                         </div>
                     </div>
 
-                    <div class="AProject portfolio-item" data-language="gdscript" data-type="game" data-date="2026-08-01">
+                    <div class="AProject portfolio-item" data-language="gdscript" data-type="game" data-date="2026-08-01" data-status="prototype">
                         <div class="DivGridItem2">
                             <a href="/portfolio/flic/" data-cursor-text="View Project" data-cursor-icon="fa-solid fa-code" class="AProject">
                                 <div class="DivMedia"></div>
@@ -345,7 +353,7 @@
                         </div>
                     </div>
 
-                    <div class="AProject portfolio-item" data-language="flutter" data-type="mobile" data-date="2026-06-01">
+                    <div class="AProject portfolio-item" data-language="flutter" data-type="mobile" data-date="2026-06-01" data-status="prototype">
                         <div class="DivGridItem2">
                             <a href="/portfolio/gathering/" data-cursor-text="View Project" data-cursor-icon="fa-solid fa-code" class="AProject">
                                 <div class="DivMedia"></div>
@@ -375,7 +383,7 @@
                         </div>
                     </div>
 
-                    <div class="AProject portfolio-item" data-language="flutter" data-type="mobile" data-date="2024-05-01">
+                    <div class="AProject portfolio-item" data-language="flutter" data-type="mobile" data-date="2024-05-01" data-status="prototype">
                         <div class="DivGridItem2">
                             <a href="/portfolio/muscleforge/" data-cursor-text="View Project" data-cursor-icon="fa-solid fa-code" class="AProject">
                                 <div class="DivMedia"></div>
@@ -401,7 +409,7 @@
                         </div>
                     </div>
 
-                    <div class="AProject portfolio-item" data-language="javascript" data-type="extension" data-date="2024-05-01">
+                    <div class="AProject portfolio-item" data-language="javascript" data-type="extension" data-date="2024-05-01" data-status="complete">
                         <div class="DivGridItem2">
                             <a href="/portfolio/battleboats/" data-cursor-text="View Project" data-cursor-icon="fa-solid fa-code" class="AProject">
                                 <div class="DivMedia"></div>
@@ -435,7 +443,7 @@
                         </div>
                     </div>
 
-                    <div class="AProject portfolio-item" data-language="rust" data-type="software" data-date="2026-08-20">
+                    <div class="AProject portfolio-item" data-language="rust" data-type="software" data-date="2026-08-20" data-status="complete">
                         <div class="DivGridItem2">
                             <a href="/portfolio/todo/" data-cursor-text="View Project" data-cursor-icon="fa-solid fa-code" class="AProject">
                                 <div class="DivMedia"></div>
@@ -470,7 +478,9 @@
 
             <div class="StackItem" id="section-experience">
                 <p class="PTitle2" style="padding-bottom: 15px">Experience</p>
-                <p class="PTitle2" style="padding-bottom: 15px">Tech:</p>
+                <p class="PText" style="padding-bottom: 20px">
+                    Roles ive worked specifically in STEM or relevant fields to my education & interests.
+                </p>
 
 
 
@@ -487,13 +497,8 @@
                     </div>
                 </div>
 
-                <p class="PTitle2">Other:</p>
                 <p class="PText" style="padding-bottom: 20px;">
-                    Other
-                    I use a mixture of free open source and subscription/paid software, ideally i'd prefer to
-                    use only software that is free & open source, but i find enough value in the ones i
-                    do pay for. Almost none of the following is default, as i have extensively customized & modded
-                    each software to me and my preferences.
+                   Roles ive worked that are not tech or computer related, but still contributed to my carer.
                 </p>
 
                 <div class="ToolRow">
@@ -575,7 +580,7 @@
 
             <div class="StackItem" id="section-certification">
 
-                <p class="PTitle2" >Certifications</p>
+                <p class="PTitle2" style="padding-bottom: 15px;" >Certifications</p>
                 <div class="ToolRow CompactRow" >
                     <p class="PText" style="line-height: 1.6; padding: 5px">
                         <span class="BoldLabel">Anthropic Course</span>
