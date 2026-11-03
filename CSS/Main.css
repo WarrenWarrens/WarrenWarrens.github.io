@@ -435,16 +435,28 @@ body, p, span, a, h1, h2, h3, div {
     word-spacing: calc((var(--text-spacing) - 1) * 0.1em) !important;
 }
 
-.badge-partial {
-    border-color: rgba(212, 175, 55, 0.8) !important;
-    box-shadow: 0 4px 12px rgba(212, 175, 55, 0.15);
+.badge-status {
+    /*border-color: rgba(212, 175, 55, 0.8) !important;*/
+    border-color: rgba(18, 221, 0, 0.8) !important;
+    /*border-color: rgb(198 0 0) !important;*/
+
+    /*box-shadow: 0 4px 12px rgba(212, 175, 55, 0.15);*/
+    box-shadow: 0 4px 12px rgb(16 185 0 / 0.2);
+    /*box-shadow: 0 4px 12px rgb(70 2 1 / 0.47);*/
+
 }
 
 .StatusDot {
     width: 8px;
     height: 8px;
-    background-color: rgba(212, 175, 55, 1);
+    /*background-color: rgba(212, 175, 55, 1);*/
+    background-color: rgba(18, 221, 0, 0.8);
+    /*background-color: rgb(198 0 0);*/
+
     border-radius: 50%;
     display: inline-block;
-    box-shadow: 0 0 6px rgba(212, 175, 55, 0.8);
+    /*box-shadow: 0 0 6px rgba(212, 175, 55, 0.8);*/
+    box-shadow: 0 0 6px rgba(18, 221, 0, 0.8);
+    /*box-shadow: 0 0 6px rgb(198 0 0));*/
+
 }
