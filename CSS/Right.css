@@ -1532,3 +1532,18 @@ html[data-theme="light"] select.SettingBtn {
     transform: translateY(4px);
     color: var(--text-main);
 }
+
+.ExperienceList {
+    list-style-type: none;
+    padding-left: 0;
+    margin: 15px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.ExperienceList li {
+    color: var(--text-main);
+    font-size: 1.0rem;
+    line-height: 1.6;
+}
