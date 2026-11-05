@@ -488,15 +488,18 @@ body, p, span, a, h1, h2, h3, div {
     }
 }
 
-html[data-borders="solid"] .badge-rust { border-color: rgba(222, 165, 132, 1) !important; }
-html[data-borders="solid"] .badge-godot { border-color: rgba(71, 140, 191, 1) !important; }
-html[data-borders="solid"] .badge-js { border-color: rgba(247, 223, 30, 1) !important; }
-html[data-borders="solid"] .badge-flutter { border-color: rgba(69, 209, 253, 1) !important; }
-html[data-borders="solid"] .badge-python { border-color: rgb(55, 118, 171) !important; }
-html[data-borders="solid"] .badge-html { border-color: rgb(255, 5, 5) !important; }
-html[data-borders="solid"] .badge-css { border-color: rgb(1, 87, 234) !important; }
-html[data-borders="solid"] .badge-firefox { border-color: rgb(215, 51, 235) !important; }
+/* --- ALWAYS-ON COLORED BORDERS (FIXED) --- */
+/* Increased specificity to override default badge hover states */
+html[data-borders="solid"] body .badge-rust { border-color: rgba(222, 165, 132, 1) !important; }
+html[data-borders="solid"] body .badge-godot { border-color: rgba(71, 140, 191, 1) !important; }
+html[data-borders="solid"] body .badge-js { border-color: rgba(247, 223, 30, 1) !important; }
+html[data-borders="solid"] body .badge-flutter { border-color: rgba(69, 209, 253, 1) !important; }
+html[data-borders="solid"] body .badge-python { border-color: rgb(55, 118, 171) !important; }
+html[data-borders="solid"] body .badge-html { border-color: rgb(255, 5, 5) !important; }
+html[data-borders="solid"] body .badge-css { border-color: rgb(1, 87, 234) !important; }
+html[data-borders="solid"] body .badge-firefox { border-color: rgb(215, 51, 235) !important; }
 
-html[data-borders="solid"] .TechBadge:not(.badge-gen):not(.badge-adaptive):not(.badge-thesis):not(.badge-group):not(.badge-solo) {
-    box-shadow: 0 2px 8px rgba(128, 128, 128, 0.15);
+/* Enhances the glow effect to match the solid border */
+html[data-borders="solid"] body .TechBadge:not(.badge-gen):not(.badge-adaptive):not(.badge-thesis):not(.badge-group):not(.badge-solo) {
+    box-shadow: 0 4px 12px rgba(255, 255, 255, 0.1) !important;
 }
