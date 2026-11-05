@@ -446,6 +446,20 @@ body, p, span, a, h1, h2, h3, div {
 
 }
 
+@media (hover: hover) {
+    .badge-status:hover {
+        border-color: rgba(18, 221, 0, 0.8) !important;
+        box-shadow: 0 4px 12px rgb(16 185 0 / 0.2);
+
+        /*border-color: rgba(212, 175, 55, 0.8) !important;*/
+        /*box-shadow: 0 4px 12px rgba(212, 175, 55, 0.15);*/
+
+        /*border-color: rgb(198 0 0) !important;*/
+        /*box-shadow: 0 4px 12px rgb(70 2 1 / 0.47);*/
+
+    }
+}
+
 .StatusDot {
     width: 8px;
     height: 8px;
