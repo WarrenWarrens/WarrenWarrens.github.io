@@ -965,12 +965,29 @@
     transform: rotate(180deg);
 }
 
+/*.ToolDetails {*/
+/*    display: none;*/
+/*    width: 100%;*/
+/*    margin-top: 20px;*/
+/*    padding-top: 20px;*/
+/*    border-top: 1px solid var(--box-bg);*/
+/*}*/
+
 .ToolDetails {
     display: none;
     width: 100%;
     margin-top: 20px;
     padding-top: 20px;
-    border-top: 1px solid var(--box-bg);
+    border-top: 2px solid var(--text-muted);
+    opacity: 0.7;
+    transition: border-color 0.2s ease, opacity 0.2s ease;
+}
+
+@media (hover: hover) and (pointer: fine) {
+    .ToolRow:hover .ToolDetails {
+        border-top-color: var(--text-main);
+        opacity: 1;
+    }
 }
 
 .ToolRow.expanded .ToolDetails {

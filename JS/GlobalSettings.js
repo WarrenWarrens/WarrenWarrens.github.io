@@ -6,13 +6,15 @@ function applyGlobalSettings() {
         document.documentElement.removeAttribute('data-theme');
     }
 
+
     const settingsToCheck = [
         { key: 'animations', attr: 'data-animations' },
         { key: 'hover', attr: 'data-hover' },
         { key: 'scroll', attr: 'data-scroll' },
         { key: 'autoplay', attr: 'data-autoplay' },
         { key: 'cursor', attr: 'data-cursor' },
-        { key: 'lefty', attr: 'data-lefty' }
+        { key: 'lefty', attr: 'data-lefty' },
+        { key: 'solidBorders', attr: 'data-borders' }
     ];
 
     const savedSpacing = localStorage.getItem('textSpacing');

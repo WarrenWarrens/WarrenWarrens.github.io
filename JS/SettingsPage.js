@@ -136,3 +136,5 @@ if (spacingSlider && spacingPreview) {
         localStorage.setItem('textSpacing', val);
     });
 }
+
+setupToggle('borders-btn', 'solidBorders', 'data-borders', 'solid');
