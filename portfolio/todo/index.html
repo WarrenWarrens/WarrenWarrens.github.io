@@ -75,10 +75,8 @@
 
     <section class="SectionRight">
 
-        <!-- Table of Contents (Desktop Only) -->
         <nav class="TableOfContents">
-            <!-- Href must match the ID of the StackItem -->
-            <a href="#section-lingua" class="TocLink active">
+            <a href="#section-overview" class="TocLink active">
                 <span class="TocLine"></span>
                 <span class="TocText">Lingua Lore</span>
             </a>
@@ -99,26 +97,13 @@
                 </svg>
                 <span>Go back</span>
             </a>
-            <!-- Add matching IDs to your StackItems -->
-            <div class="StackItem" id="section-lingua">
+            <div class="StackItem" id="section-overview">
 
-                <p class="PTitle">Lingua Lore</p>
-                <p class="PText">Your content here...
-                    When i'm not studying but still feeling productive, you can find me working on personal experiments
-                    and side projects ranging from visual arts with ink and water colours, to crafting electronics with a
-                    soldering iron in one hand, and writing code in the other.
-                    When i'm not studying but still feeling productive, you can find me working on personal experiments
-                    and side projects ranging from visual arts with ink and water colours, to crafting electronics with a
-                    soldering iron in one hand, and writing code in the other.
-                    When i'm not studying but still feeling productive, you can find me working on personal experiments
-                    and side projects ranging from visual arts with ink and water colours, to crafting electronics with a
-                    soldering iron in one hand, and writing code in the other.
-                    When i'm not studying but still feeling productive, you can find me working on personal experiments
-                    and side projects ranging from visual arts with ink and water colours, to crafting electronics with a
-                    soldering iron in one hand, and writing code in the other.
-                    When i'm not studying but still feeling productive, you can find me working on personal experiments
-                    and side projects ranging from visual arts with ink and water colours, to crafting electronics with a
-                    soldering iron in one hand, and writing code in the other.</p>
+                <p class="PTitle">ToDo</p>
+                <p class="PText">This application is a strictly native, zero-telemetry desktop task manager. It provides a frictionless interface to
+                    quickly add tasks, mark them as completed with a strikethrough toggle, delete individual items, or batch-clear all completed tasks.
+                    Designed to be a completely localized tool, it automatically intercepts operating system close commands to securely serialize and save the user's current
+                    task state, seamlessly reloading it upon the next launch.</p>
                 <div class="LinkStack" style="padding-top: 20px;">
                     <a href="https://github.com/WarrenWarrens/ToDo_App" class="LinkBadge badge-solo badge-highlight" target="_blank">
                         <div class="LinkBadgeLeft">
@@ -131,34 +116,40 @@
                 </div>
             </div>
 
-            <div class="StackItem">
-                <p class="PTitle">Lingua Lore</p>
-                <p class="PText">Your content here...</p>
-
-            </div>
-
             <div class="StackItem" id="section-context">
-                <h2 class="PTitle">Context</h2>
-                <p class="PText">More content...
-                    When i'm not studying but still feeling productive, you can find me working on personal experiments
-                    and side projects ranging from visual arts with ink and water colours, to crafting electronics with a
-                    soldering iron in one hand, and writing code in the other.
-                    When i'm not studying but still feeling productive, you can find me working on personal experiments
-                    and side projects ranging from visual arts with ink and water colours, to crafting electronics with a
-                    soldering iron in one hand, and writing code in the other.
-                    When i'm not studying but still feeling productive, you can find me working on personal experiments
-                    and side projects ranging from visual arts with ink and water colours, to crafting electronics with a
-                    soldering iron in one hand, and writing code in the other.
-                    When i'm not studying but still feeling productive, you can find me working on personal experiments
-                    and side projects ranging from visual arts with ink and water colours, to crafting electronics with a
-                    soldering iron in one hand, and writing code in the other.
-                    When i'm not studying but still feeling productive, you can find me working on personal experiments
-                    and side projects ranging from visual arts with ink and water colours, to crafting electronics with a
-                    soldering iron in one hand, and writing code in the other.</p>
+                <p class="PTitle">How it works:</p>
+                <p class="PText">Unlike traditional retained-mode desktop apps (like Electron or Tauri) that pass messages between a backend
+                    and a DOM, this application uses an Immediate Mode GUI (IMGUI) architecture via the `egui` and `eframe` crates.</p>
+                <ul class="ExperienceList">
+                    <li>State Management: The entire application state is held in a single, continuously mutating Rust struct.</li>
+                    <li>Rendering Loop: The UI is completely discarded and redrawn at the refresh rate of the monitor. Buttons, inputs, and layout declarations are evaluated alongside their event handlers in a single linear pass.</li>
+                    <li>Data Persistence: State serialization is handled by `serde` and `serde_json`. To ensure standard Linux compliance, the `directories` crate dynamically locates the correct XDG Base Directory (e.g., `~/.local/share/TodoApp/`) for secure, non-intrusive file I/O.</li>
+                    <li>Native OS Integration: The application's icon is baked directly into the executable at compile time using Rust's `include_bytes!` macro, ensuring no missing assets. It is then registered to the Linux window manager via a `.desktop entry`.</li>
+                </ul>
+
+
+                <p class="PTitle">What I learned:</p>
+                <p class="PText">Building this project served as a deep dive into memory-safe UI development and systems-level Linux integration.</p>
+                <ul class="ExperienceList">
+                    <li>Borrow Checker Mechanics in UI Loops: I learned how to structure UI interactions around Rust's strict mutability rules. For example, deferring the deletion of a vector element until after the UI rendering loop completes to prevent mutating a collection while iterating over it.</li>
+                    <li>List Virtualization: I implemented UI virtualization (`show_rows`) to calculate rendering bounds dynamically. Instead of rendering thousands of tasks and relying on a scrollbox, the app only computes the UI for the exact tasks visible on the screen, keeping CPU and RAM overhead practically at zero.</li>
+                    <li>Linux Desktop Specifications: I gained hands-on experience bridging the gap between a raw binary and a native Linux desktop experience by configuring standard `.desktop files`, mapping Wayland/X11 icon paths, and managing XDG-compliant file structures.</li>
+                </ul>
+
+
+                <p class="PTitle">Future improvements:</p>
+                <p class="PText">While the core architecture is highly performant, the feature set could be expanded to support heavier workflows.</p>
+                <ul class="ExperienceList">
+                    <li>Drag-and-Drop Reordering: Implementing state-swapping logic to allow users to prioritize tasks manually.</li>
+                    <li>Metadata & Deadlines: Expanding the `Task` struct to include `chrono` timestamps for due dates, allowing for automatic sorting by urgency.</li>
+                    <li>Theming Engine: Utilizing `egui's` visual context properties to implement custom color palettes, accent colors, and a user-controlled Light/Dark mode toggle.</li>
+                    <li>Keyboard Shortcuts: Adding global keybind listeners (e.g., `Ctrl+Enter` to quick-add a task or `Del` to remove hovered items) for power users.</li>
+                </ul>
             </div>
 
             <div class="StackItem" id="section-problem">
                 <p class="PTitle">Problem Statement</p>
+
                 <p class="PText">Even more content...
                     When i'm not studying but still feeling productive, you can find me working on personal experiments
                     and side projects ranging from visual arts with ink and water colours, to crafting electronics with a
